@@ -1,0 +1,130 @@
+#__next {
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 100vh;
+}
+
+p {
+  font-size: 1.1rem;
+}
+
+span {
+  &.contribute-span {
+    color: #007bff;
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
+
+.container-fluid {
+  padding-top: 4rem;
+  padding-left: 7%;
+  padding-right: 7%;
+}
+
+.btn-theme {
+  font-weight: bold;
+  font-size: x-large;
+}
+
+.nav-link {
+  &.active {
+    text-decoration: underline;
+    font-weight: bold;
+    &.btn {
+      cursor: default !important;
+      // cursor fix
+      &:hover {
+        cursor: default !important;
+      }
+      // goodbye blue circle
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+.streamPiAbout {
+  font-weight: 300;
+  &::before {
+    display: block;
+    content: " ";
+    margin-top: -60px;
+    height: 60px;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+.firstCard {
+  transition: transform 0.2s;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.CustFG {
+  position: relative;
+}
+
+.modal-70w {
+  width: 70%;
+  max-width: none !important;
+}
+
+.modal-title {
+  width: 100%;
+  text-align: center;
+}
+
+// This will fix the modal transition out bug
+// The bug seems to stem from the box-shadow transition
+// all else fails, set it to none
+.modal-footer .btn {
+  transition: none;
+}
+
+.nav-pills {
+  .nav-link {
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    border: 1px solid #17a2b8;
+    &:hover {
+      color: #fff;
+      background-color: #138496;
+      border-color: #117a8b;
+    }
+    &.active,
+    .show > .nav-link {
+      background-color: #17a2b8;
+      cursor: default !important;
+    }
+  }
+}
+
+#streamPiHome {
+  font-weight: 300;
+  @media screen and (max-width: 576px) {
+    font-size: 5rem;
+  }
+
+  font-size: 7rem;
+}
+
+@keyframes color-rotate {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+
+#logo {
+  &:hover {
+    animation: color-rotate 1s;
+    animation-iteration-count: infinite;
+  }
+}

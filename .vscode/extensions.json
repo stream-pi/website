@@ -1,0 +1,15 @@
+{
+  "recommendations": [
+    "msjsdiag.debugger-for-chrome",
+    "editorconfig.editorconfig",
+    "dbaeumer.vscode-eslint",
+    "zignd.html-css-class-completion",
+    "xabikos.javascriptsnippets",
+    "leizongmin.node-module-intellisense",
+    "eg2.vscode-npm-script",
+    "christian-kohler.npm-intellisense",
+    "esbenp.prettier-vscode",
+    "eamodio.gitlens",
+    "vscode-icons-team.vscode-icons"
+  ]
+}

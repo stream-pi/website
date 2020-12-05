@@ -1,0 +1,7 @@
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "vsicons.associations.folders": [
+    { "icon": "js", "extensions": ["javascript"], "format": "svg" },
+    { "icon": "script", "extensions": [".scripts", ".script"], "format": "svg" }
+  ]
+}

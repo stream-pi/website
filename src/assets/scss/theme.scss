@@ -1,0 +1,101 @@
+// mixins
+@mixin pill-wrapper($current, $before) {
+  height: 20px;
+  border-style: solid;
+  border-width: $current;
+  border-radius: 25px;
+  &::before {
+    display: block;
+    content: "";
+    height: 20px;
+    margin-top: -21px;
+    border-style: solid;
+    border-width: $before;
+    border-radius: 25px;
+  }
+}
+
+// HTML TAGS
+
+body {
+  transition: background-color 250ms ease-in-out, color 500ms ease-in-out;
+  background-color: var(--spi-color-body);
+  color: var(--spi-color-text);
+}
+
+nav {
+  background-color: var(--spi-color-card);
+}
+
+h3,
+h1 {
+  color: var(--spi-color-heading);
+}
+
+pre {
+  color: var(--spi-color-text);
+  background-color: var(--spi-color-card);
+  border: 1px solid var(--spi-color-heading);
+
+  text-align: center;
+  padding: 9.5px;
+  border-radius: 4px;
+
+  &:hover {
+    cursor: text;
+  }
+}
+hr {
+  border-color: var(--spi-color-hr);
+  &.capsule {
+    overflow: hidden;
+    &.top-hr {
+      @include pill-wrapper(2px 0 0 0, 0 0 2px 0);
+    }
+    &.bottom-hr {
+      @include pill-wrapper(0 0 2px 0, 2px 0 0 0);
+    }
+  }
+}
+
+// CLASSES / IDS
+
+.footer {
+  border-top: 1px solid var(--spi-color-heading);
+}
+
+.theme-icon {
+  color: var(--spi-color-theme-button);
+}
+
+.lds-ellipsis div {
+  background: var(--spi-color-text);
+}
+
+.bg-card {
+  background-color: var(--spi-color-card);
+  color: var(--spi-color-text);
+}
+
+.about-icon {
+  color: var(--spi-color-text);
+}
+
+.nav-pills .nav-link {
+  color: var(--spi-color-text);
+}
+
+.my-modal {
+  * {
+    &:not(.btn) {
+      color: var(--spi-color-text);
+    }
+  }
+  .modal-content {
+    background-color: var(--spi-color-card);
+  }
+  .modal-footer,
+  .modal-header {
+    border-color: #00000020;
+  }
+}
