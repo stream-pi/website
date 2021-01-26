@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 
-type IProps = React.ComponentProps<typeof Button>;
+type IProps = React.ComponentProps<Button>;
 export default class ThemedButton extends React.Component<IProps> {
   render() {
     const { variant, ...rest } = this.props;
