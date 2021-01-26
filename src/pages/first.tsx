@@ -37,7 +37,7 @@ const StreamPiFirst: React.FC = () => {
   return (
     <React.Fragment>
       <Head>
-        <title>StreamPi First</title>
+        <title>Stream-Pi First</title>
         <meta property="og:title" content="StreamPi First" />
         <meta property="og:url" content="https://stream-pi.com/first" />
       </Head>

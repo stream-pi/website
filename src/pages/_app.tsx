@@ -101,11 +101,11 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta property="og:type" content="website" />
         <meta
           name="description"
-          content="A robust opensource macro keyboard, the StreamPi is a full fledged software designed for the Raspberry Pi, built with JavaFX, and with a want to make better peripherals more accessible."
+          content="A robust opensource macro keyboard, the Stream-Pi is a full fledged software designed for the Raspberry Pi, built with JavaFX, and with a want to make better peripherals more accessible."
         />
         <meta
           property="og:description"
-          content="A robust opensource macro keyboard, the StreamPi is a full fledged software designed for the Raspberry Pi, built with JavaFX, and with a want to make better peripherals more accessible."
+          content="A robust opensource macro keyboard, the Stream-Pi is a full fledged software designed for the Raspberry Pi, built with JavaFX, and with a want to make better peripherals more accessible."
         />
       </Head>
       {!ExternalPaths.has(path.replace(/\/+/gm, "")) && (

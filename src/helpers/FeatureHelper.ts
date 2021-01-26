@@ -11,22 +11,22 @@ const features: FeatureObj[] = [
   {
     title: "Full OBS Integration!",
     desc:
-      "StreamPi integrates with OBS through the socket plugin, and doesn't require you to set up hotkeys like some other alternatives. As long as OBS is running, the StreamPi can detect all of your scenes, sources, and transitions and be able to control it all!",
+      "Stream-Pi integrates with OBS through the socket plugin, and doesn't require you to set up hotkeys like some other alternatives. As long as OBS is running, the Stream-Pi can detect all of your scenes, sources, and transitions and be able to control it all!",
   },
   {
     title: "Cross Platform Compatibility!",
     desc:
-      "We want StreamPi to be accessible, so we plan to release it on every major platform; iOS, Android, PC, Linux, and Smart Fridges! Ok maybe not that last one haha ... unless?",
+      "We want Stream-Pi to be accessible, so we plan to release it on every major platform; iOS, Android, PC, Linux, and Smart Fridges! Ok maybe not that last one haha ... unless?",
   },
   {
     title: "Open Source!",
     desc:
-      "StreamPi is a free to use software package. It's still in its growing stages and we're constantly adding more support. The code is available so if you've got an idea or want to make your own plugin, we're all for it!",
+      "Stream-Pi is a free to use software package. It's still in its growing stages and we're constantly adding more support. The code is available so if you've got an idea or want to make your own plugin, we're all for it!",
   },
   {
     title: "Twitter Integration!",
     desc:
-      "StreamPi integrates with Twitter API to be able to make tweets with the push of a button! Great for easily making tweets when you're about to stream!",
+      "Stream-Pi integrates with Twitter API to be able to make tweets with the push of a button! Great for easily making tweets when you're about to stream!",
   },
   {
     title: "HotKey Support",
@@ -44,12 +44,12 @@ const plannedFeatures: FeatureObj[] = [
   {
     title: "Spotify Integration",
     desc:
-      "The next planned feature for StreamPi is the ability to control Spotify, full control of play/pause, volume, skip/rewind, playing playlists and adding songs to playlists!",
+      "The next planned feature for Stream-Pi is the ability to control Spotify, full control of play/pause, volume, skip/rewind, playing playlists and adding songs to playlists!",
   },
   {
     title: "IFTTT Support",
     desc:
-      "IFTTT is already a well supported module from controlling everything from a smart house to making tweets on your behalf. We want to be able to integrate that experience with the StreamPi to allow for maximum control!",
+      "IFTTT is already a well supported module from controlling everything from a smart house to making tweets on your behalf. We want to be able to integrate that experience with the Stream-Pi to allow for maximum control!",
   },
   {
     title: "Computer Control",
@@ -59,7 +59,7 @@ const plannedFeatures: FeatureObj[] = [
   {
     title: "Adobe Integration",
     desc:
-      "Video editing is a pain in the butt sometimes, what if StreamPi could control your video or photoeditor beyond the use of hotkeys? What if we could take advantage of full API integration?",
+      "Video editing is a pain in the butt sometimes, what if Stream-Pi could control your video or photoeditor beyond the use of hotkeys? What if we could take advantage of full API integration?",
   },
 ];
 

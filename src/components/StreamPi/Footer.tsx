@@ -6,7 +6,7 @@ const StreamPiFooter: React.FC = () => {
     <>
       <main className="flex-fill"></main>
       <footer className="text-center footer">
-        &copy; 2019 - {currentYear}, StreamPi Group and its Affiliates
+        &copy; 2019 - {currentYear}, Stream-Pi Group and its Affiliates
       </footer>
     </>
   );

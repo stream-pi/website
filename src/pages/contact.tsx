@@ -47,8 +47,8 @@ const StreamPiContact: React.FC = () => {
   return (
     <React.Fragment>
       <Head>
-        <title>Contact StreamPi</title>
-        <meta property="og:title" content="Contact StreamPi" />
+        <title>Contact Stream-Pi</title>
+        <meta property="og:title" content="Contact Stream-Pi" />
         <meta property="og:url" content="https://stream-pi.com/contact" />
       </Head>
       <Row className="pt-2 animate__animated animate__fadeIn">

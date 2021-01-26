@@ -2,9 +2,9 @@
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-<p align="center">
+<div align="center">
   <img src="https://raw.githubusercontent.com/Stream-Pi/Website/master/.github/images/combined-logos.png">
-</p>
+</div>
 
 Originally the Stream-Pi website was made with static HTML, and PHP. With the release of 1.0.0 we thought a redesign was in order to make things more modern. So the site was rebuilt from the ground up using react, typescript, and nextjs.
 
@@ -37,5 +37,3 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 Second, check out [CONTRIBUTING.md](https://github.com/Stream-Pi/Website/blob/master/CONTRIBUTING.md) for information on how to contribute and get set up in a development environment.
-
-

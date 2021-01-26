@@ -12,7 +12,7 @@ const StreamPiVideo: React.FC = () => {
           <h3>Curious? Watch the video!</h3>
           <ResponsiveEmbed aspectRatio="16by9">
             <iframe
-              title="AboutStreamPi"
+              title="AboutStream-Pi"
               className="embed-responsive-item"
               src="https://www.youtube.com/embed/UyT9OCnakBw"
               frameBorder="0"

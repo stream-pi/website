@@ -72,15 +72,15 @@ const StreamPiHome: React.FC = () => {
   return (
     <React.Fragment>
       <Head>
-        <title>StreamPi Home</title>
+        <title>Stream-Pi Home</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta property="og:title" content="StreamPi Home" />
+        <meta property="og:title" content="Stream-Pi Home" />
         <meta property="og:url" content="https://stream-pi.com/" />
       </Head>
       {/* title */}
       <Row>
         <Col className="text-center animate__animated animate__fadeIn">
-          <h1 id="streamPiHome">StreamPi</h1>
+          <h1 id="streamPiHome">Stream-Pi</h1>
         </Col>
       </Row>
       <Row className="animate__animated animate__fadeIn animate__slower">
@@ -115,14 +115,14 @@ const StreamPiHome: React.FC = () => {
           We have a discord where we talk about all things code! We've also got
           a twitter where we share updates and community submissions. These are
           the best places to keep up to date about what's going on development
-          wise with the StreamPi
+          wise with the Stream-Pi
         </HomeCard>
         <HomeCard
           buttons={ICF.buttons}
           icons={ICF.icons}
           title="It's Completely Free!"
         >
-          We will never put the StreamPi behind a pay wall, we wanted to create
+          We will never put the Stream-Pi behind a pay wall, we wanted to create
           an alternative that wouldn't break the bank and as such it is and
           always will be free to download. It's also{" "}
           <strong>open source.</strong>
@@ -144,9 +144,9 @@ const StreamPiHome: React.FC = () => {
       {/* donation */}
       <Row className="pt-5 pb-2 animate__animated animate__fadeInUp">
         <Col className="text-center">
-          <h3>Like the StreamPi? Consider donating to help!</h3>
+          <h3>Like the Stream-Pi? Consider donating to help!</h3>
           <p>
-            Donating will never be necessary and the StreamPi will always be
+            Donating will never be necessary and the Stream-Pi will always be
             free. But web hosting is not, and we can't quit our day jobs.
           </p>
           <p>

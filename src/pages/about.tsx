@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
@@ -7,7 +8,6 @@ import Image from "react-bootstrap/Image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconObj, TeamMember } from "@util/Types";
 import { Developers, UX_PR, Infrastructure } from "@helpers/AboutHelper";
-import Head from "next/head";
 
 type Props = {
   description: string;

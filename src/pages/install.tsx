@@ -11,8 +11,8 @@ const StreamPiDownload: React.FC = () => {
   return (
     <React.Fragment>
       <Head>
-        <title>Install StreamPi</title>
-        <meta property="og:title" content="Install StreamPi" />
+        <title>Install Stream-Pi</title>
+        <meta property="og:title" content="Install Stream-Pi" />
         <meta property="og:url" content="https://stream-pi.com/install" />
       </Head>
       <div>

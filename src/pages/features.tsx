@@ -25,14 +25,14 @@ const StreamPiFeatures: React.FC = () => {
   return (
     <React.Fragment>
       <Head>
-        <title>StreamPi Features</title>
-        <meta property="og:title" content="StreamPi Features" />
+        <title>Stream-Pi Features</title>
+        <meta property="og:title" content="Stream-Pi Features" />
         <meta property="og:url" content="https://stream-pi.com/features" />
       </Head>
       {/* title */}
       <Row className="pt-3 animate__animated animate__fadeIn">
         <Col className="text-center">
-          <h1>What makes the StreamPi Great?</h1>
+          <h1>What makes the Stream-Pi Great?</h1>
         </Col>
       </Row>
       {/* existing features */}

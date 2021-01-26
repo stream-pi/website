@@ -48,7 +48,7 @@ export const FirstItems: FirstCard[] = [
     cardTitle: "OBS",
     img: defpic,
     description:
-      "No longer will you have to configure every action to a Hot Key. StreamPi can control OBS completely! (Requires OBS Socket Plugin)",
+      "No longer will you have to configure every action to a Hot Key. Stream-Pi can control OBS completely! (Requires OBS Socket Plugin)",
   },
 ];
 
