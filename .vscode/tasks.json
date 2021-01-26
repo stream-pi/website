@@ -22,6 +22,17 @@
         "reveal": "always",
         "panel": "new"
       }
+    },
+    {
+      "type": "npm",
+      "script": "build",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "label": "npm: build",
+      "detail": "npm run clean && next build"
     }
   ]
 }
