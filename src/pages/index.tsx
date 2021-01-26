@@ -20,6 +20,8 @@ type Props = {
 const HomeCard: React.FC<Props> = (props) => {
   const { icons, buttons, title, children, extraClass } = props;
 
+  const commonProps = {className: "mb-5", variant: "info"}
+
   return (
     <Col lg={4} className="text-center">
       {icons.map((i, idx) => (
@@ -38,19 +40,19 @@ const HomeCard: React.FC<Props> = (props) => {
         {buttons.map((b, idx) => (
           <React.Fragment key={`button${idx}`}>
             {b.internal ? (
-              <Link href={b.link} as={b.link}>
-                <a
+              <Link href={b.link} as={b.link} passHref>
+                {/* <a
                   className={`mb-5 btn btn-${
                     global.isLightMode ? "outline-info" : "info"
                   }`}
                 >
                   {b.text}
-                </a>
+                </a> */}
+                <ThemedButton {...commonProps}>{b.text}</ThemedButton>
               </Link>
             ) : (
               <ThemedButton
-                className="mb-5"
-                newVariant="info"
+                {...commonProps}
                 href={b.link}
                 target="_blank"
               >
@@ -152,7 +154,7 @@ const StreamPiHome: React.FC = () => {
             and help us focus extra time on development
           </p>
           <ThemedButton
-            newVariant="danger"
+            variant="danger"
             // isLightMode={global.isLightMode}
             href="https://www.patreon.com/streampi"
             target="_blank"

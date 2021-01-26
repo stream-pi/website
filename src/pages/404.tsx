@@ -36,20 +36,21 @@ const NotFound: React.FC = () => {
 
         <ThemedButton
           className="mt-5"
-          newVariant="info"
+          variant="info"
           onClick={() => router.back()}
         >
           Go Back
         </ThemedButton>
         {"\n"}
-        <Link href="/">
-          <a
+        <Link href="/" as="/" passHref>
+          {/* <a
             className={`mt-5 btn btn-${
               global.isLightMode ? "outline-primary" : "primary"
             }`}
           >
             Go Home
-          </a>
+          </a> */}
+          <ThemedButton className="mt-5">Go Home</ThemedButton>
         </Link>
       </div>
     </React.Fragment>

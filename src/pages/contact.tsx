@@ -68,7 +68,8 @@ const StreamPiContact: React.FC = () => {
               {!agreed ? (
                 <div className="text-center">
                   <p className="mb-3">
-                    Feel free to send us an email, but before you do, just a couple of things...
+                    Feel free to send us an email, but before you do, just a
+                    couple of things...
                   </p>
                   <ContactDisclaimer>
                     <p className="mb-2">
@@ -85,11 +86,10 @@ const StreamPiContact: React.FC = () => {
                           <React.Fragment key={`repo${idx}`}>
                             <ThemedButton
                               // isLightMode={global.isLightMode}
-                              newVariant="info"
+                              variant="info"
                               // size="sm"
                               href={`https://github.com/Stream-Pi/${str}/issues`}
                               target="_blank"
-                              rel="noreferrer"
                             >
                               {`${str} Issues`}
                             </ThemedButton>

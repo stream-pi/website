@@ -213,7 +213,7 @@ const ContactForm: React.FC = () => {
                     className="w-100"
                     type="submit"
                     size="lg"
-                    newVariant="dark"
+                    variant="dark"
                     role="button"
                     disabled={isSubmitting}
                   >
