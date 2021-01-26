@@ -18,8 +18,7 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
-// import { MySelect, MyTextArea, MyTextField } from "../deprecated/OldFormikBootstrap";
-import ThemedButton from "../ThemedButton";
+import ThemedButton from "@components/ThemedButton";
 
 // My Custom Form Control
 type Props = React.ComponentProps<typeof Form.Control> &
