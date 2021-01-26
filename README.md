@@ -3,7 +3,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 <p align="center">
-  <img src="combined-logos.png">
+  <img src="https://raw.githubusercontent.com/Stream-Pi/Website/master/.github/images/combined-logos.png">
 </p>
 
 Originally the Stream-Pi website was made with static HTML, and PHP. With the release of 1.0.0 we thought a redesign was in order to make things more modern. So the site was rebuilt from the ground up using react, typescript, and nextjs.
