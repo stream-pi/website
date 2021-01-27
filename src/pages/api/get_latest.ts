@@ -10,11 +10,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const version = repoDeets.data[0].tag_name;
     const release = `https://github.com/${process.env.NEXT_PUBLIC_REPO_OWNER}/${repo}/releases`;
 
-    const downloads = [];
-
-    repoDeets.data[0].assets.forEach((asset) =>
-      downloads.push({ Name: asset.name, Link: asset.browser_download_url })
-    );
+    const downloads = repoDeets.data[0].assets.map((asset) => ({
+      Name: asset.name,
+      Link: asset.browser_download_url,
+    }));
 
     const final = {
       Version: version,
