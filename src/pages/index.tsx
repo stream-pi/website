@@ -6,10 +6,10 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { IconObj, ButtonObj } from "@util/Types";
 import { HomeInfo } from "@helpers/HomeHelper";
+import config from "@helpers/SEOHelper";
 import StreamPiVideo from "@StreamPi/Video";
 import ThemedButton from "@components/ThemedButton";
 import SEO from "@StreamPi/SEO";
-import config from "src/config";
 
 type Props = {
   icons: IconObj[];
