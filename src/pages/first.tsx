@@ -4,6 +4,7 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { FirstCard, ChunkedFirst } from "@helpers/FirstHelper";
+import SEO from "@StreamPi/SEO";
 
 const FirstCardComp: React.FC<FirstCard> = (props) => {
   return (
@@ -36,11 +37,11 @@ const FirstFeatRow: React.FC<{ idx: number }> = (props) => {
 const StreamPiFirst: React.FC = () => {
   return (
     <React.Fragment>
-      <Head>
-        <title>Stream-Pi First</title>
-        <meta property="og:title" content="StreamPi First" />
-        <meta property="og:url" content="https://stream-pi.com/first" />
-      </Head>
+      <SEO
+        title="First"
+        description="New to Stream-Pi, learn about some basic actions here!"
+        flipOrder
+      />
       <Row className="pt-3 animate__animated animate__fadeIn animate__slow">
         <Col className="text-center">
           <h1>Congratulations!</h1>

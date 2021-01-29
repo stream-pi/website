@@ -6,15 +6,15 @@ import Nav from "react-bootstrap/Nav";
 import Tab from "react-bootstrap/Tab";
 import { Software } from "@helpers/InstallHelper";
 import DownloadCount from "@components/DownloadCount";
+import SEO from "@StreamPi/SEO";
 
 const StreamPiDownload: React.FC = () => {
   return (
     <React.Fragment>
-      <Head>
-        <title>Install Stream-Pi</title>
-        <meta property="og:title" content="Install Stream-Pi" />
-        <meta property="og:url" content="https://stream-pi.com/install" />
-      </Head>
+      <SEO
+        title="Install"
+        description="Download and Setup your Stream-Pi using these instructions!"
+      />
       <div>
         <h1 className="text-center pb-4">This will be a setup page</h1>
         <p className="text-center">
@@ -24,7 +24,8 @@ const StreamPiDownload: React.FC = () => {
       </div>
       <p className="text-center">
         To view setup / install instructions, please click on the software type
-        (server or client) and then click the button that pertains to your device.
+        (server or client) and then click the button that pertains to your
+        device.
       </p>
       <Tab.Container id="sercli-instructions">
         {/* Server or Client */}

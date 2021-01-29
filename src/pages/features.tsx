@@ -3,6 +3,7 @@ import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { chunkedFeatures, chunkedPlanFeatures } from "@helpers/FeatureHelper";
+import SEO from "@StreamPi/SEO";
 
 const FeatureRow: React.FC = ({ children }) => {
   return (
@@ -24,11 +25,11 @@ const FeatureCol: React.FC<{ title: string }> = ({ title, children }) => {
 const StreamPiFeatures: React.FC = () => {
   return (
     <React.Fragment>
-      <Head>
-        <title>Stream-Pi Features</title>
-        <meta property="og:title" content="Stream-Pi Features" />
-        <meta property="og:url" content="https://stream-pi.com/features" />
-      </Head>
+      <SEO
+        title="Features"
+        description="The Stream-Pi has a large variety of features, see about some of the most notable ones here!"
+        flipOrder
+      />
       {/* title */}
       <Row className="pt-3 animate__animated animate__fadeIn">
         <Col className="text-center">

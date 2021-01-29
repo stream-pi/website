@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import ThemedButton from "@components/ThemedButton";
 import ContactForm from "@StreamPi/ContactForm";
 import ContributionModal from "@components/ContributionModal";
+import SEO from "@StreamPi/SEO";
 
 const ContactDisclaimer: React.FC = (props) => {
   return (
@@ -46,11 +47,10 @@ const StreamPiContact: React.FC = () => {
 
   return (
     <React.Fragment>
-      <Head>
-        <title>Contact Stream-Pi</title>
-        <meta property="og:title" content="Contact Stream-Pi" />
-        <meta property="og:url" content="https://stream-pi.com/contact" />
-      </Head>
+      <SEO
+        title="Contact"
+        description="Get into contact with the Stream-Pi team!  Ask us a question, give us some feedback, we'd love to hear from you!"
+      />
       <Row className="pt-2 animate__animated animate__fadeIn">
         <Col className="text-center">
           <h3>Reach out to us</h3>

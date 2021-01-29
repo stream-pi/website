@@ -9,6 +9,8 @@ import { IconObj, ButtonObj } from "@util/Types";
 import { HomeInfo } from "@helpers/HomeHelper";
 import StreamPiVideo from "@StreamPi/Video";
 import ThemedButton from "@components/ThemedButton";
+import SEO from "@StreamPi/SEO";
+import config from "src/config";
 
 type Props = {
   icons: IconObj[];
@@ -20,7 +22,7 @@ type Props = {
 const HomeCard: React.FC<Props> = (props) => {
   const { icons, buttons, title, children, extraClass } = props;
 
-  const commonProps = {className: "mb-5", variant: "info"}
+  const commonProps = { className: "mb-5", variant: "info" };
 
   return (
     <Col lg={4} className="text-center">
@@ -51,11 +53,7 @@ const HomeCard: React.FC<Props> = (props) => {
                 <ThemedButton {...commonProps}>{b.text}</ThemedButton>
               </Link>
             ) : (
-              <ThemedButton
-                {...commonProps}
-                href={b.link}
-                target="_blank"
-              >
+              <ThemedButton {...commonProps} href={b.link} target="_blank">
                 {b.text}
               </ThemedButton>
             )}
@@ -71,12 +69,7 @@ const StreamPiHome: React.FC = () => {
   const { KIT, ICF, MIJ } = HomeInfo;
   return (
     <React.Fragment>
-      <Head>
-        <title>Stream-Pi Home</title>
-        <link rel="icon" href="/favicon.ico" />
-        <meta property="og:title" content="Stream-Pi Home" />
-        <meta property="og:url" content="https://stream-pi.com/" />
-      </Head>
+      <SEO title="Home" description={config.description} flipOrder />
       {/* title */}
       <Row>
         <Col className="text-center animate__animated animate__fadeIn">

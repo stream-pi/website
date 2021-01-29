@@ -8,6 +8,7 @@ import Image from "react-bootstrap/Image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconObj, TeamMember } from "@util/Types";
 import { Developers, UX_PR, Infrastructure } from "@helpers/AboutHelper";
+import SEO from "@StreamPi/SEO";
 
 type Props = {
   description: string;
@@ -70,11 +71,10 @@ const TeamMemberCard: React.FC<TeamMember> = ({ picture, name, icons }) => {
 const StreamPiAbout: React.FC = () => {
   return (
     <React.Fragment>
-      <Head>
-        <title>About StreamPi</title>
-        <meta property="og:title" content="About StreamPi" />
-        <meta property="og:url" content="https://stream-pi.com/about" />
-      </Head>
+      <SEO
+        title="About"
+        description="Learn about Stream-Pi and the team behind it"
+      />
       <RowCol classes="text-center animate__animated animate__fadeIn">
         <h2 className="streamPiAbout">What is "StreamPi"?</h2>
       </RowCol>
