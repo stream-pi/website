@@ -1,5 +1,4 @@
 import React from "react";
-import Head from "next/head";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";

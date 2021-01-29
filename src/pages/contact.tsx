@@ -1,4 +1,3 @@
-import Head from "next/head";
 import React, { useEffect, useRef, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";

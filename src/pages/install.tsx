@@ -1,7 +1,6 @@
 //TODO: try to condense picker logic
 
 import React from "react";
-import Head from "next/head";
 import Nav from "react-bootstrap/Nav";
 import Tab from "react-bootstrap/Tab";
 import { Software } from "@helpers/InstallHelper";
