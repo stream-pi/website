@@ -2,10 +2,10 @@ import React, { useEffect, useRef, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import ThemedButton from "@components/ThemedButton";
 import ContactForm from "@StreamPi/ContactForm";
+import StreamPiSEO from "@StreamPi/SEO";
+import ThemedButton from "@components/ThemedButton";
 import ContributionModal from "@components/ContributionModal";
-import SEO from "@StreamPi/SEO";
 
 const ContactDisclaimer: React.FC = (props) => {
   return (
@@ -46,7 +46,7 @@ const StreamPiContact: React.FC = () => {
 
   return (
     <React.Fragment>
-      <SEO
+      <StreamPiSEO
         title="Contact"
         description="Get into contact with the Stream-Pi team!  Ask us a question, give us some feedback, we'd love to hear from you!"
       />

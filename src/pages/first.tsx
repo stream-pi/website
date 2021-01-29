@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { FirstCard, ChunkedFirst } from "@helpers/FirstHelper";
-import SEO from "@StreamPi/SEO";
+import StreamPiSEO from "@StreamPi/SEO";
 
 const FirstCardComp: React.FC<FirstCard> = (props) => {
   return (
@@ -36,7 +36,7 @@ const FirstFeatRow: React.FC<{ idx: number }> = (props) => {
 const StreamPiFirst: React.FC = () => {
   return (
     <React.Fragment>
-      <SEO
+      <StreamPiSEO
         title="First"
         description="New to Stream-Pi, learn about some basic actions here!"
         flipOrder

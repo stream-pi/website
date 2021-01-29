@@ -2,7 +2,7 @@ import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { chunkedFeatures, chunkedPlanFeatures } from "@helpers/FeatureHelper";
-import SEO from "@StreamPi/SEO";
+import StreamPiSEO from "@StreamPi/SEO";
 
 const FeatureRow: React.FC = ({ children }) => {
   return (
@@ -24,7 +24,7 @@ const FeatureCol: React.FC<{ title: string }> = ({ title, children }) => {
 const StreamPiFeatures: React.FC = () => {
   return (
     <React.Fragment>
-      <SEO
+      <StreamPiSEO
         title="Features"
         description="The Stream-Pi has a large variety of features, see about some of the most notable ones here!"
         flipOrder

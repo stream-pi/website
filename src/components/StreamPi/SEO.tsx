@@ -8,7 +8,7 @@ interface Props {
   description: string;
 }
 
-const SEO: React.FC<Props> = ({ title, flipOrder, description }) => {
+const StreamPiSEO: React.FC<Props> = ({ title, flipOrder, description }) => {
   const titleString = flipOrder
     ? `${config.title} ${title}`
     : `${title} ${config.title}`;
@@ -38,4 +38,4 @@ const SEO: React.FC<Props> = ({ title, flipOrder, description }) => {
   );
 };
 
-export default SEO;
+export default StreamPiSEO;

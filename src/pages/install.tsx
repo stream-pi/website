@@ -4,13 +4,13 @@ import React from "react";
 import Nav from "react-bootstrap/Nav";
 import Tab from "react-bootstrap/Tab";
 import { Software } from "@helpers/InstallHelper";
+import StreamPiSEO from "@StreamPi/SEO";
 import DownloadCount from "@components/DownloadCount";
-import SEO from "@StreamPi/SEO";
 
 const StreamPiDownload: React.FC = () => {
   return (
     <React.Fragment>
-      <SEO
+      <StreamPiSEO
         title="Install"
         description="Download and Setup your Stream-Pi using these instructions!"
       />

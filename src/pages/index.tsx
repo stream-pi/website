@@ -8,8 +8,8 @@ import { IconObj, ButtonObj } from "@util/Types";
 import { HomeInfo } from "@helpers/HomeHelper";
 import config from "@helpers/SEOHelper";
 import StreamPiVideo from "@StreamPi/Video";
+import StreamPiSEO from "@StreamPi/SEO";
 import ThemedButton from "@components/ThemedButton";
-import SEO from "@StreamPi/SEO";
 
 type Props = {
   icons: IconObj[];
@@ -68,7 +68,7 @@ const StreamPiHome: React.FC = () => {
   const { KIT, ICF, MIJ } = HomeInfo;
   return (
     <React.Fragment>
-      <SEO title="Home" description={config.description} flipOrder />
+      <StreamPiSEO title="Home" description={config.description} flipOrder />
       {/* title */}
       <Row>
         <Col className="text-center animate__animated animate__fadeIn">

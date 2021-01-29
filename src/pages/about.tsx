@@ -7,7 +7,7 @@ import Image from "react-bootstrap/Image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconObj, TeamMember } from "@util/Types";
 import { Developers, UX_PR, Infrastructure } from "@helpers/AboutHelper";
-import SEO from "@StreamPi/SEO";
+import StreamPiSEO from "@StreamPi/SEO";
 
 type Props = {
   description: string;
@@ -70,7 +70,7 @@ const TeamMemberCard: React.FC<TeamMember> = ({ picture, name, icons }) => {
 const StreamPiAbout: React.FC = () => {
   return (
     <React.Fragment>
-      <SEO
+      <StreamPiSEO
         title="About"
         description="Learn about Stream-Pi and the team behind it"
       />
