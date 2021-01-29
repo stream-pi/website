@@ -64,7 +64,8 @@ const StreamPiDownload: React.FC = () => {
                       key={`${soft.name}${plat.platform}Pane`}
                       eventKey={`${soft.name}${plat.platform}`}
                     >
-                      {JSON.stringify(plat.install)}
+                      {/* {JSON.stringify(plat.install)} */}
+                      <div className="text-center">Instructions Coming Soon!</div>
                     </Tab.Pane>
                   ))}
                 </Tab.Content>

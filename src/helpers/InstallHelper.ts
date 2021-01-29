@@ -24,17 +24,21 @@ export const Software = [
         install: ["Download", "run"],
       },
       {
-        platform: "iOS",
-        install: ["Download", "run"],
-      },
-      {
         platform: "Linux",
         install: ["Download", "run"],
       },
       {
         platform: "RaspberryPi",
         install: ["Download", "Run"]
-      }
+      },
+      {
+        platform: "Windows",
+        install: ["Download", "run"],
+      },
+      {
+        platform: "Mac",
+        install: ["Download", "run"],
+      },
     ],
   },
 ];
