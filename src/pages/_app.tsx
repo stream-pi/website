@@ -1,10 +1,10 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "animate.css/animate.min.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import "../assets/scss/fonts.scss";
-import "../assets/scss/captcha.scss";
-import "../assets/scss/loader.scss";
-import "../assets/scss/theme.scss";
+// import "../assets/scss/fonts.scss";
+// import "../assets/scss/captcha.scss";
+// import "../assets/scss/loader.scss";
+// import "../assets/scss/theme.scss";
 import "../assets/scss/App.scss";
 import { useState, useEffect } from "react";
 import Head from "next/head";
@@ -96,10 +96,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       {!ExternalPaths.has(path.replace(/\/+/gm, "")) && (
         <StreamPiNavbar navVariant={theme as "light" | "dark"}>
           <StreamPiNavItem to="/">Home</StreamPiNavItem>
