@@ -7,7 +7,6 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 // import "../assets/scss/theme.scss";
 import "../assets/scss/App.scss";
 import { useState, useEffect } from "react";
-import Head from "next/head";
 import { useRouter } from "next/router";
 import { AppProps } from "next/app";
 import { library, config } from "@fortawesome/fontawesome-svg-core";
