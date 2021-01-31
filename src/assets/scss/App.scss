@@ -14,7 +14,7 @@ p {
 }
 
 span {
-  &.contribute-span {
+  &.modal-text-span {
     color: #007bff;
     &:hover {
       text-decoration: underline;
@@ -80,9 +80,18 @@ span {
   max-width: none !important;
 }
 
+.modal-60w {
+  width: 60%;
+  max-width: none !important;
+}
+
 .modal-title {
   width: 100%;
   text-align: center;
+}
+
+.small-modal.modal-body p {
+  font-size: 1rem;
 }
 
 // This will fix the modal transition out bug
