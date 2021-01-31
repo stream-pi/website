@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col";
 import ContactForm from "@StreamPi/ContactForm";
 import StreamPiSEO from "@StreamPi/SEO";
 import ThemedButton from "@components/ThemedButton";
-import ContributionModal from "@components/ContributionModal";
+import ContributionModal from "@components/Modals/Contribution";
 
 const ContactDisclaimer: React.FC = (props) => {
   return (
