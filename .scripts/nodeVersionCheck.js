@@ -7,8 +7,11 @@ exec("node -v", function (err, stdout) {
 
   if (ver < 12) {
     console.log("\x1b[31m\x1b[47m%s\x1b[0m", "There was an Error:");
+    throw new Error("This project requires node 12 or greater");
+  } else if (ver === 13) {
+    console.log("\x1b[31m\x1b[47m%s\x1b[0m", "There was an Error:");
     throw new Error(
-      "This project requires node 12 or greater"
+      "As of NextJS 10.0.6, Node 13 no longer works, please upgrade to LTS"
     );
   }
 

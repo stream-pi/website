@@ -12,7 +12,6 @@ The earliest this project can work with is **12**
 
 This project has been tested in:
 
-- Node v13
 - Node v14
 
 Run the installer that it downloads and go through the setup. After setup finishes open your terminal and type:
