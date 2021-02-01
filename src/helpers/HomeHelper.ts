@@ -21,7 +21,7 @@ export const KIT: HomeObj = {
 export const ICF: HomeObj = {
   icons: [{ type: "fab", name: "github" }],
   buttons: [
-    { text: "Check out the Github", link: "https://github.com/Stream-Pi/" },
+    { text: "Check out the Github", link: "https://github.com/stream-pi/" },
   ],
 };
 

@@ -87,7 +87,7 @@ const StreamPiContact: React.FC = () => {
                               // isLightMode={global.isLightMode}
                               variant="info"
                               // size="sm"
-                              href={`https://github.com/Stream-Pi/${str}/issues`}
+                              href={`https://github.com/stream-pi/${str}/issues`}
                               target="_blank"
                             >
                               {`${str} Issues`}

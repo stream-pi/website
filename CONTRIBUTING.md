@@ -8,15 +8,9 @@ In order to develop for this project, you'll need to get set up for web developm
 
 Visit the [Node JS Website](https://nodejs.org/) and download the **LTS Release**. At the time of writing this, it is **14.5.3**.
 
-The earliest this project can work with is **12**
-
-This project has been tested in:
-
-- Node v14
-
 Run the installer that it downloads and go through the setup. After setup finishes open your terminal and type:
 
-```powershell
+```bash
 node -v
 # AND
 npm -v

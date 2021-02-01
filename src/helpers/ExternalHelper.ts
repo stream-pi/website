@@ -14,11 +14,11 @@ const releaseURL = (repo: string) =>
 export const ExternalObjs: ExternalMaster = {
   github: {
     name: "Github",
-    link: "https://github.com/Stream-Pi/",
+    link: "https://github.com/stream-pi/",
   },
   roadmap: {
     name: "Roadmap",
-    link: "https://github.com/orgs/Stream-Pi/projects/2",
+    link: "https://github.com/orgs/stream-pi/projects/2",
   },
   server: {
     name: "Server Page",
