@@ -12,3 +12,6 @@ end_of_line = crlf
 
 [.mailmap]
 insert_final_newline = false
+
+[.env*]
+insert_final_newline = false
