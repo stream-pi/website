@@ -14,21 +14,11 @@ export default class ThemedButton extends React.Component<IProps> {
   }
 }
 
-// interface Props extends React.ComponentProps<typeof Button> {
-//   newVariant?: React.ComponentProps<typeof Button>["variant"];
-// }
-
-// const ThemedButton: React.FC<Props> = ({ newVariant, ...props }) =>
+// const ThemedButton: React.FC<IProps> = ({ variant, ...rest }) =>
 //   global.isLightMode ? (
-//     <Button
-//       variant={`outline-${newVariant || "primary"}`}
-//       {...(props as React.ComponentProps<Button>)}
-//     />
+//     <Button variant={`outline-${variant || "primary"}`} {...rest} />
 //   ) : (
-//     <Button
-//       variant={newVariant || "primary"}
-//       {...(props as React.ComponentProps<typeof Button>)}
-//     />
+//     <Button variant={variant || "primary"} {...rest} />
 //   );
 
 // export default ThemedButton;

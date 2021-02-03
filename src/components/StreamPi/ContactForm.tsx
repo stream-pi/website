@@ -208,7 +208,6 @@ const ContactForm: React.FC = () => {
                 {/* Button */}
                 <Form.Group controlId="sendButton">
                   <ThemedButton
-                    // isLightMode={global.isLightMode}
                     className="w-100"
                     type="submit"
                     size="lg"

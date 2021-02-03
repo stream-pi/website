@@ -43,13 +43,6 @@ const NotFound: React.FC = () => {
         </ThemedButton>
         {"\n"}
         <Link href="/" as="/" passHref>
-          {/* <a
-            className={`mt-5 btn btn-${
-              global.isLightMode ? "outline-primary" : "primary"
-            }`}
-          >
-            Go Home
-          </a> */}
           <ThemedButton className="mt-5">Go Home</ThemedButton>
         </Link>
       </div>

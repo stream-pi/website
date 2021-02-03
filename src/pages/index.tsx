@@ -42,13 +42,6 @@ const HomeCard: React.FC<Props> = (props) => {
           <React.Fragment key={`button${idx}`}>
             {b.internal ? (
               <Link href={b.link} as={b.link} passHref>
-                {/* <a
-                  className={`mb-5 btn btn-${
-                    global.isLightMode ? "outline-info" : "info"
-                  }`}
-                >
-                  {b.text}
-                </a> */}
                 <ThemedButton {...commonProps}>{b.text}</ThemedButton>
               </Link>
             ) : (
@@ -147,7 +140,6 @@ const StreamPiHome: React.FC = () => {
           </p>
           <ThemedButton
             variant="danger"
-            // isLightMode={global.isLightMode}
             href="https://www.patreon.com/streampi"
             target="_blank"
             style={{ borderRadius: "25px" }}

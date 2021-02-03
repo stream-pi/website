@@ -84,10 +84,8 @@ const StreamPiContact: React.FC = () => {
                         (str, idx) => (
                           <React.Fragment key={`repo${idx}`}>
                             <ThemedButton
-                              // isLightMode={global.isLightMode}
                               variant="info"
-                              // size="sm"
-                              href={`https://github.com/stream-pi/${str}/issues`}
+                              href={`https://github.com/stream-pi/${str.toLowerCase()}/issues`}
                               target="_blank"
                             >
                               {`${str} Issues`}
@@ -144,7 +142,6 @@ const StreamPiContact: React.FC = () => {
                     will be available.
                   </p>
                   <ThemedButton
-                    // isLightMode={global.isLightMode}
                     disabled={disable}
                     onClick={() => setAgreed(true)}
                   >
