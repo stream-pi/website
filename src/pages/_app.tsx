@@ -28,6 +28,7 @@ import {
   faSun,
   faUser,
   faDownload,
+  faSearch,
 } from "@fortawesome/free-solid-svg-icons";
 import Container from "react-bootstrap/Container";
 import { useHashChange } from "@util";
@@ -52,7 +53,8 @@ library.add(
   faMoon,
   faSun,
   faUser,
-  faDownload
+  faDownload,
+  faSearch
 );
 
 declare global {
