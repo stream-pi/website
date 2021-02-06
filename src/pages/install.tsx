@@ -3,6 +3,7 @@
 import React from "react";
 import Nav from "react-bootstrap/Nav";
 import Tab from "react-bootstrap/Tab";
+import Accordion from "react-bootstrap/Accordion";
 import { Software } from "@helpers/InstallHelper";
 import StreamPiSEO from "@StreamPi/SEO";
 import DownloadCount from "@components/DownloadCount";
@@ -27,25 +28,50 @@ const StreamPiDownload: React.FC = () => {
           your device.
         </p>
       </div>
+      {/* Disclaimer Start */}
       <SectionWrapper>
-        <p className="text-center">Also, a disclaimer:</p>
-        <p className="text-center mb-1">
-          Currently, there are some anti-virus software that will prevent
-          Stream-Pi from running.
-        </p>
-        <p className="text-center mb-1">
-          This is because the launch is handled by a <strong>vbs script</strong>
-          .
-        </p>
-        <p className="text-center mb-1">
-          We are working to upload and provide samples to anti-virus databases
-          so that in the future this will not be a problem.
-        </p>
-        {/* <p className="text-center mb-1">
-          If you are interested in helping with this, please click here for more
-          info.
-        </p> */}
+        <Accordion>
+          <Accordion.Toggle
+            id="anti-virus-toggle"
+            as="p"
+            className="text-center mb-1"
+            eventKey="0"
+          >
+            Click for a disclaimer in regards to Anti-Virus Software
+          </Accordion.Toggle>
+          <Accordion.Collapse eventKey="0">
+            <div>
+              <br />
+              <p>
+                Currently, Stream-Pi is known that it may be picked up by SOME
+                anti-virus software solutions, often as a PUP (Potentially
+                Unwanted Program), due to how new Stream-Pi is it has very
+                little presence on existing Anti-Virus databases and so has no
+                KNOWN state as to whether or not it truly is a PUP, as we upload
+                more entries to the various anti-virus databases this issue
+                SHOULD eventually resolve itself, for now all we can do is
+                assure you that it is NOT a PUP, Malware, or, Virus.
+              </p>
+              <p>
+                If you are unsure then feel free to upload the ZIP file to
+                VirusTotal, or your own chosen database, OR, Check the actual
+                source code for yourself. We have nothing to hide.
+              </p>
+              <p>
+                If you're still unsure and don't trust Stream-Pi running on your
+                system then the only thing we can further advise you to do is to{" "}
+                <strong>NOT USE IT.</strong>
+              </p>
+              <p>
+                We hope that this sufficiently explains why some anti-virus
+                software flags Stream-Pi, and, what solutions are available to
+                overcome these issues.
+              </p>
+            </div>
+          </Accordion.Collapse>
+        </Accordion>
       </SectionWrapper>
+      {/* Disclaimer End */}
       <div className="animate__animated animate__fadeIn">
         <Tab.Container id="sercli-instructions">
           {/* Server or Client */}

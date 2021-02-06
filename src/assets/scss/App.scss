@@ -101,6 +101,12 @@ span {
   transition: none;
 }
 
+#anti-virus-toggle:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
 .nav-pills {
   .nav-link {
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
