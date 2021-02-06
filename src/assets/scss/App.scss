@@ -75,15 +75,15 @@ span {
   position: relative;
 }
 
-.modal-70w {
-  width: 70%;
-  max-width: none !important;
+@mixin modalCustWidth($width) {
+  .modal-#{$width}w {
+    width: percentage($width / 100);
+    max-width: none !important;
+  }
 }
 
-.modal-60w {
-  width: 60%;
-  max-width: none !important;
-}
+@include modalCustWidth(70);
+@include modalCustWidth(50);
 
 .modal-title {
   width: 100%;
