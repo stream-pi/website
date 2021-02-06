@@ -5,26 +5,17 @@ import Col from "react-bootstrap/Col";
 import ContactForm from "@StreamPi/ContactForm";
 import StreamPiSEO from "@StreamPi/SEO";
 import ThemedButton from "@components/ThemedButton";
+import SectionWrapper from "@components/SectionWrapper";
 import ContributionModal from "@components/Modals/Contribution";
-
-const ContactDisclaimer: React.FC = (props) => {
-  return (
-    <>
-      <hr className="capsule top-hr mb-0" />
-      {props.children}
-      <hr className="capsule bottom-hr mt-0" />
-    </>
-  );
-};
 
 const StreamPiContact: React.FC = () => {
   const [agreed, setAgreed] = useState(false);
   const [disable, setDisable] = useState(true);
-  const [remainingSeconds, setRemainingSeconds] = useState<number>(7);
+  const [remainingSeconds, setRemainingSeconds] = useState<number>(8);
 
   const intervalRef = useRef<any>(null);
   const timeoutRef = useRef<any>(null);
-  const currentCount = useRef<number>(7);
+  const currentCount = useRef<number>(8);
 
   useEffect(() => {
     intervalRef.current = setInterval(() => {
@@ -36,7 +27,7 @@ const StreamPiContact: React.FC = () => {
       // console.log("Timeout");
       clearInterval(intervalRef.current);
       setDisable(false);
-    }, 7000);
+    }, 8000);
 
     return () => {
       clearInterval(intervalRef.current);
@@ -70,7 +61,7 @@ const StreamPiContact: React.FC = () => {
                     Feel free to send us an email, but before you do, just a
                     couple of things...
                   </p>
-                  <ContactDisclaimer>
+                  <SectionWrapper>
                     <p className="mb-2">
                       If you want to report a bug, please do not email us.
                       Instead, check our Github repositories to see if the bug
@@ -99,8 +90,8 @@ const StreamPiContact: React.FC = () => {
                       To be clear; bug reports sent to us via email will{" "}
                       <strong>be ignored</strong>
                     </p>
-                  </ContactDisclaimer>
-                  <ContactDisclaimer>
+                  </SectionWrapper>
+                  <SectionWrapper>
                     <p className="mb-2">
                       Due to a large increase in spam emails recently,{" "}
                       <strong>
@@ -109,15 +100,15 @@ const StreamPiContact: React.FC = () => {
                       We are looking for a better way to deter this, but for now
                       this is the best solution.
                     </p>
-                  </ContactDisclaimer>
-                  <ContactDisclaimer>
+                  </SectionWrapper>
+                  <SectionWrapper>
                     <p className="mb-2">
                       If you are interested in contributing, please click{" "}
                       <ContributionModal />. A small card will pop up with some
                       special instructions on what to include in your email.
                     </p>
-                  </ContactDisclaimer>
-                  <ContactDisclaimer>
+                  </SectionWrapper>
+                  <SectionWrapper>
                     <p className="mb-2">
                       Email is a great way to keep things brief and
                       professional, but we do encourage using our{" "}
@@ -130,15 +121,21 @@ const StreamPiContact: React.FC = () => {
                       </a>{" "}
                       for quicker responses and a more communicative experience.
                     </p>
-                  </ContactDisclaimer>
+                  </SectionWrapper>
                   <p className="mb-2">
                     NOTE: Stream-pi.com or any of the team behind it will not
                     store, steal, or give away your information for personal use
                     or otherwise.
                   </p>
+                  <p className="mb-2">
+                    That being said; please{" "}
+                    <strong>
+                      DO NOT include any personal information in your email.
+                    </strong>
+                  </p>
                   <p className="mb-3">
                     The button bellow will be available to click after being on
-                    this page for 7 seconds. After clicking, the contact form
+                    this page for 8 seconds. After clicking, the contact form
                     will be available.
                   </p>
                   <ThemedButton
