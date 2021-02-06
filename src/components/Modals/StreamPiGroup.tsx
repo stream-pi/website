@@ -27,7 +27,7 @@ const LegalInfoModal: React.FC = () => {
 
       <Modal
         className="my-modal"
-        dialogClassName="modal-60w"
+        dialogClassName="modal-50w"
         show={modalShow}
         onHide={handleHide}
         aria-labelledby="stream-pi-group-modal"
