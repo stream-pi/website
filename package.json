@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "npm run clean && next dev",
     "build": "npm run clean && next build",
-    "start": "next start -p 3012",
+    "start": "next start -p 3013",
+    "indev": "next start -p 3012",
     "clean": "npx rimraf .next",
     "preinstall": "node ./.scripts/nodeVersionCheck.js",
     "predev": "node ./.scripts/startUpMessage.js",
