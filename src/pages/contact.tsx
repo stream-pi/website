@@ -86,13 +86,13 @@ const StreamPiContact: React.FC = () => {
                         )
                       )}
                     </p>
-                    <p className="mb-2">
+                    <p className="mb-0">
                       To be clear; bug reports sent to us via email will{" "}
                       <strong>be ignored</strong>
                     </p>
                   </SectionWrapper>
                   <SectionWrapper>
-                    <p className="mb-2">
+                    <p className="mb-0">
                       Due to a large increase in spam emails recently,{" "}
                       <strong>
                         any email containing a link will not get sent.
@@ -102,14 +102,14 @@ const StreamPiContact: React.FC = () => {
                     </p>
                   </SectionWrapper>
                   <SectionWrapper>
-                    <p className="mb-2">
+                    <p className="mb-0">
                       If you are interested in contributing, please click{" "}
                       <ContributionModal />. A small card will pop up with some
                       special instructions on what to include in your email.
                     </p>
                   </SectionWrapper>
                   <SectionWrapper>
-                    <p className="mb-2">
+                    <p className="mb-0">
                       Email is a great way to keep things brief and
                       professional, but we do encourage using our{" "}
                       <a
