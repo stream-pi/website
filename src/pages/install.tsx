@@ -1,6 +1,8 @@
 //TODO: try to condense picker logic
 
-import React from "react";
+import React, { useContext } from "react";
+import { useAccordionToggle } from "react-bootstrap/AccordionToggle";
+import AccordionContext from "react-bootstrap/AccordionContext";
 import Nav from "react-bootstrap/Nav";
 import Tab from "react-bootstrap/Tab";
 import Accordion from "react-bootstrap/Accordion";
@@ -8,8 +10,29 @@ import { Software } from "@helpers/InstallHelper";
 import StreamPiSEO from "@StreamPi/SEO";
 import DownloadCount from "@components/DownloadCount";
 import SectionWrapper from "@components/SectionWrapper";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const StreamPiDownload: React.FC = () => {
+type Props = { eventKey: string; id: string };
+
+const CustomToggle: React.FC<Props> = ({ id, eventKey, children }) => {
+  const currentEventKey = useContext(AccordionContext);
+  const isCurrentEventKey = currentEventKey === eventKey;
+
+  const decoratedOnClick = useAccordionToggle(eventKey);
+
+  return (
+    <p onClick={decoratedOnClick} id={id} className="text-center mb-1">
+      {children}
+      <FontAwesomeIcon
+      className="ml-3"
+        icon={["fas", isCurrentEventKey ? "angle-up" : "angle-down"]}
+        size="lg"
+      />
+    </p>
+  );
+};
+
+const StreamPiInstall: React.FC = () => {
   return (
     <React.Fragment>
       <StreamPiSEO
@@ -31,14 +54,9 @@ const StreamPiDownload: React.FC = () => {
       {/* Disclaimer Start */}
       <SectionWrapper>
         <Accordion>
-          <Accordion.Toggle
-            id="anti-virus-toggle"
-            as="p"
-            className="text-center mb-1"
-            eventKey="0"
-          >
+          <CustomToggle id="anti-virus-toggle" eventKey="0">
             Click for a disclaimer in regards to Anti-Virus Software
-          </Accordion.Toggle>
+          </CustomToggle>
           <Accordion.Collapse eventKey="0">
             <div>
               <br />
@@ -128,4 +146,4 @@ const StreamPiDownload: React.FC = () => {
   );
 };
 
-export default StreamPiDownload;
+export default StreamPiInstall;
