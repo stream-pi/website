@@ -33,6 +33,15 @@ const features: FeatureObj[] = [
     desc:
       "Easily setup hotkeys / macros for gaming, video editing, whatever you need!",
   },
+  {
+    title: "Media Key Support",
+    desc:
+      "Easily take control of your music and videos without having to be in the application playing them!",
+  },
+  {
+    title: "Play Audio Files",
+    desc: "Use your Stream-Pi as a sound board, this is great for broadcasts!",
+  },
 ];
 
 const plannedFeatures: FeatureObj[] = [
