@@ -24,7 +24,7 @@ const CustomToggle: React.FC<Props> = ({ id, eventKey, children }) => {
     <p onClick={decoratedOnClick} id={id} className="text-center mb-1">
       {children}
       <FontAwesomeIcon
-      className="ml-3"
+        className="ml-3"
         icon={["fas", isCurrentEventKey ? "angle-up" : "angle-down"]}
         size="lg"
       />
@@ -69,6 +69,11 @@ const StreamPiInstall: React.FC = () => {
                 more entries to the various anti-virus databases this issue
                 SHOULD eventually resolve itself, for now all we can do is
                 assure you that it is NOT a PUP, Malware, or, Virus.
+              </p>
+              <p>
+                Another contributing factor is that Stream-Pi is launched via a{" "}
+                <strong>VBS SCRIPT</strong> which is unconventional, and we are
+                currently working on a more standard solution.
               </p>
               <p>
                 If you are unsure then feel free to upload the ZIP file to
