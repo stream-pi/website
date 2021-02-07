@@ -12,9 +12,8 @@ import DownloadCount from "@components/DownloadCount";
 import SectionWrapper from "@components/SectionWrapper";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-type Props = { eventKey: string; id: string };
-
-const CustomToggle: React.FC<Props> = ({ id, eventKey, children }) => {
+const CustomToggle: React.FC<{ eventKey: string; id: string }> = (props) => {
+  const { id, eventKey, children } = props;
   const currentEventKey = useContext(AccordionContext);
   const isCurrentEventKey = currentEventKey === eventKey;
 
