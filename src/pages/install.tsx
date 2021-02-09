@@ -1,33 +1,70 @@
 //TODO: try to condense picker logic
 
-import React, { useContext } from "react";
-import { useAccordionToggle } from "react-bootstrap/AccordionToggle";
-import AccordionContext from "react-bootstrap/AccordionContext";
+import React, { useState } from "react";
 import Nav from "react-bootstrap/Nav";
 import Tab from "react-bootstrap/Tab";
-import Accordion from "react-bootstrap/Accordion";
+import Collapse from "react-bootstrap/Collapse";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Software } from "@helpers/InstallHelper";
 import StreamPiSEO from "@StreamPi/SEO";
 import DownloadCount from "@components/DownloadCount";
 import SectionWrapper from "@components/SectionWrapper";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const CustomToggle: React.FC<{ eventKey: string; id: string }> = (props) => {
-  const { id, eventKey, children } = props;
-  const currentEventKey = useContext(AccordionContext);
-  const isCurrentEventKey = currentEventKey === eventKey;
-
-  const decoratedOnClick = useAccordionToggle(eventKey);
+const Disclaimer: React.FC = () => {
+  const [open, setOpen] = useState(false);
 
   return (
-    <p onClick={decoratedOnClick} id={id} className="text-center mb-1">
-      {children}
-      <FontAwesomeIcon
-        className="ml-3"
-        icon={["fas", isCurrentEventKey ? "angle-up" : "angle-down"]}
-        size="lg"
-      />
-    </p>
+    <SectionWrapper>
+      <p
+        id="anti-virus-toggle"
+        onClick={() => setOpen(!open)}
+        className="text-center mb-1"
+        aria-controls="anti-virus-disclaimer"
+        aria-expanded={open}
+      >
+        Click for a disclaimer in regards to Anti-Virus Software
+        <FontAwesomeIcon
+          className="ml-3"
+          icon={["fas", open ? "angle-up" : "angle-down"]}
+          size="lg"
+        />
+      </p>
+      <Collapse in={open}>
+        <div id="anti-virus-disclaimer">
+          <br />
+          <p>
+            Currently, Stream-Pi is known that it may be picked up by SOME
+            anti-virus software solutions, often as a PUP (Potentially Unwanted
+            Program), due to how new Stream-Pi is it has very little presence on
+            existing Anti-Virus databases and so has no KNOWN state as to
+            whether or not it truly is a PUP, as we upload more entries to the
+            various anti-virus databases this issue SHOULD eventually resolve
+            itself, for now all we can do is assure you that it is NOT a PUP,
+            Malware, or, Virus.
+          </p>
+          <p>
+            Another contributing factor is that Stream-Pi is launched via a{" "}
+            <strong>VBS SCRIPT</strong> which is unconventional, and we are
+            currently working on a more standard solution.
+          </p>
+          <p>
+            If you are unsure then feel free to upload the ZIP file to
+            VirusTotal, or your own chosen database, OR, Check the actual source
+            code for yourself. We have nothing to hide.
+          </p>
+          <p>
+            If you're still unsure and don't trust Stream-Pi running on your
+            system then the only thing we can further advise you to do is to{" "}
+            <strong>NOT USE IT.</strong>
+          </p>
+          <p>
+            We hope that this sufficiently explains why some anti-virus software
+            flags Stream-Pi, and, what solutions are available to overcome these
+            issues.
+          </p>
+        </div>
+      </Collapse>
+    </SectionWrapper>
   );
 };
 
@@ -51,50 +88,11 @@ const StreamPiInstall: React.FC = () => {
         </p>
       </div>
       {/* Disclaimer Start */}
-      <SectionWrapper>
-        <Accordion>
-          <CustomToggle id="anti-virus-toggle" eventKey="0">
-            Click for a disclaimer in regards to Anti-Virus Software
-          </CustomToggle>
-          <Accordion.Collapse eventKey="0">
-            <div>
-              <br />
-              <p>
-                Currently, Stream-Pi is known that it may be picked up by SOME
-                anti-virus software solutions, often as a PUP (Potentially
-                Unwanted Program), due to how new Stream-Pi is it has very
-                little presence on existing Anti-Virus databases and so has no
-                KNOWN state as to whether or not it truly is a PUP, as we upload
-                more entries to the various anti-virus databases this issue
-                SHOULD eventually resolve itself, for now all we can do is
-                assure you that it is NOT a PUP, Malware, or, Virus.
-              </p>
-              <p>
-                Another contributing factor is that Stream-Pi is launched via a{" "}
-                <strong>VBS SCRIPT</strong> which is unconventional, and we are
-                currently working on a more standard solution.
-              </p>
-              <p>
-                If you are unsure then feel free to upload the ZIP file to
-                VirusTotal, or your own chosen database, OR, Check the actual
-                source code for yourself. We have nothing to hide.
-              </p>
-              <p>
-                If you're still unsure and don't trust Stream-Pi running on your
-                system then the only thing we can further advise you to do is to{" "}
-                <strong>NOT USE IT.</strong>
-              </p>
-              <p>
-                We hope that this sufficiently explains why some anti-virus
-                software flags Stream-Pi, and, what solutions are available to
-                overcome these issues.
-              </p>
-            </div>
-          </Accordion.Collapse>
-        </Accordion>
-      </SectionWrapper>
+      <div className="animate__animated animate__fadeInUp">
+        <Disclaimer />
+      </div>
       {/* Disclaimer End */}
-      <div className="animate__animated animate__fadeIn">
+      <div className="animate__animated animate__fadeInUp">
         <Tab.Container id="sercli-instructions">
           {/* Server or Client */}
           <Nav justify variant="pills">
