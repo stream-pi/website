@@ -54,6 +54,7 @@ const sendMailAttempt = async (body: Body) => {
         cc: `"${body.name}" <${body.email}>`,
         subject: `${body.subject}`,
         html: `${body.message}`,
+        text: `${body.message}`,
       });
 
       console.log(info);

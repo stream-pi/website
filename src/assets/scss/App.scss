@@ -79,11 +79,17 @@ span {
   .modal-#{$width}w {
     width: percentage($width / 100);
     max-width: none !important;
+    @media screen and (max-width: 767px) {
+      width: 70%;
+    }
+    @media screen and (max-width: 575px) {
+      width: auto;
+    }
   }
 }
 
 @include modalCustWidth(70);
-@include modalCustWidth(50);
+@include modalCustWidth(55);
 
 .modal-title {
   width: 100%;
