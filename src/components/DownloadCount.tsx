@@ -8,8 +8,8 @@ const DownloadCount: React.FC = () => {
   const [loaded, setLoaded] = useState(false);
 
   // When the repos get reset, we'll need to know initial download counts
-  const startingClient = useRef<any>(1082);
-  const startingServer = useRef<any>(1367);
+  const startingClient = useRef<any>(1255);
+  const startingServer = useRef<any>(1460);
 
   useEffect(() => {
     let mounted = true;
