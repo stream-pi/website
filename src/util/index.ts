@@ -3,7 +3,7 @@ import { useEffect } from "react";
 /**
  * This is a custom hook that we have to use for any all all hash URL's.
  * This is a very hacky solution but it works so we'll use it
- * 
+ *
  * **CAN NOT HAVE A DEPENDENCY ARRAY**
  */
 export const useHashChange = () => {
@@ -44,6 +44,7 @@ export function queryParser(query: string | string[]) {
  * Takes in an **array** and a **number** to produce a new two dimmensional array.
  * These smaller arrays have a max length equal to the input number
  *
+ * @template T any type
  * @param array source array to be chunked
  * @param chunkSize the max number of elements to go in each new sub-array
  * @returns Two-Dimmensional Array of type T
@@ -77,6 +78,7 @@ export function capitalize(str: string) {
 /**
  * Takes in an array of objects, and produces a new Set of a common object property value.
  *
+ * @template T any type of object
  * @param arr array of objects type T
  * @param key string, key of object T
  *
@@ -92,13 +94,13 @@ export function propertySet<T extends object>(arr: T[], key: keyof T) {
 
 /**
  * Takes in an object and tests to see if this object is empty.
- * 
+ *
  * - If the object has any proprties, returns false.
  * - If the object when stringified equals "{}", returns true
- * 
+ *
  * @param obj object to test emptiness of
  * @returns boolean reflecting "is this object empty?"
- * 
+ *
  * @example
  * const emptyObj = {};
  * // returns true
@@ -116,4 +118,15 @@ export function isEmpty<T extends object>(obj: T) {
   }
 
   return JSON.stringify(obj) === JSON.stringify({});
+}
+
+/**
+ * Utility function to replace `JSON.stringify(something, null, 2)`
+ *
+ * @template T any type of object
+ * @param {T} obj
+ * @returns stringified JSON object
+ */
+export function prettyPrint<T extends object>(obj: T) {
+  return JSON.stringify(obj, null, 2);
 }

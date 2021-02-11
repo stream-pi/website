@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from "nodemailer";
 import axios from "axios";
+import { prettyPrint } from "@util";
 
 const servermail = axios.create();
 
@@ -85,11 +86,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const mailResponse = await sendMailAttempt(req.body);
     res.statusCode = mailResponse.responseCode;
 
-    res.send(JSON.stringify(mailResponse.responseData, null, 2));
+    res.send(prettyPrint(mailResponse.responseData));
   } else {
     res.statusCode = 400;
-    res.send(
-      JSON.stringify({ Message: "Must be queried as POST req" }, null, 2)
-    );
+    res.send(prettyPrint({ Message: "Must be queried as POST req" }));
   }
 };

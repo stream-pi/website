@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { queryParser } from "@util";
+import { prettyPrint, queryParser } from "@util";
 import { getGithub } from "@util/API";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
@@ -22,7 +22,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     };
 
     res.statusCode = 200;
-    res.send(JSON.stringify(final, null, 2));
+    res.send(prettyPrint(final));
   } catch (error) {
     res.status(400).json(error.response.data);
   }

@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { queryParser } from "@util";
+import { prettyPrint, queryParser } from "@util";
 import { getGithub, GithubResponse } from "@util/API";
 
 const sumTotalDownloads = (response: GithubResponse) => {
@@ -15,13 +15,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const repoDeets = await getGithub(repo);
     res.statusCode = 200;
-    res.send(
-      JSON.stringify(
-        { "Total Downloads": sumTotalDownloads(repoDeets) },
-        null,
-        2
-      )
-    );
+    res.send(prettyPrint({ "Total Downloads": sumTotalDownloads(repoDeets) }));
   } catch (error) {
     res.status(400).json(error.response.data);
   }
