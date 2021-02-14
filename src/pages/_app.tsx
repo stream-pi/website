@@ -1,10 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "animate.css/animate.min.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-// import "../assets/scss/fonts.scss";
-// import "../assets/scss/captcha.scss";
-// import "../assets/scss/loader.scss";
-// import "../assets/scss/theme.scss";
 import "../assets/scss/App.scss";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
