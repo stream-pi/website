@@ -6,7 +6,7 @@ const github = axios.create({
 });
 
 const spi = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_BASE,
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
 });
 
 export type GithubResponse = AxiosResponse<Github[]>;
