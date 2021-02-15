@@ -1,0 +1,41 @@
+@mixin modalCustWidth($width) {
+  .modal-#{$width}w {
+    width: percentage($width / 100);
+    max-width: none !important;
+    @media screen and (max-width: 767px) {
+      width: 70%;
+    }
+    @media screen and (max-width: 575px) {
+      width: auto;
+    }
+  }
+}
+
+span {
+  &.modal-text-span {
+    color: #007bff;
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
+
+@include modalCustWidth(70);
+@include modalCustWidth(55);
+
+.modal-title {
+  width: 100%;
+  text-align: center;
+}
+
+.small-modal.modal-body p {
+  font-size: 1rem;
+}
+
+// This will fix the modal transition out bug
+// The bug seems to stem from the box-shadow transition
+// all else fails, set it to none
+.modal-footer .btn {
+  transition: none;
+}
