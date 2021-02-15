@@ -24,6 +24,8 @@ import ThemedButton from "@components/ThemedButton";
 type Props = React.ComponentProps<typeof Form.Control> &
   FieldHookConfig<string>;
 
+const FGStyles: React.CSSProperties = { position: "relative" };
+
 const MyFormControl: React.FC<Props> = (props) => {
   const BootstrapStuff = {
     ...(props as React.ComponentProps<typeof Form.Control>),
@@ -140,7 +142,7 @@ const ContactForm: React.FC = () => {
                 <Row className="pt-2">
                   {/* Name */}
                   <Col md={6}>
-                    <Form.Group className="CustFG" controlId="NameInput">
+                    <Form.Group style={FGStyles} controlId="NameInput">
                       <FieldLabel label="Name" type="fas" name="user" />
                       <MyFormControl
                         type="text"
@@ -153,7 +155,7 @@ const ContactForm: React.FC = () => {
 
                   {/* Email */}
                   <Col md={6}>
-                    <Form.Group className="CustFG" controlId="EmailInput">
+                    <Form.Group style={FGStyles} controlId="EmailInput">
                       <FieldLabel label="Email" type="fas" name="envelope" />
                       <MyFormControl
                         type="email"
@@ -166,7 +168,7 @@ const ContactForm: React.FC = () => {
                 </Row>
 
                 {/* Subject */}
-                <Form.Group controlId="MessageSelect" className="CustFG">
+                <Form.Group controlId="MessageSelect" style={FGStyles}>
                   <FieldLabel
                     label="Subject"
                     type="fas"
@@ -188,7 +190,7 @@ const ContactForm: React.FC = () => {
                 </Form.Group>
 
                 {/* Message */}
-                <Form.Group className="CustFG" controlId="MessageInput">
+                <Form.Group style={FGStyles} controlId="MessageInput">
                   <FieldLabel label="Message" type="fas" name="comment" />
                   <MyFormControl
                     name="message"
