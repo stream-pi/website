@@ -1,37 +1,38 @@
 //TODO: try to condense picker logic
 
-import React, { useState } from "react";
+import React from "react";
 import Nav from "react-bootstrap/Nav";
 import Tab from "react-bootstrap/Tab";
-import Collapse from "react-bootstrap/Collapse";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Software } from "@helpers/InstallHelper";
 import StreamPiSEO from "@StreamPi/SEO";
 import DownloadCount from "@components/DownloadCount";
-import SectionWrapper from "@components/SectionWrapper";
+import CollapsePill from "@components/CollapsePill";
 
-const Disclaimer: React.FC = () => {
-  const [open, setOpen] = useState(false);
-
+const StreamPiInstall: React.FC = () => {
   return (
-    <SectionWrapper>
-      <p
-        id="anti-virus-toggle"
-        onClick={() => setOpen(!open)}
-        className="text-center mb-1"
-        aria-controls="anti-virus-disclaimer"
-        aria-expanded={open}
-      >
-        Click for a disclaimer in regards to Anti-Virus Software
-        <FontAwesomeIcon
-          className="ml-3"
-          icon={["fas", open ? "angle-up" : "angle-down"]}
-          size="lg"
-        />
-      </p>
-      <Collapse in={open}>
-        <div id="anti-virus-disclaimer">
-          <br />
+    <React.Fragment>
+      <StreamPiSEO
+        title="Install"
+        description="Download and Setup your Stream-Pi using these instructions!"
+      />
+      <div className="animate__animated animate__fadeIn">
+        <h1 className="text-center pb-4">How to Setup Stream-Pi</h1>
+        <p className="text-center">
+          <strong>Totals currently not accurate</strong>
+        </p>
+        <DownloadCount />
+        <p className="text-center">
+          To view setup / install instructions, please click on the software
+          type (server or client) and then click the button that pertains to
+          your device.
+        </p>
+      </div>
+      {/* Disclaimer Start */}
+      <div className="animate__animated animate__fadeInUp">
+        <CollapsePill
+          id="anti-virus-disclaimer"
+          titleText="Click for a disclaimer in regards to Anti-Virus Software"
+        >
           <p>
             Currently, Stream-Pi is known that it may be picked up by SOME
             anti-virus software solutions, often as a PUP (Potentially Unwanted
@@ -62,34 +63,7 @@ const Disclaimer: React.FC = () => {
             flags Stream-Pi, and, what solutions are available to overcome these
             issues.
           </p>
-        </div>
-      </Collapse>
-    </SectionWrapper>
-  );
-};
-
-const StreamPiInstall: React.FC = () => {
-  return (
-    <React.Fragment>
-      <StreamPiSEO
-        title="Install"
-        description="Download and Setup your Stream-Pi using these instructions!"
-      />
-      <div className="animate__animated animate__fadeIn">
-        <h1 className="text-center pb-4">How to Setup Stream-Pi</h1>
-        <p className="text-center">
-          <strong>Totals currently not accurate</strong>
-        </p>
-        <DownloadCount />
-        <p className="text-center">
-          To view setup / install instructions, please click on the software
-          type (server or client) and then click the button that pertains to
-          your device.
-        </p>
-      </div>
-      {/* Disclaimer Start */}
-      <div className="animate__animated animate__fadeInUp">
-        <Disclaimer />
+        </CollapsePill>
       </div>
       {/* Disclaimer End */}
       <div className="animate__animated animate__fadeInUp">
