@@ -27,9 +27,9 @@ const StreamPiSEO: React.FC<Props> = ({ title, flipOrder, description }) => {
       <meta property="og:site_name" content={config.title} />
       <meta
         property="og:image"
-        content="https://stream-pi.com/images/logo.png"
+        content={`${process.env.NEXT_PUBLIC_BASE_URL}/images/logo.png`}
       />
-      <meta property="og:url" content={`https://stream-pi.com/${path}`} />
+      <meta property="og:url" content={`${process.env.NEXT_PUBLIC_BASE_URL}/${path}`} />
       <meta property="twitter:card" content="summary" />
       <meta property="twitter:creator" content={config.social.twitter} />
       <meta property="twitter:title" content={titleString} />
