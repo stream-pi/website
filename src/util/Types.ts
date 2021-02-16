@@ -7,14 +7,14 @@ export type ButtonObj = {
 };
 
 export type IconObj = {
-  type: IconPrefix;
-  name: IconName;
+  IcoPre: IconPrefix;
+  IcoName: IconName;
 };
 
-export class PersonIcon implements IconObj {
+export class PersonIcon {
   constructor(
-    public type: IconPrefix,
-    public name: IconName,
+    public IcoPre: IconPrefix,
+    public IcoName: IconName,
     public description: string,
     public link: string
   ) {}

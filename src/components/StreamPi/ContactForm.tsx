@@ -45,11 +45,11 @@ const MyFormControl: React.FC<Props> = (props) => {
 
 // Custom FormControl Label
 const FieldLabel: React.FC<LabelProps> = (props) => {
-  const { label, type, name, subtext } = props;
+  const { label, IcoPre: IconPrefix, IcoName: IconName, subtext } = props;
   return (
     <Form.Label>
       <h5>
-        {label} <FontAwesomeIcon icon={[type, name]} />
+        {label} <FontAwesomeIcon icon={[IconPrefix, IconName]} />
       </h5>
       {subtext ? ` ${subtext}` : ""}
     </Form.Label>
@@ -116,12 +116,10 @@ const ContactForm: React.FC = () => {
                 setDisplay(true);
               } catch (error) {
                 setType("danger");
-                if (error.response) {
-                  // response error
+                if (error.response /* response error */) {
                   setTitle(error.response.data.title);
                   setLongMsg(error.response.data.long_msg);
-                } else if (error.request) {
-                  // request error
+                } else if (error.request /* request error */) {
                   setTitle("Request Error");
                   setLongMsg(error.message);
                 } else {
@@ -143,7 +141,7 @@ const ContactForm: React.FC = () => {
                   {/* Name */}
                   <Col md={6}>
                     <Form.Group style={FGStyles} controlId="NameInput">
-                      <FieldLabel label="Name" type="fas" name="user" />
+                      <FieldLabel label="Name" IcoPre="fas" IcoName="user" />
                       <MyFormControl
                         type="text"
                         name="name"
@@ -156,7 +154,11 @@ const ContactForm: React.FC = () => {
                   {/* Email */}
                   <Col md={6}>
                     <Form.Group style={FGStyles} controlId="EmailInput">
-                      <FieldLabel label="Email" type="fas" name="envelope" />
+                      <FieldLabel
+                        label="Email"
+                        IcoPre="fas"
+                        IcoName="envelope"
+                      />
                       <MyFormControl
                         type="email"
                         name="email"
@@ -171,8 +173,8 @@ const ContactForm: React.FC = () => {
                 <Form.Group controlId="MessageSelect" style={FGStyles}>
                   <FieldLabel
                     label="Subject"
-                    type="fas"
-                    name="question-circle"
+                    IcoPre="fas"
+                    IcoName="question-circle"
                     subtext="(Select One)"
                   />
                   <MyFormControl
@@ -191,7 +193,7 @@ const ContactForm: React.FC = () => {
 
                 {/* Message */}
                 <Form.Group style={FGStyles} controlId="MessageInput">
-                  <FieldLabel label="Message" type="fas" name="comment" />
+                  <FieldLabel label="Message" IcoPre="fas" IcoName="comment" />
                   <MyFormControl
                     name="message"
                     as="textarea"

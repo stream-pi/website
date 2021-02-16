@@ -25,11 +25,11 @@ const HomeCard: React.FC<Props> = (props) => {
 
   return (
     <Col lg={4} className="text-center">
-      {icons.map((i, idx) => (
+      {icons.map((item, idx) => (
         <React.Fragment key={`icon${idx}`}>
           <FontAwesomeIcon
             className={extraClass ? extraClass[idx] : ""}
-            icon={[i.type, i.name]}
+            icon={[item.IcoPre, item.IcoName]}
             size="4x"
           />
           {"\n"}
@@ -113,9 +113,7 @@ const StreamPiHome: React.FC = () => {
         >
           Both of us wanted to make something in JavaFX because it seemed to
           have been forgotten by the community and given that it's a great way
-          to build UI and a challenge to build for on the Raspberry Pi, we
-          decided to use it to learn more and build a great product! Thanks to
-          Bellsoft for keeping JavaFX alive!
+          to build UI and a challenge to build for on the Raspberry Pi.
         </HomeCard>
       </Row>
       {/* video */}

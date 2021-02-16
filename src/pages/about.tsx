@@ -27,15 +27,15 @@ const LinkWithPop: React.FC<Props> = ({ description, link, icon }) => {
         target="_blank"
         rel="noreferrer"
       >
-        <FontAwesomeIcon icon={[icon.type, icon.name]} size="2x" />
+        <FontAwesomeIcon icon={[icon.IcoPre, icon.IcoName]} size="2x" />
       </a>
     </OverlayTrigger>
   );
 };
 
-const RowCol: React.FC<{ className: string }> = ({ children, className: classes }) => {
+const RowCol: React.FC<{ className: string }> = ({ children, className }) => {
   return (
-    <Row className={classes}>
+    <Row className={className}>
       <Col>{children}</Col>
     </Row>
   );
@@ -53,12 +53,12 @@ const TeamMemberCard: React.FC<TeamMember> = ({ picture, name, icons }) => {
           className="w-50"
         />
       </div>
-      {icons.map((i, idx) => (
+      {icons.map((item, idx) => (
         <React.Fragment key={idx}>
           <LinkWithPop
-            description={i.description}
-            icon={{ name: i.name, type: i.type }}
-            link={i.link}
+            description={item.description}
+            icon={{ IcoName: item.IcoName, IcoPre: item.IcoPre }}
+            link={item.link}
           />
           {"\n"} {/* why is this here? */}
         </React.Fragment>

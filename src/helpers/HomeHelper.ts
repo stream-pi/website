@@ -8,8 +8,8 @@ type HomeObj = {
 
 export const KIT: HomeObj = {
   icons: [
-    { type: "fab", name: "discord" },
-    { type: "fab", name: "twitter" },
+    { IcoPre: "fab", IcoName: "discord" },
+    { IcoPre: "fab", IcoName: "twitter" },
   ],
   buttons: [
     { text: "Join the Discord", link: "https://discord.gg/BExqGmk" },
@@ -19,14 +19,14 @@ export const KIT: HomeObj = {
 };
 
 export const ICF: HomeObj = {
-  icons: [{ type: "fab", name: "github" }],
+  icons: [{ IcoPre: "fab", IcoName: "github" }],
   buttons: [
     { text: "Check out the Github", link: "https://github.com/stream-pi/" },
   ],
 };
 
 export const MIJ: HomeObj = {
-  icons: [{ type: "fab", name: "java" }],
+  icons: [{ IcoPre: "fab", IcoName: "java" }],
   buttons: [{ text: "See how it's made", link: "/about#technology", internal: true }],
 };
 
