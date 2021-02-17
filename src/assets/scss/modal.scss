@@ -21,8 +21,8 @@ span {
   }
 }
 
-@include modalCustWidth(70);
-@include modalCustWidth(55);
+@include modalCustWidth(70); // .modal-70w
+@include modalCustWidth(55); // .modal-55w
 
 .modal-title {
   width: 100%;
@@ -31,11 +31,4 @@ span {
 
 .small-modal.modal-body p {
   font-size: 1rem;
-}
-
-// This will fix the modal transition out bug
-// The bug seems to stem from the box-shadow transition
-// all else fails, set it to none
-.modal-footer .btn {
-  transition: none;
 }
