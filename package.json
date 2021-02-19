@@ -1,7 +1,15 @@
 {
   "name": "streampi-website",
   "version": "2.0.0",
-  "private": true,
+  "author": "Samuel Quiñones",
+  "description": "The official Stream-Pi website",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stream-pi/website"
+  },
+  "bugs": {
+    "url": "https://github.com/stream-pi/website/issues"
+  },
   "scripts": {
     "dev": "npm run clean && next dev",
     "build": "npm run clean && next build",
@@ -9,9 +17,7 @@
     "indev": "next start -p 3012",
     "static": "npm run build && next export",
     "clean": "npx rimraf .next && npx rimraf out",
-    "preinstall": "node ./.scripts/nodeVersionCheck.js",
-    "predev": "node ./.scripts/startUpMessage.js",
-    "prebuild": "node ./.scripts/preBuild.js"
+    "preinstall": "node ./.scripts/nodeVersionCheck.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
