@@ -18,8 +18,9 @@
     "build": "npm run clean && next build",
     "start": "next start -p 8080",
     "indev": "next start -p 3012",
-    "static": "npm run build && next export -o $npm_package_config_static_out",
-    "clean": "npx rimraf .next && npx rimraf $npm_package_config_static_out",
+    "static": "cross-env-shell STATIC_OUT=$npm_package_config_static_out \"npm run build && next export -o $STATIC_OUT\"",
+    "serve-static": "cross-env-shell STATIC_OUT=$npm_package_config_static_out \"serve $STATIC_OUT\"",
+    "clean": "cross-env-shell STATIC_OUT=$npm_package_config_static_out \"npx rimraf .next && npx rimraf $STATIC_OUT\"",
     "preinstall": "node ./.scripts/nodeVersionCheck.js && node ./.scripts/npmVersionCheck.js"
   },
   "dependencies": {
@@ -46,6 +47,8 @@
     "@types/nodemailer": "^6.4.0",
     "@types/react": "^17.0.2",
     "@types/react-google-recaptcha": "^2.1.0",
+    "cross-env": "^7.0.3",
+    "serve": "^11.3.2",
     "typescript": "^4.1.5"
   }
 }
