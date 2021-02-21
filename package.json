@@ -10,14 +10,17 @@
   "bugs": {
     "url": "https://github.com/stream-pi/website/issues"
   },
+  "config": {
+    "static_out": "out"
+  },
   "scripts": {
     "dev": "npm run clean && next dev",
     "build": "npm run clean && next build",
     "start": "next start -p 8080",
     "indev": "next start -p 3012",
-    "static": "npm run build && next export",
-    "clean": "npx rimraf .next && npx rimraf out",
-    "preinstall": "node ./.scripts/nodeVersionCheck.js"
+    "static": "npm run build && next export -o $npm_package_config_static_out",
+    "clean": "npx rimraf .next && npx rimraf $npm_package_config_static_out",
+    "preinstall": "node ./.scripts/nodeVersionCheck.js && node ./.scripts/npmVersionCheck.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
