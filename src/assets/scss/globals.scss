@@ -1,8 +1,9 @@
-@import "fonts.scss";
-@import "captcha.scss";
-@import "loader.scss";
-@import "theme.scss";
-@import "modal.scss";
+// Imports
+@import "fonts";
+@import "captcha";
+@import "loader";
+@import "theme";
+@import "modal";
 
 #__next {
   display: flex !important;
