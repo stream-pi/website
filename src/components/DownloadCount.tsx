@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { getDownloads } from "@util/API";
 import { LoadingIndicator } from "./LoadingIndicator";
 
@@ -6,10 +6,6 @@ const DownloadCount: React.FC = () => {
   const [clientDownloads, setClientDownloads] = useState<number>(0);
   const [serverDownloads, setServerDownloads] = useState<number>(0);
   const [loaded, setLoaded] = useState(false);
-
-  // When the repos get reset, we'll need to know initial download counts
-  const startingClient = useRef<any>(1255);
-  const startingServer = useRef<any>(1460);
 
   useEffect(() => {
     let mounted = true;
@@ -32,8 +28,8 @@ const DownloadCount: React.FC = () => {
         if (info instanceof Error) {
           console.log(info);
         } else {
-          setServerDownloads(info[0].data["Total Downloads"] + startingServer.current);
-          setClientDownloads(info[1].data["Total Downloads"] + startingClient.current);
+          setServerDownloads(info[0].data["Total Downloads"]);
+          setClientDownloads(info[1].data["Total Downloads"]);
         }
         setLoaded(true);
       }
