@@ -8,8 +8,14 @@ const StreamPiFooter: React.FC = () => {
   return (
     <>
       <main className="flex-fill"></main>
-      <footer className="text-center footer">
-        <p style={{ marginTop: "0.5rem", marginBottom: "0.5rem" }}>
+      <footer className="text-center footer mt-2">
+        <p
+          style={{
+            marginTop: "0.5rem",
+            marginBottom: "0.5rem",
+            fontSize: "1.0rem",
+          }}
+        >
           &copy; 2019 - {currentYear}, <LegalInfoModal /> and its Affiliates
         </p>
       </footer>
