@@ -1,5 +1,7 @@
 # Stream-Pi Site Made in React
 
+[![Package.json Version](https://img.shields.io/github/package-json/v/stream-pi/website/master?label=Release&style=for-the-badge)](https://github.com/stream-pi/website/blob/master/package.json#L3) [![Website Upstatus](https://img.shields.io/website?down_message=offline&style=for-the-badge&up_message=online&url=https%3A%2F%2Fstream-pi.com)](https://stream-pi.com) [![Github Stars](https://img.shields.io/github/stars/stream-pi/website?color=yellow&style=for-the-badge)](https://github.com/stream-pi/website/stargazers)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 <div align="center">
