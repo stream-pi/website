@@ -1,3 +1,5 @@
+// TODO: Fix active class for /install subdirectories
+
 import React, { Children } from "react";
 import { LinkProps } from "next/link";
 import { useRouter } from "next/router";

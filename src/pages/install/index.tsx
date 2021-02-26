@@ -66,6 +66,7 @@ const StreamPiInstall: React.FC = () => {
         </CollapsePill>
       </div>
       {/* Disclaimer End */}
+
       <div className="animate__animated animate__fadeInUp">
         <Tab.Container id="sercli-instructions">
           {/* Server or Client */}

@@ -2,8 +2,8 @@ module.exports = {
   async redirects() {
     return [
       {
-        source: "/download",
-        destination: "/install", // Matched parameters can be used in the destination
+        source: "/download/:sercli*",
+        destination: "/install/:sercli*", // Matched parameters can be used in the destination
         permanent: true,
       },
       {

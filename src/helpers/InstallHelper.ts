@@ -7,10 +7,6 @@ export const Software = [
         install: ["Download", "run"],
       },
       {
-        platform: "Mac",
-        install: ["Download", "run"],
-      },
-      {
         platform: "Linux",
         install: ["Download", "run"],
       },
@@ -29,14 +25,10 @@ export const Software = [
       },
       {
         platform: "RaspberryPi",
-        install: ["Download", "Run"]
+        install: ["Download", "Run"],
       },
       {
         platform: "Windows",
-        install: ["Download", "run"],
-      },
-      {
-        platform: "Mac",
         install: ["Download", "run"],
       },
     ],
