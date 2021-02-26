@@ -15,12 +15,14 @@
   },
   "scripts": {
     "dev": "npm run clean && next dev",
+    "dev:debug": "NODE_OPTIONS='--inspect' next dev",
     "build": "npm run clean && next build",
     "start": "next start -p 8080",
     "indev": "next start -p 3012",
     "static": "cross-env-shell \"npm run build && next export -o $npm_package_config_static_out\"",
     "serve-static": "cross-env-shell \"serve $npm_package_config_static_out\"",
     "clean": "cross-env-shell \"rimraf .next && rimraf $npm_package_config_static_out\"",
+    "clean:light": "cross-env-shell \"rimraf .next/* && rimraf $npm_package_config_static_out/*\"",
     "preinstall": "node ./.scripts/nodeVersionCheck.js && node ./.scripts/npmVersionCheck.js"
   },
   "dependencies": {
