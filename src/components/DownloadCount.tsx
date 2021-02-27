@@ -10,8 +10,6 @@ const DownloadCount: React.FC = () => {
   useEffect(() => {
     let mounted = true;
 
-    // getDownloadsInternal("str").then(r => console.log(r.data)).catch(e => console.log(e.response.data));
-
     const doFetch = async () => {
       try {
         const server = await getDownloads("SERVER");

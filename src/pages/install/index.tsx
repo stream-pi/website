@@ -57,21 +57,17 @@ const StreamPiInstall: React.FC = () => {
     if (base.length > 0) {
       switch (platform) {
         case "Android":
-          return base[base.findIndex((x) => x.Name === "client.apk")].Link;
+          return base.find((x) => x.Name === "client.apk").Link;
 
         case "Raspberry-Pi":
-          return base[
-            base.findIndex((x) =>
-              x.Name.toLowerCase().includes("linux-arm7-drm")
-            )
-          ].Link;
+          return base.find((x) =>
+            x.Name.toLowerCase().includes("linux-arm7-drm")
+          ).Link;
 
         default:
-          return base[
-            base.findIndex((x) =>
-              x.Name.toLowerCase().includes(platform.toLowerCase())
-            )
-          ].Link;
+          return base.find((x) =>
+            x.Name.toLowerCase().includes(platform.toLowerCase())
+          ).Link;
       }
     } else {
       return "";
@@ -86,7 +82,6 @@ const StreamPiInstall: React.FC = () => {
       />
       <div className="animate__animated animate__fadeIn">
         <h1 className="text-center pb-4">How to Setup Stream-Pi</h1>
-        <DownloadCount />
         <p className="text-center">
           To view setup / install instructions, please click on the software
           type (server or client) and then click the button that pertains to
@@ -134,7 +129,9 @@ const StreamPiInstall: React.FC = () => {
       {/* Disclaimer End */}
 
       {!loaded ? (
-        <LoadingIndicator />
+        <div className="text-center">
+          <LoadingIndicator />
+        </div>
       ) : (
         <div className="animate__animated animate__fadeInUp">
           <Tab.Container id="sercli-instructions">
