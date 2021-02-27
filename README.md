@@ -19,7 +19,7 @@ It'll also in general just be easier to maintain.
 ## Current Packages / Libraries
 
 - React
-- NextJS (Server backend for deploying the app)
+- NextJS (Base framework and faux server backend for deploying the app)
 - Typescript (for better type checking in Javascript)
 - Node Sass (for use of sass/scss)
 - Bootstrap (for style / look)
@@ -28,6 +28,8 @@ It'll also in general just be easier to maintain.
 - Formik (for form styling / validation)
 - Yup (for form validation schema)
 - Axios (API calls and GET / POST requests)
+- Gray Matter (For reading hidden metadata in markdown files)
+- Remark (For rendering markdown as HTML with syntax)
 
 ## How Can I Contribute?
 
