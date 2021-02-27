@@ -11,14 +11,28 @@ const spi = axios.create({
 
 export type GithubResponse = AxiosResponse<Github[]>;
 type GitHubPromise = Promise<GithubResponse>;
+
 type GithubDownloads = AxiosResponse<{ "Total Downloads": number }>;
 type GithubDownloadsPromise = Promise<GithubDownloads>;
+
 type MailMsgResponse = AxiosResponse<{ title: string; long_msg: string }>;
 type MailMsgPromise = Promise<MailMsgResponse>;
+
+export type LatestRelease = {
+  Version: string;
+  "Release Page": string;
+  Downloads: { Name: string; Link: string }[];
+};
+type LatestReleaseResponse = AxiosResponse<LatestRelease>;
+type LatesteReleasePromise = Promise<LatestReleaseResponse>;
 
 export async function getGithub(repo: string): GitHubPromise {
   const owner = process.env.NEXT_PUBLIC_REPO_OWNER;
   return github.get(`/repos/${owner}/${repo}/releases`);
+}
+
+export async function getReleases(repo: string): LatesteReleasePromise {
+  return spi.get(`/get_latest?TYPE=${repo}`);
 }
 
 export async function getDownloads(repo: string): GithubDownloadsPromise {
