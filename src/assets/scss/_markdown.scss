@@ -1,0 +1,86 @@
+.spi-markdown {
+  pre {
+    background-color: inherit;
+    color: inherit;
+    border: inherit;
+    text-align: inherit;
+    padding: inherit;
+  }
+
+  .hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+    color: var(--spi-color-code-one);
+    background: var(--spi-color-code-two);
+  }
+
+  .hljs-comment,
+  .hljs-quote {
+    color: var(--spi-color-code-three);
+    font-style: italic;
+  }
+
+  .hljs-doctag,
+  .hljs-keyword,
+  .hljs-formula {
+    color: var(--spi-color-code-four);
+  }
+
+  .hljs-section,
+  .hljs-name,
+  .hljs-selector-tag,
+  .hljs-deletion,
+  .hljs-subst {
+    color: var(--spi-color-code-five);
+  }
+
+  .hljs-literal {
+    color: var(--spi-color-code-six);
+  }
+
+  .hljs-string,
+  .hljs-regexp,
+  .hljs-addition,
+  .hljs-attribute,
+  .hljs-meta-string {
+    color: var(--spi-color-code-seven);
+  }
+
+  .hljs-built_in,
+  .hljs-class .hljs-title {
+    color: var(--spi-color-code-eight);
+  }
+
+  .hljs-attr,
+  .hljs-variable,
+  .hljs-template-variable,
+  .hljs-type,
+  .hljs-selector-class,
+  .hljs-selector-attr,
+  .hljs-selector-pseudo,
+  .hljs-number {
+    color: var(--spi-color-code-nine);
+  }
+
+  .hljs-symbol,
+  .hljs-bullet,
+  .hljs-link,
+  .hljs-meta,
+  .hljs-selector-id,
+  .hljs-title {
+    color: var(--spi-color-code-ten);
+  }
+
+  .hljs-emphasis {
+    font-style: italic;
+  }
+
+  .hljs-strong {
+    font-weight: bold;
+  }
+
+  .hljs-link {
+    text-decoration: underline;
+  }
+}

@@ -2,7 +2,7 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import React from "react";
 import { capitalize } from "@util";
-import { getPlatformNames, getInstallInstructions } from "@util/Instructions";
+import { getPlatformNames, getInstallInstructions } from "src/instructions";
 import StreamPiSEO from "@components/StreamPi/SEO";
 
 type Params = {
@@ -48,11 +48,11 @@ const Platform: React.FC<Props> = ({ installInstructions }) => {
         description={`Install Stream-Pi server on ${capitalize(platform)}`}
       />
       <div>
-        <p>{platform}</p>
-        <br />
-        <p>{lastUpdated}</p>
-        <br />
-        <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
+        <p className="mb-2">Last Updated On {lastUpdated}</p>
+        <div
+          className="spi-markdown"
+          dangerouslySetInnerHTML={{ __html: contentHtml }}
+        />
       </div>
     </>
   );
