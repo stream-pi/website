@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "animate.css/animate.min.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import "../assets/scss/globals.scss";
+import "../assets/styles/globals.scss";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { AppProps } from "next/app";
