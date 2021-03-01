@@ -69,15 +69,17 @@ p {
   .nav-link {
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
     border: 1px solid #17a2b8;
+    font-size: 1.25rem;
     &:hover {
       color: #fff;
       background-color: #138496;
       border-color: #117a8b;
     }
     &.active,
-    .show > .nav-link {
+    .show {
       background-color: #17a2b8;
       cursor: default !important;
+      text-decoration: none;
     }
   }
 }

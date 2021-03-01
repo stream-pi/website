@@ -4,20 +4,128 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Nav from "react-bootstrap/Nav";
 import Tab from "react-bootstrap/Tab";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getReleases, LatestRelease } from "@util/API";
-import { Software } from "@helpers/InstallHelper";
 import StreamPiSEO from "@StreamPi/SEO";
-import DownloadCount from "@components/DownloadCount";
 import CollapsePill from "@components/CollapsePill";
 import { LoadingIndicator } from "@components/LoadingIndicator";
 import ThemedButton from "@components/ThemedButton";
 
 type Releases = { Client: LatestRelease; Server: LatestRelease };
-type SerCli = "Server" | "Client";
+type InstallNavProps = {
+  arr: LatestRelease["Downloads"];
+  sercli: string;
+  version: string;
+};
 
 const BlankDate: Releases = {
   Client: { Version: "0.0.0", "Release Page": "N/A", Downloads: [] },
   Server: { Version: "0.0.0", "Release Page": "N/A", Downloads: [] },
+};
+
+const fixDownloadName = (input: string, version: string, sercli: string) => {
+  const no_id = input.replace(`StreamPi-${sercli}-${version}-`, "");
+  return no_id.replace(/\.[A-Za-z0-9]+$/g, "");
+};
+
+const InstallNav: React.FC<InstallNavProps> = ({ arr, sercli, version }) => {
+  return (
+    <Tab.Container id={`${sercli}-platform-instructions`}>
+      {/* Nav item */}
+      <Nav variant="pills" className="flex-column flex-md-row" justify>
+        {arr.map((item, idx) => {
+          const key = fixDownloadName(item.Name, version, sercli);
+          return (
+            <Nav.Item key={`${sercli}-${idx}-tab`}>
+              <Nav.Link className="mx-1" eventKey={`${sercli}-${key}`}>
+                {key.replace("FINAL-EA-", "").replace("-drm", "")}
+                {key.includes("linux-arm7") && (
+                  <>
+                    {" "}
+                    <FontAwesomeIcon
+                      icon={["fab", "raspberry-pi"]}
+                      className="animate__animated animate__heartBeat"
+                    />
+                  </>
+                )}
+              </Nav.Link>
+            </Nav.Item>
+          );
+        })}
+      </Nav>
+      {/* Nav item end */}
+      {/* Content */}
+      <Tab.Content className="pt-2 mx-1 mx-md-5">
+        {arr.map((item, idx) => {
+          const key = fixDownloadName(item.Name, version, sercli);
+          return (
+            <Tab.Pane
+              key={`${sercli}-${idx}-pane`}
+              eventKey={`${sercli}-${key}`}
+            >
+              <div className="py-3">
+                <p className="text-center">
+                  By clicking the button below you will start downloading the{" "}
+                  <strong>
+                    {sercli} {key}
+                  </strong>{" "}
+                  build directly from github.
+                </p>
+                <ThemedButton
+                  size="lg"
+                  href={item.Link || ""}
+                  target="_blank"
+                  block
+                >
+                  Download
+                </ThemedButton>
+              </div>
+              {key.includes("linux-arm7") && (
+                <div className="pt-3">
+                  <p className="text-center">
+                    This build is the one for the <strong>Raspberry Pi</strong>{" "}
+                    Please click the red button below for Pi specific
+                    instructions.
+                  </p>
+                  <Link
+                    href={`/install/${sercli.toLowerCase()}/raspberry-pi}`}
+                    as={`/install/${sercli.toLowerCase()}/raspberry-pi`}
+                    passHref
+                  >
+                    <ThemedButton variant="danger" size="lg" block>
+                      <FontAwesomeIcon
+                        icon={["fab", "raspberry-pi"]}
+                        className="animate__animated animate__heartBeat"
+                      />{" "}
+                      Install Instructions
+                    </ThemedButton>
+                  </Link>
+                </div>
+              )}
+              {/* install instructions */}
+              <div style={{ paddingTop: "2rem" }}>
+                <p className="text-center">
+                  Once your download finishes, you can click the green button
+                  below which will take you to an instructions page specific to
+                  this build and platform.
+                </p>
+                <Link
+                  href={`/install/${sercli.toLowerCase()}/${key.toLowerCase()}`}
+                  as={`/install/${sercli.toLowerCase()}/${key.toLowerCase()}`}
+                  passHref
+                >
+                  <ThemedButton variant="success" size="lg" block>
+                    View Install Instructions
+                  </ThemedButton>
+                </Link>
+              </div>
+            </Tab.Pane>
+          );
+        })}
+      </Tab.Content>
+      {/* Content End */}
+    </Tab.Container>
+  );
 };
 
 const StreamPiInstall: React.FC = () => {
@@ -52,28 +160,6 @@ const StreamPiInstall: React.FC = () => {
     };
   }, []);
 
-  const findDownLoad = (sercli: SerCli, platform: string) => {
-    const base = releaseInfo[sercli].Downloads;
-    if (base.length > 0) {
-      switch (platform) {
-        case "Android":
-          return base.find((x) => x.Name === "client.apk").Link;
-
-        case "Raspberry-Pi":
-          return base.find((x) =>
-            x.Name.toLowerCase().includes("linux-arm7-drm")
-          ).Link;
-
-        default:
-          return base.find((x) =>
-            x.Name.toLowerCase().includes(platform.toLowerCase())
-          ).Link;
-      }
-    } else {
-      return "";
-    }
-  };
-
   return (
     <React.Fragment>
       <StreamPiSEO
@@ -86,6 +172,14 @@ const StreamPiInstall: React.FC = () => {
           To view setup / install instructions, please click on the software
           type (server or client) and then click the button that pertains to
           your device.
+        </p>
+        <p style={{ fontSize: "1.2rem" }} className="text-center">
+          NOTE: There are instructions for the{" "}
+          <strong>
+            Raspberry-Pi <FontAwesomeIcon icon={["fab", "raspberry-pi"]} />
+          </strong>{" "}
+          specifically, look for the button with the "
+          <FontAwesomeIcon icon={["fab", "raspberry-pi"]} />" on it!
         </p>
       </div>
       {/* Disclaimer Start */}
@@ -133,94 +227,42 @@ const StreamPiInstall: React.FC = () => {
           <LoadingIndicator />
         </div>
       ) : (
-        <div className="animate__animated animate__fadeInUp">
-          <Tab.Container id="sercli-instructions">
-            {/* Server or Client */}
-            <Nav justify variant="pills">
-              {Software.map((soft, idx) => (
-                <Nav.Item key={`sofware${idx}`}>
-                  <Nav.Link eventKey={soft.name} className="mx-1">
-                    {soft.name}
+        <>
+          <div className="animate__animated animate__fadeInUp">
+            <Tab.Container id="sercli-instructions">
+              {/* NAV */}
+              <Nav justify variant="pills">
+                <Nav.Item>
+                  <Nav.Link className="mx-1" eventKey="Client">
+                    Client
                   </Nav.Link>
                 </Nav.Item>
-              ))}
-            </Nav>
-            {/* Platforms */}
-            <Tab.Content className="pt-2">
-              {Software.map((soft) => (
-                <Tab.Pane key={`${soft.name}Pane`} eventKey={soft.name}>
-                  <Tab.Container id="platform-instructions">
-                    <Nav
-                      justify
-                      variant="pills" /* className="flex-column flex-sm-row" */
-                    >
-                      {soft.platforms.map((plat) => (
-                        <Nav.Item key={`${soft.name}${plat}`}>
-                          <Nav.Link
-                            eventKey={`${soft.name}${plat}`}
-                            className="mx-1"
-                          >
-                            {plat}
-                          </Nav.Link>
-                        </Nav.Item>
-                      ))}
-                    </Nav>
-                    {/* install steps / download */}
-                    <Tab.Content className="pt-2 mx-1 mx-md-5">
-                      {soft.platforms.map((plat) => (
-                        <Tab.Pane
-                          key={`${soft.name}${plat}Pane`}
-                          eventKey={`${soft.name}${plat}`}
-                        >
-                          {/* DOWNLOAD LINK */}
-                          <div className="py-3">
-                            <p className="text-center">
-                              By Clicking The button below, you will start
-                              downloading the{" "}
-                              <strong>
-                                {plat.toLowerCase()} {soft.name.toLowerCase()}
-                              </strong>{" "}
-                              build direct from github.
-                            </p>
-                            <ThemedButton
-                              size="lg"
-                              href={findDownLoad(soft.name as SerCli, plat)}
-                              target="_blank"
-                              block
-                            >
-                              Download
-                            </ThemedButton>
-                          </div>
-                          {/* DOWNLOAD LINK END */}
-                          <hr />
-                          {/* INSTALL INSTRUCTIONS */}
-                          <div className="pt-3">
-                            <p className="text-center">
-                              Once your download finishes, you can click the
-                              green button below which will take you to an
-                              instructions page specific to this build and
-                              platform.
-                            </p>
-                            <Link
-                              href={`/install/${soft.name.toLowerCase()}/${plat.toLowerCase()}`}
-                              as={`/install/${soft.name.toLowerCase()}/${plat.toLowerCase()}`}
-                              passHref
-                            >
-                              <ThemedButton block variant="success" size="lg">
-                                View Install Instructions
-                              </ThemedButton>
-                            </Link>
-                          </div>
-                          {/* INSTALL INSTRUCTIONS END */}
-                        </Tab.Pane>
-                      ))}
-                    </Tab.Content>
-                  </Tab.Container>
+                <Nav.Item>
+                  <Nav.Link className="mx-1" eventKey="Server">
+                    Server
+                  </Nav.Link>
+                </Nav.Item>
+              </Nav>
+              {/* CONTENT */}
+              <Tab.Content className="pt-2">
+                <Tab.Pane eventKey="Client">
+                  <InstallNav
+                    arr={releaseInfo.Client.Downloads}
+                    sercli="Client"
+                    version={releaseInfo.Client.Version}
+                  />
                 </Tab.Pane>
-              ))}
-            </Tab.Content>
-          </Tab.Container>
-        </div>
+                <Tab.Pane eventKey="Server">
+                  <InstallNav
+                    arr={releaseInfo.Server.Downloads}
+                    sercli="Server"
+                    version={releaseInfo.Server.Version}
+                  />
+                </Tab.Pane>
+              </Tab.Content>
+            </Tab.Container>
+          </div>
+        </>
       )}
     </React.Fragment>
   );

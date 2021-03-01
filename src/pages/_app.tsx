@@ -14,6 +14,7 @@ import {
   faYoutube,
   faJava,
   faPatreon,
+  faRaspberryPi
 } from "@fortawesome/free-brands-svg-icons";
 import {
   faGlobe,
@@ -38,6 +39,7 @@ import StreamPiNavItem from "@StreamPi/NavItem";
 import ThemeSwitch from "@components/ThemeSwitch";
 
 library.add(
+  faRaspberryPi,
   faDiscord,
   faGithub,
   faTwitter,
