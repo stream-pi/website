@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { prettyPrint, queryParser } from "@util";
-import { getGithub, GithubResponse } from "@util/API";
+import { getGithub, GithubResponse, GH } from "@util/Github";
 
 /** Initial Count prior to 1.0.0 */
 const init_count = {
@@ -20,13 +20,19 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const repo = queryParser(req.query.REPO);
   try {
     const repoDeets = await getGithub(repo);
+    GH.setETag(repoDeets.headers.etag);
     res.statusCode = 200;
-    res.send(
-      prettyPrint({
-        "Total Downloads": sumTotalDownloads(repoDeets) + init_count[repo],
-      })
-    );
+    const raw = {
+      "Total Downloads": sumTotalDownloads(repoDeets) + init_count[repo],
+    };
+    GH.setData(raw);
+    res.send(prettyPrint(raw));
   } catch (error) {
-    res.status(400).json(error.response.data);
+    if (error.response?.status === 304) {
+      // console.log("Not a real error");
+      res.send(prettyPrint(GH.getData()));
+    } else {
+      res.status(400).json(error.response.data);
+    }
   }
 };
