@@ -39,3 +39,13 @@ export class MyIconHelper {
     return new PersonIcon("fab", "twitter", "Twitter", url);
   };
 }
+
+export type GithubDownloads = { "Total Downloads": number };
+
+export type MailMsg = { title: string; long_msg: string };
+
+export type LatestRelease = {
+  Version: string;
+  "Release Page": string;
+  Downloads: { Name: string; Link: string }[];
+};

@@ -1,20 +1,16 @@
 import axios, { AxiosResponse } from "axios";
+import { MailMsg, GithubDownloads, LatestRelease } from "./Types";
 
 const spi = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
 });
 
-type GithubDownloads = AxiosResponse<{ "Total Downloads": number }>;
-type GithubDownloadsPromise = Promise<GithubDownloads>;
+type GithubDownloadsResponse = AxiosResponse<GithubDownloads>;
+type GithubDownloadsPromise = Promise<GithubDownloadsResponse>;
 
-type MailMsgResponse = AxiosResponse<{ title: string; long_msg: string }>;
+type MailMsgResponse = AxiosResponse<MailMsg>;
 type MailMsgPromise = Promise<MailMsgResponse>;
 
-export type LatestRelease = {
-  Version: string;
-  "Release Page": string;
-  Downloads: { Name: string; Link: string }[];
-};
 type LatestReleaseResponse = AxiosResponse<LatestRelease>;
 type LatesteReleasePromise = Promise<LatestReleaseResponse>;
 
