@@ -1,10 +1,10 @@
 import React from "react";
 
-const SectionWrapper: React.FC = (props) => {
+const SectionWrapper: React.FC = ({ children }) => {
   return (
     <>
       <hr className="capsule top-hr mb-0" />
-      {props.children}
+      {children}
       <hr className="capsule bottom-hr mt-0" />
     </>
   );

@@ -5,32 +5,36 @@ import Row from "react-bootstrap/Row";
 import { FirstCard, ChunkedFirst } from "@helpers/FirstHelper";
 import StreamPiSEO from "@StreamPi/SEO";
 
-const FirstCardComp: React.FC<FirstCard> = (props) => {
+const FirstCardComp: React.FC<FirstCard> = ({
+  cardTitle,
+  img,
+  description,
+}) => {
   return (
     <Col md={4} className="pb-5 pb-md-0 text-center">
       <Card className="bg-card h-100 firstCard">
         <Card.Body className="p-1">
           <img
-            src={props.img}
+            src={img}
             style={{ height: "130px" }}
-            alt={`First ${props.cardTitle}`}
+            alt={`First ${cardTitle}`}
           />
-          <h5>{props.cardTitle}</h5>
-          <p>{props.description}</p>
+          <h5>{cardTitle}</h5>
+          <p>{description}</p>
         </Card.Body>
       </Card>
     </Col>
   );
 };
 
-const FirstFeatRow: React.FC<{ idx: number }> = (props) => {
+const FirstFeatRow: React.FC<{ idx: number }> = ({ idx, children }) => {
   const padding = ["pt-5"];
   const animation = ["animate__animated", "animate__fadeInUp"];
-  if (props.idx > 0) {
+  if (idx > 0) {
     padding.push("pt-md-4");
   }
   const classes = [...padding, ...animation].toString().replace(/,/gm, " ");
-  return <Row className={classes}>{props.children}</Row>;
+  return <Row className={classes}>{children}</Row>;
 };
 
 const StreamPiFirst: React.FC = () => {

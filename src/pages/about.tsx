@@ -15,7 +15,11 @@ type Props = {
   icon: IconObj;
 };
 
-const LinkWithPop: React.FC<Props> = ({ description, link, icon }) => {
+const LinkWithPop: React.FC<Props> = ({
+  description,
+  link,
+  icon: { IcoPre, IcoName },
+}) => {
   return (
     <OverlayTrigger
       placement="bottom"
@@ -27,7 +31,7 @@ const LinkWithPop: React.FC<Props> = ({ description, link, icon }) => {
         target="_blank"
         rel="noreferrer"
       >
-        <FontAwesomeIcon icon={[icon.IcoPre, icon.IcoName]} size="2x" />
+        <FontAwesomeIcon icon={[IcoPre, IcoName]} size="2x" />
       </a>
     </OverlayTrigger>
   );
@@ -53,12 +57,12 @@ const TeamMemberCard: React.FC<TeamMember> = ({ picture, name, icons }) => {
           className="w-50"
         />
       </div>
-      {icons.map((item, idx) => (
+      {icons.map(({ IcoName, IcoPre, description, link }, idx) => (
         <React.Fragment key={idx}>
           <LinkWithPop
-            description={item.description}
-            icon={{ IcoName: item.IcoName, IcoPre: item.IcoPre }}
-            link={item.link}
+            description={description}
+            icon={{ IcoName, IcoPre }}
+            link={link}
           />
           {"\n"} {/* why is this here? */}
         </React.Fragment>

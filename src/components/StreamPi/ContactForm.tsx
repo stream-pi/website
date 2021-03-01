@@ -44,30 +44,40 @@ const MyFormControl: React.FC<Props> = (props) => {
 };
 
 // Custom FormControl Label
-const FieldLabel: React.FC<LabelProps> = (props) => {
-  const { label, IcoPre: IconPrefix, IcoName: IconName, subtext } = props;
+const FieldLabel: React.FC<LabelProps> = ({
+  label,
+  IcoPre,
+  IcoName,
+  subtext,
+}) => {
   return (
     <Form.Label>
       <h5>
-        {label} <FontAwesomeIcon icon={[IconPrefix, IconName]} />
+        {label} <FontAwesomeIcon icon={[IcoPre, IcoName]} />
       </h5>
       {subtext ? ` ${subtext}` : ""}
     </Form.Label>
   );
 };
 
-const AlertMessage: React.FC<AMProps> = (props) => {
+const AlertMessage: React.FC<AMProps> = ({
+  show,
+  title,
+  type,
+  long_msg,
+  parentFunction,
+}) => {
   return (
-    <Collapse in={props.show} unmountOnExit>
+    <Collapse in={show} unmountOnExit>
       <div className="animate__animated animate__fadeIn animate__faster">
         <Alert
-          show={props.show}
-          variant={props.type}
-          onClose={() => props.parentFunction(false)}
+          show={show}
+          variant={type}
+          onClose={() => parentFunction(false)}
           dismissible
         >
-          <Alert.Heading>{props.title}</Alert.Heading>
-          {props.long_msg === "NONE" ? <></> : <p>{props.long_msg}</p>}
+          <Alert.Heading>{title}</Alert.Heading>
+          {long_msg === "NONE" ? <></> : <p>{long_msg}</p>}
         </Alert>
       </div>
     </Collapse>

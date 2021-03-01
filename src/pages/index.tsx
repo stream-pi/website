@@ -18,18 +18,21 @@ type Props = {
   extraClass?: string[];
 };
 
-const HomeCard: React.FC<Props> = (props) => {
-  const { icons, buttons, title, children, extraClass } = props;
-
+const HomeCard: React.FC<Props> = ({
+  icons,
+  buttons,
+  title,
+  children,
+  extraClass,
+}) => {
   const commonProps = { className: "mb-5", variant: "info" };
-
   return (
     <Col lg={4} className="text-center">
-      {icons.map((item, idx) => (
+      {icons.map(({ IcoPre, IcoName }, idx) => (
         <React.Fragment key={`icon${idx}`}>
           <FontAwesomeIcon
             className={extraClass ? extraClass[idx] : ""}
-            icon={[item.IcoPre, item.IcoName]}
+            icon={[IcoPre, IcoName]}
             size="4x"
           />
           {"\n"}
@@ -38,15 +41,15 @@ const HomeCard: React.FC<Props> = (props) => {
       <h3>{title}</h3>
       <p>{children}</p>
       <p>
-        {buttons.map((b, idx) => (
+        {buttons.map(({ link, text, internal }, idx) => (
           <React.Fragment key={`button${idx}`}>
-            {b.internal ? (
-              <Link href={b.link} as={b.link} passHref>
-                <ThemedButton {...commonProps}>{b.text}</ThemedButton>
+            {internal ? (
+              <Link href={link} as={link} passHref>
+                <ThemedButton {...commonProps}>{text}</ThemedButton>
               </Link>
             ) : (
-              <ThemedButton {...commonProps} href={b.link} target="_blank">
-                {b.text}
+              <ThemedButton {...commonProps} href={link} target="_blank">
+                {text}
               </ThemedButton>
             )}
             {"\n"}
