@@ -1,7 +1,7 @@
 //TODO: Maybe the ETag can be stored in the browser?
 
 import axios, { AxiosResponse } from "axios";
-import { LatestRelease } from "./API";
+import { LatestRelease, GithubDownloads } from "./Types";
 
 export interface Github {
   url: string;
@@ -70,15 +70,15 @@ type GitHubPromise = Promise<GithubResponse>;
 
 class GithubHelper {
   private ETag: string = "";
-  private Data: { "Total Downloads": number } = { "Total Downloads": 0 };
+  private Downloads: GithubDownloads = { "Total Downloads": 0 };
   private ReleaeseInfo: LatestRelease = {
     Version: "0.0.0",
     "Release Page": "N/A",
     Downloads: [],
   };
 
-  public getData() {
-    return this.Data;
+  public getDownloads() {
+    return this.Downloads;
   }
 
   public getETag() {
@@ -89,8 +89,8 @@ class GithubHelper {
     return this.ReleaeseInfo;
   }
 
-  public setData(data: { "Total Downloads": number }) {
-    this.Data = data;
+  public setDownloads(data: GithubDownloads) {
+    this.Downloads = data;
   }
 
   public setETag(input: string) {
@@ -111,7 +111,7 @@ export async function getGithub(repo: string): GitHubPromise {
   return github.get(`/repos/${owner}/${repo}/releases`, {
     headers: { "If-None-Match": GH.getETag() },
     auth: {
-      username: "SamuelQuinones",
+      username: process.env.GITHUB_USR,
       password: process.env.GITHUB_KEY,
     },
   });

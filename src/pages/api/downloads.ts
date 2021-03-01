@@ -25,12 +25,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const raw = {
       "Total Downloads": sumTotalDownloads(repoDeets) + init_count[repo],
     };
-    GH.setData(raw);
+    GH.setDownloads(raw);
     res.send(prettyPrint(raw));
   } catch (error) {
     if (error.response?.status === 304) {
       // console.log("Not a real error");
-      res.send(prettyPrint(GH.getData()));
+      res.send(prettyPrint(GH.getDownloads()));
     } else {
       res.status(400).json(error.response.data);
     }
