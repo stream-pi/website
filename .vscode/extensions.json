@@ -11,6 +11,8 @@
     "esbenp.prettier-vscode",
     "eamodio.gitlens",
     "vscode-icons-team.vscode-icons",
-    "mikestead.dotenv"
+    "mikestead.dotenv",
+    "jasonnutter.search-node-modules",
+    "coenraads.bracket-pair-colorizer-2"
   ]
 }
