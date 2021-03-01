@@ -42,8 +42,8 @@ const LegalInfoModal: React.FC = () => {
             <strong>This is in reference to the Stream-Pi Software</strong>
           </p>
           <p className="mb-1">
-            Stream-Pi - Free &amp; Open-Source Modular Cross-Platform Programmable
-            Macropad
+            Stream-Pi - Free &amp; Open-Source Modular Cross-Platform
+            Programmable Macropad
           </p>
           <p>
             Copyright (C) 2019-2021 Debayan Sutradhar (rnayabed), Samuel

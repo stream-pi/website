@@ -54,7 +54,9 @@ const StreamPiNavItem: React.FC<ItemProps> = ({ children, to, ...props }) => {
   return (
     <ActiveLink activeClassName="active" href={to} {...props} passHref>
       {/* <a className="btn nav-item nav-link w-100 mx-0 mx-md-3">{children}</a> */}
-      <NavLink className="btn nav-item w-100 mx-0 mx-md-3" active={false}>{children}</NavLink>
+      <NavLink className="btn nav-item w-100 mx-0 mx-md-3" active={false}>
+        {children}
+      </NavLink>
     </ActiveLink>
   );
 };

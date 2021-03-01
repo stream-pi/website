@@ -8,7 +8,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const repoDeets = await getGithub(repo);
     GH.setETag(repoDeets.headers.etag);
-    
+
     const version = repoDeets.data[0].tag_name;
     const release = `https://github.com/${process.env.NEXT_PUBLIC_REPO_OWNER}/${repo}/releases`;
 

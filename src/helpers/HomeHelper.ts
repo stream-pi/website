@@ -27,7 +27,9 @@ export const ICF: HomeObj = {
 
 export const MIJ: HomeObj = {
   icons: [{ IcoPre: "fab", IcoName: "java" }],
-  buttons: [{ text: "See how it's made", link: "/about#technology", internal: true }],
+  buttons: [
+    { text: "See how it's made", link: "/about#technology", internal: true },
+  ],
 };
 
 export const HomeInfo = {

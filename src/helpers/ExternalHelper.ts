@@ -3,9 +3,9 @@
 type ExternalMaster = {
   [x: string]: {
     name: string;
-    link: string
-  }
-}
+    link: string;
+  };
+};
 
 const releaseURL = (repo: string) =>
   `https://github.com/${process.env.NEXT_PUBLIC_REPO_OWNER}/${repo}/releases`;

@@ -14,7 +14,7 @@ import {
   faYoutube,
   faJava,
   faPatreon,
-  faRaspberryPi
+  faRaspberryPi,
 } from "@fortawesome/free-brands-svg-icons";
 import {
   faGlobe,

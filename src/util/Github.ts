@@ -116,17 +116,3 @@ export async function getGithub(repo: string): GitHubPromise {
     },
   });
 }
-
-// export function checkEtag(_ETag: string) {
-//   if (_ETag !== ETag) {
-//     ETag = _ETag;
-//   }
-// }
-
-// export function getData() {
-//   return data;
-// }
-
-// export function setData(_data: { "Total Downloads": number }) {
-//   data = _data;
-// }

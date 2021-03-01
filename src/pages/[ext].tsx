@@ -19,7 +19,6 @@ type Props = {
 };
 
 const ExtRedir: React.FC<Props> = ({ postData }) => {
-
   useEffect(() => {
     window.location.replace(postData.link);
   }, [postData.link]);
