@@ -1,4 +1,17 @@
 .spi-markdown {
+  h1,
+  h2,
+  h3 {
+    &::before {
+      display: block;
+      content: " ";
+      margin-top: -100px;
+      height: 100px;
+      visibility: hidden;
+      pointer-events: none;
+    }
+  }
+
   pre {
     background-color: inherit;
     color: inherit;

@@ -1,5 +1,3 @@
-// TODO: Can MD anchors be kept?
-
 import path from "path";
 import matter from "gray-matter";
 import fs from "fs";
@@ -7,6 +5,7 @@ import remark from "remark";
 import html from "remark-html";
 import gfm from "remark-gfm";
 import highlight from "remark-highlight.js";
+import slug from "remark-slug";
 
 const postsDirectory = path.join(process.cwd(), "src/instructions");
 
@@ -34,6 +33,7 @@ export const getInstallInstructions = async (
   const processedContent = await remark()
     .use(gfm)
     .use(highlight)
+    .use(slug)
     .use(html)
     .process(matterResult.content);
   const contentHtml = processedContent.toString();
