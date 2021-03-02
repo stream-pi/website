@@ -1,5 +1,3 @@
-//TODO: Maybe the ETag can be stored in the browser?
-
 import axios, { AxiosResponse } from "axios";
 import { LatestRelease, GithubDownloads } from "./Types";
 
@@ -68,48 +66,65 @@ const github = axios.create({
 export type GithubResponse = AxiosResponse<Github[]>;
 type GitHubPromise = Promise<GithubResponse>;
 
-class GithubHelper {
-  private ETag: string = "";
-  private Downloads: GithubDownloads = { "Total Downloads": 0 };
-  private ReleaeseInfo: LatestRelease = {
+type GithubHelper = {
+  ETag: string;
+  Downloads: GithubDownloads;
+  ReleaseInfo: LatestRelease;
+};
+
+// class GithubHelper {
+//   private ETag: string = "";
+//   private Downloads: GithubDownloads = { "Total Downloads": 0 };
+//   private ReleaseInfo: LatestRelease = {
+//     Version: "0.0.0",
+//     "Release Page": "N/A",
+//     Downloads: [],
+//   };
+
+//   public getDownloads() {
+//     return this.Downloads;
+//   }
+
+//   public getETag() {
+//     return this.ETag;
+//   }
+
+//   public getReleaseInfo() {
+//     return this.ReleaseInfo;
+//   }
+
+//   public setDownloads(data: GithubDownloads) {
+//     this.Downloads = data;
+//   }
+
+//   public setETag(input: string) {
+//     if (input !== this.ETag) {
+//       this.ETag = input;
+//     }
+//   }
+
+//   public setReleaseInfo(ri: LatestRelease) {
+//     this.ReleaseInfo = ri;
+//   }
+// }
+
+// export const GH = new GithubHelper();
+
+/** Faux cache object, mimics the above commented out class */
+export const GH: GithubHelper = {
+  ETag: "",
+  Downloads: { "Total Downloads": 0 },
+  ReleaseInfo: {
     Version: "0.0.0",
     "Release Page": "N/A",
     Downloads: [],
-  };
-
-  public getDownloads() {
-    return this.Downloads;
-  }
-
-  public getETag() {
-    return this.ETag;
-  }
-
-  public getReleaseInfo() {
-    return this.ReleaeseInfo;
-  }
-
-  public setDownloads(data: GithubDownloads) {
-    this.Downloads = data;
-  }
-
-  public setETag(input: string) {
-    if (input !== this.ETag) {
-      this.ETag = input;
-    }
-  }
-
-  public setReleaseInfo(ri: LatestRelease) {
-    this.ReleaeseInfo = ri;
-  }
-}
-
-export const GH = new GithubHelper();
+  },
+};
 
 export async function getGithub(repo: string): GitHubPromise {
   const owner = process.env.NEXT_PUBLIC_REPO_OWNER;
   return github.get(`/repos/${owner}/${repo}/releases`, {
-    headers: { "If-None-Match": GH.getETag() },
+    headers: { "If-None-Match": GH.ETag },
     auth: {
       username: process.env.GITHUB_USR,
       password: process.env.GITHUB_KEY,

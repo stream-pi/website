@@ -20,17 +20,18 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const repo = queryParser(req.query.REPO);
   try {
     const repoDeets = await getGithub(repo);
-    GH.setETag(repoDeets.headers.etag);
+    GH.ETag = repoDeets.headers.etag;
     res.statusCode = 200;
     const raw = {
       "Total Downloads": sumTotalDownloads(repoDeets) + init_count[repo],
     };
-    GH.setDownloads(raw);
+    // GH.Downloads = { ...raw }; // creates new obj in memory
+    GH.Downloads = raw;
     res.send(prettyPrint(raw));
   } catch (error) {
     if (error.response?.status === 304) {
       // console.log("Not a real error");
-      res.send(prettyPrint(GH.getDownloads()));
+      res.send(prettyPrint(GH.Downloads));
     } else {
       res.status(400).json(error.response.data);
     }
