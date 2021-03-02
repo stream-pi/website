@@ -13,7 +13,7 @@ const FirstCardComp: React.FC<FirstCard> = ({
   return (
     <Col md={4} className="pb-5 pb-md-0 text-center">
       <Card className="bg-card h-100 firstCard">
-        <Card.Body className="p-1">
+        <Card.Body className="p-3">
           <img
             src={img}
             style={{ height: "130px" }}
@@ -28,7 +28,7 @@ const FirstCardComp: React.FC<FirstCard> = ({
 };
 
 const FirstFeatRow: React.FC<{ idx: number }> = ({ idx, children }) => {
-  const padding = ["pt-5"];
+  const padding = ["pt-3"];
   const animation = ["animate__animated", "animate__fadeInUp"];
   if (idx > 0) {
     padding.push("pt-md-4");
@@ -48,23 +48,23 @@ const StreamPiFirst: React.FC = () => {
       <Row className="pt-3 animate__animated animate__fadeIn animate__slow">
         <Col className="text-center">
           <h1>Congratulations!</h1>
-          <h3>You just clicked on your first action!</h3>
+          <h2 className="h3">You just clicked on your first action!</h2>
           <p>Learn how to make more here!</p>
         </Col>
       </Row>
       {ChunkedFirst.map((arr, idx) => (
         <FirstFeatRow idx={idx} key={`cardRow${idx}`}>
-          {arr.map((item, idxx) => (
+          {arr.map(({ cardTitle, description, img }, idxx) => (
             <FirstCardComp
               key={`row${idx}card${idxx}`}
-              cardTitle={item.cardTitle}
-              img={item.img}
-              description={item.description}
+              cardTitle={cardTitle}
+              img={img}
+              description={description}
             />
           ))}
         </FirstFeatRow>
       ))}
-      <div className="py-3" />
+      {/* <div className="py-3" /> */}
     </React.Fragment>
   );
 };

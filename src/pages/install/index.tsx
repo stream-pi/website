@@ -183,7 +183,8 @@ const StreamPiInstall: React.FC = () => {
             Raspberry-Pi <FontAwesomeIcon icon={["fab", "raspberry-pi"]} />
           </strong>{" "}
           specifically, look for the button with the "
-          <FontAwesomeIcon icon={["fab", "raspberry-pi"]} />" on it!
+          <FontAwesomeIcon icon={["fab", "raspberry-pi"]} />" on it! (it'll
+          shake)
         </p>
       </div>
       {/* Disclaimer Start */}
