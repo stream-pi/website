@@ -5,7 +5,8 @@ import Link from "next/link";
 import Nav from "react-bootstrap/Nav";
 import Tab from "react-bootstrap/Tab";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { getReleases, LatestRelease } from "@util/API";
+import { getReleases } from "@util/API";
+import { LatestRelease } from "@util/Types";
 import StreamPiSEO from "@StreamPi/SEO";
 import CollapsePill from "@components/CollapsePill";
 import { LoadingIndicator } from "@components/LoadingIndicator";
@@ -25,7 +26,10 @@ const BlankDate: Releases = {
 
 const fixDownloadName = (input: string, version: string, sercli: string) => {
   const no_id = input.replace(`StreamPi-${sercli}-${version}-`, "");
-  return no_id.replace(/\.[A-Za-z0-9]+$/g, "");
+  return no_id
+    .replace(/\.[A-Za-z0-9]+$/g, "")
+    .replace("FINAL-EA-", "")
+    .replace("-drm", "");
 };
 
 const InstallNav: React.FC<InstallNavProps> = ({ arr, sercli, version }) => {
@@ -38,7 +42,7 @@ const InstallNav: React.FC<InstallNavProps> = ({ arr, sercli, version }) => {
           return (
             <Nav.Item key={`${sercli}-${idx}-tab`}>
               <Nav.Link className="mx-1" eventKey={`${sercli}-${key}`}>
-                {key.replace("FINAL-EA-", "").replace("-drm", "")}
+                {key}
                 {key.includes("linux-arm7") && (
                   <>
                     {" "}
