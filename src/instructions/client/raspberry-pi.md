@@ -1,5 +1,6 @@
 ---
-lastUpdated: "2021-02-26"
+lastUpdated: "2021-03-01"
+streamPiVersion: "1.0.0"
 ---
 
 # Setup Stream-Pi on Raspberry-Pi
