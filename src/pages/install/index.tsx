@@ -219,6 +219,12 @@ const StreamPiInstall: React.FC = () => {
             <strong>NOT USE IT.</strong>
           </p>
           <p>
+            It is advised that you <strong>DO NOT</strong> run StreamPi on a
+            public network, currently we do not encrypt the connection from
+            client to server so the connection is vulnerable. Using a private
+            network is safe.
+          </p>
+          <p>
             We hope that this sufficiently explains why some anti-virus software
             flags Stream-Pi, and, what solutions are available to overcome these
             issues.
