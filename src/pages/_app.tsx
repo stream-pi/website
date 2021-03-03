@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { AppProps } from "next/app";
 import { library, config } from "@fortawesome/fontawesome-svg-core";
-config.autoAddCss = false; /* eslint-disable import/first */
+config.autoAddCss = false;
 import {
   faDiscord,
   faGithub,
@@ -70,8 +70,8 @@ declare global {
 function MyApp({ Component, pageProps }: AppProps) {
   const [path, setPath] = useState("");
   const [theme, setTheme] = useState("dark");
-  const router = useRouter();
   useHashChange();
+  const router = useRouter();
 
   useEffect(() => {
     let mounted = true;
@@ -86,7 +86,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     return () => {
       mounted = false;
     };
-  }, []);
+  }, [router.asPath]);
 
   const toggleTheme = () => {
     setTheme((prev) => {
@@ -109,7 +109,11 @@ function MyApp({ Component, pageProps }: AppProps) {
           <ThemeSwitch propClick={toggleTheme} theme={theme} />
         </StreamPiNavbar>
       )}
-      <Container className="animate__animated animate__fadeIn" fluid>
+      <Container
+        style={{ paddingTop: "4rem" }}
+        className="animate__animated animate__fadeIn"
+        fluid="md"
+      >
         <Component {...pageProps} />
       </Container>
       <StreamPiFooter />

@@ -40,7 +40,7 @@ const sendMailAttempt = async (body: Body) => {
     };
   } else {
     try {
-      let transporter = nodemailer.createTransport({
+      const transporter = nodemailer.createTransport({
         host: "smtp.office365.com",
         port: 587,
         auth: {
@@ -49,7 +49,7 @@ const sendMailAttempt = async (body: Body) => {
         },
       });
 
-      let info = await transporter.sendMail({
+      const info = await transporter.sendMail({
         from: '"StreamPi Noreply" <noreply@stream-pi.com>',
         to: '"StreamPi Contact" <contact@stream-pi.com>',
         cc: `"${body.name}" <${body.email}>`,

@@ -15,7 +15,7 @@ const NotFound: React.FC = () => {
     return () => {
       mounted = false;
     };
-  }, []);
+  }, [router.asPath]);
 
   const code: React.CSSProperties = { color: "inherit", fontWeight: "bold" };
   return (

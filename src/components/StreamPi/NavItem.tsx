@@ -32,8 +32,8 @@ const ActiveLink: React.FC<Props> = ({
   const child = Children.only(children);
   const childClassName = (child as React.ReactElement).props.className || "";
 
-  let newAsPath = /(\#.*|\?.+=.*)/g.test(asPath)
-    ? asPath.replace(/(\#.*|\?.+=.*)/g, "")
+  const newAsPath = /(#.*|\?.+=.*)/g.test(asPath)
+    ? asPath.replace(/(#.*|\?.+=.*)/g, "")
     : asPath;
 
   const className =

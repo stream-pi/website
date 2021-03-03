@@ -49,3 +49,5 @@ export type LatestRelease = {
   "Release Page": string;
   Downloads: { Name: string; Link: string }[];
 };
+
+export type OBJ = Record<string, unknown>;

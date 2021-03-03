@@ -20,9 +20,9 @@ const LegalInfoModal: React.FC = () => {
         placement="top"
         overlay={<Tooltip id="tooltip-legal-info">View Legal Info</Tooltip>}
       >
-        <span className="modal-text-span" onClick={handleShow}>
+        <button className="modal-text-btn" onClick={handleShow}>
           Stream-Pi Group
-        </span>
+        </button>
       </OverlayTrigger>
 
       <Modal

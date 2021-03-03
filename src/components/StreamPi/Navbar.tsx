@@ -8,7 +8,13 @@ const StreamPiNavbar: React.FC<{ navVariant: "light" | "dark" }> = ({
   children,
 }) => {
   return (
-    <Navbar className="shadow" collapseOnSelect expand="sm" variant={navVariant} fixed="top">
+    <Navbar
+      className="shadow"
+      collapseOnSelect
+      expand="sm"
+      variant={navVariant}
+      fixed="top"
+    >
       <Navbar.Brand className="d-sm-none">
         <Image src="/favicon.ico" height="32px" />
       </Navbar.Brand>

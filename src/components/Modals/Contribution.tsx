@@ -14,9 +14,9 @@ const ContributionModal: React.FC = () => {
 
   return (
     <React.Fragment>
-      <span className="modal-text-span" onClick={handleShow}>
+      <button className="modal-text-btn" onClick={handleShow}>
         here
-      </span>
+      </button>
 
       <Modal
         className="my-modal"

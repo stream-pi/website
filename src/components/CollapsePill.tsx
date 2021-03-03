@@ -14,9 +14,9 @@ const CollapsePill: React.FC<Props> = ({ id, children, titleText }) => {
 
   return (
     <SectionWrapper>
-      <p
+      <button
         onClick={() => setOpen(!open)}
-        className="text-center mb-1 my-collapse-select"
+        className="btn w-100 text-center mb-1 my-collapse-select"
         aria-controls={id}
         aria-expanded={open}
       >
@@ -26,7 +26,7 @@ const CollapsePill: React.FC<Props> = ({ id, children, titleText }) => {
           icon={["fas", open ? "angle-up" : "angle-down"]}
           size="lg"
         />
-      </p>
+      </button>
       <Collapse in={open}>
         <div id={id}>
           <br />

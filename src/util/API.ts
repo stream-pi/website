@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import { MailMsg, GithubDownloads, LatestRelease } from "./Types";
+import { MailMsg, GithubDownloads, LatestRelease, OBJ } from "./Types";
 
 const spi = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
@@ -22,6 +22,6 @@ export async function getDownloads(repo: string): GithubDownloadsPromise {
   return spi.get(`/downloads?REPO=${repo}`);
 }
 
-export async function sendEmail<T extends object>(msgObj: T): MailMsgPromise {
+export async function sendEmail<T extends OBJ>(msgObj: T): MailMsgPromise {
   return spi.post("/mail", msgObj);
 }

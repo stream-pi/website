@@ -41,13 +41,13 @@ const themeConfig = {
 export const setThemeConfig = (inputTheme) => {
   if (inputTheme === "dark") {
     const theme = themeConfig.dark;
-    for (let key in theme) {
+    for (const key in theme) {
       setCSSVar(key, theme[key]);
     }
     localStorage.setItem("theme", inputTheme);
   } else {
     const theme = themeConfig.light;
-    for (let key in theme) {
+    for (const key in theme) {
       setCSSVar(key, theme[key]);
     }
     localStorage.setItem("theme", inputTheme);

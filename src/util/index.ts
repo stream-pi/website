@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { OBJ } from "./Types";
 
 /**
  * This is a custom hook that we have to use for any all all hash URL's.
@@ -88,7 +89,7 @@ export function capitalize(str: string) {
  * // returns ["Bob", "Mark"]
  * propertySet(people, "name");
  */
-export function propertySet<T extends object>(arr: T[], key: keyof T) {
+export function propertySet<T extends OBJ>(arr: T[], key: keyof T) {
   return new Set(arr.map((obj) => obj[key]));
 }
 
@@ -110,9 +111,9 @@ export function propertySet<T extends object>(arr: T[], key: keyof T) {
  * // returns false
  * isEmpty(nonEmpty);
  */
-export function isEmpty<T extends object>(obj: T) {
+export function isEmpty<T extends OBJ>(obj: T) {
   for (const prop in obj) {
-    if (obj.hasOwnProperty(prop)) {
+    if (obj[prop]) {
       return false;
     }
   }
@@ -127,6 +128,6 @@ export function isEmpty<T extends object>(obj: T) {
  * @param {T} obj
  * @returns stringified JSON object
  */
-export function prettyPrint<T extends object>(obj: T) {
+export function prettyPrint<T extends OBJ>(obj: T) {
   return JSON.stringify(obj, null, 2);
 }
