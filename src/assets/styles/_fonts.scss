@@ -58,7 +58,7 @@ body {
 }
 
 .btn {
-  &:not(.nav-link) {
+  &:not(.nav-link):not(.my-collapse-select) {
     font-family: Lato !important;
   }
 }

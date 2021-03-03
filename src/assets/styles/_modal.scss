@@ -11,10 +11,14 @@
   }
 }
 
-span {
-  &.modal-text-span {
+button {
+  &.modal-text-btn {
+    padding: 0;
     color: #007bff;
+    background-color: transparent;
+    border: transparent;
     &:hover {
+      color: #007bff;
       text-decoration: underline;
       cursor: pointer;
     }
