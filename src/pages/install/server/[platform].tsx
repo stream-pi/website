@@ -16,6 +16,7 @@ type Props = {
     platform: string;
     contentHtml: string;
     lastUpdated: string;
+    streamPiVersion: string;
   };
 };
 
@@ -39,7 +40,12 @@ export const getStaticProps: GetStaticProps = async ({ params }: Params) => {
 };
 
 const Platform: React.FC<Props> = ({ installInstructions }) => {
-  const { lastUpdated, platform, contentHtml } = installInstructions;
+  const {
+    lastUpdated,
+    platform,
+    contentHtml,
+    streamPiVersion,
+  } = installInstructions;
   return (
     <>
       <StreamPiSEO
@@ -48,9 +54,14 @@ const Platform: React.FC<Props> = ({ installInstructions }) => {
         description={`Install Stream-Pi server on ${capitalize(platform)}`}
       />
       <div>
-        <p className="mb-2">Last Updated On {lastUpdated}</p>
+        <div className="animate__animated animate__fadeIn">
+          <p className="mb-2">Last Updated On {lastUpdated}</p>
+          <p className="mb-2">
+            For Stream-Pi <strong>{streamPiVersion}</strong>
+          </p>
+        </div>
         <div
-          className="spi-markdown"
+          className="spi-markdown animate__animated animate__fadeIn"
           dangerouslySetInnerHTML={{ __html: contentHtml }}
         />
       </div>
