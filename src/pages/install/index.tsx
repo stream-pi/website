@@ -24,12 +24,14 @@ const BlankDate: Releases = {
   Server: { Version: "0.0.0", "Release Page": "N/A", Downloads: [] },
 };
 
-const fixDownloadName = (input: string, version: string, sercli: string) => {
-  const no_id = input.replace(`StreamPi-${sercli}-${version}-`, "");
-  return no_id
-    .replace(/\.[A-Za-z0-9]+$/g, "")
-    .replace("FINAL-EA-", "")
-    .replace("-drm", "");
+const fixDownloadName = (input: string, version: string) => {
+  const plat_arch = input.replace(
+    /^(client|server)-([A-Za-z]+)-([A-Za-z0-9]+)/i,
+    `$2-$3`
+  );
+  return plat_arch
+    .replace(`-${version}`, "")
+    .replace(/-(EA|GA)\+[0-9]*\.[A-Za-z0-9]+/i, "");
 };
 
 const InstallNav: React.FC<InstallNavProps> = ({ arr, sercli, version }) => {
@@ -38,7 +40,7 @@ const InstallNav: React.FC<InstallNavProps> = ({ arr, sercli, version }) => {
       {/* Nav item */}
       <Nav variant="pills" className="flex-column flex-md-row" justify>
         {arr.map((item, idx) => {
-          const key = fixDownloadName(item.Name, version, sercli);
+          const key = fixDownloadName(item.Name, version);
           return (
             <Nav.Item key={`${sercli}-${idx}-tab`}>
               <Nav.Link className="mx-1" eventKey={`${sercli}-${key}`}>
@@ -61,7 +63,7 @@ const InstallNav: React.FC<InstallNavProps> = ({ arr, sercli, version }) => {
       {/* Content */}
       <Tab.Content className="pt-2 mx-1 mx-md-5">
         {arr.map((item, idx) => {
-          const key = fixDownloadName(item.Name, version, sercli);
+          const key = fixDownloadName(item.Name, version);
           return (
             <Tab.Pane
               key={`${sercli}-${idx}-pane`}
