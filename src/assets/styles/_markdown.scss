@@ -1,18 +1,53 @@
 .spi-markdown {
   h1,
   h2,
-  h3 {
-    &::before {
+  h3,
+  h4 {
+    margin-bottom: 16px;
+    margin-top: 24px;
+    &::before { //TODO: Need to figure out this anchor nonsense
       display: block;
       content: " ";
-      margin-top: -100px;
-      height: 100px;
+      margin-top: -20px;
+      height: 20px;
       visibility: hidden;
       pointer-events: none;
     }
   }
 
+  code {
+    &:not(.hljs) {
+      color: var(--spi-color-text);
+    }
+    border-radius: 6px;
+    padding: 0.2em 0.4em;
+    color: var(--spi-color-code-one);
+    background: var(--spi-color-code-two);
+  }
+
+  p,
+  ol,
   pre {
+    font-size: 16px;
+    margin-bottom: 16px;
+    margin-top: 0;
+  }
+
+  h1,
+  h2 {
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--spi-color-hr);
+  }
+
+  pre {
+    &:not(.hljs) {
+      padding: 12px;
+      font-size: 87.5%;
+      code {
+        padding: 0;
+      }
+      background: var(--spi-color-code-two);
+    }
     background-color: inherit;
     color: inherit;
     border: inherit;
