@@ -1,21 +1,22 @@
 ---
-lastUpdated: "2021-03-01"
+lastUpdated: "2021-03-04"
 streamPiVersion: "1.0.0"
+editedBy: "SamuelQuinones"
 ---
 
 # Setup Stream-Pi on Linux
 
-The instructions below will go over how to set up a StreamPi Server on a Linux 64 Bit operating system.
+The instructions below will go over how to set up a StreamPi Server on a Linux 64-Bit operating system.
 
-If you have any questions please reach out to us on [the Official Stream-Pi Discord](https://discord.gg/BExqGmk).
+If you have any questions please reach out to us on [the Official Stream-Pi Discord Server](https://discord.gg/BExqGmk).
 
 ## Server Instructions
 
-The below steps have **anchors** associated with them, so you can quick navigate with the browser's url bar `/install/server/[PLATFORM]#step-1` for example.
+The below steps have **anchors** associated with them, so you can quickly navigate with the browser's url bar `/install/server/[PLATFORM]#step-1` for example.
 
 ### Step 1
 
-Assuming you already downloaded the zip file from github, extract the zip file to place that is easy for you to remember / easy to access. Also make sure you will always have permission to access this folder.
+Assuming you have already downloaded the '.zip' file from github, extract the '.zip' file to a place that is easy for you to remember / easy to access. Also make sure you will always have permission to access this folder.
 
 For example:
 
@@ -31,9 +32,11 @@ What you want to avoid is something like this:
 /home/<YOURNAME>/StreamPiServer/StreamPi-FROM-GITHUB
 ```
 
+Do not save the '.zip' file contents in any directory above `/home/<YOURNAME>` as this will have permissions issues!
+
 ### Step 2
 
-With the files extracted, open your terminal and navigate into your new StreamPi directory:
+With the files extracted, open your terminal and navigate into your new Stream-Pi directory:
 
 ```bash
 $ cd /home/<YOURNAME>/StreamPiServer
