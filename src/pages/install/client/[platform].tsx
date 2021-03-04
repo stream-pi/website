@@ -17,6 +17,7 @@ type Props = {
     contentHtml: string;
     lastUpdated: string;
     streamPiVersion: string;
+    editedBy: string;
   };
 };
 
@@ -45,6 +46,7 @@ const Platform: React.FC<Props> = ({ installInstructions }) => {
     platform,
     contentHtml,
     streamPiVersion,
+    editedBy,
   } = installInstructions;
   return (
     <>
@@ -56,7 +58,12 @@ const Platform: React.FC<Props> = ({ installInstructions }) => {
       <div>
         <div className="animate__animated animate__fadeIn">
           <p className="mb-2">Last Updated On {lastUpdated}</p>
-          <p className="mb-2">For Stream-Pi {streamPiVersion}</p>
+          <p className="mb-2">
+            For Stream-Pi <strong>{streamPiVersion}</strong>
+          </p>
+          <p className="mb-2">
+            Last Edited By <strong>{editedBy}</strong>
+          </p>
         </div>
         <div
           className="spi-markdown animate__animated animate__fadeIn"

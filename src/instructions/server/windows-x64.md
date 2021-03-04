@@ -1,21 +1,22 @@
 ---
-lastUpdated: "2021-03-01"
+lastUpdated: "2021-03-04"
 streamPiVersion: "1.0.0"
+editedBy: "TOGLK"
 ---
 
 # Setup Stream-Pi on Windows
 
-The instructions below will go over how to set up a StreamPi Server on a Windows 64 Bit operating system.
+The instructions below will go over how to set up a StreamPi Server on a Windows (x86) 64-Bit operating system.
 
-If you have any questions please reach out to us on [the Official Stream-Pi Discord](https://discord.gg/BExqGmk).
+If you have any questions please reach out to us on [the Official Stream-Pi Discord Server](https://discord.gg/BExqGmk).
 
 ## Server Instructions
 
-The below steps have **anchors** associated with them, so you can quick navigate with the browser's url bar `/install/server/[PLATFORM]#step-1` for example.
+The below steps have **anchors** associated with them, so you can quickly navigate with the browser's url bar `/install/server/[PLATFORM]#step-1` for example.
 
 ### Step 1
 
-Assuming you already downloaded the zip file from github, extract the zip file to place that is easy for you to remember / easy to access. Also make sure you will always have permission to access this folder.
+Assuming you have already downloaded the '.zip' file from github, extract the '.zip' file to a place that is easy for you to remember / easy to access. Also make sure you will always have permission to access this folder.
 
 For example:
 
@@ -31,17 +32,31 @@ What you want to avoid is something like this:
 C:\Users\<YOURNAME>\StreamPiServer\StreamPi-FROM-GITHUB
 ```
 
+Do not save the '.zip' file contents to any directory within either;
+
+```
+C:\Program Files
+```
+
+Or,
+
+```
+C:\Program Files (x86)
+```
+
+As this will have permissions issues!
+
 ### Step 2
 
-With the files extracted, navigate into your new StreamPi directory and look for a `run.vbs` file, double click it.
+With the files extracted, navigate into your new Stream-Pi directory and look for a `run.vbs` file, double click it.
 
-You **WILL** see a pop up from windows relating to your firewall asking you to allow traffic to public/private networks. This usually happens only once, during first time setup. If youre running Stream-Pi Client on a private network, make sure you have the option of allowing it to access private network checked. **BE SURE TO CLICK ALLOW**.
+You **WILL** see a pop up from windows relating to your firewall asking you to allow traffic to public/private networks. This usually happens only once, during first time setup. If youre running Stream-Pi Client on a private network, make sure you have selected the option of allowing it to access private network checked. **BE SURE TO CLICK ALLOW**.
 
-Denying access will prevent the server from connectiing to the client.
+Denying access will prevent the server from connecting to the client.
 
 ### Step 3
 
-Stream-Pi ***SHOULD*** now launch, if it does not please take a look at our common troubleshooting steps.
+Stream-Pi **_SHOULD_** now launch, if it does not please take a look at our common troubleshooting steps.
 
 Go through the setup, making sure to read the EULA.
 
