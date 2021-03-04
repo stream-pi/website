@@ -18,7 +18,11 @@ const LegalInfoModal: React.FC = () => {
     <React.Fragment>
       <OverlayTrigger
         placement="top"
-        overlay={<Tooltip id="tooltip-legal-info">View Legal Info</Tooltip>}
+        overlay={
+          <Tooltip style={{ fontSize: "initial" }} id="tooltip-legal-info">
+            View Legal Info
+          </Tooltip>
+        }
       >
         <button className="modal-text-btn" onClick={handleShow}>
           Stream-Pi Group
