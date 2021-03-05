@@ -1,5 +1,4 @@
 import React from "react";
-import Markdown from "../assets/styles/markdown.module.scss";
 
 type Props = {
   lastUpdated: string;
@@ -27,7 +26,7 @@ const Layout: React.FC<Props> = ({
         </p>
       </div>
       <div
-        className={`${Markdown["spi_markdown"]} animate__animated animate__fadeIn`}
+        className="spi-markdown animate__animated animate__fadeIn"
         dangerouslySetInnerHTML={{ __html: contentHtml }}
       />
     </div>
