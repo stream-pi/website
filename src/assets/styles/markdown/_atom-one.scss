@@ -1,3 +1,31 @@
+/*
+dark: {
+  "--spi-color-code-one": "#abb2bf",
+  "--spi-color-code-two": "#282c34",
+  "--spi-color-code-three": "#5c6370",
+  "--spi-color-code-four": "#c678dd",
+  "--spi-color-code-five": "#e06c75",
+  "--spi-color-code-six": "#56b6c2",
+  "--spi-color-code-seven": "#98c379",
+  "--spi-color-code-eight": "#e6c07b",
+  "--spi-color-code-nine": "#d19a66",
+  "--spi-color-code-ten": "#61aeee",
+},
+
+light: {
+  "--spi-color-code-one": "#383a42",
+  "--spi-color-code-two": "#fafafa",
+  "--spi-color-code-three": "#a0a1a7",
+  "--spi-color-code-four": "#a626a4",
+  "--spi-color-code-five": "#e45649",
+  "--spi-color-code-six": "#0184bb",
+  "--spi-color-code-seven": "#50a14f",
+  "--spi-color-code-eight": "#c18401",
+  "--spi-color-code-nine": "#986801",
+  "--spi-color-code-ten": "#4078f2",
+},
+*/
+
 .spi-markdown {
   h1,
   h2,
@@ -5,14 +33,6 @@
   h4 {
     margin-bottom: 16px;
     margin-top: 24px;
-    &::before { //TODO: Need to figure out this anchor nonsense
-      display: block;
-      content: " ";
-      margin-top: -20px;
-      height: 20px;
-      visibility: hidden;
-      pointer-events: none;
-    }
   }
 
   code {
@@ -37,6 +57,18 @@
   h2 {
     padding-bottom: 0.3rem;
     border-bottom: 1px solid var(--spi-color-hr);
+  }
+
+  h3 {
+    margin-top: 4rem;
+    &::before {
+      display: block;
+      content: " ";
+      margin-top: -65px;
+      height: 65px;
+      visibility: hidden;
+      pointer-events: none;
+    }
   }
 
   pre {

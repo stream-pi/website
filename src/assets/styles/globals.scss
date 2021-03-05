@@ -3,8 +3,9 @@
 @import "captcha";
 @import "loader";
 @import "theme";
-@import "markdown";
 @import "modal";
+//TODO: find commonalities in markdown scss files and make a base
+@import "markdown/solarized";
 
 #__next {
   display: flex !important;
