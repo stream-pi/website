@@ -1,7 +1,7 @@
 ---
-lastUpdated: "2021-03-04"
+lastUpdated: "2021-03-05"
 streamPiVersion: "1.0.0"
-editedBy: "TOGLK"
+editedBy: "SamuelQuinones"
 ---
 
 # Setup Stream-Pi on Windows
@@ -32,7 +32,7 @@ What you want to avoid is something like this:
 C:\Users\<YOURNAME>\StreamPiServer\StreamPi-FROM-GITHUB
 ```
 
-Do not save the '.zip' file contents to any directory within either;
+Do **not** save the '.zip' file contents to any directory within either;
 
 ```
 C:\Program Files
