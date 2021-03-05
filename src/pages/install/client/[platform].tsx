@@ -2,24 +2,14 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import React from "react";
 import { capitalize } from "@util";
-import { getPlatformNames, getInstallInstructions } from "src/instructions";
+import {
+  getPlatformNames,
+  getInstallInstructions,
+  Props,
+  Params,
+} from "src/instructions";
 import StreamPiSEO from "@components/StreamPi/SEO";
-
-type Params = {
-  params: {
-    platform: string;
-  };
-};
-
-type Props = {
-  installInstructions: {
-    platform: string;
-    contentHtml: string;
-    lastUpdated: string;
-    streamPiVersion: string;
-    editedBy: string;
-  };
-};
+import Layout from "@components/InstallLayout";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getPlatformNames("client");
@@ -40,14 +30,8 @@ export const getStaticProps: GetStaticProps = async ({ params }: Params) => {
   };
 };
 
-const Platform: React.FC<Props> = ({ installInstructions }) => {
-  const {
-    lastUpdated,
-    platform,
-    contentHtml,
-    streamPiVersion,
-    editedBy,
-  } = installInstructions;
+const Client: React.FC<Props> = ({ installInstructions }) => {
+  const { platform, ...rest } = installInstructions;
   return (
     <>
       <StreamPiSEO
@@ -55,23 +39,9 @@ const Platform: React.FC<Props> = ({ installInstructions }) => {
         title={`${capitalize(platform)} Client`}
         description={`Install Stream-Pi client on ${capitalize(platform)}`}
       />
-      <div>
-        <div className="animate__animated animate__fadeIn">
-          <p className="mb-2">Last Updated On {lastUpdated}</p>
-          <p className="mb-2">
-            For Stream-Pi <strong>{streamPiVersion}</strong>
-          </p>
-          <p className="mb-2">
-            Last Edited By <strong>{editedBy}</strong>
-          </p>
-        </div>
-        <div
-          className="spi-markdown animate__animated animate__fadeIn"
-          dangerouslySetInnerHTML={{ __html: contentHtml }}
-        />
-      </div>
+      <Layout {...rest} />
     </>
   );
 };
 
-export default Platform;
+export default Client;

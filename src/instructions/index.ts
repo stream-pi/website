@@ -7,6 +7,24 @@ import gfm from "remark-gfm";
 import highlight from "remark-highlight.js";
 import slug from "remark-slug";
 
+/** Params for getStaticProps as used in install instructions */
+export type Params = {
+  params: {
+    platform: string;
+  };
+};
+
+/** Props to dynamically render a page */
+export type Props = {
+  installInstructions: {
+    platform: string;
+    contentHtml: string;
+    lastUpdated: string;
+    streamPiVersion: string;
+    editedBy: string;
+  };
+};
+
 const postsDirectory = path.join(process.cwd(), "src/instructions");
 
 export const getPlatformNames = (dir: "server" | "client") => {
