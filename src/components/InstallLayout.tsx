@@ -1,4 +1,5 @@
 import React from "react";
+import { formatDate } from "@util/DateTime";
 
 type Props = {
   lastUpdated: string;
@@ -17,7 +18,9 @@ const Layout: React.FC<Props> = ({
   return (
     <div>
       <div className="animate__animated animate__fadeIn">
-        <p className="mb-2">Last Updated On {lastUpdated}</p>
+        <p className="mb-2">
+          Last Updated On <strong>{formatDate(lastUpdated)}</strong>
+        </p>
         <p className="mb-2">
           For Stream-Pi <strong>{streamPiVersion}</strong>
         </p>
