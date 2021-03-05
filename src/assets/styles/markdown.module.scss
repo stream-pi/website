@@ -1,11 +1,12 @@
-.spi-markdown {
+.spi_markdown {
   h1,
   h2,
   h3,
   h4 {
     margin-bottom: 16px;
     margin-top: 24px;
-    &::before { //TODO: Need to figure out this anchor nonsense
+    &::before {
+      //TODO: Need to figure out this anchor nonsense
       display: block;
       content: " ";
       margin-top: -20px;
