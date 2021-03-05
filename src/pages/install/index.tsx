@@ -151,16 +151,16 @@ const StreamPiInstall: React.FC = () => {
         return new Error(error.message);
       }
     };
-    doFetch().then((info) => {
-      if (mounted) {
+    if (mounted) {
+      doFetch().then((info) => {
         if (info instanceof Error) {
           console.log(info);
         } else {
           setReleaseInfo({ Client: info[1].data, Server: info[0].data });
         }
         setLoaded(true);
-      }
-    });
+      });
+    }
     return () => {
       mounted = false;
     };

@@ -21,8 +21,8 @@ const DownloadCount: React.FC = () => {
         return new Error(error.message);
       }
     };
-    doFetch().then((info) => {
-      if (mounted) {
+    if (mounted) {
+      doFetch().then((info) => {
         if (info instanceof Error) {
           console.log(info);
         } else {
@@ -30,8 +30,8 @@ const DownloadCount: React.FC = () => {
           setClientDownloads(info[1].data["Total Downloads"]);
         }
         setLoaded(true);
-      }
-    });
+      });
+    }
     return () => {
       mounted = false;
     };
