@@ -4,8 +4,6 @@ streamPiVersion: "1.0.0"
 editedBy: "SamuelQuinones"
 ---
 
-
-
 # Setup Stream-Pi on Android
 
 ## Client Instructions

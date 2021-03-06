@@ -1,12 +1,12 @@
 ---
-lastUpdated: "2021-03-05 21:15:24"
+lastUpdated: "2021-03-06 17:46:10"
 streamPiVersion: "1.0.0"
 editedBy: "SamuelQuinones"
 ---
 
 # Setup Stream-Pi on Linux
 
-The instructions below will go over how to set up a StreamPi Server on a Linux 64-Bit operating system.
+The instructions below will go over how to set up a Stream-Pi Server on a Linux 64-Bit operating system.
 
 If you have any questions please reach out to us on [the Official Stream-Pi Discord Server](https://discord.gg/BExqGmk).
 
@@ -51,6 +51,8 @@ $ ./run
 # you MAY need root permissions, so also try
 $ sudo ./run
 ```
+
+If you run with `sudo` then start on boot **WILL NOT WORK**.
 
 ### Step 3
 

@@ -8,7 +8,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
   <img src="https://raw.githubusercontent.com/stream-pi/website/master/.github/images/combined-logos.png">
 </div>
 
-Originally the Stream-Pi website was made with static HTML, and PHP. With the release of 1.0.0 we thought a redesign was in order to make things more modern. So the site was rebuilt from the ground up using react, typescript, and nextjs.
+Originally the Stream-Pi website was made with static HTML, and PHP. With the release of Stream-Pi 1.0.0 we thought a redesign was in order to make things more modern. So the site was rebuilt from the ground up using react, typescript, and nextjs.
 
 Using the NextJS framework allows us to utilize features like **Client Side Routing** which will make pages load faster, without having to sacrifice long initial loads and bad SEO.
 
@@ -30,6 +30,7 @@ It'll also in general just be easier to maintain.
 - Axios (API calls and GET / POST requests)
 - Gray Matter (For reading hidden metadata in markdown files)
 - Remark (For rendering markdown as HTML with syntax)
+- dayjs (for parsing / formatting date-time stamps)
 
 ## How Can I Contribute?
 
