@@ -1,5 +1,7 @@
 import React from "react";
-import { formatDate } from "@util/DateTime";
+import dayjs from "dayjs";
+import advancedFormat from "dayjs/plugin/advancedFormat";
+dayjs.extend(advancedFormat);
 
 type Props = {
   lastUpdated: string;
@@ -19,7 +21,8 @@ const Layout: React.FC<Props> = ({
     <div>
       <div className="animate__animated animate__fadeIn">
         <p className="mb-2">
-          Last Updated On <strong>{formatDate(lastUpdated)}</strong>
+          Last Updated On{" "}
+          <strong>{dayjs(lastUpdated).format("MMMM Do, YYYY")}</strong>
         </p>
         <p className="mb-2">
           For Stream-Pi <strong>{streamPiVersion}</strong>
