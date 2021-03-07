@@ -22,6 +22,6 @@ export async function getDownloads(repo: string): GithubDownloadsPromise {
   return spi.get(`/downloads?REPO=${repo}`);
 }
 
-export async function sendEmail<T extends OBJ>(msgObj: T): MailMsgPromise {
+export async function sendEmail(msgObj: OBJ): MailMsgPromise {
   return spi.post("/mail", msgObj);
 }

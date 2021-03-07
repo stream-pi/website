@@ -6,14 +6,6 @@ export type LabelProps = IconObj & {
   subtext?: string;
 };
 
-export type AMProps = {
-  show: boolean;
-  title: string;
-  type: string;
-  long_msg: string;
-  parentFunction: (x: boolean) => any;
-};
-
 // const regex = /(((http|https|ftp|ftps)\:\/\/)?[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?)/gm
 export const regex = /(((http|https|ftp|ftps|sftp):\/\/)?[a-zA-Z0-9\-.]+\.[a-zA-Z]{2,3}(\/\S*)?)/i;
 export const sKey = "6LeW0r0UAAAAAKlB50lc_4pFxwDWDMBhXPrz5lKU";

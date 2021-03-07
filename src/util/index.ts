@@ -79,9 +79,8 @@ export function capitalize(str: string) {
 /**
  * Takes in an array of objects, and produces a new Set of a common object property value.
  *
- * @template T any type of object
- * @param arr array of objects type T
- * @param key string, key of object T
+ * @param arr array of objects
+ * @param key string, key of object
  *
  * @example
  * type Person = {name: string, age: number};
@@ -89,7 +88,7 @@ export function capitalize(str: string) {
  * // returns ["Bob", "Mark"]
  * propertySet(people, "name");
  */
-export function propertySet<T extends OBJ>(arr: T[], key: keyof T) {
+export function propertySet(arr: OBJ[], key: keyof OBJ) {
   return new Set(arr.map((obj) => obj[key]));
 }
 
@@ -111,7 +110,7 @@ export function propertySet<T extends OBJ>(arr: T[], key: keyof T) {
  * // returns false
  * isEmpty(nonEmpty);
  */
-export function isEmpty<T extends OBJ>(obj: T) {
+export function isEmpty(obj: OBJ) {
   for (const prop in obj) {
     if (obj[prop]) {
       return false;
@@ -124,10 +123,9 @@ export function isEmpty<T extends OBJ>(obj: T) {
 /**
  * Utility function to replace `JSON.stringify(something, null, 2)`
  *
- * @template T any type of object
- * @param {T} obj
+ * @param obj
  * @returns stringified JSON object
  */
-export function prettyPrint<T extends OBJ>(obj: T) {
+export function prettyPrint(obj: OBJ) {
   return JSON.stringify(obj, null, 2);
 }

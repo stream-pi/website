@@ -17,6 +17,7 @@ We also have access to features like **React Redux** which will give us access t
 It'll also in general just be easier to maintain.
 
 ## Current Packages / Libraries
+(In order of addition)
 
 - React
 - NextJS (Base framework and faux server backend for deploying the app)
@@ -31,6 +32,7 @@ It'll also in general just be easier to maintain.
 - Gray Matter (For reading hidden metadata in markdown files)
 - Remark (For rendering markdown as HTML with syntax)
 - dayjs (for parsing / formatting date-time stamps)
+- React-Toastify (for easy, global, customizable site alerts)
 
 ## How Can I Contribute?
 

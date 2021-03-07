@@ -1,117 +1,20 @@
-// Imports
-@import "fonts";
-@import "captcha";
-@import "loader";
-@import "theme";
-@import "modal";
-//TODO: find commonalities in markdown scss files and make a base
-@import "markdown/solarized";
+// Required bootstrap imports
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
 
-#__next {
-  display: flex !important;
-  flex-direction: column !important;
-  min-height: 100vh;
-}
+// add NON DEFAULT BOOTSTRAP EXTENSIONS here
+@import "spi-bootstrap/extend";
 
-p {
-  font-size: 1.1rem;
-}
+// all of bootstrap - needed for changes
+@import "~bootstrap/scss/bootstrap";
 
-// .container-fluid {
-//   padding-top: 4rem;
-//   padding-left: 7%;
-//   padding-right: 7%;
-// }
-
-.nav-link {
-  &.active {
-    text-decoration: underline;
-    font-weight: bold;
-    &.btn {
-      cursor: default !important;
-      // cursor fix
-      &:hover {
-        cursor: default !important;
-      }
-      // goodbye blue circle
-      &:focus {
-        box-shadow: none;
-      }
-    }
-  }
-}
-
-.streamPiAbout {
-  font-weight: 300;
-  &::before {
-    display: block;
-    content: " ";
-    margin-top: -50px;
-    height: 50px;
-    visibility: hidden;
-    pointer-events: none;
-  }
-}
-
-.firstCard {
-  transition: transform 0.2s;
-  &:hover {
-    transform: scale(1.05);
-  }
-}
-
-.nav-pills {
-  .nav-link {
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    border: 1px solid #17a2b8;
-    font-size: 1.25rem;
-    &:hover {
-      color: #fff;
-      background-color: #138496;
-      border-color: #117a8b;
-    }
-    &.active,
-    .show {
-      background-color: #17a2b8;
-      cursor: default !important;
-      text-decoration: none;
-    }
-  }
-}
-
-#streamPiHome {
-  font-weight: 300;
-  @media screen and (max-width: 576px) {
-    font-size: 5rem;
-  }
-  @media screen and (max-width: 400px) {
-    font-size: 4rem;
-  }
-  @media screen and (max-width: 320px) {
-    font-size: 3rem;
-  }
-  @media screen and (max-width: 240px) {
-    font-size: 2.5rem;
-  }
-  @media screen and (max-width: 200px) {
-    font-size: 2rem;
-  }
-
-  font-size: 7rem;
-}
-
-@keyframes color-rotate {
-  from {
-    filter: hue-rotate(0deg);
-  }
-  to {
-    filter: hue-rotate(360deg);
-  }
-}
-
-#logo {
-  &:hover {
-    animation: color-rotate 1s;
-    animation-iteration-count: infinite;
-  }
-}
+// Stream-Pi SCSS Imports
+@import "fonts";            // FontFace
+@import "captcha";          // Captcha Styles
+@import "loader";           // loading indicator styles
+@import "theme";            // dark / light theme related
+@import "modal";            // modal help
+@import "toasts";           // custom toast overrides to match bootstrap
+@import "markdown/master";  // when rendering markdown, these styles will be used.
+@import "app";              // styles meant for the WHOLE app

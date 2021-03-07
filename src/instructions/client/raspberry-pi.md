@@ -1,5 +1,5 @@
 ---
-lastUpdated: "2021-03-06 16:14:51"
+lastUpdated: "2021-03-07 23:17:23"
 streamPiVersion: "1.0.0"
 editedBy: "SamuelQuinones"
 ---
@@ -74,21 +74,29 @@ We need to make some changes to the RaspberryPi's configuration, There are three
 2. Switch the Video Driver
 3. We'll change the system into console mode
 
-### Step 4 - GPU Memory
-
 We can do all of this using the RaspberryPi Config, open your terminal and run the following command:
 
 ```bash
 $ sudo raspi-config
 ```
 
-A window should pop up, you use your arrow keys to navigate this interface. Navigate to `Advanced Options` and press enter.
+A window should pop up that looks like this:
 
-You should now see a menu item called `Memory Split`, navigate to it, press enter and then change the memory size to 128 MB.
+![raspi-config main screen](https://raw.githubusercontent.com/raspberrypi/documentation/master/configuration/images/raspi-config.png)
 
-Once the new value is set, hit the right arrow key and navigate to `<Finish>`.
+Use the `up` and `down` arrow keys to move the highlighted selection between the options available. Pressing the `right` arrow key will jump out of the Options menu and take you to the `<Select>` and `<Finish>` buttons. Pressing `left` will take you back to the options. Alternatively, you can use the `Tab` key to switch between these.
+
+### Step 4 - GPU Memory
+
+Navigate down to `7 Advanced Options`
+
+You should now see a menu item called `Memory Split`, navigate to it, press enter and then change the memory size to `128 MB`.
+
+Once the new value is set, hit the right arrow key and navigate to `<Ok>`. Press enter to confirm any additional messages.
 
 ### Step 4 - Video Driver
+
+Still in the advanced options menu, navigate to
 
 Next we'll change the video driver...
 

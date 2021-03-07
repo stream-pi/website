@@ -6,13 +6,24 @@ import Tooltip from "react-bootstrap/Tooltip";
 import Image from "react-bootstrap/Image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconObj, TeamMember } from "@util/Types";
-import { Developers, UX_PR, Infrastructure } from "@helpers/AboutHelper";
+import {
+  Developers,
+  PublicRelations,
+  Infrastructure,
+  UserExperience,
+} from "@helpers/AboutHelper";
 import StreamPiSEO from "@StreamPi/SEO";
 
 type Props = {
   description: string;
   link: string;
   icon: IconObj;
+};
+
+type TeamRow = {
+  teamMembers: TeamMember[];
+  className?: string;
+  identifier: string;
 };
 
 const LinkWithPop: React.FC<Props> = ({
@@ -37,9 +48,11 @@ const LinkWithPop: React.FC<Props> = ({
   );
 };
 
-const RowCol: React.FC<{ className: string }> = ({ children, className }) => {
+const RowCol: React.FC<{ className?: string }> = ({ children, className }) => {
   return (
-    <Row className={className}>
+    <Row
+      className={`${className} text-center animate__animated animate__fadeInDown`}
+    >
       <Col>{children}</Col>
     </Row>
   );
@@ -47,13 +60,13 @@ const RowCol: React.FC<{ className: string }> = ({ children, className }) => {
 
 const TeamMemberCard: React.FC<TeamMember> = ({ picture, name, icons }) => {
   return (
-    <Col md="6" className="my-4 my-md-0">
+    <Col md="6" className="my-4 my-md-2">
       <h3>{name}</h3>
       <div className="w-100 mx-auto mb-1">
         <Image
           roundedCircle
           src={picture}
-          alt="developer pic"
+          alt={`${name} Pic`}
           className="w-50"
         />
       </div>
@@ -71,6 +84,36 @@ const TeamMemberCard: React.FC<TeamMember> = ({ picture, name, icons }) => {
   );
 };
 
+const TeamMemberRow: React.FC<TeamRow> = ({
+  teamMembers,
+  className,
+  identifier,
+}) => {
+  const idFormat = identifier.replace(/[^A-Za-z0-9]/g, "").toLowerCase();
+  return (
+    <React.Fragment>
+      {/* Team Member Titles */}
+      <RowCol className="mt-4">
+        <h2 id={idFormat} className="streamPiAbout mt-3">
+          {identifier}
+        </h2>
+      </RowCol>
+
+      {/* Team Member Cards */}
+      <Row
+        className={`${className} text-center animate__animated animate__fadeInDown justify-content-md-center`}
+      >
+        {teamMembers.map(({ name, icons, picture }, idx) => (
+          <React.Fragment key={`${idFormat}${idx}`}>
+            <TeamMemberCard name={name} picture={picture} icons={icons} />
+            {"\n"}
+          </React.Fragment>
+        ))}
+      </Row>
+    </React.Fragment>
+  );
+};
+
 const StreamPiAbout: React.FC = () => {
   return (
     <React.Fragment>
@@ -78,10 +121,10 @@ const StreamPiAbout: React.FC = () => {
         title="About"
         description="Learn about Stream-Pi and the team behind it"
       />
-      <RowCol className="text-center animate__animated animate__fadeIn">
-        <h2 className="streamPiAbout">What is "StreamPi"?</h2>
+      <RowCol>
+        <h2 className="streamPiAbout">What is "Stream-Pi"?</h2>
       </RowCol>
-      <RowCol className="text-center mt-4 animate__animated animate__fadeInUp">
+      <RowCol className="mt-4">
         <p>
           Well, as the home page says it was created with the idea to make a
           robust macro keyboard alternative.
@@ -90,14 +133,14 @@ const StreamPiAbout: React.FC = () => {
           There are other alternatives, but we found the functionality limiting,
           we wanted to be able to do more!
         </p>
-        <p>The StreamPi seeks to make the experience as robust as possible;</p>
+        <p>The Stream-Pi seeks to make the experience as robust as possible;</p>
         <p>
           It actually integrates with software and utilizes API from OBS,
           Twitter, and more to bring an amazing user experience all for FREE.
         </p>
       </RowCol>
-      <RowCol className="text-center mt-4 animate__animated animate__fadeInUp">
-        <h1 id="theTeam" className="streamPiAbout">
+      <RowCol className="mt-4">
+        <h1 id="theTeam" className="streamPiAbout mt-3">
           Meet the Team!
         </h1>
         <p>
@@ -105,68 +148,30 @@ const StreamPiAbout: React.FC = () => {
           smoothly.
         </p>
       </RowCol>
-      <RowCol className="text-center mt-4 animate__animated animate__fadeInUp">
-        <h2 id="developers" className="streamPiAbout">
-          Lead Developers
-        </h2>
-      </RowCol>
-      {/* DEVELOPERS */}
-      <Row className="text-center animate__animated animate__fadeInUp">
-        {Developers.map((dev, idx) => (
-          <React.Fragment key={`developer${idx}`}>
-            <TeamMemberCard
-              name={dev.name}
-              picture={dev.picture}
-              icons={dev.icons}
-            />
-            {"\n"}
-          </React.Fragment>
-        ))}
-      </Row>
-      {/* UX / PR */}
-      <RowCol className="text-center mt-5 animate__animated animate__fadeInUp">
-        <h2 id="uxpr" className="streamPiAbout">
-          UX / PR
-        </h2>
-        <p>User experience / Public relations</p>
-      </RowCol>
-      <Row className="text-center mb-2 animate__animated animate__fadeInUp">
-        {UX_PR.map((mem, idx) => (
-          <React.Fragment key={`uxpr${idx}`}>
-            <TeamMemberCard
-              name={mem.name}
-              picture={mem.picture}
-              icons={mem.icons}
-            />
-            {"\n"}
-          </React.Fragment>
-        ))}
-      </Row>
+      {/* Developers */}
+      <TeamMemberRow teamMembers={Developers} identifier="Lead Developers" />
+
+      {/* PR */}
+      <TeamMemberRow
+        teamMembers={PublicRelations}
+        identifier="Public Relations"
+      />
+
+      {/* User Experience */}
+      <TeamMemberRow
+        teamMembers={UserExperience}
+        identifier="User Experience"
+      />
+
       {/* INFRASTRUCTURE */}
-      <RowCol className="text-center mt-5 animate__animated animate__fadeInUp">
-        <h2 id="infrastructure" className="streamPiAbout">
-          Infrastructure
-        </h2>
-      </RowCol>
-      <Row className="text-center mb-2 animate__animated animate__fadeInUp">
-        {Infrastructure.map((mem, idx) => (
-          <React.Fragment key={`infra${idx}`}>
-            <TeamMemberCard
-              name={mem.name}
-              picture={mem.picture}
-              icons={mem.icons}
-            />
-            {"\n"}
-          </React.Fragment>
-        ))}
-      </Row>
+      <TeamMemberRow teamMembers={Infrastructure} identifier="Infrastructure" />
       {/* How is it made? */}
-      <RowCol className="text-center mt-5 animate__animated animate__fadeInUp">
-        <h2 id="technology" className="streamPiAbout">
+      <RowCol className="mt-5">
+        <h2 id="technology" className="streamPiAbout mt-3">
           How is it Made?
         </h2>
       </RowCol>
-      <RowCol className="text-center animate__animated animate__fadeInUp">
+      <RowCol>
         <p>
           Well, as it says on the homepage, Stream-Pi is made using the Java
           language and the JavaFX library. We use the Graal VM Community Edition

@@ -1,23 +1,21 @@
 //TODO: hide form on submit?
 
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
+import { toast } from "react-toastify";
 import { Formik, Form as FormikForm, FieldHookConfig, useField } from "formik";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ReCAPTCHA from "react-google-recaptcha";
 import {
-  AMProps,
   sKey,
   schema,
   LabelProps,
   validSubjects,
 } from "@helpers/ContactHelper";
 import { sendEmail } from "@util/API";
-import Collapse from "react-bootstrap/Collapse";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
-import Alert from "react-bootstrap/Alert";
 import ThemedButton from "@components/ThemedButton";
 
 // My Custom Form Control
@@ -60,47 +58,28 @@ const FieldLabel: React.FC<LabelProps> = ({
   );
 };
 
-const AlertMessage: React.FC<AMProps> = ({
-  show,
+const AlertMessage: React.FC<{ title: string; long_msg: string }> = ({
   title,
-  type,
   long_msg,
-  parentFunction,
 }) => {
   return (
-    <Collapse in={show} unmountOnExit>
-      <div className="animate__animated animate__fadeIn animate__faster">
-        <Alert
-          show={show}
-          variant={type}
-          onClose={() => parentFunction(false)}
-          dismissible
-        >
-          <Alert.Heading>{title}</Alert.Heading>
-          {long_msg === "NONE" ? <></> : <p>{long_msg}</p>}
-        </Alert>
-      </div>
-    </Collapse>
+    <>
+      <h4>{title}</h4>
+      {long_msg !== "NONE" && (
+        <p style={{ fontSize: "initial" }} className="m-0">
+          {long_msg}
+        </p>
+      )}
+    </>
   );
 };
 
 /** The Contact Form Component */
 const ContactForm: React.FC = () => {
   const recaptchaRef = useRef<ReCAPTCHA>(null);
-  const [display, setDisplay] = useState<boolean>(false);
-  const [type, setType] = useState<string>("success");
-  const [longMsg, setLongMsg] = useState<string>("NONE");
-  const [title, setTitle] = useState<string>("Test");
 
   return (
     <>
-      <AlertMessage
-        parentFunction={setDisplay}
-        show={display}
-        title={title}
-        long_msg={longMsg}
-        type={type}
-      />
       <Card className="animate__animated animate__fadeIn bg-card">
         <Card.Body className="pb-0 pt-2">
           <Formik
@@ -112,7 +91,7 @@ const ContactForm: React.FC = () => {
             }}
             validationSchema={schema}
             onSubmit={async (data, { setSubmitting, resetForm }) => {
-              setDisplay(false);
+              toast.dismiss();
               setSubmitting(true);
               const captcha = recaptchaRef.current?.getValue();
               const mail = { ...data, captcha };
@@ -120,23 +99,32 @@ const ContactForm: React.FC = () => {
               try {
                 const res = await sendEmail(mail);
                 // console.log(res);
-                setType("success");
-                setTitle(res.data.title);
-                setLongMsg(res.data.long_msg);
-                setDisplay(true);
+                toast.success(
+                  <AlertMessage
+                    title={res.data.title}
+                    long_msg={res.data.long_msg}
+                  />
+                );
               } catch (error) {
-                setType("danger");
                 if (error.response /* response error */) {
-                  setTitle(error.response.data.title);
-                  setLongMsg(error.response.data.long_msg);
+                  toast.error(
+                    <AlertMessage
+                      title={error.response.data.title}
+                      long_msg={error.response.data.long_msg}
+                    />
+                  );
                 } else if (error.request /* request error */) {
-                  setTitle("Request Error");
-                  setLongMsg(error.message);
+                  toast.error(
+                    <AlertMessage
+                      title={"Request Error"}
+                      long_msg={error.message}
+                    />
+                  );
                 } else {
-                  setTitle("Error");
-                  setLongMsg(error.message);
+                  toast.error(
+                    <AlertMessage title={"Error"} long_msg={error.message} />
+                  );
                 }
-                setDisplay(true);
               } finally {
                 resetForm();
                 recaptchaRef.current?.reset();

@@ -1,4 +1,3 @@
-import "bootstrap/dist/css/bootstrap.min.css";
 import "animate.css/animate.min.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "../assets/styles/globals.scss";
@@ -30,9 +29,11 @@ import {
   faAngleUp,
 } from "@fortawesome/free-solid-svg-icons";
 import Container from "react-bootstrap/Container";
+import { ToastContainer } from "react-toastify";
 import { useHashChange } from "@util";
 import { setThemeConfig } from "@theme";
 import { ExternalPaths } from "@helpers/ExternalHelper";
+import { useInfoBanner } from "@components/InfoBanner";
 import StreamPiFooter from "@StreamPi/Footer";
 import StreamPiNavbar from "@StreamPi/Navbar";
 import StreamPiNavItem from "@StreamPi/NavItem";
@@ -71,6 +72,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [path, setPath] = useState("");
   const [theme, setTheme] = useState("dark");
   useHashChange();
+  useInfoBanner(
+    "This is a new version of the site, it may look the same but there is NEW functionality.",
+    "test-toast",
+    "2021-03-23"
+  );
   const router = useRouter();
 
   useEffect(() => {
@@ -86,7 +92,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     return () => {
       mounted = false;
     };
-  }, [router.asPath]);
+  }, []); /* eslint-disable-line react-hooks/exhaustive-deps */
 
   const toggleTheme = () => {
     setTheme((prev) => {
@@ -99,6 +105,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
+      <ToastContainer position="top-center" enableMultiContainer />
       {!ExternalPaths.has(path.replace(/\/+/gm, "")) && (
         <StreamPiNavbar navVariant={theme as "light" | "dark"}>
           <StreamPiNavItem to="/">Home</StreamPiNavItem>
@@ -117,6 +124,17 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
       </Container>
       <StreamPiFooter />
+      {/* For Site Updates */}
+      <ToastContainer
+        position="bottom-center"
+        autoClose={false}
+        enableMultiContainer
+        closeButton={false}
+        className="BannerToasts"
+        newestOnTop={true}
+        closeOnClick={false}
+        containerId={"BannerToasts"}
+      />
     </>
   );
 }

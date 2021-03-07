@@ -7,11 +7,11 @@ end_of_line = lf
 charset = UTF-8
 insert_final_newline = true
 
+[.env*]
+insert_final_newline = false
+
 [*.{cmd,bat,ps1}]
 end_of_line = crlf
 
 [.mailmap]
-insert_final_newline = false
-
-[.env*]
 insert_final_newline = false

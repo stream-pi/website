@@ -48,5 +48,6 @@ export const Jtoland: TeamMember = {
 };
 
 export const Developers = [Samuel, Debayan];
-export const UX_PR = [Brady, TOGLK];
+export const PublicRelations = [Brady];
+export const UserExperience = [TOGLK];
 export const Infrastructure = [Jtoland];

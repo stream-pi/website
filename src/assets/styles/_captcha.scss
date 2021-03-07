@@ -1,3 +1,12 @@
+@mixin changeScale($scale) {
+  #rcap > div > div {
+    transform: scale($scale);
+    -webkit-transform: scale($scale);
+    transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+  }
+}
+
 // Capthca Styles
 // Horizontally center the recaptcha - applied to all widths
 #rcap > div > div > div {
@@ -7,14 +16,6 @@
   height: auto !important;
 }
 
-@mixin changeScale($scale) {
-  #rcap > div > div {
-    transform: scale($scale);
-    -webkit-transform: scale($scale);
-    transform-origin: 0 0;
-    -webkit-transform-origin: 0 0;
-  }
-}
 
 @media screen and (max-width: 430px) {
   @include changeScale(0.8);

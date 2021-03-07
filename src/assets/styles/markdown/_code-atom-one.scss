@@ -27,64 +27,13 @@ light: {
 */
 
 .spi-markdown {
-  h1,
-  h2,
-  h3,
-  h4 {
-    margin-bottom: 16px;
-    margin-top: 24px;
-  }
-
   code {
-    &:not(.hljs) {
-      color: var(--spi-color-text);
-    }
-    border-radius: 6px;
-    padding: 0.2em 0.4em;
     color: var(--spi-color-code-one);
     background: var(--spi-color-code-two);
   }
 
-  p,
-  ol,
   pre {
-    font-size: 16px;
-    margin-bottom: 16px;
-    margin-top: 0;
-  }
-
-  h1,
-  h2 {
-    padding-bottom: 0.3rem;
-    border-bottom: 1px solid var(--spi-color-hr);
-  }
-
-  h3 {
-    margin-top: 4rem;
-    &::before {
-      display: block;
-      content: " ";
-      margin-top: -65px;
-      height: 65px;
-      visibility: hidden;
-      pointer-events: none;
-    }
-  }
-
-  pre {
-    &:not(.hljs) {
-      padding: 12px;
-      font-size: 87.5%;
-      code {
-        padding: 0;
-      }
-      background: var(--spi-color-code-two);
-    }
-    background-color: inherit;
-    color: inherit;
-    border: inherit;
-    text-align: inherit;
-    padding: inherit;
+    background: var(--spi-color-code-two);
   }
 
   .hljs {

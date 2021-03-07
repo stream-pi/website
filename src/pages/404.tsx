@@ -15,7 +15,7 @@ const NotFound: React.FC = () => {
     return () => {
       mounted = false;
     };
-  }, [router.asPath]);
+  }, []); /* eslint-disable-line react-hooks/exhaustive-deps */
 
   const code: React.CSSProperties = { color: "inherit", fontWeight: "bold" };
   return (
