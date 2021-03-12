@@ -3,11 +3,10 @@ import Collapse from "react-bootstrap/Collapse";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SectionWrapper from "@components/SectionWrapper";
 
-interface Props {
+type Props = {
   id: string;
-  children?: React.ReactNode;
   titleText: string;
-}
+};
 
 const CollapsePill: React.FC<Props> = ({ id, children, titleText }) => {
   const [open, setOpen] = useState(false);

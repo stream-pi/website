@@ -130,7 +130,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         autoClose={false}
         enableMultiContainer
         closeButton={false}
-        className="BannerToasts"
         newestOnTop={true}
         closeOnClick={false}
         containerId={"BannerToasts"}

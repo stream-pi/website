@@ -2,11 +2,11 @@ import React from "react";
 import Head from "next/head";
 import config from "@helpers/SEOHelper";
 
-interface Props {
+type Props = {
   title: string;
   flipOrder?: boolean;
   description: string;
-}
+};
 
 const StreamPiSEO: React.FC<Props> = ({ title, flipOrder, description }) => {
   const titleString = flipOrder

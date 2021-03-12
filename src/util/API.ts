@@ -15,11 +15,19 @@ type LatestReleaseResponse = AxiosResponse<LatestRelease>;
 type LatesteReleasePromise = Promise<LatestReleaseResponse>;
 
 export async function getReleases(repo: string): LatesteReleasePromise {
-  return spi.get(`/get_latest?TYPE=${repo}`);
+  return spi.get("/get_latest", {
+    params: {
+      TYPE: repo,
+    },
+  });
 }
 
 export async function getDownloads(repo: string): GithubDownloadsPromise {
-  return spi.get(`/downloads?REPO=${repo}`);
+  return spi.get("/downloads", {
+    params: {
+      REPO: repo,
+    },
+  });
 }
 
 export async function sendEmail(msgObj: OBJ): MailMsgPromise {

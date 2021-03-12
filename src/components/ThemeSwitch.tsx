@@ -6,10 +6,10 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-interface Props {
+type Props = {
   propClick: () => any;
   theme: string;
-}
+};
 
 const ThemeSwitch: React.FC<Props> = ({ propClick, theme }) => {
   const light = theme === "light";

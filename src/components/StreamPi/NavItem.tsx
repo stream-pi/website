@@ -8,11 +8,9 @@ import NavLink from "react-bootstrap/NavLink";
 
 type Props = React.ComponentProps<typeof Link> & {
   activeClassName: string;
-  children?: React.ReactNode;
 };
 
 type ItemProps = {
-  children?: React.ReactNode;
   to: string;
   as?: LinkProps["as"];
   replace?: boolean;
