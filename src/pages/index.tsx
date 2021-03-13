@@ -77,7 +77,7 @@ const StreamPiHome: React.FC = () => {
         </Col>
       </Row>
       {/* Description */}
-      <Row className="animate__animated animate__fadeInUp">
+      <Row className="animate__animated animate__fadeIn">
         <Col>
           <p className="text-center">A robust Macro keyboard alternative</p>
           <p className="text-center mb-0">Built for Raspberry Pi</p>
@@ -87,7 +87,7 @@ const StreamPiHome: React.FC = () => {
         </Col>
       </Row>
       {/* Info type stuff */}
-      <Row className="pt-4 animate__animated animate__fadeInUp">
+      <Row className="pt-4 animate__animated animate__fadeInLeft">
         <HomeCard {...KIT} title="Keep in touch with us!">
           We have a discord where we talk about all things code! We've also got
           a twitter where we share updates and community submissions. These are
@@ -109,7 +109,7 @@ const StreamPiHome: React.FC = () => {
       {/* video */}
       <StreamPiVideo />
       {/* donation */}
-      <Row className="pt-5 pb-2 animate__animated animate__fadeInUp">
+      <Row className="pt-5 pb-2 animate__animated animate__fadeIn">
         <Col className="text-center">
           <h3>Like the Stream-Pi? Consider donating to help!</h3>
           <p>

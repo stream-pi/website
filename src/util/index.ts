@@ -1,5 +1,9 @@
 import { useEffect } from "react";
-import { OBJ } from "./Types";
+import dayjs from "dayjs";
+import advancedFormat from "dayjs/plugin/advancedFormat";
+import type { OBJ } from "./Types";
+
+dayjs.extend(advancedFormat);
 
 /**
  * This is a custom hook that we have to use for any all all hash URL's.
@@ -128,4 +132,8 @@ export function isEmpty(obj: OBJ) {
  */
 export function prettyPrint(obj: OBJ) {
   return JSON.stringify(obj, null, 2);
+}
+
+export function printOutDate(date: dayjs.ConfigType) {
+  return dayjs(date).format("MMMM Do, YYYY");
 }

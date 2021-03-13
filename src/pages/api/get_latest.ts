@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import type { NextApiRequest, NextApiResponse } from "next";
 import { prettyPrint, queryParser } from "@util";
 import { getGithub, GH } from "@util/Github";
 

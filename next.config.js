@@ -21,6 +21,11 @@ module.exports = {
         destination: "/about", // Matched parameters can be used in the destination
         permanent: true,
       },
+      {
+        source: "/help",
+        destination: "/troubleshooting",
+        permanent: true,
+      },
     ];
   },
 };

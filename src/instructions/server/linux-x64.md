@@ -6,7 +6,7 @@ editedBy: "SamuelQuinones"
 
 # Setup Stream-Pi on Linux
 
-The instructions below will go over how to set up a Stream-Pi Server on a Linux 64-Bit operating system.
+The instructions below will go over how to set up a **Stream-Pi Server** on a **Linux 64-Bit** operating system.
 
 If you have any questions please reach out to us on [the Official Stream-Pi Discord Server](https://discord.gg/BExqGmk).
 

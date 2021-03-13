@@ -103,9 +103,16 @@ const StreamPiContact: React.FC = () => {
                   </SectionWrapper>
                   <SectionWrapper>
                     <p className="mb-0">
-                      If you are interested in contributing, please click{" "}
-                      <ContributionModal />. A small card will pop up with some
-                      special instructions on what to include in your email.
+                      If you are interested in joining the Stream-Pi team,
+                      please click <ContributionModal />. A small card will pop
+                      up with some special instructions on what to include in
+                      your email.
+                    </p>
+                    <p className="mb-0">
+                      You don't have to join the team to contribute, but we are
+                      interested in bringing in talented developers. We will
+                      also try to answer any general questions about
+                      contributing that you may have!
                     </p>
                   </SectionWrapper>
                   <SectionWrapper>
@@ -123,9 +130,8 @@ const StreamPiContact: React.FC = () => {
                     </p>
                   </SectionWrapper>
                   <p className="mb-2">
-                    NOTE: Stream-pi.com or any of the team behind it will not
-                    store, steal, or give away your information for personal use
-                    or otherwise.
+                    NOTE: The Stream-Pi team will not store, steal, or give away
+                    your information for personal use or otherwise.
                   </p>
                   <p className="mb-2">
                     That being said; please{" "}

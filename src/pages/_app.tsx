@@ -3,7 +3,7 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import "../assets/styles/globals.scss";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { AppProps } from "next/app";
+import type { AppProps } from "next/app";
 import { library, config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 import {
@@ -74,8 +74,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   useHashChange();
   useInfoBanner(
     "This is a new version of the site, it may look the same but there is NEW functionality.",
-    "test-toast",
-    "2021-03-23"
+    "new-site-toast",
+    "2021-05-30",
+    "warning",
+    "test-toast"
   );
   const router = useRouter();
 
@@ -113,14 +115,13 @@ function MyApp({ Component, pageProps }: AppProps) {
           <StreamPiNavItem to="/features">Features</StreamPiNavItem>
           <StreamPiNavItem to="/contact">Contact</StreamPiNavItem>
           <StreamPiNavItem to="/install">Install</StreamPiNavItem>
+          <StreamPiNavItem to="/troubleshooting">
+            Troubleshooting
+          </StreamPiNavItem>
           <ThemeSwitch propClick={toggleTheme} theme={theme} />
         </StreamPiNavbar>
       )}
-      <Container
-        style={{ paddingTop: "4rem" }}
-        className="animate__animated animate__fadeIn"
-        fluid="md"
-      >
+      <Container style={{ paddingTop: "4rem" }} fluid="md">
         <Component {...pageProps} />
       </Container>
       <StreamPiFooter />

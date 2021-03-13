@@ -28,7 +28,7 @@
     "clean:light": "cross-env-shell \"rimraf .next/* && rimraf $npm_package_config_static_out/*\"",
     "eslint": "eslint --ext js,tx,tsx",
     "lint": "npm run eslint src",
-    "lint:fix": "npm run eslint --fix src",
+    "lint:fix": "npm run eslint -- --fix src",
     "pretty:check": "prettier --check .",
     "pretty:fix": "prettier --write .",
     "preinstall": "node ./.scripts/nodeVersionCheck.js && node ./.scripts/npmVersionCheck.js",

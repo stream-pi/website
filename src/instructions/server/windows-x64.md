@@ -1,12 +1,12 @@
 ---
-lastUpdated: "2021-03-10 21:08:23"
+lastUpdated: "2021-03-13 18:23:30"
 streamPiVersion: "1.0.0"
 editedBy: "SamuelQuinones"
 ---
 
 # Setup Stream-Pi on Windows
 
-The instructions below will go over how to set up a StreamPi Server on a Windows (x86) 64-Bit operating system.
+The instructions below will go over how to set up a **StreamPi Server** on a **Windows** (x86) 64-Bit operating system.
 
 If you have any questions please reach out to us on [the Official Stream-Pi Discord Server](https://discord.gg/BExqGmk).
 
@@ -62,7 +62,7 @@ With the files extracted, navigate into your new Stream-Pi directory and look fo
 <br/>
 ![7-open-the-run-vbs-script-file](/images/screenshots/server/windows-x64/7-open-the-run-vbs-script-file.png)
 
-You **WILL** see a pop up from windows relating to your firewall asking you to allow traffic to public/private networks. This usually happens only once, during first time setup. If youre running Stream-Pi Client on a private network, make sure you have selected the option of allowing it to access private network checked. **BE SURE TO CLICK ALLOW**.
+You **WILL** see a pop up from windows relating to your firewall asking you to allow traffic to public/private networks. This usually happens only once, during first time setup. If youre running Stream-Pi Server on a private network, make sure you have selected the option of allowing it to access private network checked. **BE SURE TO CLICK ALLOW**.
 
 Denying access will prevent the server from connecting to the client.
 

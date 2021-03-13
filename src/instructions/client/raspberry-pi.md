@@ -1,12 +1,12 @@
 ---
-lastUpdated: "2021-03-07 23:17:23"
+lastUpdated: "2021-03-13 18:24:31"
 streamPiVersion: "1.0.0"
 editedBy: "SamuelQuinones"
 ---
 
 # Setup Stream-Pi on Raspberry-Pi
 
-The instructions below will go over how to set up a Stream-Pi Client on a RaspberryPi or a Linux arm7 device.
+The instructions below will go over how to set up a **Stream-Pi Client** on a **RaspberryPi** or a **Linux arm7** device.
 
 If you have any questions please reach out to us on [the Official Stream-Pi Discord Server](https://discord.gg/BExqGmk).
 
@@ -28,6 +28,19 @@ You'll need to get the '.zip' file onto your device, you can always download it 
 
 ### Step 2
 
+You'll need to install som additional packages on the system before we continue proper:
+
+- libpangoft2-1.0-0
+- libcairo2-dev
+
+On Raspbian/Debian based distros, open your terminal and run:
+
+```bash
+$ sudo apt install libpangoft2-1.0-0 libcairo2-dev
+```
+
+### Step 3
+
 Now that the release '.zip' file is on the device, extract the '.zip' file to a place that is easy for you to remember / easy to access. Also make sure you will always have permission to access this folder.
 
 For example:
@@ -46,7 +59,7 @@ What you want to avoid is something like this:
 
 Do not save the '.zip' file contents in any directory above `/home/<YOURNAME>` as this will have permissions issues!
 
-### Step 3
+### Step 4
 
 The Stream-Pi client needs access to the input devices on the RaspberryPi System. To give it this permission we need to edit the `/etc/udev/rules.d/99-com.rules` file. To do this open up your terminal and run the following command:
 
@@ -66,7 +79,9 @@ Be weary that keyboard shorcuts to paste this chunk of text don't work when runn
 
 With the new block of text added, you can hit <kbd>Ctrl</kbd> <kbd>S</kbd> then press `Y` to confrim the changes and `Enter` to confirm the name. Then <kbd>Ctrl</kbd> <kbd>C</kbd> to close nano editor.
 
-### Step 4
+**Please now REBOOT your RaspberryPi**
+
+### Step 5
 
 We need to make some changes to the RaspberryPi's configuration, There are three things we need to do:
 
@@ -86,7 +101,7 @@ A window should pop up that looks like this:
 
 Use the `up` and `down` arrow keys to move the highlighted selection between the options available. Pressing the `right` arrow key will jump out of the Options menu and take you to the `<Select>` and `<Finish>` buttons. Pressing `left` will take you back to the options. Alternatively, you can use the `Tab` key to switch between these.
 
-### Step 4 - GPU Memory
+### Step 5 - GPU Memory
 
 Navigate down to `7 Advanced Options`
 
@@ -94,17 +109,17 @@ You should now see a menu item called `Memory Split`, navigate to it, press ente
 
 Once the new value is set, hit the right arrow key and navigate to `<Ok>`. Press enter to confirm any additional messages.
 
-### Step 4 - Video Driver
+### Step 5 - Video Driver
 
 Still in the advanced options menu, navigate to
 
 Next we'll change the video driver...
 
-### Step 4 - Console Mode
+### Step 5 - Console Mode
 
 Finally we'll change it so the device so that it boots into console mode...
 
-### Step 5
+### Step 6
 
 When you're done, exit raspi-config if you are not prompted to reboot you can go back into your terminal and run:
 
@@ -112,7 +127,7 @@ When you're done, exit raspi-config if you are not prompted to reboot you can go
 $ sudo reboot
 ```
 
-### Step 6
+### Step 7
 
 These steps differ slightly depending on if you are in Desktop / Console mode. Navigate into your new Stream-Pi directory using the terminal.
 
@@ -122,7 +137,7 @@ $ cd /home/<YOURNAME>/StreamPiClient
 $ cd ~/StreamPiClient
 ```
 
-### Step 6 - Console
+### Step 7 - Console
 
 Once you change into this directory, run the `run` script from the terminal like so:
 
@@ -134,7 +149,7 @@ $ sudo ./run_console
 
 If you run with `sudo` then start on boot **WILL NOT WORK**.
 
-### Step 6 - Desktop
+### Step 7 - Desktop
 
 Once you change into this directory, run the `run` script from the terminal like so:
 
@@ -146,7 +161,7 @@ $ sudo ./run_desktop
 
 If you run with `sudo` then start on boot **WILL NOT WORK**.
 
-### Step 7
+### Step 8
 
 Stream-Pi **_SHOULD_** now launch, if it does not please take a look at our common troubleshooting steps.
 

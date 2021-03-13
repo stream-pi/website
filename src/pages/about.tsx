@@ -50,9 +50,7 @@ const LinkWithPop: React.FC<Props> = ({
 
 const RowCol: React.FC<{ className?: string }> = ({ children, className }) => {
   return (
-    <Row
-      className={`${className} text-center animate__animated animate__fadeInDown`}
-    >
+    <Row className={`${className} text-center`}>
       <Col>{children}</Col>
     </Row>
   );
@@ -91,18 +89,16 @@ const TeamMemberRow: React.FC<TeamRow> = ({
 }) => {
   const idFormat = identifier.replace(/[^A-Za-z0-9]/g, "").toLowerCase();
   return (
-    <React.Fragment>
+    <div className="mt-4 animate__animated animate__fadeIn animate__slow">
       {/* Team Member Titles */}
-      <RowCol className="mt-4">
+      <RowCol>
         <h2 id={idFormat} className="streamPiAbout mt-3">
           {identifier}
         </h2>
       </RowCol>
 
       {/* Team Member Cards */}
-      <Row
-        className={`${className} text-center animate__animated animate__fadeInDown justify-content-md-center`}
-      >
+      <Row className={`${className} text-center justify-content-md-center`}>
         {teamMembers.map(({ name, icons, picture }, idx) => (
           <React.Fragment key={`${idFormat}${idx}`}>
             <TeamMemberCard name={name} picture={picture} icons={icons} />
@@ -110,7 +106,7 @@ const TeamMemberRow: React.FC<TeamRow> = ({
           </React.Fragment>
         ))}
       </Row>
-    </React.Fragment>
+    </div>
   );
 };
 
@@ -121,10 +117,10 @@ const StreamPiAbout: React.FC = () => {
         title="About"
         description="Learn about Stream-Pi and the team behind it"
       />
-      <RowCol>
+      <RowCol className="animate__animated animate__fadeIn">
         <h2 className="streamPiAbout">What is "Stream-Pi"?</h2>
       </RowCol>
-      <RowCol className="mt-4">
+      <RowCol className="mt-4 animate__animated animate__fadeInUp">
         <p>
           Well, as the home page says it was created with the idea to make a
           robust macro keyboard alternative.
@@ -139,7 +135,7 @@ const StreamPiAbout: React.FC = () => {
           Twitter, and more to bring an amazing user experience all for FREE.
         </p>
       </RowCol>
-      <RowCol className="mt-4">
+      <RowCol className="mt-4 animate__animated animate__fadeInUp">
         <h1 id="theTeam" className="streamPiAbout mt-3">
           Meet the Team!
         </h1>
@@ -166,12 +162,12 @@ const StreamPiAbout: React.FC = () => {
       {/* INFRASTRUCTURE */}
       <TeamMemberRow teamMembers={Infrastructure} identifier="Infrastructure" />
       {/* How is it made? */}
-      <RowCol className="mt-5">
+      <RowCol className="mt-5 animate__animated animate__fadeIn">
         <h2 id="technology" className="streamPiAbout mt-3">
           How is it Made?
         </h2>
       </RowCol>
-      <RowCol>
+      <RowCol className="animate__animated animate__fadeIn">
         <p>
           Well, as it says on the homepage, Stream-Pi is made using the Java
           language and the JavaFX library. We use the Graal VM Community Edition

@@ -4,7 +4,7 @@ import StreamPiModal from "@components/StreamPi/Modal";
 const ContributionModal: React.FC = () => {
   return (
     <StreamPiModal
-      modalTitle="About Contributing"
+      modalTitle="About Joining Our Team"
       htmlId="contribution-modal"
       dialogClassName="modal-70w"
       triggerText="here"
@@ -27,15 +27,6 @@ const ContributionModal: React.FC = () => {
       <p>
         The Stream-Pi Team uses Discord to communicate internally, so you will
         need to have or make an account.
-      </p>
-      <p>
-        Then, with the same username you just gave us, open an issue under our
-        "Contribution" repository. We will use this to confirm you are who you
-        say you are.
-      </p>
-      <p>
-        Beyond the initial issue creation, please do not leave any additional
-        comments on the repo or issue, this is to avoid too much clutter.
       </p>
       <p>
         Any email not found with all required elements will be ignored, as well
