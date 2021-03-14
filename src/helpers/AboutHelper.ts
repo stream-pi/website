@@ -1,8 +1,8 @@
 import { TeamMember, MyIconHelper, PersonIcon } from "@util/Types";
-const sampic = "./images/sampic.png";
-const defaultpic = "./images/defpic.png";
-const togpic = "./images/togpic.png";
-const brapic = "./images/brapic.jpg";
+const sampic = "/images/sampic.png";
+const defaultpic = "/images/defpic.png";
+const togpic = "/images/togpic.png";
+const brapic = "/images/brapic.jpg";
 
 const { TwitterIcon, GithubIcon, YouTubeIcon } = MyIconHelper;
 

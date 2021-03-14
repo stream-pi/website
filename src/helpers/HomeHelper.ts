@@ -1,4 +1,4 @@
-import { IconObj, ButtonObj } from "@util/Types";
+import type { IconObj, ButtonObj } from "@util/Types";
 
 type HomeObj = {
   icons: IconObj[];

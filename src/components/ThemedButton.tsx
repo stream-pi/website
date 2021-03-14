@@ -14,11 +14,15 @@ export default class ThemedButton extends React.Component<IProps> {
   }
 }
 
-// const ThemedButton: React.FC<IProps> = ({ variant, ...rest }) =>
-//   global.isLightMode ? (
-//     <Button variant={`outline-${variant || "primary"}`} {...rest} />
+// export const ThemedButton = React.forwardRef<any, IProps>((props, ref) => {
+//   const { variant, ...rest } = props;
+//   return global.isLightMode ? (
+//     <Button ref={ref} variant={`outline-${variant || "primary"}`} {...rest} />
 //   ) : (
-//     <Button variant={variant || "primary"} {...rest} />
+//     <Button ref={ref} variant={variant || "primary"} {...rest} />
 //   );
+// });
+
+// ThemedButton.displayName = "ThemedButton";
 
 // export default ThemedButton;

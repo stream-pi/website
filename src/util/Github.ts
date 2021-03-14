@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import { LatestRelease, GithubDownloads } from "./Types";
+import type { LatestRelease, GithubDownloads } from "./Types";
 
 export interface Github {
   url: string;
@@ -72,45 +72,7 @@ type GithubHelper = {
   ReleaseInfo: LatestRelease;
 };
 
-// class GithubHelper {
-//   private ETag: string = "";
-//   private Downloads: GithubDownloads = { "Total Downloads": 0 };
-//   private ReleaseInfo: LatestRelease = {
-//     Version: "0.0.0",
-//     "Release Page": "N/A",
-//     Downloads: [],
-//   };
-
-//   public getDownloads() {
-//     return this.Downloads;
-//   }
-
-//   public getETag() {
-//     return this.ETag;
-//   }
-
-//   public getReleaseInfo() {
-//     return this.ReleaseInfo;
-//   }
-
-//   public setDownloads(data: GithubDownloads) {
-//     this.Downloads = data;
-//   }
-
-//   public setETag(input: string) {
-//     if (input !== this.ETag) {
-//       this.ETag = input;
-//     }
-//   }
-
-//   public setReleaseInfo(ri: LatestRelease) {
-//     this.ReleaseInfo = ri;
-//   }
-// }
-
-// export const GH = new GithubHelper();
-
-/** Faux cache object, mimics the above commented out class */
+/** Faux cache object */
 export const GH: GithubHelper = {
   ETag: "",
   Downloads: { "Total Downloads": 0 },

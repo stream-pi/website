@@ -1,5 +1,5 @@
 import React from "react";
-import StreamPiSEO from "@components/StreamPi/SEO";
+import StreamPiSEO from "@StreamPi/SEO";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { printOutDate } from "@util";

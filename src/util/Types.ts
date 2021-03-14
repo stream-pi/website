@@ -1,4 +1,7 @@
-import { IconPrefix, IconName } from "@fortawesome/fontawesome-common-types";
+import type {
+  IconPrefix,
+  IconName,
+} from "@fortawesome/fontawesome-common-types";
 
 export type ButtonObj = {
   text: string;

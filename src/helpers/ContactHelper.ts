@@ -1,5 +1,5 @@
 import * as yup from "yup";
-import { IconObj } from "@util/Types";
+import type { IconObj } from "@util/Types";
 
 export type LabelProps = IconObj & {
   label: string;
@@ -19,14 +19,22 @@ export const validSubjects = [
 
 export const schema = yup.object({
   name: yup.string().required(),
-  email: yup.string().email().required(),
+  email: yup
+    .string()
+    .email()
+    .test(
+      "from-streampi",
+      "Emails can not come from stream-pi",
+      (val) => /@stream-pi\.[A-Z0-9]+/i.test(val) === false
+    )
+    .required(),
   subject: yup.string().oneOf(validSubjects).required(),
   message: yup
     .string()
     .test(
       "has-link",
       "Email cannot contain any links",
-      (val) => regex.test(val!) === false
+      (val) => regex.test(val) === false
     )
     .required(),
 });

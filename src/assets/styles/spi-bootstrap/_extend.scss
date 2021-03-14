@@ -1,7 +1,5 @@
-$custom-colors: (
-  'pink': $pink,
-  'purple': $purple,
-  'orange': $orange
+$theme-colors: (
+  "pink": $pink,
+  "purple": $purple,
+  "orange": $orange,
 );
-
-$theme-colors: map-merge($theme-colors, $custom-colors);

@@ -8,7 +8,7 @@ import {
   Props,
   Params,
 } from "src/instructions";
-import StreamPiSEO from "@components/StreamPi/SEO";
+import StreamPiSEO from "@StreamPi/SEO";
 import Layout from "@components/InstallLayout";
 
 export const getStaticPaths: GetStaticPaths = async () => {

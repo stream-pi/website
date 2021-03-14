@@ -1,5 +1,5 @@
 ---
-lastUpdated: "2021-03-13 18:23:30"
+lastUpdated: "2021-03-14 17:05:10"
 streamPiVersion: "1.0.0"
 editedBy: "SamuelQuinones"
 ---
@@ -62,7 +62,7 @@ With the files extracted, navigate into your new Stream-Pi directory and look fo
 <br/>
 ![7-open-the-run-vbs-script-file](/images/screenshots/server/windows-x64/7-open-the-run-vbs-script-file.png)
 
-You **WILL** see a pop up from windows relating to your firewall asking you to allow traffic to public/private networks. This usually happens only once, during first time setup. If youre running Stream-Pi Server on a private network, make sure you have selected the option of allowing it to access private network checked. **BE SURE TO CLICK ALLOW**.
+You **WILL** see a pop up from windows relating to your firewall asking you to allow traffic to public/private networks. This usually happens only once, during first time setup. If you're running Stream-Pi Server on a private network, make sure you have selected the option of allowing it to access private network checked. **BE SURE TO CLICK ALLOW**.
 
 Denying access will prevent the server from connecting to the client.
 

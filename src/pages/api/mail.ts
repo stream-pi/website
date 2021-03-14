@@ -1,3 +1,5 @@
+//TODO: Implement blacklist & check
+
 import type { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from "nodemailer";
 import axios from "axios";

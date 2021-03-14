@@ -5,7 +5,7 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import Image from "react-bootstrap/Image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IconObj, TeamMember } from "@util/Types";
+import type { IconObj, TeamMember } from "@util/Types";
 import {
   Developers,
   PublicRelations,

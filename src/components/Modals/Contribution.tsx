@@ -1,5 +1,5 @@
 import React from "react";
-import StreamPiModal from "@components/StreamPi/Modal";
+import StreamPiModal from "@StreamPi/Modal";
 
 const ContributionModal: React.FC = () => {
   return (
