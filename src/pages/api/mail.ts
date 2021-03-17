@@ -4,8 +4,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from "nodemailer";
 import axios from "axios";
 import { prettyPrint } from "@util";
-
-const servermail = axios.create();
+import { EmailConfig } from "@util/Config";
 
 type Body = {
   captcha: string;
@@ -14,6 +13,8 @@ type Body = {
   subject: string;
   message: string;
 };
+
+const servermail = axios.create();
 
 const validateHuman = async (token: string): Promise<boolean> => {
   const secret = process.env.CAPTHCA_SECRET;
@@ -43,17 +44,17 @@ const sendMailAttempt = async (body: Body) => {
   } else {
     try {
       const transporter = nodemailer.createTransport({
-        host: "smtp.office365.com",
-        port: 587,
+        host: EmailConfig.host,
+        port: EmailConfig.port,
         auth: {
-          user: "noreply@stream-pi.com",
-          pass: process.env.EMAIL_PASS,
+          user: EmailConfig.from.address,
+          pass: EmailConfig.from.password,
         },
       });
 
       const info = await transporter.sendMail({
-        from: '"StreamPi Noreply" <noreply@stream-pi.com>',
-        to: '"StreamPi Contact" <contact@stream-pi.com>',
+        from: `"${EmailConfig.from.name}" <${EmailConfig.from.address}>`,
+        to: `"${EmailConfig.to.name}" <${EmailConfig.to.address}>`,
         cc: `"${body.name}" <${body.email}>`,
         subject: `${body.subject}`,
         html: `${body.message}`,
