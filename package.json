@@ -35,10 +35,10 @@
     "create-env": "node ./.scripts/createLocalEnv.js"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.34",
-    "@fortawesome/free-brands-svg-icons": "^5.15.2",
-    "@fortawesome/free-regular-svg-icons": "^5.15.2",
-    "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-regular-svg-icons": "^5.15.3",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
     "animate.css": "^4.1.1",
     "axios": "^0.21.1",
@@ -48,7 +48,7 @@
     "gray-matter": "^4.0.2",
     "next": "10.0.9",
     "node-sass": "^5.0.0",
-    "nodemailer": "^6.4.18",
+    "nodemailer": "^6.5.0",
     "react": "17.0.1",
     "react-bootstrap": "^1.5.2",
     "react-dom": "17.0.1",
@@ -78,6 +78,6 @@
     "prettier": "2.2.1",
     "rimraf": "^3.0.2",
     "serve": "^11.3.2",
-    "typescript": "^4.2.2"
+    "typescript": "^4.2.3"
   }
 }
