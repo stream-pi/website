@@ -1,6 +1,7 @@
 //TODO: try to condense picker logic
 
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import Link from "next/link";
 import Nav from "react-bootstrap/Nav";
 import Tab from "react-bootstrap/Tab";
@@ -148,6 +149,17 @@ const StreamPiInstall: React.FC = () => {
         const info = await Promise.all([server, client]);
         return info;
       } catch (error) {
+        toast.error(
+          <>
+            <h4>There was a Problem</h4>
+            <p>Release info could not be dynamically loaded via api</p>
+            <p className="mb-0">
+              you can access downloads on github and install instructions via
+              direct link. e.g. <strong>/install/client/raspberry-pi</strong>
+            </p>
+          </>,
+          { toastId: "release-fetch-problem", autoClose: 7000 }
+        );
         return new Error(error.message);
       }
     };
