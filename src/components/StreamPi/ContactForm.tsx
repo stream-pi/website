@@ -65,11 +65,7 @@ const AlertMessage: React.FC<{ title: string; long_msg: string }> = ({
   return (
     <>
       <h4>{title}</h4>
-      {long_msg !== "NONE" && (
-        <p style={{ fontSize: "initial" }} className="m-0">
-          {long_msg}
-        </p>
-      )}
+      {long_msg !== "NONE" && <p className="m-0">{long_msg}</p>}
     </>
   );
 };
