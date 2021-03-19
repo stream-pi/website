@@ -35,7 +35,7 @@ const InfoBanner: React.FC<Props> = ({
       <div className="d-flex justify-content-end">
         <Button
           size="sm"
-          variant={`outline-${variant}`}
+          variant={`outline-${variant === "error" ? "danger" : variant}`}
           onClick={closeToast}
           className="mx-1"
         >
@@ -43,7 +43,7 @@ const InfoBanner: React.FC<Props> = ({
         </Button>
         <Button
           size="sm"
-          variant={`outline-${variant}`}
+          variant={`outline-${variant === "error" ? "danger" : variant}`}
           onClick={parentCall}
           className="mx-1"
         >
@@ -67,11 +67,13 @@ export const useInfoBanner = (
     | "dark" = "warning",
   keyToDelete?: string
 ) => {
+  /** If the announcement 'expires' after a certain day, this will check to see if that date has passed */
   useEffect(() => {
     const sameOrAfter = dayjs().isSameOrAfter(stopShowing, "day");
     sameOrAfter && localStorage.setItem(toastId, "true");
   }, [stopShowing, toastId]);
 
+  /** If the user has clicked "don't show this again" then it won't pop up */
   useEffect(() => {
     const val = localStorage.getItem(toastId) === "true" ? true : false;
     if (!val) {
@@ -88,6 +90,7 @@ export const useInfoBanner = (
     }
   }, [toastId, message, variant]);
 
+  /** Removes an old key if specified - keeps things not clutered */
   useEffect(() => {
     keyToDelete && localStorage.removeItem(keyToDelete);
   }, [keyToDelete]);
