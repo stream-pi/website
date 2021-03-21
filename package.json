@@ -27,8 +27,9 @@
     "clean:static": "cross-env-shell \"rimraf $npm_package_config_static_out\"",
     "clean:light": "cross-env-shell \"rimraf .next/* && rimraf $npm_package_config_static_out/*\"",
     "eslint": "eslint --ext js,tx,tsx",
-    "lint": "npm run eslint src",
-    "lint:fix": "npm run eslint -- --fix src",
+    "stylelint": "stylelint \"src/assets/styles/**/*.{css,scss,sass}\"",
+    "lint": "npm run eslint src && npm run stylelint",
+    "lint:fix": "npm run eslint -- --fix src && npm run stylelint -- --fix",
     "pretty:check": "prettier --check .",
     "pretty:fix": "prettier --write .",
     "preinstall": "node ./.scripts/nodeVersionCheck.js && node ./.scripts/npmVersionCheck.js",
@@ -78,6 +79,9 @@
     "prettier": "2.2.1",
     "rimraf": "^3.0.2",
     "serve": "^11.3.2",
+    "stylelint": "^13.12.0",
+    "stylelint-config-recommended": "^4.0.0",
+    "stylelint-config-standard": "^21.0.0",
     "typescript": "^4.2.3"
   }
 }

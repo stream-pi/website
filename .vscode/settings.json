@@ -3,5 +3,9 @@
   "vsicons.associations.folders": [
     { "icon": "js", "extensions": ["javascript"], "format": "svg" },
     { "icon": "script", "extensions": [".scripts", ".script"], "format": "svg" }
-  ]
+  ],
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "stylelint.enable": true
 }
