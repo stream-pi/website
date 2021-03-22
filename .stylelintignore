@@ -1,0 +1,9 @@
+**/*.min.css
+**/dist/
+node_modules/
+.next/
+out/
+build/
+logs/
+http/
+certs/
