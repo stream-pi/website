@@ -25,7 +25,7 @@ export type Props = {
   };
 };
 
-const postsDirectory = path.join(process.cwd(), "src/instructions");
+const postsDirectory = path.join(process.cwd(), "install_instructions");
 
 export const getPlatformNames = (dir: "server" | "client") => {
   const fileNames = fs.readdirSync(`${postsDirectory}/${dir}`);

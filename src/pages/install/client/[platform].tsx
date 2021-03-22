@@ -7,7 +7,7 @@ import {
   getInstallInstructions,
   Props,
   Params,
-} from "src/instructions";
+} from "@util/Markdown";
 import StreamPiSEO from "@StreamPi/SEO";
 import Layout from "@components/InstallLayout";
 
