@@ -28,7 +28,7 @@ You'll need to get the '.zip' file onto your device, you can always download it 
 
 ### Step 2
 
-You'll need to install som additional packages on the system before we continue proper:
+You'll need to install some additional packages on the system before we continue proper:
 
 - libpangoft2-1.0-0
 - libcairo2-dev
@@ -75,9 +75,9 @@ SUBSYSTEM=="input*", PROGRAM="/bin/sh -c '\
 '"
 ```
 
-Be weary that keyboard shorcuts to paste this chunk of text don't work when running the nano editor. To copy, cut or paste you'll need to use <kbd>Shift</kbd> while you do so.
+Be weary that keyboard shortcuts to paste this chunk of text don't work when running the nano editor. To copy, cut or paste you'll need to use <kbd>Shift</kbd> while you do so.
 
-With the new block of text added, you can hit <kbd>Ctrl</kbd> <kbd>S</kbd> then press `Y` to confrim the changes and `Enter` to confirm the name. Then <kbd>Ctrl</kbd> <kbd>C</kbd> to close nano editor.
+With the new block of text added, you can hit <kbd>Ctrl</kbd> <kbd>S</kbd> then press `Y` to confirm the changes and `Enter` to confirm the name. Then <kbd>Ctrl</kbd> <kbd>C</kbd> to close nano editor.
 
 **Please now REBOOT your RaspberryPi**
 
@@ -85,7 +85,7 @@ With the new block of text added, you can hit <kbd>Ctrl</kbd> <kbd>S</kbd> then 
 
 We need to make some changes to the RaspberryPi's configuration, There are three things we need to do:
 
-1. Change the GPU memory split to be atleast 128 MB
+1. Change the GPU memory split to be at least 128 MB
 2. Switch the Video Driver
 3. We'll change the system into console mode
 

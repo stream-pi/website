@@ -7,3 +7,5 @@ editedBy: "SamuelQuinones"
 # Setup Stream-Pi on Linux
 
 ## Client Instructions
+
+Installation of the client for Linux on ARM devices is currently untested.
