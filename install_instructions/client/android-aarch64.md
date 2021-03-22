@@ -1,7 +1,7 @@
 ---
-lastUpdated: "2021-03-22 11:19:58"
+lastUpdated: "2021-03-22 11:50:12"
 streamPiVersion: "1.0.0"
-editedBy: "j4ckofalltrades"
+editedBy: "SamuelQuinones"
 ---
 
 # Setup Stream-Pi on Android
@@ -12,23 +12,42 @@ If you have any questions please reach out to us on [the Official Stream-Pi Disc
 
 ## Client Instructions
 
-### For devices running Oreo or newer (>= 8.0)
+The below steps have **anchors** associated with them, so you can quickly navigate with the browser's url bar `/install/client/[PLATFORM]#step-1` for example.
 
-1. Download the **Stream-Pi Client** `.apk` file
+There are two sets of instructions for android, take note of which applies to you based on **your operating system**.
+## For devices running Oreo or **newer** (>= 8.0)
 
-2. Install the app by either a) tapping on the completed download on your mobile browser or b) navigating to your Downloads folder via a file browser
+### Step 1 Modern
 
-3. The app should safely install
+Download the **Stream-Pi Client** `.apk` file from the github repository. The **OFFICIAL** apk will only ever be hosted here. or in the Play Store under the account name &lt;CURRENTLY_NOT_KNOWN&gt;
 
-### For devices running older versions of Android (< 8.0)
+### Step 2 Modern
 
-1. Download the **Stream-Pi Client** `.apk` file
+Install the app by either 
 
-2. Navigate to `Settings > Security Settings > Install from unknown sources` (link may vary depending on device) 
+a) tapping on the completed download on your mobile browser 
 
-3. Navigate to your Downloads folder then tap on the downloaded **Stream-Pi Client** `.apk` file
+or
 
-3. The app should safely install
+b) navigating to your Downloads folder via a file browser
+
+The App should now safely install.
+
+## For devices running **older** versions of Android (< 8.0)
+
+### Step 1 Older
+
+Download the **Stream-Pi Client** `.apk` file from the github repository. The **OFFICIAL** apk will only ever be hosted here. or in the Play Store under the account name &lt;CURRENTLY_NOT_KNOWN&gt;
+
+### Step 2 Older
+
+Navigate to `Settings > Security Settings > Install from unknown sources` (link may vary depending on device).
+
+### Step 3 Older
+
+Navigate to your Downloads folder then tap on the downloaded **Stream-Pi Client** `.apk` file
+
+The app should safely install.
 
 ### Permissions
 
