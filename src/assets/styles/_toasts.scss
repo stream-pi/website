@@ -52,6 +52,9 @@
     @if ($color == "danger") {
       @include toast-color-classes("error", $color, $value);
     }
+    @else if ($color == "primary") {
+      @include toast-color-classes("default", $color, $value);
+    }
     // all others have the same naming convention
     @else {
       @include toast-color-classes($color, $color, $value);
