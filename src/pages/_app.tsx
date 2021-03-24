@@ -72,13 +72,13 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [path, setPath] = useState("");
   const [theme, setTheme] = useState("dark");
   useHashChange();
-  useInfoBanner(
-    "This is a new version of the site, it may look the same but there is NEW functionality.",
-    "new-site-toast",
-    "2021-05-30",
-    "warning",
-    "test-toast"
-  );
+  useInfoBanner({
+    message:
+      "stream-pi.com has been rebuilt using React! It may look the same but it is a NEW site with NEW functionality.",
+    toastId: "new-site-toast",
+    stopShowing: "2021-05-30",
+    keyToDelete: "test-toast",
+  });
   const router = useRouter();
 
   useEffect(() => {

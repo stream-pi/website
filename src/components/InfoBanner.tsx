@@ -6,11 +6,38 @@ import Button from "react-bootstrap/Button";
 
 dayjs.extend(isSameOrAfter);
 
+type VAR = "info" | "success" | "warning" | "error" | "dark";
+
+type Hook = {
+  message: string;
+  toastId: string;
+  stopShowing: string | Date;
+  variant?: VAR;
+  keyToDelete?: string;
+};
+
 type Props = {
   children: React.ReactNode;
   toastId: string;
-  variant: "info" | "success" | "warning" | "error" | "default" | "dark";
+  variant: VAR;
   parentFunction: () => any;
+};
+
+const getVariant = (input: VAR) => {
+  switch (input) {
+    case "dark":
+      return "outline-dark";
+    case "info":
+      return "outline-info";
+    case "success":
+      return "outline-success";
+    case "warning":
+      return "outline-warning";
+    case "error":
+      return "outline-warning";
+    default:
+      return "outline-primary";
+  }
 };
 
 const InfoBanner: React.FC<Props> = ({
@@ -35,7 +62,7 @@ const InfoBanner: React.FC<Props> = ({
       <div className="d-flex justify-content-end">
         <Button
           size="sm"
-          variant={`outline-${variant === "error" ? "danger" : variant}`}
+          variant={getVariant(variant)}
           onClick={closeToast}
           className="mx-1"
         >
@@ -43,7 +70,7 @@ const InfoBanner: React.FC<Props> = ({
         </Button>
         <Button
           size="sm"
-          variant={`outline-${variant === "error" ? "danger" : variant}`}
+          variant={getVariant(variant)}
           onClick={parentCall}
           className="mx-1"
         >
@@ -54,19 +81,18 @@ const InfoBanner: React.FC<Props> = ({
   );
 };
 
-export const useInfoBanner = (
-  message: string,
-  toastId: string,
-  stopShowing: string | Date,
-  variant:
-    | "info"
-    | "success"
-    | "warning"
-    | "error"
-    | "default"
-    | "dark" = "warning",
-  keyToDelete?: string
-) => {
+/**
+ * Uses React Toastify to send a toast to a container with the intention of being a site-wide announcement.
+ *
+ * Requires an expiry date - when it will stop popping up on its own.
+ */
+export const useInfoBanner = ({
+  message,
+  toastId,
+  stopShowing,
+  variant,
+  keyToDelete,
+}: Hook) => {
   /** If the announcement 'expires' after a certain day, this will check to see if that date has passed */
   useEffect(() => {
     const sameOrAfter = dayjs().isSameOrAfter(stopShowing, "day");
@@ -77,7 +103,7 @@ export const useInfoBanner = (
   useEffect(() => {
     const val = localStorage.getItem(toastId) === "true" ? true : false;
     if (!val) {
-      toast[variant](
+      toast(
         <InfoBanner
           variant={variant}
           toastId={toastId}
@@ -85,7 +111,12 @@ export const useInfoBanner = (
         >
           {message}
         </InfoBanner>,
-        { containerId: "BannerToasts", toastId, delay: 1000 }
+        {
+          containerId: "BannerToasts",
+          toastId,
+          delay: 1000,
+          type: variant || "default",
+        }
       );
     }
   }, [toastId, message, variant]);
