@@ -6,6 +6,8 @@ import Link from "next/link";
 import Nav from "react-bootstrap/Nav";
 import Tab from "react-bootstrap/Tab";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Client from "@helpers/InstallHelper/client";
+import Server from "@helpers/InstallHelper/server";
 import { getReleases } from "@util/API";
 import { LatestRelease } from "@util/Types";
 import StreamPiSEO from "@StreamPi/SEO";
@@ -20,10 +22,7 @@ type InstallNavProps = {
   version: string;
 };
 
-const BlankDate: Releases = {
-  Client: { Version: "0.0.0", "Release Page": "N/A", Downloads: [] },
-  Server: { Version: "0.0.0", "Release Page": "N/A", Downloads: [] },
-};
+const BlankDate: Releases = { Client, Server };
 
 const fixDownloadName = (input: string, version: string) => {
   const plat_arch = input.replace(
@@ -154,8 +153,7 @@ const StreamPiInstall: React.FC = () => {
             <h4>There was a Problem</h4>
             <p>Release info could not be dynamically loaded via api</p>
             <p className="mb-0">
-              you can access downloads on github and install instructions via
-              direct link. e.g. <strong>/install/client/raspberry-pi</strong>
+              Instructions for most recent release have been loaded statically
             </p>
           </>,
           { toastId: "release-fetch-problem", autoClose: 7000 }

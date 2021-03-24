@@ -18,22 +18,26 @@ const sumTotalDownloads = (response: GithubResponse) => {
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   res.setHeader("Content-Type", "application/json");
   const repo = queryParser(req.query.REPO);
-  try {
-    const repoDeets = await getGithub(repo);
-    GH.ETag = repoDeets.headers.etag;
-    res.statusCode = 200;
-    const raw = {
-      "Total Downloads": sumTotalDownloads(repoDeets) + init_count[repo],
-    };
-    // GH.Downloads = { ...raw }; // creates new obj in memory
-    GH.Downloads = raw;
-    res.send(prettyPrint(raw));
-  } catch (error) {
-    if (error.response?.status === 304) {
-      // console.log("Not a real error");
-      res.send(prettyPrint(GH.Downloads));
-    } else {
-      res.status(400).json(error.response.data);
+  if (repo === "Bad_Call") {
+    res.status(400).json(prettyPrint({ message: "Bad Call" }));
+  } else {
+    try {
+      const repoDeets = await getGithub(repo);
+      GH[repo].ETag = repoDeets.headers.etag;
+      res.statusCode = 200;
+      const raw = {
+        "Total Downloads": sumTotalDownloads(repoDeets) + init_count[repo],
+      };
+      // GH.Downloads = { ...raw }; // creates new obj in memory
+      GH[repo].Downloads = raw;
+      res.send(prettyPrint(raw));
+    } catch (error) {
+      if (error.response?.status === 304) {
+        console.log("Not a real error");
+        res.send(prettyPrint(GH[repo].Downloads));
+      } else {
+        res.status(400).json(error.response.data);
+      }
     }
   }
 };

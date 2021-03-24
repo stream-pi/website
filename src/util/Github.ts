@@ -67,26 +67,44 @@ export type GithubResponse = AxiosResponse<Github[]>;
 type GitHubPromise = Promise<GithubResponse>;
 
 type GithubHelper = {
-  ETag: string;
-  Downloads: GithubDownloads;
-  ReleaseInfo: LatestRelease;
+  server: {
+    ETag: string;
+    Downloads: GithubDownloads;
+    ReleaseInfo: LatestRelease;
+  };
+  client: {
+    ETag: string;
+    Downloads: GithubDownloads;
+    ReleaseInfo: LatestRelease;
+  };
 };
 
 /** Faux cache object */
 export const GH: GithubHelper = {
-  ETag: "",
-  Downloads: { "Total Downloads": 0 },
-  ReleaseInfo: {
-    Version: "0.0.0",
-    "Release Page": "N/A",
-    Downloads: [],
+  server: {
+    ETag: "",
+    Downloads: { "Total Downloads": 0 },
+    ReleaseInfo: {
+      Version: "0.0.0",
+      "Release Page": "N/A",
+      Downloads: [],
+    },
+  },
+  client: {
+    ETag: "",
+    Downloads: { "Total Downloads": 0 },
+    ReleaseInfo: {
+      Version: "0.0.0",
+      "Release Page": "N/A",
+      Downloads: [],
+    },
   },
 };
 
 export async function getGithub(repo: string): GitHubPromise {
   const owner = process.env.NEXT_PUBLIC_REPO_OWNER;
   return github.get(`/repos/${owner}/${repo}/releases`, {
-    headers: { "If-None-Match": GH.ETag },
+    headers: { "If-None-Match": GH[repo.toLowerCase()].ETag },
     auth: {
       username: process.env.GITHUB_USR,
       password: process.env.GITHUB_KEY,
