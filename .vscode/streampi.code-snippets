@@ -47,7 +47,7 @@
       "import React from 'react';",
       "",
       "",
-      "type $2 {",
+      "type $2 = {",
       "\t$3",
       "};",
       "",
@@ -67,7 +67,7 @@
     "scope": "typescriptreact",
     "prefix": "rfcp",
     "body": [
-      "type $2 {",
+      "type $2 = {",
       "\t$3",
       "};",
       "",
