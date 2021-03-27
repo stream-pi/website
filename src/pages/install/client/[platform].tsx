@@ -38,6 +38,7 @@ const Client: React.FC<Props> = ({ installInstructions }) => {
         flipOrder
         title={`${capitalize(platform)} Client`}
         description={`Install Stream-Pi client on ${capitalize(platform)}`}
+        slug={`install/client/${platform}`}
       />
       <Layout {...rest} />
     </>

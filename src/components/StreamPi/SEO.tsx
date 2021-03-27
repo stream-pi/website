@@ -6,9 +6,15 @@ type Props = {
   title: string;
   flipOrder?: boolean;
   description: string;
+  slug?: string;
 };
 
-const StreamPiSEO: React.FC<Props> = ({ title, flipOrder, description }) => {
+const StreamPiSEO: React.FC<Props> = ({
+  title,
+  flipOrder,
+  description,
+  slug,
+}) => {
   const titleString = flipOrder
     ? `${config.title} ${title}`
     : `${title} ${config.title}`;
@@ -31,7 +37,9 @@ const StreamPiSEO: React.FC<Props> = ({ title, flipOrder, description }) => {
       />
       <meta
         property="og:url"
-        content={`${process.env.NEXT_PUBLIC_BASE_URL}/${path}`}
+        content={`${process.env.NEXT_PUBLIC_BASE_URL}/${
+          slug?.toLowerCase() || path
+        }`}
       />
       <meta property="twitter:card" content="summary" />
       <meta property="twitter:creator" content={config.social.twitter} />
