@@ -64,6 +64,15 @@ p {
   }
 }
 
+#scroll-to-top {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  .btn-lg {
+    padding: 0.5rem 1.05rem;
+  }
+}
+
 #streamPiHome {
   font-weight: 300;
   @media screen and (max-width: 576px) {

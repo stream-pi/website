@@ -38,6 +38,7 @@ import StreamPiFooter from "@StreamPi/Footer";
 import StreamPiNavbar from "@StreamPi/Navbar";
 import StreamPiNavItem from "@StreamPi/NavItem";
 import ThemeSwitch from "@components/ThemeSwitch";
+import ScrollToTop from "@components/ScrollToTop";
 
 library.add(
   faRaspberryPi,
@@ -135,6 +136,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         closeOnClick={false}
         containerId={"BannerToasts"}
       />
+      <ScrollToTop />
     </>
   );
 }
