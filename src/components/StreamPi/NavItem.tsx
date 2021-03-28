@@ -30,12 +30,17 @@ const ActiveLink: React.FC<Props> = ({
   const child = Children.only(children);
   const childClassName = (child as React.ReactElement).props.className || "";
 
-  const newAsPath = /(#.*|\?.+=.*)/g.test(asPath)
+  const asPathTwo = /(#.*|\?.+=.*)/g.test(asPath)
     ? asPath.replace(/(#.*|\?.+=.*)/g, "")
     : asPath;
 
+  const asPathThree = asPathTwo.replace(
+    /^(\/[A-Za\-0-9]+)(?:\/[A-Za-z\-0-9]+)+/i,
+    "$1"
+  );
+
   const className =
-    newAsPath === props.href || newAsPath === props.as
+    asPathThree === props.href || asPathThree === props.as
       ? `${childClassName} ${activeClassName}`.trim()
       : childClassName;
 
