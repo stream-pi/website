@@ -2,9 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 import ContactForm from "@StreamPi/ContactForm";
 import StreamPiSEO from "@StreamPi/SEO";
-import ThemedButton from "@components/ThemedButton";
 import SectionWrapper from "@components/SectionWrapper";
 import ContributionModal from "@components/Modals/Contribution";
 
@@ -74,13 +74,13 @@ const StreamPiContact: React.FC = () => {
                       {["Client", "Server", "EssentialActions"].map(
                         (str, idx) => (
                           <React.Fragment key={`repo${idx}`}>
-                            <ThemedButton
+                            <Button
                               variant="info"
                               href={`https://github.com/stream-pi/${str.toLowerCase()}/issues`}
                               target="_blank"
                             >
                               {`${str} Issues`}
-                            </ThemedButton>
+                            </Button>
                             {idx < 2 ? " " : ""}
                           </React.Fragment>
                         )
@@ -144,14 +144,11 @@ const StreamPiContact: React.FC = () => {
                     this page for 8 seconds. After clicking, the contact form
                     will be available.
                   </p>
-                  <ThemedButton
-                    disabled={disable}
-                    onClick={() => setAgreed(true)}
-                  >
+                  <Button disabled={disable} onClick={() => setAgreed(true)}>
                     {disable
                       ? `Please wait ${remainingSeconds} seconds`
                       : "I understand"}
-                  </ThemedButton>
+                  </Button>
                 </div>
               ) : (
                 <ContactForm />

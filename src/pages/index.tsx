@@ -4,12 +4,12 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 import { IconObj, ButtonObj } from "@util/Types";
 import { HomeInfo } from "@helpers/HomeHelper";
 import config from "@helpers/SEOHelper";
 import StreamPiVideo from "@StreamPi/Video";
 import StreamPiSEO from "@StreamPi/SEO";
-import ThemedButton from "@components/ThemedButton";
 
 type Props = {
   icons: IconObj[];
@@ -45,12 +45,12 @@ const HomeCard: React.FC<Props> = ({
           <React.Fragment key={`button${idx}`}>
             {internal ? (
               <Link href={link} as={link} passHref>
-                <ThemedButton {...commonProps}>{text}</ThemedButton>
+                <Button {...commonProps}>{text}</Button>
               </Link>
             ) : (
-              <ThemedButton {...commonProps} href={link} target="_blank">
+              <Button {...commonProps} href={link} target="_blank">
                 {text}
-              </ThemedButton>
+              </Button>
             )}
             {"\n"}
           </React.Fragment>
@@ -120,7 +120,7 @@ const StreamPiHome: React.FC = () => {
             Donations will help us be able to continue hosting without worry,
             and help us focus extra time on development
           </p>
-          <ThemedButton
+          <Button
             variant="danger"
             href="https://www.patreon.com/streampi"
             target="_blank"
@@ -131,7 +131,7 @@ const StreamPiHome: React.FC = () => {
               <FontAwesomeIcon icon={["fab", "patreon"]} />
             </span>{" "}
             Visit Our Patreon
-          </ThemedButton>
+          </Button>
         </Col>
       </Row>
     </React.Fragment>

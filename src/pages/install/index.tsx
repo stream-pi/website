@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import Link from "next/link";
 import Nav from "react-bootstrap/Nav";
 import Tab from "react-bootstrap/Tab";
+import Button from "react-bootstrap/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Client from "@helpers/InstallHelper/client";
 import Server from "@helpers/InstallHelper/server";
@@ -13,7 +14,6 @@ import { LatestRelease } from "@util/Types";
 import StreamPiSEO from "@StreamPi/SEO";
 import CollapsePill from "@components/CollapsePill";
 import { LoadingIndicator } from "@components/LoadingIndicator";
-import ThemedButton from "@components/ThemedButton";
 
 type Releases = { Client: LatestRelease; Server: LatestRelease };
 type InstallNavProps = {
@@ -77,14 +77,9 @@ const InstallNav: React.FC<InstallNavProps> = ({ arr, sercli, version }) => {
                   </strong>{" "}
                   build directly from github.
                 </p>
-                <ThemedButton
-                  size="lg"
-                  href={item.Link || ""}
-                  target="_blank"
-                  block
-                >
+                <Button size="lg" href={item.Link || ""} target="_blank" block>
                   Download
-                </ThemedButton>
+                </Button>
               </div>
               {key.includes("linux-arm7") && (
                 <div className="pt-3">
@@ -98,13 +93,13 @@ const InstallNav: React.FC<InstallNavProps> = ({ arr, sercli, version }) => {
                     as={`/install/${sercli.toLowerCase()}/raspberry-pi`}
                     passHref
                   >
-                    <ThemedButton variant="danger" size="lg" block>
+                    <Button variant="danger" size="lg" block>
                       <FontAwesomeIcon
                         icon={["fab", "raspberry-pi"]}
                         className="animate__animated animate__heartBeat"
                       />{" "}
                       Install Instructions
-                    </ThemedButton>
+                    </Button>
                   </Link>
                 </div>
               )}
@@ -120,9 +115,9 @@ const InstallNav: React.FC<InstallNavProps> = ({ arr, sercli, version }) => {
                   as={`/install/${sercli.toLowerCase()}/${key.toLowerCase()}`}
                   passHref
                 >
-                  <ThemedButton variant="success" size="lg" block>
+                  <Button variant="success" size="lg" block>
                     View Install Instructions
-                  </ThemedButton>
+                  </Button>
                 </Link>
               </div>
             </Tab.Pane>

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
+import Button from "react-bootstrap/Button";
 import { useRouter } from "next/router";
-import ThemedButton from "@components/ThemedButton";
 
 const NotFound: React.FC = () => {
   const [path, setPath] = useState("");
@@ -34,16 +34,12 @@ const NotFound: React.FC = () => {
           our contact page!
         </p>
 
-        <ThemedButton
-          className="mt-5"
-          variant="info"
-          onClick={() => router.back()}
-        >
+        <Button className="mt-5" variant="info" onClick={() => router.back()}>
           Go Back
-        </ThemedButton>
+        </Button>
         {"\n"}
         <Link href="/" as="/" passHref>
-          <ThemedButton className="mt-5">Go Home</ThemedButton>
+          <Button className="mt-5">Go Home</Button>
         </Link>
       </div>
     </React.Fragment>

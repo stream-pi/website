@@ -1,36 +1,38 @@
 // FIXME: consider renaming
 
-import React from "react";
+import React, { useState, useEffect } from "react";
+import useDarkMode from "use-dark-mode";
 import Button from "react-bootstrap/Button";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-type Props = {
-  propClick: () => any;
-  theme: string;
-};
+const ThemeSwitch: React.FC = () => {
+  const [icon, setIcon] = useState<boolean>(true);
+  const darkMode = useDarkMode(true);
 
-const ThemeSwitch: React.FC<Props> = ({ propClick, theme }) => {
-  const light = theme === "light";
-  const altTheme = light ? "dark" : "light";
+  useEffect(() => {
+    setIcon(darkMode.value);
+  }, [darkMode.value]);
+
   return (
     <div className="my-auto mx-auto">
       <OverlayTrigger
         placement="bottom"
-        overlay={<Tooltip id="theme-tooltip">Use {altTheme} theme</Tooltip>}
+        overlay={<Tooltip id="theme-tooltip">Toggle Darkmode</Tooltip>}
       >
         <Button
-          className={`rounded-circle border-${theme}`}
-          variant={altTheme}
+          className="rounded-circle theme-changer"
+          variant="transparent"
           size="sm"
-          onClick={propClick}
+          onClick={darkMode.toggle}
           style={{ border: "2px solid" }}
         >
-          <FontAwesomeIcon
-            className="theme-icon"
-            icon={light ? ["fas", "moon"] : ["fas", "sun"]}
-          />
+          {icon ? (
+            <FontAwesomeIcon className="theme-icon" icon={["fas", "sun"]} />
+          ) : (
+            <FontAwesomeIcon className="theme-icon" icon={["fas", "moon"]} />
+          )}
         </Button>
       </OverlayTrigger>
     </div>

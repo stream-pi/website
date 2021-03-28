@@ -3,16 +3,12 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Image from "react-bootstrap/Image";
 
-const StreamPiNavbar: React.FC<{ navVariant: "light" | "dark" }> = ({
-  navVariant,
-  children,
-}) => {
+const StreamPiNavbar: React.FC = ({ children }) => {
   return (
     <Navbar
-      className="shadow"
+      className="shadow streampi-navbar-class"
       collapseOnSelect
       expand="sm"
-      variant={navVariant}
       fixed="top"
     >
       <Navbar.Brand className="d-sm-none">

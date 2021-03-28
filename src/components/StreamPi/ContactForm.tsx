@@ -16,7 +16,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
-import ThemedButton from "@components/ThemedButton";
+import Button from "react-bootstrap/Button";
 
 // My Custom Form Control
 type Props = React.ComponentProps<typeof Form.Control> &
@@ -205,7 +205,7 @@ const ContactForm: React.FC = () => {
 
                 {/* Button */}
                 <Form.Group controlId="sendButton">
-                  <ThemedButton
+                  <Button
                     className="w-100"
                     type="submit"
                     size="lg"
@@ -214,7 +214,7 @@ const ContactForm: React.FC = () => {
                     disabled={isSubmitting}
                   >
                     Send Mail
-                  </ThemedButton>
+                  </Button>
                 </Form.Group>
                 {/* This is to view form data */}
                 {/* <pre className="text-left">{JSON.stringify(values, null, 2)}</pre> */}

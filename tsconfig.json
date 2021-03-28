@@ -6,9 +6,7 @@
       "@components/*": ["./src/components/*"],
       "@helpers/*": ["./src/helpers/*"],
       "@util": ["./src/util"],
-      "@util/*": ["./src/util/*"],
-      "@theme": ["./src/assets/theme"],
-      "@theme/*": ["./src/assets/theme/*"]
+      "@util/*": ["./src/util/*"]
     },
     "target": "es2015",
     "lib": ["dom", "dom.iterable", "esnext"],

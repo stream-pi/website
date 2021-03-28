@@ -31,7 +31,6 @@ import {
 import Container from "react-bootstrap/Container";
 import { ToastContainer } from "react-toastify";
 import { useHashChange } from "@util";
-import { setThemeConfig } from "@theme";
 import { ExternalPaths } from "@helpers/ExternalHelper";
 import { useInfoBanner } from "@components/InfoBanner";
 import StreamPiFooter from "@StreamPi/Footer";
@@ -61,24 +60,15 @@ library.add(
   faAngleDown
 );
 
-declare global {
-  namespace NodeJS {
-    interface Global {
-      isLightMode: boolean;
-    }
-  }
-}
-
 function MyApp({ Component, pageProps }: AppProps) {
   const [path, setPath] = useState("");
-  const [theme, setTheme] = useState("dark");
   useHashChange();
   useInfoBanner({
     message:
       "stream-pi.com has been rebuilt using React! It may look the same but it is a NEW site with NEW functionality.",
     toastId: "new-site-toast",
     stopShowing: "2021-05-30",
-    keyToDelete: "test-toast",
+    keysToDelete: ["test-toast", "theme"],
   });
   const router = useRouter();
 
@@ -86,31 +76,17 @@ function MyApp({ Component, pageProps }: AppProps) {
     let mounted = true;
     if (mounted) {
       setPath(router.asPath);
-      setTheme(() => {
-        const theme = localStorage.getItem("theme") || "dark";
-        global.isLightMode = theme === "light";
-        return theme;
-      });
     }
     return () => {
       mounted = false;
     };
   }, []); /* eslint-disable-line react-hooks/exhaustive-deps */
 
-  const toggleTheme = () => {
-    setTheme((prev) => {
-      const theme = prev === "light" ? "dark" : "light";
-      setThemeConfig(theme);
-      global.isLightMode = theme === "light";
-      return theme;
-    });
-  };
-
   return (
     <>
       <ToastContainer position="top-center" enableMultiContainer />
       {!ExternalPaths.has(path.replace(/\/+/gm, "")) && (
-        <StreamPiNavbar navVariant={theme as "light" | "dark"}>
+        <StreamPiNavbar>
           <StreamPiNavItem to="/">Home</StreamPiNavItem>
           <StreamPiNavItem to="/about">About</StreamPiNavItem>
           <StreamPiNavItem to="/features">Features</StreamPiNavItem>
@@ -119,7 +95,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <StreamPiNavItem to="/troubleshooting">
             Troubleshooting
           </StreamPiNavItem>
-          <ThemeSwitch propClick={toggleTheme} theme={theme} />
+          <ThemeSwitch />
         </StreamPiNavbar>
       )}
       <Container style={{ paddingTop: "4rem" }} fluid="md">
