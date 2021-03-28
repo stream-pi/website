@@ -36,7 +36,7 @@ const ScrollToTop: React.FC = () => {
           ref={btnRef}
           onClick={scroll}
           variant="primary"
-          className="rounded-circle shadow-sm"
+          className="rounded-circle shadow"
           size="lg"
         >
           <FontAwesomeIcon icon={["fas", "angle-up"]} size="2x" />

@@ -35,7 +35,7 @@ const ActiveLink: React.FC<Props> = ({
     : asPath;
 
   const asPathThree = asPathTwo.replace(
-    /^(\/[A-Za\-0-9]+)(?:\/[A-Za-z\-0-9]+)+/i,
+    /^(\/[A-Za-z\-0-9]+)(?:\/[A-Za-z\-0-9]+)+/i,
     "$1"
   );
 
