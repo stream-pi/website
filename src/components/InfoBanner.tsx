@@ -13,7 +13,7 @@ type Hook = {
   toastId: string;
   stopShowing: string | Date;
   variant?: VAR;
-  keyToDelete?: string;
+  keysToDelete?: string | string[];
 };
 
 type Props = {
@@ -34,7 +34,7 @@ const getVariant = (input: VAR) => {
     case "warning":
       return "outline-warning";
     case "error":
-      return "outline-warning";
+      return "outline-danger";
     default:
       return "outline-primary";
   }
@@ -91,7 +91,7 @@ export const useInfoBanner = ({
   toastId,
   stopShowing,
   variant,
-  keyToDelete,
+  keysToDelete,
 }: Hook) => {
   /** If the announcement 'expires' after a certain day, this will check to see if that date has passed */
   useEffect(() => {
@@ -121,8 +121,12 @@ export const useInfoBanner = ({
     }
   }, [toastId, message, variant]);
 
-  /** Removes an old key if specified - keeps things not clutered */
+  /** Removes an old key if specified - keeps things not clutered, can also be an array of old keys */
   useEffect(() => {
-    keyToDelete && localStorage.removeItem(keyToDelete);
-  }, [keyToDelete]);
+    if (keysToDelete) {
+      typeof keysToDelete === "string"
+        ? localStorage.removeItem(keysToDelete)
+        : keysToDelete.forEach((key) => localStorage.removeItem(key));
+    }
+  }, [keysToDelete]);
 };
