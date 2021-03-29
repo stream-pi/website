@@ -30,7 +30,7 @@ const ScrollToTop: React.FC = () => {
   }, []);
 
   return (
-    <Fade in={isVisible} unmountOnExit>
+    <Fade in={isVisible} unmountOnExit mountOnEnter>
       <div id="scroll-to-top">
         <Button
           ref={btnRef}
