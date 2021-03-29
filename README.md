@@ -10,9 +10,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 Originally the Stream-Pi website was made with static HTML, and PHP. With the release of Stream-Pi 1.0.0 we thought a redesign was in order to make things more modern. So the site was rebuilt from the ground up using react, typescript, and nextjs.
 
-Using the NextJS framework allows us to utilize features like **Client Side Routing** which will make pages load faster, without having to sacrifice long initial loads and bad SEO.
-
-We also have access to features like **React Redux** which will give us access to global store/state management and allow us to build a plugin store.
+React will bring the Stream-Pi website into the modern era of web development and offer a faster, more robust experience for the end user. NextJS builds upon this with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more. without the need for additional configuration.
 
 It'll also in general just be easier to maintain.
 
@@ -33,6 +31,7 @@ It'll also in general just be easier to maintain.
 - Remark (For rendering markdown as HTML with syntax)
 - dayjs (for parsing / formatting date-time stamps)
 - React-Toastify (for easy, global, customizable site alerts)
+- Use-dark-mode (better management of dark mode for the site)
 
 ## How Can I Contribute?
 

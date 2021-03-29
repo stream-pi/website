@@ -10,6 +10,7 @@ const StreamPiNavbar: React.FC = ({ children }) => {
       collapseOnSelect
       expand="sm"
       fixed="top"
+      variant="dark"
     >
       <Navbar.Brand className="d-sm-none">
         <Image src="/favicon.ico" height="32px" />
