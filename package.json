@@ -3,6 +3,7 @@
   "version": "2.0.0",
   "author": "Samuel Quiñones",
   "description": "The official Stream-Pi website",
+  "license": "GPL-3.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/stream-pi/website"
@@ -50,7 +51,7 @@
     "dayjs": "^1.10.4",
     "formik": "^2.2.6",
     "gray-matter": "^4.0.2",
-    "next": "10.0.9",
+    "next": "10.1.1",
     "node-sass": "^5.0.0",
     "nodemailer": "^6.5.0",
     "react": "17.0.2",
@@ -71,8 +72,8 @@
     "@types/nodemailer": "^6.4.1",
     "@types/react": "^17.0.3",
     "@types/react-google-recaptcha": "^2.1.0",
-    "@typescript-eslint/eslint-plugin": "^4.19.0",
-    "@typescript-eslint/parser": "^4.19.0",
+    "@typescript-eslint/eslint-plugin": "^4.20.0",
+    "@typescript-eslint/parser": "^4.20.0",
     "cross-env": "^7.0.3",
     "eslint": "^7.23.0",
     "eslint-config-prettier": "^8.1.0",
