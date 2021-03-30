@@ -1,22 +1,20 @@
-//TODO: Implement more obvious legal text
-
 import React from "react";
-import LegalInfoModal from "@components/Modals/StreamPiGroup";
+import LegalInfoModal from "@components/Modals/TermsOfUse";
 
 const StreamPiFooter: React.FC = () => {
   const currentYear = new Date().getFullYear();
   return (
     <>
       <main className="flex-fill"></main>
-      <footer className="text-center footer mt-2">
-        <p
-          style={{
-            marginTop: "0.5rem",
-            marginBottom: "0.5rem",
-            fontSize: "1.0rem",
-          }}
-        >
-          &copy; 2019 - {currentYear}, <LegalInfoModal /> and its Affiliates
+      <footer className="text-center footer p-3 mt-2">
+        <p className="mb-1">
+          &copy; 2019 - {currentYear}, Stream-Pi Group and its Affiliates
+        </p>
+        <p className="mb-1">
+          <LegalInfoModal />
+        </p>
+        <p className="mb-0">
+          Website Version <strong>{process.env.NEXT_PUBLIC_WEB_VERSION}</strong>
         </p>
       </footer>
     </>
