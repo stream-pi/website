@@ -5,13 +5,13 @@ const LegalInfoModal: React.FC = () => {
   const currentYear = new Date().getFullYear();
   return (
     <StreamPiModal
-      modalTitle="StreamPi Group Legal Info"
-      htmlId="stream-pi-group-modal"
+      modalTitle="StreamPi Terms of Use"
+      htmlId="stream-pi-tou-modal"
       dialogClassName="modal-55w"
-      triggerText="Stream-Pi Group"
+      triggerText="Terms of Use"
       modalBodyClass="small-modal"
       overlay
-      tooltipText="View Legal Info"
+      tooltipText="View Terms of Use"
     >
       <p className="text-center">
         <strong>This is in reference to the Stream-Pi Software</strong>
