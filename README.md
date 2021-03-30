@@ -20,7 +20,7 @@ It'll also in general just be easier to maintain.
 - React
 - NextJS (Base framework and faux server backend for deploying the app)
 - Typescript (for better type checking in Javascript)
-- Node Sass (for use of sass/scss)
+- Sass (for use of sass/scss, this is the dart version)
 - Bootstrap (for style / look)
 - Fontawesome (for icons)
 - Animate.css (for complex animations)

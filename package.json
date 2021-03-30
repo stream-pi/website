@@ -52,7 +52,6 @@
     "formik": "2.2.6",
     "gray-matter": "4.0.2",
     "next": "10.1.2",
-    "node-sass": "5.0.0",
     "nodemailer": "6.5.0",
     "react": "17.0.2",
     "react-bootstrap": "1.5.2",
@@ -64,6 +63,7 @@
     "remark-highlight.js": "6.0.0",
     "remark-html": "13.0.1",
     "remark-slug": "6.0.0",
+    "sass": "1.32.8",
     "use-dark-mode": "2.3.1",
     "yup": "0.32.9"
   },
