@@ -10,12 +10,11 @@ exec("npm -v", function (err, stdout) {
     throw new Error("This project requires npm 6 or greater");
   }
 
-  if (ver > 6) {
+  if (ver < 7) {
     console.log(
       "\x1b[33m",
-      "This project has not been tested on NPM versions newer than 6, please report any problems to:\nhttps://github.com/stream-pi/website/issues",
+      "This project has been migrated to npm 7, it should still work on 6 but it is recommended you upgrade",
       "\x1b[0m"
     );
-    console.log("\x1b[33m", `You are using ${stdout}`, "\x1b[0m");
   }
 });
