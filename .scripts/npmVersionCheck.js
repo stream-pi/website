@@ -10,10 +10,10 @@ exec("npm -v", function (err, stdout) {
     throw new Error("This project requires npm 6 or greater");
   }
 
-  if (ver < 7) {
+  if (ver > 6) {
     console.log(
       "\x1b[33m",
-      "This project has been migrated to npm 7, it should still work on 6 but it is recommended you upgrade",
+      "We are slowly trying to upgrade to 7, please use LTS / 6 for now",
       "\x1b[0m"
     );
   }
