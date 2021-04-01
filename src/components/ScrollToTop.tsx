@@ -1,13 +1,12 @@
 //TODO: consider making if statement on line 11 ternary
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "react-bootstrap/Button";
 import Fade from "react-bootstrap/Fade";
 
 const ScrollToTop: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const btnRef = useRef<HTMLButtonElement>(null);
 
   const toggleVisibility = () => {
     if (window.pageYOffset > 300) {
@@ -17,12 +16,12 @@ const ScrollToTop: React.FC = () => {
     }
   };
 
-  const scroll = () => {
+  const scroll = (e: React.MouseEvent<HTMLElement>) => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
-    btnRef.current?.blur();
+    e.currentTarget.blur();
   };
 
   useEffect(() => {
@@ -33,7 +32,6 @@ const ScrollToTop: React.FC = () => {
     <Fade in={isVisible} unmountOnExit mountOnEnter>
       <div id="scroll-to-top">
         <Button
-          ref={btnRef}
           onClick={scroll}
           variant="primary"
           className="rounded-circle shadow"
