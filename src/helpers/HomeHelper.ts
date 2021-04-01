@@ -13,7 +13,7 @@ export const KIT: HomeObj = {
   ],
   buttons: [
     { text: "Join the Discord", link: "https://discord.gg/BExqGmk" },
-    { text: "Visit out Twitter", link: "https://twitter.com/stream_pi" },
+    { text: "Visit our Twitter", link: "https://twitter.com/stream_pi" },
   ],
   extraClass: ["mr-2", "ml-2"],
 };
