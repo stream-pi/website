@@ -31,8 +31,8 @@ import {
 import Container from "react-bootstrap/Container";
 import { ToastContainer } from "react-toastify";
 import { useHashChange } from "@util";
+import { useInfoBanner } from "@util/InfoBanner";
 import { ExternalPaths } from "@helpers/ExternalHelper";
-import { useInfoBanner } from "@components/InfoBanner";
 import StreamPiFooter from "@StreamPi/Footer";
 import StreamPiNavbar from "@StreamPi/Navbar";
 import StreamPiNavItem from "@StreamPi/NavItem";
@@ -65,7 +65,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   useHashChange();
   useInfoBanner({
     message:
-      "stream-pi.com has been rebuilt using React! It may look the same but it is a NEW site with NEW functionality.",
+      "stream-pi.com has been rebuilt using React! It may look similar but it is a NEW site with NEW functionality.",
     toastId: "new-site-toast",
     stopShowing: "2021-05-30",
     keysToDelete: ["test-toast", "theme"],
