@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -13,25 +13,20 @@ const StreamPiContact: React.FC = () => {
   const [disable, setDisable] = useState(true);
   const [remainingSeconds, setRemainingSeconds] = useState<number>(8);
 
-  const intervalRef = useRef<any>(null);
-  const timeoutRef = useRef<any>(null);
-  const currentCount = useRef<number>(8);
-
   useEffect(() => {
-    intervalRef.current = setInterval(() => {
-      // console.log("Interval");
-      setRemainingSeconds(currentCount.current - 1);
-      currentCount.current -= 1;
+    const intervalRef = setInterval(() => {
+      console.log("Interval");
+      setRemainingSeconds((initial) => initial - 1);
     }, 1000);
-    timeoutRef.current = setTimeout(() => {
-      // console.log("Timeout");
-      clearInterval(intervalRef.current);
+    const timeoutRef = setTimeout(() => {
+      console.log("Timeout");
+      clearInterval(intervalRef);
       setDisable(false);
     }, 8000);
 
     return () => {
-      clearInterval(intervalRef.current);
-      clearInterval(timeoutRef.current);
+      clearInterval(intervalRef);
+      clearInterval(timeoutRef);
     };
   }, []);
 
