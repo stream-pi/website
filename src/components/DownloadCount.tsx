@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getDownloads } from "@util/API";
-import { LoadingIndicator } from "./LoadingIndicator";
+import SyncLoader from "react-spinners/SyncLoader";
 
 const DownloadCount: React.FC = () => {
   const [clientDownloads, setClientDownloads] = useState<number>(0);
@@ -38,9 +38,9 @@ const DownloadCount: React.FC = () => {
   }, []);
 
   return (
-    <div className="text-center">
+    <div className="d-flex justify-content-center">
       {!loaded ? (
-        <LoadingIndicator />
+        <SyncLoader color="var(--spi-color-text)" margin={4} />
       ) : (
         <>
           <p>Client Downloads - {clientDownloads}</p>

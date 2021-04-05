@@ -7,13 +7,13 @@ import Nav from "react-bootstrap/Nav";
 import Tab from "react-bootstrap/Tab";
 import Button from "react-bootstrap/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import PropagateLoader from "react-spinners/PropagateLoader";
 import Client from "@helpers/InstallHelper/client";
 import Server from "@helpers/InstallHelper/server";
 import { getReleases } from "@util/API";
 import { LatestRelease } from "@util/Types";
 import StreamPiSEO from "@StreamPi/SEO";
 import CollapsePill from "@components/CollapsePill";
-import { LoadingIndicator } from "@components/LoadingIndicator";
 
 type Releases = { Client: LatestRelease; Server: LatestRelease };
 type InstallNavProps = {
@@ -195,7 +195,7 @@ const StreamPiInstall: React.FC = () => {
         </p>
       </div>
       {/* Disclaimer Start */}
-      <div className="animate__animated animate__fadeInUp">
+      <div className="animate__animated animate__fadeIn">
         <CollapsePill
           id="anti-virus-disclaimer"
           titleText="Click for a disclaimer in regards to Anti-Virus Software"
@@ -241,8 +241,8 @@ const StreamPiInstall: React.FC = () => {
       {/* Disclaimer End */}
 
       {!loaded ? (
-        <div className="text-center">
-          <LoadingIndicator />
+        <div className="d-flex justify-content-center">
+          <PropagateLoader loading={!loaded} color="var(--spi-color-text)" />
         </div>
       ) : (
         <>

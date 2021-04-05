@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import React, { useEffect } from "react";
-import { LoadingIndicator } from "@components/LoadingIndicator";
+import BarLoader from "react-spinners/BarLoader";
 import { ExternalObjs } from "@helpers/ExternalHelper";
 
 type Params = {
@@ -28,9 +28,9 @@ const ExtRedir: React.FC<Props> = ({ postData }) => {
       <Head>
         <title>Redirect {postData.name}</title>
       </Head>
-      <div className="text-center">
-        <h1>Redirecting to {postData.name}</h1>
-        <LoadingIndicator />
+      <h1 className="text-center">Redirecting to {postData.name}</h1>
+      <div className="mt-4 d-flex justify-content-center">
+        <BarLoader loading={true} color="var(--spi-color-text)" />
       </div>
     </>
   );
