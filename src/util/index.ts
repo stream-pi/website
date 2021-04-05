@@ -92,7 +92,7 @@ export function capitalize(str: string) {
  * // returns ["Bob", "Mark"]
  * propertySet(people, "name");
  */
-export function propertySet(arr: OBJ[], key: keyof OBJ) {
+export function propertySet<T extends OBJ>(arr: T[], key: keyof T) {
   return new Set(arr.map((obj) => obj[key]));
 }
 
@@ -134,6 +134,19 @@ export function prettyPrint(obj: OBJ) {
   return JSON.stringify(obj, null, 2);
 }
 
-export function printOutDate(date: dayjs.ConfigType) {
-  return dayjs(date).format("MMMM Do, YYYY");
+/**
+ * Takes in any date like data and will transform it into a more human readable string.
+ *
+ * @see dayjs.ConfigType
+ *
+ * @param dateIn any date like input that dayjs can parse
+ * @returns date string formatted as: MMMM, Do, YYYY
+ *
+ * @example
+ * // returns April 2nd, 2021
+ * const today = printOutDate("2021-04-02 14:41:53");
+ * const today_two = printOutDate(new Date(2021, 3, 2));
+ */
+export function printOutDate(dateIn: dayjs.ConfigType) {
+  return dayjs(dateIn).format("MMMM Do, YYYY");
 }

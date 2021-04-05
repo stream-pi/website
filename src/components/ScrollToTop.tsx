@@ -5,6 +5,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "react-bootstrap/Button";
 import Fade from "react-bootstrap/Fade";
 
+/**
+ * A Button element that appears when the vertical offest exceeds 300px.
+ *
+ * @returns DOM element that when clicked, will smoothly scroll back to the top of the page.
+ */
 const ScrollToTop: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
 
