@@ -9,11 +9,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ThemeSwitch: React.FC = () => {
   const [icon, setIcon] = useState<boolean>(true);
-  const darkMode = useDarkMode(true);
+  const [containsTransition, setContainsTransition] = useState(false);
+  const { value, toggle } = useDarkMode(true);
 
   useEffect(() => {
-    setIcon(darkMode.value);
-  }, [darkMode.value]);
+    setIcon(value);
+  }, [value]);
+
+  const toggleTheme = () => {
+    if (!containsTransition) {
+      document.body.classList.add("body-transition");
+      setContainsTransition(true);
+    }
+    toggle();
+  };
 
   return (
     <div className="my-auto mx-auto">
@@ -25,7 +34,7 @@ const ThemeSwitch: React.FC = () => {
           className="rounded-circle theme-changer"
           variant="transparent"
           size="sm"
-          onClick={darkMode.toggle}
+          onClick={toggleTheme}
           style={{ border: "2px solid" }}
         >
           {icon ? (
