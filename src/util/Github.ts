@@ -104,7 +104,7 @@ export const GH: GithubHelper = {
 export async function getGithub(repo: string): GitHubPromise {
   const owner = process.env.NEXT_PUBLIC_REPO_OWNER;
   return github.get(`/repos/${owner}/${repo}/releases`, {
-    headers: { "If-None-Match": GH[repo.toLowerCase()].ETag },
+    headers: { "If-None-Match": GH[repo].ETag },
     auth: {
       username: process.env.GITHUB_USR,
       password: process.env.GITHUB_KEY,

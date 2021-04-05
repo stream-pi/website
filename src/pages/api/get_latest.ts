@@ -31,7 +31,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       GH[repo].ReleaseInfo = final;
       res.send(prettyPrint(final));
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       if (error.response?.status === 304) {
         console.log("Not a real error");
         res.send(prettyPrint(GH[repo].ReleaseInfo));
