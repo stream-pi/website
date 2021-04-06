@@ -1,5 +1,5 @@
-// @import "code-atom-one";
-@import "code-solarized";
+@import "code-solarized-light";
+@import "code-vsc-dark";
 
 .spi-markdown {
   h1,
@@ -10,12 +10,10 @@
     margin-top: 24px;
   }
 
-  code {
-    &:not(.hljs) {
-      color: var(--spi-color-text);
-    }
-    border-radius: 6px;
+  p > code:not([class*="language-"]) {
     padding: 0.2em 0.4em;
+    margin: 0;
+    border-radius: 6px;
     font-size: 85%;
   }
 
@@ -45,6 +43,8 @@
   }
 
   pre {
+    word-wrap: normal;
+    border-radius: 6px;
     padding: 12px;
     margin-bottom: 16px;
     margin-top: 0;

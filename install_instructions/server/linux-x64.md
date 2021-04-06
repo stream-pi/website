@@ -1,5 +1,5 @@
 ---
-lastUpdated: "2021-03-06 17:46:10"
+lastUpdated: "2021-04-06 12:06:20"
 streamPiVersion: "1.0.0"
 editedBy: "SamuelQuinones"
 ---
@@ -20,7 +20,7 @@ Assuming you have already downloaded the '.zip' file from github, extract the '.
 
 For example:
 
-```
+```nginx
 /home/<YOURNAME>/StreamPiServer
 ```
 
@@ -28,7 +28,7 @@ Where `StreamPiServer` holds the unpacked files from the zip. Most programs that
 
 What you want to avoid is something like this:
 
-```
+```nginx
 /home/<YOURNAME>/StreamPiServer/StreamPi-FROM-GITHUB
 ```
 

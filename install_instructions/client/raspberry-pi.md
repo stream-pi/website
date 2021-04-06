@@ -1,7 +1,7 @@
 ---
-lastUpdated: "2021-03-22 11:20:38"
+lastUpdated: "2021-04-06 12:11:00"
 streamPiVersion: "1.0.0"
-editedBy: "j4ckofalltrades"
+editedBy: "SamuelQuinones"
 ---
 
 # Setup Stream-Pi on Raspberry-Pi
@@ -45,7 +45,7 @@ Now that the release '.zip' file is on the device, extract the '.zip' file to a 
 
 For example:
 
-```
+```nginx
 /home/<YOURNAME>/StreamPiClient
 ```
 
@@ -53,7 +53,7 @@ Where `StreamPiClient` holds the unpacked files from the zip. Most programs that
 
 What you want to avoid is something like this:
 
-```
+```nginx
 /home/<YOURNAME>/StreamPiClient/StreamPi-FROM-GITHUB
 ```
 
@@ -69,7 +69,7 @@ $ sudo nano /etc/udev/rules.d/99-com.rules
 
 A bunch of text will then pop up on the screen, this is the file. You'll need to add the following chunk of text to the bottom of the file:
 
-```
+```nginx
 SUBSYSTEM=="input*", PROGRAM="/bin/sh -c '\
         chown -R root:input /sys/class/input/*/ && chmod -R 770 /sys/class/input/*/;\
 '"

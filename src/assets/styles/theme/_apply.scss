@@ -35,19 +35,10 @@ h1 {
   color: var(--spi-color-heading);
 }
 
-pre {
-  color: var(--spi-color-text);
-  background-color: var(--spi-color-card);
-  border: 1px solid var(--spi-color-heading);
-
-  text-align: center;
-  padding: 9.5px;
-  border-radius: 4px;
-
-  &:hover {
-    cursor: text;
-  }
+pre:hover {
+  cursor: text;
 }
+
 hr {
   border-color: var(--spi-color-hr);
   &.capsule {
