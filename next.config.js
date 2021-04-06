@@ -11,17 +11,17 @@ module.exports = {
       },
       {
         source: "/team",
-        destination: "/about", // Matched parameters can be used in the destination
+        destination: "/about",
         permanent: true,
       },
       {
         source: "/developers",
-        destination: "/about", // Matched parameters can be used in the destination
+        destination: "/about",
         permanent: true,
       },
       {
         source: "/staff",
-        destination: "/about", // Matched parameters can be used in the destination
+        destination: "/about",
         permanent: true,
       },
       {

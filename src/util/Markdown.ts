@@ -4,7 +4,7 @@ import fs from "fs";
 import remark from "remark";
 import html from "remark-html";
 import gfm from "remark-gfm";
-import highlight from "remark-highlight.js";
+import prism from "remark-prism";
 import slug from "remark-slug";
 
 /** Params for getStaticProps as used in install instructions */
@@ -50,7 +50,7 @@ export const getInstallInstructions = async (
 
   const processedContent = await remark()
     .use(gfm)
-    .use(highlight)
+    .use(prism)
     .use(slug)
     .use(html)
     .process(matterResult.content);
