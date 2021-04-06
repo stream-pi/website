@@ -32,6 +32,7 @@ It'll also in general just be easier to maintain.
 - dayjs (for parsing / formatting date-time stamps)
 - React-Toastify (for easy, global, customizable site alerts)
 - Use-dark-mode (better management of dark mode for the site)
+- React-spinners (for loading indicators)
 
 ## How Can I Contribute?
 
