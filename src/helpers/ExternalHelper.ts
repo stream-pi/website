@@ -1,5 +1,3 @@
-//TODO: When the Stream-Pi repos become public, change the /project paths
-
 type ExternalMaster = {
   [x: string]: {
     name: string;
