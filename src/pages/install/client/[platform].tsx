@@ -1,6 +1,4 @@
 // https://nextjs.org/learn/basics/dynamic-routes
-import { GetStaticPaths, GetStaticProps } from "next";
-import React from "react";
 import { capitalize } from "@util";
 import {
   getPlatformNames,
@@ -11,7 +9,7 @@ import {
 import StreamPiSEO from "@StreamPi/SEO";
 import Layout from "@components/InstallLayout";
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths = async () => {
   const paths = getPlatformNames("client");
   return {
     paths,
@@ -19,7 +17,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }: Params) => {
+export const getStaticProps = async ({ params }: Params) => {
   const { platform } = params;
   const installInstructions = await getInstallInstructions(platform, "client");
 
@@ -30,7 +28,7 @@ export const getStaticProps: GetStaticProps = async ({ params }: Params) => {
   };
 };
 
-const Client: React.FC<Props> = ({ installInstructions }) => {
+const Client = ({ installInstructions }: Props) => {
   const { platform, ...rest } = installInstructions;
   return (
     <>

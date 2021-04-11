@@ -1,6 +1,5 @@
-import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import BarLoader from "react-spinners/BarLoader";
 import { ExternalObjs } from "@helpers/ExternalHelper";
 
@@ -18,7 +17,7 @@ type Props = {
   };
 };
 
-const ExtRedir: React.FC<Props> = ({ postData }) => {
+const ExtRedir = ({ postData }: Props) => {
   useEffect(() => {
     window.location.replace(postData.link);
   }, [postData.link]);
@@ -36,7 +35,7 @@ const ExtRedir: React.FC<Props> = ({ postData }) => {
   );
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths = async () => {
   // Return a list of possible value for id
 
   const paths = Object.keys(ExternalObjs).map((e) => {
@@ -49,7 +48,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }: Params) => {
+export const getStaticProps = async ({ params }: Params) => {
   const { ext } = params;
   // Fetch necessary data for the blog post using params.id
   const postData = { ext, ...ExternalObjs[ext] };
