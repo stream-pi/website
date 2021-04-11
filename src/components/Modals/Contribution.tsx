@@ -6,8 +6,8 @@ const ContributionModal: React.FC = () => {
     <StreamPiModal
       modalTitle="About Joining Our Team"
       htmlId="contribution-modal"
-      dialogClassName="modal-70w"
       triggerText="here"
+      size="xl"
     >
       <p>
         If you are interested in joining the Stream-Pi development team or

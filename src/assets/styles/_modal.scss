@@ -1,32 +1,14 @@
-@mixin modalCustWidth($width) {
-  .modal-#{$width}w {
-    width: percentage($width / 100);
-    max-width: none !important;
-    @media screen and (max-width: 767px) {
-      width: 70%;
-    }
-    @media screen and (max-width: 575px) {
-      width: auto;
-    }
+button.modal-text-btn {
+  padding: 0;
+  color: #007bff;
+  background-color: transparent;
+  border: transparent;
+  &:hover {
+    color: #0056b3;
+    text-decoration: underline;
+    cursor: pointer;
   }
 }
-
-button {
-  &.modal-text-btn {
-    padding: 0;
-    color: #007bff;
-    background-color: transparent;
-    border: transparent;
-    &:hover {
-      color: #0056b3;
-      text-decoration: underline;
-      cursor: pointer;
-    }
-  }
-}
-
-@include modalCustWidth(70); // .modal-70w
-@include modalCustWidth(55); // .modal-55w
 
 .modal-title {
   width: 100%;

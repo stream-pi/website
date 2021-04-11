@@ -7,11 +7,11 @@ const LegalInfoModal: React.FC = () => {
     <StreamPiModal
       modalTitle="StreamPi Terms of Use"
       htmlId="stream-pi-tou-modal"
-      dialogClassName="modal-55w"
       triggerText="Terms of Use"
       modalBodyClass="small-modal"
       overlay
       tooltipText="View Terms of Use"
+      size="xl"
     >
       <p className="text-center">
         <strong>This is in reference to the Stream-Pi Software</strong>

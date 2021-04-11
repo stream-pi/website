@@ -10,6 +10,7 @@ type CommonProps = {
   htmlId: string;
   modalTitle: React.ReactNode;
   modalBodyClass?: string;
+  size?: "sm" | "lg" | "xl";
 };
 
 type WithOverlay = CommonProps & {
@@ -31,6 +32,7 @@ const StreamPiModal: React.FC<WoutOverlay | WithOverlay> = ({
   modalBodyClass,
   overlay = false,
   tooltipText,
+  size,
 }) => {
   const [modalShow, setModalShow] = useState<boolean>(false);
 
@@ -72,6 +74,7 @@ const StreamPiModal: React.FC<WoutOverlay | WithOverlay> = ({
         show={modalShow}
         onHide={handleHide}
         aria-labelledby={htmlId}
+        size={size}
       >
         <Modal.Header closeButton>
           <Modal.Title id={htmlId}>{modalTitle}</Modal.Title>
