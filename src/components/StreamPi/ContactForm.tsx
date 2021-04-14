@@ -1,62 +1,49 @@
-//TODO: hide form on submit?
-
-import React, { useRef } from "react";
+import React, { useRef, forwardRef, useState } from "react";
 import { toast } from "react-toastify";
-import { Formik, Form as FormikForm, FieldHookConfig, useField } from "formik";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ReCAPTCHA from "react-google-recaptcha";
 import {
   sKey,
-  schema,
   LabelProps,
   validSubjects,
+  ContactFormMethods,
+  FormInputs,
 } from "@helpers/ContactHelper";
 import { sendEmail } from "@util/API";
-import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
-// My Custom Form Control
-type Props = React.ComponentProps<typeof Form.Control> &
-  FieldHookConfig<string>;
+type Props = React.ComponentProps<typeof Form.Control> & {
+  errorText: string;
+};
 
-const FGStyles: React.CSSProperties = { position: "relative" };
-
-const MyFormControl: React.FC<Props> = (props) => {
-  const BootstrapStuff = {
-    ...(props as React.ComponentProps<typeof Form.Control>),
-  };
-  const FormikStuff = { ...(props as FieldHookConfig<string>) };
-  const [field, meta] = useField(FormikStuff);
-  const errorText = meta.error && meta.touched ? meta.error : "";
+const MyFormControl = forwardRef<any, Props>(({ errorText, ...props }, ref) => {
   return (
     <>
-      <Form.Control isInvalid={!!errorText} {...field} {...BootstrapStuff} />
+      <Form.Control ref={ref} {...props} />
       <Form.Control.Feedback type="invalid" tooltip>
         {errorText}
       </Form.Control.Feedback>
     </>
   );
-};
+});
+MyFormControl.displayName = "MyFormControl";
 
-// Custom FormControl Label
-const FieldLabel: React.FC<LabelProps> = ({
-  label,
-  IcoPre,
-  IcoName,
-  subtext,
-}) => {
-  return (
-    <Form.Label>
-      <h5>
-        {label} <FontAwesomeIcon icon={[IcoPre, IcoName]} />
-      </h5>
-      {subtext ? ` ${subtext}` : ""}
-    </Form.Label>
-  );
-};
+const MyFormLabel = forwardRef<HTMLLabelElement, LabelProps>(
+  ({ label, IcoName, IcoPre, subtext }, ref) => {
+    return (
+      <Form.Label ref={ref}>
+        <h5>
+          {label} <FontAwesomeIcon icon={[IcoPre, IcoName]} />
+        </h5>
+        {subtext ? ` ${subtext}` : ""}
+      </Form.Label>
+    );
+  }
+);
+MyFormLabel.displayName = "MyFormLabel";
 
 const AlertMessage: React.FC<{ title: string; long_msg: string }> = ({
   title,
@@ -70,160 +57,164 @@ const AlertMessage: React.FC<{ title: string; long_msg: string }> = ({
   );
 };
 
-/** The Contact Form Component */
 const ContactForm: React.FC = () => {
+  /** more controllable than the react hook form variables */
+  const [disabled, setDisabled] = useState(false);
+  /** used to control  the captcha */
   const recaptchaRef = useRef<ReCAPTCHA>(null);
 
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = ContactFormMethods({
+    name: "",
+    email: "",
+    subject: "Press",
+    message: "",
+  });
+
+  /**
+   * function that fires when the form submits.
+   *
+   * attempts to send the mail and will show a toast depending on the success of that attempt.
+   *
+   * @param data form data, excluding the captcha
+   */
+  const onSubmit = async (data: FormInputs) => {
+    setDisabled(true);
+    const captcha = recaptchaRef.current?.getValue();
+    const mail = { ...data, captcha };
+
+    try {
+      const res = await sendEmail(mail);
+      toast.success(
+        <AlertMessage title={res.data.title} long_msg={res.data.long_msg} />,
+        { onClose: () => setDisabled(false) }
+      );
+    } catch (error) {
+      if (error.response /* response error */) {
+        toast.error(
+          <AlertMessage
+            title={error.response.data.title}
+            long_msg={error.response.data.long_msg}
+          />,
+          { onClose: () => setDisabled(false) }
+        );
+      } else if (error.request /* request error */) {
+        toast.error(
+          <AlertMessage title="Request Error" long_msg={error.message} />,
+          { onClose: () => setDisabled(false) }
+        );
+      } else {
+        toast.error(<AlertMessage title="Error" long_msg={error.message} />, {
+          onClose: () => setDisabled(false),
+        });
+      }
+    } finally {
+      recaptchaRef.current?.reset();
+      reset();
+    }
+  };
+
   return (
-    <>
-      <Card className="animate__animated animate__fadeIn bg-card">
-        <Card.Body className="pb-0 pt-2">
-          <Formik
-            initialValues={{
-              name: "",
-              email: "",
-              subject: "Press",
-              message: "",
-            }}
-            validationSchema={schema}
-            onSubmit={async (data, { setSubmitting, resetForm }) => {
-              toast.dismiss();
-              setSubmitting(true);
-              const captcha = recaptchaRef.current?.getValue();
-              const mail = { ...data, captcha };
+    <Card className="animate__animated animate__fadeIn bg-card">
+      <Card.Body className="pb-0 pt-2">
+        <Form noValidate onSubmit={handleSubmit(onSubmit)} autoComplete="off">
+          {/* Name & Email */}
+          <Form.Row className="pt-2">
+            {/* Name */}
+            <Form.Group as={Col} md="6" controlId="NameInput">
+              <MyFormLabel label="Name" IcoPre="fas" IcoName="user" />
+              <MyFormControl
+                placeholder="Your Name"
+                isInvalid={!!errors.name}
+                errorText={errors.name?.message}
+                {...register("name")}
+                disabled={disabled}
+              />
+            </Form.Group>
 
-              try {
-                const res = await sendEmail(mail);
-                // console.log(res);
-                toast.success(
-                  <AlertMessage
-                    title={res.data.title}
-                    long_msg={res.data.long_msg}
-                  />
-                );
-              } catch (error) {
-                if (error.response /* response error */) {
-                  toast.error(
-                    <AlertMessage
-                      title={error.response.data.title}
-                      long_msg={error.response.data.long_msg}
-                    />
-                  );
-                } else if (error.request /* request error */) {
-                  toast.error(
-                    <AlertMessage
-                      title={"Request Error"}
-                      long_msg={error.message}
-                    />
-                  );
-                } else {
-                  toast.error(
-                    <AlertMessage title={"Error"} long_msg={error.message} />
-                  );
-                }
-              } finally {
-                resetForm();
-                recaptchaRef.current?.reset();
-                setSubmitting(false);
-              }
-            }}
-          >
-            {({ isSubmitting }) => (
-              <FormikForm method="post" id="form">
-                {/* Name & Email */}
-                <Row className="pt-2">
-                  {/* Name */}
-                  <Col md={6}>
-                    <Form.Group style={FGStyles} controlId="NameInput">
-                      <FieldLabel label="Name" IcoPre="fas" IcoName="user" />
-                      <MyFormControl
-                        type="text"
-                        name="name"
-                        placeholder="Your Name"
-                        disabled={isSubmitting}
-                      />
-                    </Form.Group>
-                  </Col>
+            {/* Email */}
+            <Form.Group as={Col} md="6" controlId="EmailInput">
+              <MyFormLabel label="Email" IcoPre="fas" IcoName="envelope" />
+              <MyFormControl
+                placeholder="Your Email Address"
+                isInvalid={!!errors.email}
+                errorText={errors.email?.message}
+                {...register("email")}
+                disabled={disabled}
+              />
+            </Form.Group>
+          </Form.Row>
 
-                  {/* Email */}
-                  <Col md={6}>
-                    <Form.Group style={FGStyles} controlId="EmailInput">
-                      <FieldLabel
-                        label="Email"
-                        IcoPre="fas"
-                        IcoName="envelope"
-                      />
-                      <MyFormControl
-                        type="email"
-                        name="email"
-                        placeholder="Your Email Address"
-                        disabled={isSubmitting}
-                      />
-                    </Form.Group>
-                  </Col>
-                </Row>
+          {/* Subject */}
+          <Form.Row>
+            <Form.Group as={Col} controlId="MessageSelect">
+              <MyFormLabel
+                label="Subject"
+                IcoPre="fas"
+                IcoName="question-circle"
+                subtext="(Select One)"
+              />
+              <MyFormControl
+                isInvalid={!!errors.subject}
+                errorText={errors.subject?.message}
+                {...register("subject")}
+                disabled={disabled}
+                as="select"
+                custom
+              >
+                {validSubjects.map((sub, idx) => (
+                  <option key={`option${idx}`} value={sub}>
+                    {sub}
+                  </option>
+                ))}
+              </MyFormControl>
+            </Form.Group>
+          </Form.Row>
 
-                {/* Subject */}
-                <Form.Group controlId="MessageSelect" style={FGStyles}>
-                  <FieldLabel
-                    label="Subject"
-                    IcoPre="fas"
-                    IcoName="question-circle"
-                    subtext="(Select One)"
-                  />
-                  <MyFormControl
-                    as="select"
-                    name="subject"
-                    disabled={isSubmitting}
-                    custom
-                  >
-                    {validSubjects.map((sub, idx) => (
-                      <option key={`option${idx}`} value={sub}>
-                        {sub}
-                      </option>
-                    ))}
-                  </MyFormControl>
-                </Form.Group>
+          {/* Message */}
+          <Form.Row>
+            <Form.Group as={Col} controlId="MessageInput">
+              <MyFormLabel label="Message" IcoPre="fas" IcoName="comment" />
+              <MyFormControl
+                placeholder="Your Message"
+                isInvalid={!!errors.message}
+                errorText={errors.message?.message}
+                {...register("message")}
+                disabled={disabled}
+                as="textarea"
+                rows={6}
+                maxLength={6000}
+              />
+            </Form.Group>
+          </Form.Row>
 
-                {/* Message */}
-                <Form.Group style={FGStyles} controlId="MessageInput">
-                  <FieldLabel label="Message" IcoPre="fas" IcoName="comment" />
-                  <MyFormControl
-                    name="message"
-                    as="textarea"
-                    rows={6}
-                    placeholder="Your Message"
-                    disabled={isSubmitting}
-                    maxLength={6000}
-                  />
-                </Form.Group>
+          {/* Recaptcha */}
+          <div className="form-group mt-3" id="rcap">
+            <ReCAPTCHA ref={recaptchaRef} sitekey={sKey} />
+          </div>
 
-                {/* Recaptcha */}
-                <div className="form-group" id="rcap">
-                  <ReCAPTCHA ref={recaptchaRef} sitekey={sKey} />
-                </div>
-
-                {/* Button */}
-                <Form.Group controlId="sendButton">
-                  <Button
-                    className="w-100"
-                    type="submit"
-                    size="lg"
-                    variant="dark"
-                    role="button"
-                    disabled={isSubmitting}
-                  >
-                    Send Mail
-                  </Button>
-                </Form.Group>
-                {/* This is to view form data */}
-                {/* <pre className="text-left">{JSON.stringify(values, null, 2)}</pre> */}
-              </FormikForm>
-            )}
-          </Formik>
-        </Card.Body>
-      </Card>
-    </>
+          {/* Button */}
+          <Form.Row>
+            <Form.Group as={Col} controlId="sendButton">
+              <Button
+                className="w-100"
+                type="submit"
+                size="lg"
+                variant="dark"
+                role="button"
+                disabled={disabled}
+              >
+                Send Mail
+              </Button>
+            </Form.Group>
+          </Form.Row>
+        </Form>
+      </Card.Body>
+    </Card>
   );
 };
 

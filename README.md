@@ -15,6 +15,7 @@ React will bring the Stream-Pi website into the modern era of web development an
 It'll also in general just be easier to maintain.
 
 ## Current Packages / Libraries
+
 (In order of addition)
 
 - React
@@ -24,7 +25,6 @@ It'll also in general just be easier to maintain.
 - Bootstrap (for style / look)
 - Fontawesome (for icons)
 - Animate.css (for complex animations)
-- Formik (for form styling / validation)
 - Yup (for form validation schema)
 - Axios (API calls and GET / POST requests)
 - Gray Matter (For reading hidden metadata in markdown files)
@@ -33,6 +33,7 @@ It'll also in general just be easier to maintain.
 - React-Toastify (for easy, global, customizable site alerts)
 - Use-dark-mode (better management of dark mode for the site)
 - React-spinners (for loading indicators)
+- React-Hook-Form (for form validation and state management)
 
 ## How Can I Contribute?
 

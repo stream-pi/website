@@ -1,5 +1,14 @@
 import * as yup from "yup";
 import type { IconObj } from "@util/Types";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+
+export type FormInputs = {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+};
 
 export type LabelProps = IconObj & {
   label: string;
@@ -17,7 +26,7 @@ export const validSubjects = [
   "Other",
 ];
 
-export const schema = yup.object({
+export const schema = yup.object().shape({
   name: yup.string().required(),
   email: yup
     .string()
@@ -38,3 +47,11 @@ export const schema = yup.object({
     )
     .required(),
 });
+
+export const ContactFormMethods = (initialValues: FormInputs) => {
+  return useForm<FormInputs>({
+    mode: "onTouched",
+    defaultValues: initialValues,
+    resolver: yupResolver(schema),
+  });
+};
