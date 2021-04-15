@@ -8,12 +8,11 @@ import Tab from "react-bootstrap/Tab";
 import Button from "react-bootstrap/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PropagateLoader from "react-spinners/PropagateLoader";
-import Client from "@helpers/InstallHelper/client";
-import Server from "@helpers/InstallHelper/server";
 import { getReleases } from "@util/API";
 import { LatestRelease } from "@util/Types";
-import StreamPiSEO from "@StreamPi/SEO";
+import StreamPiSEO from "@components/StreamPiSEO";
 import CollapsePill from "@components/CollapsePill";
+import { Client, Server } from "@components/Page/Install";
 
 type Releases = { Client: LatestRelease; Server: LatestRelease };
 type InstallNavProps = {

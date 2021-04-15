@@ -3,10 +3,10 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import ContactForm from "@StreamPi/ContactForm";
-import StreamPiSEO from "@StreamPi/SEO";
+import StreamPiSEO from "@components/StreamPiSEO";
 import SectionWrapper from "@components/SectionWrapper";
 import ContributionModal from "@components/Modals/Contribution";
+import { ContactForm } from "@components/Page/Contact";
 
 const StreamPiContact: React.FC = () => {
   const [agreed, setAgreed] = useState(false);

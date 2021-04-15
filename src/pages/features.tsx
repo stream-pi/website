@@ -1,25 +1,13 @@
 import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { chunkedFeatures, chunkedPlanFeatures } from "@helpers/FeatureHelper";
-import StreamPiSEO from "@StreamPi/SEO";
-
-const FeatureRow: React.FC = ({ children }) => {
-  return (
-    <Row className="pt-5 text-center animate__animated animate__fadeInUp">
-      {children}
-    </Row>
-  );
-};
-
-const FeatureCol: React.FC<{ title: string }> = ({ title, children }) => {
-  return (
-    <Col md={4}>
-      <h3>{title}</h3>
-      <p>{children}</p>
-    </Col>
-  );
-};
+import StreamPiSEO from "@components/StreamPiSEO";
+import {
+  chunkedFeatures,
+  chunkedPlanFeatures,
+  FeatureCol,
+  FeatureRow,
+} from "@components/Page/Features";
 
 const StreamPiFeatures: React.FC = () => {
   return (

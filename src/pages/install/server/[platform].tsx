@@ -6,8 +6,8 @@ import {
   Props,
   Params,
 } from "@util/Markdown";
-import StreamPiSEO from "@StreamPi/SEO";
-import Layout from "@components/InstallLayout";
+import StreamPiSEO from "@components/StreamPiSEO";
+import { MarkdownLayout } from "@components/Page/Install";
 
 export const getStaticPaths = async () => {
   const paths = getPlatformNames("server");
@@ -38,7 +38,7 @@ const Server = ({ installInstructions }: Props) => {
         description={`Install Stream-Pi server on ${capitalize(platform)}`}
         slug={`install/server/${platform}`}
       />
-      <Layout {...rest} />
+      <MarkdownLayout {...rest} />
     </>
   );
 };

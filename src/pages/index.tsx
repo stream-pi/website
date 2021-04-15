@@ -1,70 +1,18 @@
 import React from "react";
 import Image from "react-bootstrap/Image";
-import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import { IconObj, ButtonObj } from "@util/Types";
-import { HomeInfo } from "@helpers/HomeHelper";
-import config from "@helpers/SEOHelper";
-import StreamPiVideo from "@StreamPi/Video";
-import StreamPiSEO from "@StreamPi/SEO";
-
-type Props = {
-  icons: IconObj[];
-  buttons: ButtonObj[];
-  title: string;
-  extraClass?: string[];
-};
-
-const HomeCard: React.FC<Props> = ({
-  icons,
-  buttons,
-  title,
-  children,
-  extraClass,
-}) => {
-  const commonProps = { className: "mb-5", variant: "info" };
-  return (
-    <Col lg={4} className="text-center">
-      {icons.map(({ IcoPre, IcoName }, idx) => (
-        <React.Fragment key={`icon${idx}`}>
-          <FontAwesomeIcon
-            className={extraClass ? extraClass[idx] : ""}
-            icon={[IcoPre, IcoName]}
-            size="4x"
-          />
-          {"\n"}
-        </React.Fragment>
-      ))}
-      <h3>{title}</h3>
-      <p>{children}</p>
-      <p>
-        {buttons.map(({ link, text, internal }, idx) => (
-          <React.Fragment key={`button${idx}`}>
-            {internal ? (
-              <Link href={link} as={link} passHref>
-                <Button {...commonProps}>{text}</Button>
-              </Link>
-            ) : (
-              <Button {...commonProps} href={link} target="_blank">
-                {text}
-              </Button>
-            )}
-            {"\n"}
-          </React.Fragment>
-        ))}
-      </p>
-    </Col>
-  );
-};
+import { MetaData } from "@util/Config";
+import StreamPiSEO from "@components/StreamPiSEO";
+import { HomeCard, HomeInfo, StreamPiVideo } from "@components/Page/Home";
 
 const StreamPiHome: React.FC = () => {
   const { KIT, ICF, MIJ } = HomeInfo;
   return (
     <React.Fragment>
-      <StreamPiSEO title="Home" description={config.description} flipOrder />
+      <StreamPiSEO title="Home" description={MetaData.description} flipOrder />
       {/* title */}
       <Row>
         <Col className="text-center animate__animated animate__fadeIn">

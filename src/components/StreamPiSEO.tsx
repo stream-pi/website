@@ -1,23 +1,23 @@
 import React from "react";
 import Head from "next/head";
-import config from "@helpers/SEOHelper";
+import { MetaData } from "@util/Config";
 
-type Props = {
+type SEOProps = {
   title: string;
   flipOrder?: boolean;
   description: string;
   slug?: string;
 };
 
-const StreamPiSEO: React.FC<Props> = ({
+const StreamPiSEO: React.FC<SEOProps> = ({
   title,
   flipOrder,
   description,
   slug,
 }) => {
   const titleString = flipOrder
-    ? `${config.title} ${title}`
-    : `${title} ${config.title}`;
+    ? `${MetaData.title} ${title}`
+    : `${title} ${MetaData.title}`;
 
   const path = title.toLowerCase() === "home" ? "" : title.toLowerCase();
 
@@ -30,7 +30,7 @@ const StreamPiSEO: React.FC<Props> = ({
       <meta property="og:title" content={titleString} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
-      <meta property="og:site_name" content={config.title} />
+      <meta property="og:site_name" content={MetaData.title} />
       <meta
         property="og:image"
         content={`${process.env.NEXT_PUBLIC_BASE_URL}/images/logo.png`}
@@ -42,7 +42,7 @@ const StreamPiSEO: React.FC<Props> = ({
         }`}
       />
       <meta property="twitter:card" content="summary" />
-      <meta property="twitter:creator" content={config.social.twitter} />
+      <meta property="twitter:creator" content={MetaData.social.twitter} />
       <meta property="twitter:title" content={titleString} />
       <meta property="twitter:description" content={description} />
     </Head>

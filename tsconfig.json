@@ -2,9 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@StreamPi/*": ["./src/components/StreamPi/*"],
       "@components/*": ["./src/components/*"],
-      "@helpers/*": ["./src/helpers/*"],
       "@util": ["./src/util"],
       "@util/*": ["./src/util/*"]
     },

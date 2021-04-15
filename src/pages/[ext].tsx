@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useEffect } from "react";
 import BarLoader from "react-spinners/BarLoader";
-import { ExternalObjs } from "@helpers/ExternalHelper";
+import { ExternalObjs } from "@util/ExternalRedirects";
 
 type Params = {
   params: {

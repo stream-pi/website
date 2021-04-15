@@ -32,10 +32,10 @@ import Container from "react-bootstrap/Container";
 import { ToastContainer } from "react-toastify";
 import { useHashChange } from "@util";
 import { useInfoBanner } from "@util/InfoBanner";
-import { ExternalPaths } from "@helpers/ExternalHelper";
-import StreamPiFooter from "@StreamPi/Footer";
-import StreamPiNavbar from "@StreamPi/Navbar";
-import StreamPiNavItem from "@StreamPi/NavItem";
+import { ExternalPaths } from "@util/ExternalRedirects";
+import StreamPiNavItem from "@components/Navigation/NavItem";
+import StreamPiFooter from "@components/Footer";
+import StreamPiNavbar from "@components/Navbar";
 import ThemeSwitch from "@components/ThemeSwitch";
 import ScrollToTop from "@components/ScrollToTop";
 

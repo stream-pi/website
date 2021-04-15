@@ -1,61 +1,14 @@
-import React, { useRef, forwardRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { toast } from "react-toastify";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ReCAPTCHA from "react-google-recaptcha";
-import {
-  sKey,
-  LabelProps,
-  validSubjects,
-  ContactFormMethods,
-  FormInputs,
-} from "@helpers/ContactHelper";
+import { sKey, validSubjects, ContactFormMethods, FormInputs } from "./Helper";
 import { sendEmail } from "@util/API";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-
-type Props = React.ComponentProps<typeof Form.Control> & {
-  errorText: string;
-};
-
-const MyFormControl = forwardRef<any, Props>(({ errorText, ...props }, ref) => {
-  return (
-    <>
-      <Form.Control ref={ref} {...props} />
-      <Form.Control.Feedback type="invalid" tooltip>
-        {errorText}
-      </Form.Control.Feedback>
-    </>
-  );
-});
-MyFormControl.displayName = "MyFormControl";
-
-const MyFormLabel = forwardRef<HTMLLabelElement, LabelProps>(
-  ({ label, IcoName, IcoPre, subtext }, ref) => {
-    return (
-      <Form.Label ref={ref}>
-        <h5>
-          {label} <FontAwesomeIcon icon={[IcoPre, IcoName]} />
-        </h5>
-        {subtext ? ` ${subtext}` : ""}
-      </Form.Label>
-    );
-  }
-);
-MyFormLabel.displayName = "MyFormLabel";
-
-const AlertMessage: React.FC<{ title: string; long_msg: string }> = ({
-  title,
-  long_msg,
-}) => {
-  return (
-    <>
-      <h4>{title}</h4>
-      {long_msg !== "NONE" && <p className="m-0">{long_msg}</p>}
-    </>
-  );
-};
+import ResponseMessage from "./ResponseMessage";
+import { MyFormControl, MyFormLabel } from "./MyFormControl";
 
 const ContactForm: React.FC = () => {
   /** more controllable than the react hook form variables */
@@ -90,13 +43,13 @@ const ContactForm: React.FC = () => {
     try {
       const res = await sendEmail(mail);
       toast.success(
-        <AlertMessage title={res.data.title} long_msg={res.data.long_msg} />,
+        <ResponseMessage title={res.data.title} long_msg={res.data.long_msg} />,
         { onClose: () => setDisabled(false) }
       );
     } catch (error) {
       if (error.response /* response error */) {
         toast.error(
-          <AlertMessage
+          <ResponseMessage
             title={error.response.data.title}
             long_msg={error.response.data.long_msg}
           />,
@@ -104,13 +57,16 @@ const ContactForm: React.FC = () => {
         );
       } else if (error.request /* request error */) {
         toast.error(
-          <AlertMessage title="Request Error" long_msg={error.message} />,
+          <ResponseMessage title="Request Error" long_msg={error.message} />,
           { onClose: () => setDisabled(false) }
         );
       } else {
-        toast.error(<AlertMessage title="Error" long_msg={error.message} />, {
-          onClose: () => setDisabled(false),
-        });
+        toast.error(
+          <ResponseMessage title="Error" long_msg={error.message} />,
+          {
+            onClose: () => setDisabled(false),
+          }
+        );
       }
     } finally {
       recaptchaRef.current?.reset();

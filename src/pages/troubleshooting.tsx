@@ -2,7 +2,7 @@ import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { printOutDate } from "@util";
-import StreamPiSEO from "@StreamPi/SEO";
+import StreamPiSEO from "@components/StreamPiSEO";
 
 const Troubleshooting: React.FC = () => {
   const dateOfLastUpdate = "2021-03-13 22:35:27";
