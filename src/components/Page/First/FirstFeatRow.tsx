@@ -1,7 +1,7 @@
-import React from "react";
+import { FC } from "react";
 import Row from "react-bootstrap/Row";
 
-const FirstFeatRow: React.FC<{ idx: number }> = ({ idx, children }) => {
+const FirstFeatRow: FC<{ idx: number }> = ({ idx, children }) => {
   const padding = ["pt-3"];
   const animation = ["animate__animated", "animate__fadeInUp"];
   if (idx > 0) {

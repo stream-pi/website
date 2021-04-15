@@ -1,6 +1,6 @@
-import React from "react";
+import { FC } from "react";
 
-const SectionWrapper: React.FC = ({ children }) => {
+const SectionWrapper: FC = ({ children }) => {
   return (
     <>
       <hr className="capsule top-hr mb-0" />

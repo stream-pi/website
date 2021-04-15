@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { FC, useEffect, useState, Fragment, CSSProperties } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Button from "react-bootstrap/Button";
 import { useRouter } from "next/router";
 
-const NotFound: React.FC = () => {
+const NotFound: FC = () => {
   const [path, setPath] = useState("");
   const router = useRouter();
 
@@ -17,9 +17,9 @@ const NotFound: React.FC = () => {
     };
   }, []); /* eslint-disable-line react-hooks/exhaustive-deps */
 
-  const code: React.CSSProperties = { color: "inherit", fontWeight: "bold" };
+  const code: CSSProperties = { color: "inherit", fontWeight: "bold" };
   return (
-    <React.Fragment>
+    <Fragment>
       <Head>
         <title>Resource Not Found</title>
       </Head>
@@ -42,7 +42,7 @@ const NotFound: React.FC = () => {
           <Button className="mt-5">Go Home</Button>
         </Link>
       </div>
-    </React.Fragment>
+    </Fragment>
   );
 };
 

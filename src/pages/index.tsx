@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 import Image from "react-bootstrap/Image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Row from "react-bootstrap/Row";
@@ -8,10 +8,10 @@ import { MetaData } from "@util/Config";
 import StreamPiSEO from "@components/StreamPiSEO";
 import { HomeCard, HomeInfo, StreamPiVideo } from "@components/Page/Home";
 
-const StreamPiHome: React.FC = () => {
+const StreamPiHome: FC = () => {
   const { KIT, ICF, MIJ } = HomeInfo;
   return (
-    <React.Fragment>
+    <>
       <StreamPiSEO title="Home" description={MetaData.description} flipOrder />
       {/* title */}
       <Row>
@@ -82,7 +82,7 @@ const StreamPiHome: React.FC = () => {
           </Button>
         </Col>
       </Row>
-    </React.Fragment>
+    </>
   );
 };
 

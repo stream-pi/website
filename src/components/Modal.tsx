@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, ReactNode, FC } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
@@ -8,7 +8,7 @@ type CommonProps = {
   triggerText: string;
   dialogClassName?: string;
   htmlId: string;
-  modalTitle: React.ReactNode;
+  modalTitle: ReactNode;
   modalBodyClass?: string;
   size?: "sm" | "lg" | "xl";
 };
@@ -23,7 +23,7 @@ type WoutOverlay = CommonProps & {
   tooltipText?: never;
 };
 
-const StreamPiModal: React.FC<WoutOverlay | WithOverlay> = ({
+const StreamPiModal: FC<WoutOverlay | WithOverlay> = ({
   triggerText,
   dialogClassName,
   htmlId,
@@ -65,7 +65,7 @@ const StreamPiModal: React.FC<WoutOverlay | WithOverlay> = ({
   };
 
   return (
-    <React.Fragment>
+    <>
       <ModalTrigger />
 
       <Modal
@@ -86,7 +86,7 @@ const StreamPiModal: React.FC<WoutOverlay | WithOverlay> = ({
           </Button>
         </Modal.Footer>
       </Modal>
-    </React.Fragment>
+    </>
   );
 };
 

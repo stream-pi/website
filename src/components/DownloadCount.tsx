@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState, FC } from "react";
 import { getDownloads } from "@util/API";
 import SyncLoader from "react-spinners/SyncLoader";
 
-const DownloadCount: React.FC = () => {
+const DownloadCount: FC = () => {
   const [clientDownloads, setClientDownloads] = useState<number>(0);
   const [serverDownloads, setServerDownloads] = useState<number>(0);
   const [loaded, setLoaded] = useState(false);

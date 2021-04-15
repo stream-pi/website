@@ -1,4 +1,4 @@
-import React from "react";
+import { FC, Fragment } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Col from "react-bootstrap/Col";
@@ -12,7 +12,7 @@ type HomeCardProps = {
   extraClass?: string[];
 };
 
-const HomeCard: React.FC<HomeCardProps> = ({
+const HomeCard: FC<HomeCardProps> = ({
   icons,
   buttons,
   title,
@@ -23,20 +23,20 @@ const HomeCard: React.FC<HomeCardProps> = ({
   return (
     <Col lg={4} className="text-center">
       {icons.map(({ IcoPre, IcoName }, idx) => (
-        <React.Fragment key={`icon${idx}`}>
+        <Fragment key={`icon${idx}`}>
           <FontAwesomeIcon
             className={extraClass ? extraClass[idx] : ""}
             icon={[IcoPre, IcoName]}
             size="4x"
           />
           {"\n"}
-        </React.Fragment>
+        </Fragment>
       ))}
       <h3>{title}</h3>
       <p>{children}</p>
       <p>
         {buttons.map(({ link, text, internal }, idx) => (
-          <React.Fragment key={`button${idx}`}>
+          <Fragment key={`button${idx}`}>
             {internal ? (
               <Link href={link} as={link} passHref>
                 <Button {...commonProps}>{text}</Button>
@@ -47,7 +47,7 @@ const HomeCard: React.FC<HomeCardProps> = ({
               </Button>
             )}
             {"\n"}
-          </React.Fragment>
+          </Fragment>
         ))}
       </p>
     </Col>

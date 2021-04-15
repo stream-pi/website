@@ -1,4 +1,4 @@
-import React from "react";
+import { FC, Fragment } from "react";
 import Row from "react-bootstrap/Row";
 import type { TeamMember } from "@util/Types";
 import RowCol from "./RowCol";
@@ -10,11 +10,7 @@ type TeamRow = {
   identifier: string;
 };
 
-const TeamMemberRow: React.FC<TeamRow> = ({
-  teamMembers,
-  className,
-  identifier,
-}) => {
+const TeamMemberRow: FC<TeamRow> = ({ teamMembers, className, identifier }) => {
   const idFormat = identifier.replace(/[^A-Za-z0-9]/g, "").toLowerCase();
   return (
     <div className="mt-4 animate__animated animate__fadeIn animate__slow">
@@ -28,10 +24,10 @@ const TeamMemberRow: React.FC<TeamRow> = ({
       {/* Team Member Cards */}
       <Row className={`${className} text-center justify-content-md-center`}>
         {teamMembers.map(({ name, icons, picture }, idx) => (
-          <React.Fragment key={`${idFormat}${idx}`}>
+          <Fragment key={`${idFormat}${idx}`}>
             <TeamMemberCard name={name} picture={picture} icons={icons} />
             {"\n"}
-          </React.Fragment>
+          </Fragment>
         ))}
       </Row>
     </div>

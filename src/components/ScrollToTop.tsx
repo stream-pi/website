@@ -1,6 +1,6 @@
-//TODO: consider making if statement on line 11 ternary
+//TODO: consider making if statement on line 17 ternary
 
-import React, { useEffect, useState } from "react";
+import { FC, useEffect, useState, MouseEvent } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "react-bootstrap/Button";
 import Fade from "react-bootstrap/Fade";
@@ -10,7 +10,7 @@ import Fade from "react-bootstrap/Fade";
  *
  * @returns DOM element that when clicked, will smoothly scroll back to the top of the page.
  */
-const ScrollToTop: React.FC = () => {
+const ScrollToTop: FC = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => {
@@ -21,7 +21,7 @@ const ScrollToTop: React.FC = () => {
     }
   };
 
-  const scroll = (e: React.MouseEvent<HTMLElement>) => {
+  const scroll = (e: MouseEvent<HTMLElement>) => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",

@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 import NavLink from "react-bootstrap/NavLink";
 import ActiveLink, { ActiveLinkProps } from "./ActiveLink";
 
@@ -6,7 +6,7 @@ type ItemProps = Omit<ActiveLinkProps, "href" | "activeClassName"> & {
   to: string;
 };
 
-const StreamPiNavItem: React.FC<ItemProps> = ({ children, to, ...props }) => {
+const StreamPiNavItem: FC<ItemProps> = ({ children, to, ...props }) => {
   return (
     <ActiveLink activeClassName="active" href={to} {...props} passHref>
       {/* <a className="btn nav-item nav-link w-100 mx-0 mx-md-3">{children}</a> */}

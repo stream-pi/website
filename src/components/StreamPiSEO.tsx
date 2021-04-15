@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 import Head from "next/head";
 import { MetaData } from "@util/Config";
 
@@ -9,12 +9,7 @@ type SEOProps = {
   slug?: string;
 };
 
-const StreamPiSEO: React.FC<SEOProps> = ({
-  title,
-  flipOrder,
-  description,
-  slug,
-}) => {
+const StreamPiSEO: FC<SEOProps> = ({ title, flipOrder, description, slug }) => {
   const titleString = flipOrder
     ? `${MetaData.title} ${title}`
     : `${title} ${MetaData.title}`;

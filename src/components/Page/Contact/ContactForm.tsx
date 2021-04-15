@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { FC, useRef, useState } from "react";
 import { toast } from "react-toastify";
 import ReCAPTCHA from "react-google-recaptcha";
 import { sKey, validSubjects, ContactFormMethods, FormInputs } from "./Helper";
@@ -10,7 +10,7 @@ import Button from "react-bootstrap/Button";
 import ResponseMessage from "./ResponseMessage";
 import { MyFormControl, MyFormLabel } from "./MyFormControl";
 
-const ContactForm: React.FC = () => {
+const ContactForm: FC = () => {
   /** more controllable than the react hook form variables */
   const [disabled, setDisabled] = useState(false);
   /** used to control  the captcha */

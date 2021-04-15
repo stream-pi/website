@@ -1,7 +1,7 @@
-import React from "react";
+import { FC } from "react";
 import StreamPiModal from "@components/Modal";
 
-const LegalInfoModal: React.FC = () => {
+const LegalInfoModal: FC = () => {
   const currentYear = new Date().getFullYear();
   return (
     <StreamPiModal

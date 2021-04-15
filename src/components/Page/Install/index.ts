@@ -1,5 +1,9 @@
 import MarkdownLayout from "./MarkdownLayout";
+import InstallNav from "./InstallNav";
 import Server from "./Helper/server";
 import Client from "./Helper/client";
+import { LatestRelease } from "@util/Types";
 
-export { MarkdownLayout, Client, Server };
+export type Releases = { Client: LatestRelease; Server: LatestRelease };
+
+export { MarkdownLayout, Client, Server, InstallNav };

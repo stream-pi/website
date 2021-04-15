@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 import { printOutDate } from "@util";
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
 };
 
 /** Layout for the dynamic install instructions pages */
-const Layout: React.FC<Props> = ({
+const Layout: FC<Props> = ({
   lastUpdated,
   streamPiVersion,
   editedBy,

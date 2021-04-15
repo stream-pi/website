@@ -1,7 +1,7 @@
-import React from "react";
+import { FC } from "react";
 import LegalInfoModal from "@components/Modals/TermsOfUse";
 
-const StreamPiFooter: React.FC = () => {
+const StreamPiFooter: FC = () => {
   const currentYear = new Date().getFullYear();
   return (
     <>

@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import StreamPiSEO from "@components/StreamPiSEO";
@@ -8,9 +8,9 @@ import {
   FirstFeatRow,
 } from "@components/Page/First";
 
-const StreamPiFirst: React.FC = () => {
+const StreamPiFirst: FC = () => {
   return (
-    <React.Fragment>
+    <>
       <StreamPiSEO
         title="First"
         description="New to Stream-Pi, learn about some basic actions here!"
@@ -36,7 +36,7 @@ const StreamPiFirst: React.FC = () => {
         </FirstFeatRow>
       ))}
       {/* <div className="py-3" /> */}
-    </React.Fragment>
+    </>
   );
 };
 

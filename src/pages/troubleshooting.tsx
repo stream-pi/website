@@ -1,13 +1,13 @@
-import React from "react";
+import { FC } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { printOutDate } from "@util";
 import StreamPiSEO from "@components/StreamPiSEO";
 
-const Troubleshooting: React.FC = () => {
+const Troubleshooting: FC = () => {
   const dateOfLastUpdate = "2021-03-13 22:35:27";
   return (
-    <React.Fragment>
+    <>
       <StreamPiSEO
         title="Troubleshoot"
         description="This page outlines common problems and troubleshooting steps for your Stream-Pi"
@@ -49,7 +49,7 @@ const Troubleshooting: React.FC = () => {
           <h2>Coming soon!</h2>
         </Col>
       </Row>
-    </React.Fragment>
+    </>
   );
 };
 

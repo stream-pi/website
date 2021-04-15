@@ -1,7 +1,7 @@
-import React from "react";
+import { FC } from "react";
 import StreamPiModal from "@components/Modal";
 
-const ContributionModal: React.FC = () => {
+const ContributionModal: FC = () => {
   return (
     <StreamPiModal
       modalTitle="About Joining Our Team"

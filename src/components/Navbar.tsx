@@ -1,9 +1,9 @@
-import React from "react";
+import { FC } from "react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Image from "react-bootstrap/Image";
 
-const StreamPiNavbar: React.FC = ({ children }) => {
+const StreamPiNavbar: FC = ({ children }) => {
   return (
     <Navbar
       className="shadow streampi-navbar-class"

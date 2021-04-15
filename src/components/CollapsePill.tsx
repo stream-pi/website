@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, FC } from "react";
 import Collapse from "react-bootstrap/Collapse";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SectionWrapper from "@components/SectionWrapper";
@@ -8,7 +8,7 @@ type Props = {
   titleText: string;
 };
 
-const CollapsePill: React.FC<Props> = ({ id, children, titleText }) => {
+const CollapsePill: FC<Props> = ({ id, children, titleText }) => {
   const [open, setOpen] = useState(false);
 
   return (

@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,7 +10,7 @@ type LinkProps = {
   icon: IconObj;
 };
 
-const LinkWithPop: React.FC<LinkProps> = ({
+const LinkWithPop: FC<LinkProps> = ({
   description,
   link,
   icon: { IcoPre, IcoName },

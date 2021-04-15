@@ -1,10 +1,10 @@
-import React from "react";
+import { FC } from "react";
 import Container from "react-bootstrap/Container";
 import ResponsiveEmbed from "react-bootstrap/ResponsiveEmbed";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-const StreamPiVideo: React.FC = () => {
+const StreamPiVideo: FC = () => {
   return (
     <Container style={{ paddingLeft: "10%", paddingRight: "10%" }}>
       <Row className="animate__animated animate__fadeInUp">

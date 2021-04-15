@@ -1,6 +1,6 @@
-import React from "react";
+import { FC } from "react";
 
-const ResponseMessage: React.FC<{ title: string; long_msg: string }> = ({
+const ResponseMessage: FC<{ title: string; long_msg: string }> = ({
   title,
   long_msg,
 }) => {

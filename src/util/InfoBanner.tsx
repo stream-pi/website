@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect, ReactNode, FC } from "react";
 import dayjs from "dayjs";
 import { toast } from "react-toastify";
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
@@ -17,7 +17,7 @@ type Hook = {
 };
 
 type Props = {
-  children: React.ReactNode;
+  children: ReactNode;
   toastId: string;
   variant: VAR;
   parentFunction: () => any;
@@ -40,7 +40,7 @@ const getVariant = (input: VAR) => {
   }
 };
 
-const InfoBanner: React.FC<Props> = ({
+const InfoBanner: FC<Props> = ({
   children,
   toastId,
   variant,

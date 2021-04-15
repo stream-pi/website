@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 import StreamPiSEO from "@components/StreamPiSEO";
 import {
   Developers,
@@ -9,9 +9,9 @@ import {
   TeamMemberRow,
 } from "@components/Page/About";
 
-const StreamPiAbout: React.FC = () => {
+const StreamPiAbout: FC = () => {
   return (
-    <React.Fragment>
+    <>
       <StreamPiSEO
         title="About"
         description="Learn about Stream-Pi and the team behind it"
@@ -95,7 +95,7 @@ const StreamPiAbout: React.FC = () => {
           reducing footprint and resources needed.
         </p>
       </RowCol>
-    </React.Fragment>
+    </>
   );
 };
 
