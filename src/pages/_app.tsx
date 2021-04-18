@@ -1,7 +1,6 @@
 import "animate.css/animate.min.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "../assets/styles/globals.scss";
-import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import type { AppProps } from "next/app";
 import { library, config } from "@fortawesome/fontawesome-svg-core";
@@ -61,7 +60,6 @@ library.add(
 );
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [path, setPath] = useState("");
   useHashChange();
   useInfoBanner({
     message:
@@ -70,22 +68,12 @@ function MyApp({ Component, pageProps }: AppProps) {
     stopShowing: "2021-05-30",
     keysToDelete: ["test-toast", "theme"],
   });
-  const router = useRouter();
-
-  useEffect(() => {
-    let mounted = true;
-    if (mounted) {
-      setPath(router.asPath);
-    }
-    return () => {
-      mounted = false;
-    };
-  }, []); /* eslint-disable-line react-hooks/exhaustive-deps */
+  const { asPath } = useRouter();
 
   return (
     <>
       <ToastContainer position="top-center" enableMultiContainer />
-      {!ExternalPaths.has(path.replace(/\/+/gm, "")) && (
+      {!ExternalPaths.has(asPath.replace(/\/+/gm, "")) && (
         <StreamPiNavbar>
           <StreamPiNavItem to="/">Home</StreamPiNavItem>
           <StreamPiNavItem to="/about">About</StreamPiNavItem>
