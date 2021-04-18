@@ -1,4 +1,4 @@
-// FIXME: consider renaming
+//* FIXME: consider renaming
 
 import { useState, useEffect, FC } from "react";
 import useDarkMode from "use-dark-mode";
@@ -8,7 +8,7 @@ import Tooltip from "react-bootstrap/Tooltip";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ThemeSwitch: FC = () => {
-  const [icon, setIcon] = useState<boolean>(true);
+  const [icon, setIcon] = useState(true);
   const [containsTransition, setContainsTransition] = useState(false);
   const { value, toggle } = useDarkMode(true);
 
