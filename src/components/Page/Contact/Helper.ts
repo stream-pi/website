@@ -31,7 +31,7 @@ export const schema = yup.object().shape({
   contactEmail: yup
     .string()
     .default("")
-    .email()
+    .email("Value must be a valid email")
     .test(
       "from-streampi",
       "Emails can not come from stream-pi",
