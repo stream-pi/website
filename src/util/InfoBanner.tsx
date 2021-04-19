@@ -8,22 +8,23 @@ dayjs.extend(isSameOrAfter);
 
 type VAR = "info" | "success" | "warning" | "error" | "dark";
 
-type Hook = {
-  message: string;
+type CommonProps = {
   toastId: string;
-  stopShowing: string | Date;
   variant?: VAR;
+};
+
+type Hook = CommonProps & {
+  message: string;
+  stopShowing: string | Date;
   keysToDelete?: string | string[];
 };
 
-type Props = {
+type Props = CommonProps & {
   children: ReactNode;
-  toastId: string;
-  variant: VAR;
   parentFunction: () => any;
 };
 
-const getVariant = (input: VAR) => {
+const getVariant = (input?: VAR) => {
   switch (input) {
     case "dark":
       return "outline-dark";

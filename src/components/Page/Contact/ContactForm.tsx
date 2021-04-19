@@ -22,10 +22,10 @@ const ContactForm: FC = () => {
     reset,
     formState: { errors },
   } = ContactFormMethods({
-    name: "",
-    email: "",
-    subject: "Press",
-    message: "",
+    contactName: "",
+    contactEmail: "",
+    contactSubject: "Press",
+    contactMessage: "",
   });
 
   /**
@@ -81,25 +81,25 @@ const ContactForm: FC = () => {
           {/* Name & Email */}
           <Form.Row className="pt-2">
             {/* Name */}
-            <Form.Group as={Col} md="6" controlId="NameInput">
+            <Form.Group as={Col} md="6" controlId="ContactNameInput">
               <MyFormLabel label="Name" IcoPre="fas" IcoName="user" />
               <MyFormControl
                 placeholder="Your Name"
-                isInvalid={!!errors.name}
-                errorText={errors.name?.message}
-                {...register("name")}
+                isInvalid={!!errors.contactName}
+                errorText={errors.contactName?.message}
+                {...register("contactName")}
                 disabled={disabled}
               />
             </Form.Group>
 
             {/* Email */}
-            <Form.Group as={Col} md="6" controlId="EmailInput">
+            <Form.Group as={Col} md="6" controlId="ContactEmailInput">
               <MyFormLabel label="Email" IcoPre="fas" IcoName="envelope" />
               <MyFormControl
                 placeholder="Your Email Address"
-                isInvalid={!!errors.email}
-                errorText={errors.email?.message}
-                {...register("email")}
+                isInvalid={!!errors.contactEmail}
+                errorText={errors.contactEmail?.message}
+                {...register("contactEmail")}
                 disabled={disabled}
               />
             </Form.Group>
@@ -107,7 +107,7 @@ const ContactForm: FC = () => {
 
           {/* Subject */}
           <Form.Row>
-            <Form.Group as={Col} controlId="MessageSelect">
+            <Form.Group as={Col} controlId="ContactSubjectSelect">
               <MyFormLabel
                 label="Subject"
                 IcoPre="fas"
@@ -115,9 +115,9 @@ const ContactForm: FC = () => {
                 subtext="(Select One)"
               />
               <MyFormControl
-                isInvalid={!!errors.subject}
-                errorText={errors.subject?.message}
-                {...register("subject")}
+                isInvalid={!!errors.contactSubject}
+                errorText={errors.contactSubject?.message}
+                {...register("contactSubject")}
                 disabled={disabled}
                 as="select"
                 custom
@@ -133,13 +133,13 @@ const ContactForm: FC = () => {
 
           {/* Message */}
           <Form.Row>
-            <Form.Group as={Col} controlId="MessageInput">
+            <Form.Group as={Col} controlId="ContactMessageInput">
               <MyFormLabel label="Message" IcoPre="fas" IcoName="comment" />
               <MyFormControl
                 placeholder="Your Message"
-                isInvalid={!!errors.message}
-                errorText={errors.message?.message}
-                {...register("message")}
+                isInvalid={!!errors.contactMessage}
+                errorText={errors.contactMessage?.message}
+                {...register("contactMessage")}
                 disabled={disabled}
                 as="textarea"
                 rows={6}

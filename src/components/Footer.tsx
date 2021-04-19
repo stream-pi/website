@@ -1,3 +1,5 @@
+// TODO: Make footer look nicer
+
 import { FC } from "react";
 import LegalInfoModal from "@components/Modals/TermsOfUse";
 

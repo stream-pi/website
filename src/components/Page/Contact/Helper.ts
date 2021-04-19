@@ -4,10 +4,10 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 export type FormInputs = {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
+  contactName: string;
+  contactEmail: string;
+  contactSubject: string;
+  contactMessage: string;
 };
 
 export type LabelProps = IconObj & {
@@ -27,25 +27,30 @@ export const validSubjects = [
 ];
 
 export const schema = yup.object().shape({
-  name: yup.string().required(),
-  email: yup
+  contactName: yup.string().required("Name is a required field"),
+  contactEmail: yup
     .string()
+    .default("")
     .email()
     .test(
       "from-streampi",
       "Emails can not come from stream-pi",
       (val) => /@stream-pi\.[A-Z0-9]+/i.test(val) === false
     )
-    .required(),
-  subject: yup.string().oneOf(validSubjects).required(),
-  message: yup
+    .required("Email is a required field"),
+  contactSubject: yup
     .string()
+    .oneOf(validSubjects)
+    .required("Subject is a required field"),
+  contactMessage: yup
+    .string()
+    .default("")
     .test(
       "has-link",
       "Email cannot contain any links",
       (val) => regex.test(val) === false
     )
-    .required(),
+    .required("Message is a required field"),
 });
 
 export const ContactFormMethods = (initialValues: FormInputs) => {

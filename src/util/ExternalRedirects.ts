@@ -20,11 +20,11 @@ export const ExternalObjs: ExternalMaster = {
   },
   server: {
     name: "Server Page",
-    link: releaseURL(process.env.NEXT_PUBLIC_SERVER_REPO),
+    link: releaseURL("server"),
   },
   client: {
     name: "Client Page",
-    link: releaseURL(process.env.NEXT_PUBLIC_CLIENT_REPO),
+    link: releaseURL("client"),
   },
   patreon: {
     name: "Patreon",

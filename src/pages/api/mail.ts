@@ -8,10 +8,10 @@ import { EmailConfig } from "@util/Config";
 
 type Body = {
   captcha: string;
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
+  contactName: string;
+  contactEmail: string;
+  contactSubject: string;
+  contactMessage: string;
 };
 
 const servermail = axios.create();
@@ -55,10 +55,10 @@ const sendMailAttempt = async (body: Body) => {
       const info = await transporter.sendMail({
         from: `"${EmailConfig.from.name}" <${EmailConfig.from.address}>`,
         to: `"${EmailConfig.to.name}" <${EmailConfig.to.address}>`,
-        cc: `"${body.name}" <${body.email}>`,
-        subject: `${body.subject}`,
-        html: `${body.message}`,
-        text: `${body.message}`,
+        cc: `"${body.contactName}" <${body.contactEmail}>`,
+        subject: `${body.contactSubject}`,
+        html: `${body.contactMessage}`,
+        text: `${body.contactMessage}`,
       });
 
       console.log(info);

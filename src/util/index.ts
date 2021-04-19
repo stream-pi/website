@@ -19,9 +19,9 @@ export const useHashChange = () => {
       setTimeout(() => {
         const id = path.replace("#", "");
         const el = window.document.getElementById(id);
-        const r = el.getBoundingClientRect();
+        const r = el?.getBoundingClientRect();
         window.top.scroll({
-          top: pageYOffset + r.top,
+          top: pageYOffset + (r?.top || 0),
           behavior: "smooth",
         });
       }, 100);
@@ -38,9 +38,9 @@ export const useHashChange = () => {
 export function queryParser(query: string | string[]) {
   switch (query) {
     case "CLIENT":
-      return process.env.NEXT_PUBLIC_CLIENT_REPO;
+      return "client";
     case "SERVER":
-      return process.env.NEXT_PUBLIC_SERVER_REPO;
+      return "server";
     default:
       return "Bad_Call";
   }
