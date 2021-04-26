@@ -56,7 +56,7 @@ export function queryParser(query: string | string[]) {
  * @returns Two-Dimmensional Array of type T
  *
  * @example
- * // returns [[1,2],[3,4]]
+ * //* returns [[1,2],[3,4]]
  * chunkArray([1,2,3,4],2);
  */
 export function chunkArray<T>(array: T[], chunkSize: number) {
@@ -74,7 +74,7 @@ export function chunkArray<T>(array: T[], chunkSize: number) {
  * @returns modified string
  *
  * @example
- * // returns "Stream-pi"
+ * //* returns "Stream-pi"
  * capitalize("stream-pi")
  */
 export function capitalize(str: string) {
@@ -90,7 +90,7 @@ export function capitalize(str: string) {
  * @example
  * type Person = {name: string, age: number};
  * const people: Person[] = [{name: "Bob", age: 24},{name: "Mark", age: 20}]
- * // returns ["Bob", "Mark"]
+ * //* returns ["Bob", "Mark"]
  * propertySet(people, "name");
  */
 export function propertySet<T extends OBJ>(arr: T[], key: keyof T) {
@@ -108,11 +108,11 @@ export function propertySet<T extends OBJ>(arr: T[], key: keyof T) {
  *
  * @example
  * const emptyObj = {};
- * // returns true
+ * //* returns true
  * isEmpty(emptyObj);
  * @example
  * const nonEmpty = {property: "value"};
- * // returns false
+ * //* returns false
  * isEmpty(nonEmpty);
  */
 export function isEmpty(obj: OBJ) {
@@ -144,7 +144,7 @@ export function prettyPrint(obj: OBJ) {
  * @returns date string formatted as: MMMM, Do, YYYY
  *
  * @example
- * // returns April 2nd, 2021
+ * //* returns April 2nd, 2021
  * const today = printOutDate("2021-04-02 14:41:53");
  * const today_two = printOutDate(new Date(2021, 3, 2));
  */
@@ -159,10 +159,12 @@ export function printOutDate(dateIn: dayjs.ConfigType) {
  */
 export function useRegexAsPath() {
   const { asPath } = useRouter();
+  // Queries and hashes
   const asPathTwo = /(#.*|\?.+=.*)/g.test(asPath)
     ? asPath.replace(/(#.*|\?.+=.*)/g, "")
     : asPath;
 
+  // Nested Paths
   const asPathThree = asPathTwo.replace(
     /^(\/[A-Za-z\-0-9]+)(?:\/[A-Za-z\-0-9]+)+/i,
     "$1"

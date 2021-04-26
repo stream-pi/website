@@ -31,9 +31,3 @@ export const MIJ: HomeObj = {
     { text: "See how it's made", link: "/about#technology", internal: true },
   ],
 };
-
-export const HomeInfo = {
-  KIT,
-  ICF,
-  MIJ,
-};

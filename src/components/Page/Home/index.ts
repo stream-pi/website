@@ -1,5 +1,6 @@
 import HomeCard from "./HomeCard";
 import StreamPiVideo from "./Video";
-export { HomeInfo, ICF, KIT, MIJ } from "./Helper";
+import { ICF, KIT, MIJ } from "./Helper";
+const HomeInfo = { ICF, KIT, MIJ };
 
-export { HomeCard, StreamPiVideo };
+export { HomeInfo, HomeCard, StreamPiVideo };

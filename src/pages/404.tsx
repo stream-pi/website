@@ -38,7 +38,7 @@ const NotFound: FC = () => {
           Go Back
         </Button>
         {"\n"}
-        <Link href="/" as="/" passHref>
+        <Link href="/" passHref>
           <Button className="mt-5">Go Home</Button>
         </Link>
       </div>

@@ -81,6 +81,7 @@ const StreamPiInstall: FC = () => {
         <CollapsePill
           id="anti-virus-disclaimer"
           titleText="Click for a disclaimer in regards to Anti-Virus Software"
+          className="text-center"
         >
           <p>
             Currently, Stream-Pi is known that it may be picked up by SOME

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import { IconObj, ButtonObj } from "@util/Types";
+import type { IconObj, ButtonObj } from "@util/Types";
 
 type HomeCardProps = {
   icons: IconObj[];
@@ -38,7 +38,7 @@ const HomeCard: FC<HomeCardProps> = ({
         {buttons.map(({ link, text, internal }, idx) => (
           <Fragment key={`button${idx}`}>
             {internal ? (
-              <Link href={link} as={link} passHref>
+              <Link href={link} passHref>
                 <Button {...commonProps}>{text}</Button>
               </Link>
             ) : (

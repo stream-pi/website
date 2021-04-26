@@ -6,10 +6,13 @@ import SectionWrapper from "@components/SectionWrapper";
 type Props = {
   id: string;
   titleText: string;
+  className?: string;
 };
 
-const CollapsePill: FC<Props> = ({ id, children, titleText }) => {
+const CollapsePill: FC<Props> = ({ id, className, children, titleText }) => {
   const [open, setOpen] = useState(false);
+
+  const _className = className ? { className } : {};
 
   return (
     <SectionWrapper>
@@ -27,7 +30,7 @@ const CollapsePill: FC<Props> = ({ id, children, titleText }) => {
         />
       </button>
       <Collapse in={open}>
-        <div id={id}>
+        <div id={id} {..._className}>
           <br />
           {children}
         </div>

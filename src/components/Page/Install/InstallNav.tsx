@@ -77,7 +77,7 @@ const InstallNav: FC<InstallNavProps> = ({ arr, sercli, version }) => {
                     instructions.
                   </p>
                   <Link
-                    href={`/install/${sercli.toLowerCase()}/raspberry-pi}`}
+                    href={`/install/${sercli.toLowerCase()}/[platform]}`}
                     as={`/install/${sercli.toLowerCase()}/raspberry-pi`}
                     passHref
                   >
@@ -99,7 +99,7 @@ const InstallNav: FC<InstallNavProps> = ({ arr, sercli, version }) => {
                   this build and platform.
                 </p>
                 <Link
-                  href={`/install/${sercli.toLowerCase()}/${key.toLowerCase()}`}
+                  href={`/install/${sercli.toLowerCase()}/[platform]`}
                   as={`/install/${sercli.toLowerCase()}/${key.toLowerCase()}`}
                   passHref
                 >

@@ -46,7 +46,7 @@ const StreamPiHome: FC = () => {
           We will never put the Stream-Pi behind a pay wall, we wanted to create
           an alternative that wouldn't break the bank and as such it is and
           always will be free to download. It's also{" "}
-          <strong>open source.</strong>
+          <strong>open source</strong> and <strong>very modular</strong>.
         </HomeCard>
         <HomeCard {...MIJ} title="Made in JavaFX">
           We wanted to make something in JavaFX because it seemed to have been
