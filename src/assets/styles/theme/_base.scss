@@ -4,13 +4,7 @@ body.dark-mode {
   --spi-color-text: #e1e1ff;
   --spi-color-heading: #818cab;
   --spi-color-card: #595775;
-  --spi-color-theme-button: #343a40;
   --spi-color-hr: #ffffff66;
-
-  .theme-changer {
-    @extend .border-dark;
-    @extend .btn-light;
-  }
 }
 
 body.light-mode {
@@ -18,13 +12,7 @@ body.light-mode {
   --spi-color-text: #000000e6;
   --spi-color-heading: #292922;
   --spi-color-card: #7ebfff;
-  --spi-color-theme-button: #f8f9fa;
   --spi-color-hr: #00000066;
-
-  .theme-changer {
-    @extend .border-light;
-    @extend .btn-dark;
-  }
 
   .streampi-navbar-class {
     @extend .navbar-light;

@@ -1,4 +1,3 @@
-@import "theme";
 // mixins
 @mixin pill-wrapper($current, $before) {
   height: 20px;
@@ -73,10 +72,6 @@ hr {
   * {
     font-size: 0.9rem;
   }
-}
-
-.theme-icon {
-  color: var(--spi-color-theme-button);
 }
 
 .lds-ellipsis div {

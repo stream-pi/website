@@ -8,24 +8,6 @@ p {
   font-size: 1.1rem;
 }
 
-.nav-link {
-  &.active {
-    text-decoration: underline;
-    font-weight: bold;
-    &.btn {
-      cursor: default !important;
-      // cursor fix
-      &:hover {
-        cursor: default !important;
-      }
-      // goodbye blue circle
-      &:focus {
-        box-shadow: none;
-      }
-    }
-  }
-}
-
 .streamPiAbout {
   font-weight: 300;
   &::before {
@@ -42,34 +24,6 @@ p {
   transition: transform 0.2s;
   &:hover {
     transform: scale(1.05);
-  }
-}
-
-.nav-pills {
-  .nav-link {
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    border: 1px solid #17a2b8;
-    font-size: 1.25rem;
-    &:hover {
-      color: #fff;
-      background-color: #138496;
-      border-color: #117a8b;
-    }
-    &.active,
-    .show {
-      background-color: #17a2b8;
-      cursor: default !important;
-      text-decoration: none;
-    }
-  }
-}
-
-#scroll-to-top {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  .btn-lg {
-    padding: 0.5rem 1.05rem;
   }
 }
 

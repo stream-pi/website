@@ -11,9 +11,7 @@
 
 // Stream-Pi SCSS Imports
 @import "fonts";            // FontFace
-@import "theme/apply";      // dark / light theme related
-@import "captcha";          // Captcha Styles
-@import "modal";            // modal help
-@import "toasts";           // custom toast overrides to match bootstrap
-@import "markdown/master";  // when rendering markdown, these styles will be used.
+@import "theme";            // dark / light theme related
+@import "components";       // all component-level styles
+@import "markdown";         // when rendering markdown, these styles will be used.
 @import "app";              // styles meant for the WHOLE app
