@@ -8,6 +8,7 @@ import Tooltip from "react-bootstrap/Tooltip";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ThemeSwitch: FC = () => {
+  //* Needed because of a server-side-rendering bug
   const [icon, setIcon] = useState(true);
   const [containsTransition, setContainsTransition] = useState(false);
   const { value, toggle } = useDarkMode(true);
