@@ -24,7 +24,6 @@ const ThemeSwitch: FC = () => {
     }
     toggle();
     setChecked(!checked);
-    console.log("object");
   };
 
   return (
