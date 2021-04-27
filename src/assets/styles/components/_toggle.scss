@@ -2,6 +2,7 @@ $dot-size: 1.5rem;
 $mini-margin: 0.25rem;
 $bg-width: 3.5rem;
 $bg-height: 2rem;
+$dark-dot: hsl(262, 49%, 10%);
 
 // 2 dot-size
 .toggle-class {
@@ -46,16 +47,18 @@ $bg-height: 2rem;
     height: $bg-height;
     width: $bg-width;
     background-color: hsl(218, 11%, 65%);
+    border: 1px solid $light;
   }
 
   input {
     &:checked {
       ~ .dot {
         transform: translateX(100%);
-        background-color: hsl(262, 49%, 10%);
+        background-color: $dark-dot;
       }
       ~ .toggle-bg {
         background-color: hsl(215, 14%, 40%);
+        border-color: $dark-dot;
       }
       ~ .theme-icon {
         &.moon {
