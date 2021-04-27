@@ -15,8 +15,8 @@
     "static_out": "out"
   },
   "scripts": {
-    "dev": "next dev",
-    "dev:debug": "NODE_OPTIONS='--inspect' next dev",
+    "dev": "next dev -p 4000",
+    "dev:debug": "NODE_OPTIONS='--inspect' next dev -p 4000",
     "build": "npm run clean && next build",
     "build:full": "npm run build && npm run export",
     "export": "cross-env-shell \"next export -o $npm_package_config_static_out\"",
@@ -58,7 +58,7 @@
     "react-bootstrap": "1.5.2",
     "react-dom": "17.0.2",
     "react-google-recaptcha": "2.1.0",
-    "react-hook-form": "7.3.3",
+    "react-hook-form": "7.3.4",
     "react-spinners": "0.10.6",
     "react-toastify": "7.0.4",
     "remark": "13.0.0",
@@ -73,7 +73,7 @@
   "devDependencies": {
     "@types/node": "14.14.41",
     "@types/nodemailer": "6.4.1",
-    "@types/react": "17.0.3",
+    "@types/react": "17.0.4",
     "@types/react-google-recaptcha": "2.1.0",
     "@typescript-eslint/eslint-plugin": "4.22.0",
     "@typescript-eslint/parser": "4.22.0",
