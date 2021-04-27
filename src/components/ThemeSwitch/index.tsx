@@ -12,10 +12,16 @@ const ThemeSwitch: FC = () => {
   const [mounted, setMounted] = useState(false);
   const { value, toggle } = useDarkMode(true);
 
+  //? should this be a useMemo or useLayoutEffect instead?
   useEffect(() => {
     setChecked(value);
-    setMounted(true);
   }, [value]);
+
+  //? is a separate useEffect to ensure this happens only once
+  //? should this have a useEffect cleanup?
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const toggleTheme = () => {
     if (!containsTransition) {
@@ -23,7 +29,8 @@ const ThemeSwitch: FC = () => {
       setContainsTransition(true);
     }
     toggle();
-    setChecked(!checked);
+    //? This set state seems unneeded as the above useEffect hook handles the change
+    // setChecked(!checked);
   };
 
   return (
@@ -40,7 +47,7 @@ const ThemeSwitch: FC = () => {
             type="checkbox"
             id="toggler"
           />
-          <div className="toggle-bg d-block rounded-pill transition border border-light" />
+          <div className="toggle-bg d-block rounded-pill transition" />
           <div className="dot position-absolute rounded-circle transition" />
           <FontAwesomeIcon className="theme-icon sun" icon={["fas", "sun"]} />
           <FontAwesomeIcon className="theme-icon moon" icon={["fas", "moon"]} />
