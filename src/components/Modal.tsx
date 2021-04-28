@@ -53,9 +53,11 @@ const StreamPiModal: FC<WoutOverlay | WithOverlay> = ({
           </Tooltip>
         }
       >
-        <button className="modal-text-btn" onClick={handleShow}>
-          {triggerText}
-        </button>
+        {(props) => (
+          <button {...props} className="modal-text-btn" onClick={handleShow}>
+            {triggerText}
+          </button>
+        )}
       </OverlayTrigger>
     ) : (
       <button className="modal-text-btn" onClick={handleShow}>

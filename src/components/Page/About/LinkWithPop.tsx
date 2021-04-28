@@ -20,14 +20,17 @@ const LinkWithPop: FC<LinkProps> = ({
       placement="bottom"
       overlay={<Tooltip id="tooltip-test">{description}</Tooltip>}
     >
-      <a
-        className="px-1 about-icon"
-        href={link}
-        target="_blank"
-        rel="noreferrer"
-      >
-        <FontAwesomeIcon icon={[IcoPre, IcoName]} size="2x" />
-      </a>
+      {(props) => (
+        <a
+          className="px-1 about-icon"
+          href={link}
+          target="_blank"
+          rel="noreferrer"
+          {...props}
+        >
+          <FontAwesomeIcon icon={[IcoPre, IcoName]} size="2x" />
+        </a>
+      )}
     </OverlayTrigger>
   );
 };

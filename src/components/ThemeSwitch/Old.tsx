@@ -31,19 +31,22 @@ const ThemeSwitch: FC = () => {
         placement="bottom"
         overlay={<Tooltip id="theme-tooltip">Toggle Darkmode</Tooltip>}
       >
-        <Button
-          className="rounded-circle theme-changer"
-          variant="transparent"
-          size="sm"
-          onClick={toggleTheme}
-          style={{ border: "2px solid" }}
-        >
-          {icon ? (
-            <FontAwesomeIcon className="theme-icon" icon={["fas", "sun"]} />
-          ) : (
-            <FontAwesomeIcon className="theme-icon" icon={["fas", "moon"]} />
-          )}
-        </Button>
+        {(props) => (
+          <Button
+            className="rounded-circle theme-changer"
+            variant="transparent"
+            size="sm"
+            onClick={toggleTheme}
+            style={{ border: "2px solid" }}
+            {...props}
+          >
+            {icon ? (
+              <FontAwesomeIcon className="theme-icon" icon={["fas", "sun"]} />
+            ) : (
+              <FontAwesomeIcon className="theme-icon" icon={["fas", "moon"]} />
+            )}
+          </Button>
+        )}
       </OverlayTrigger>
     </div>
   );
