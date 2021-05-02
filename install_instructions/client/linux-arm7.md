@@ -63,7 +63,7 @@ For example:
 
 Be careful to not extract the zip in directories which cant be edited by non-root as it will cause Stream-Pi to not work correctly. For example: `/home/`.
 
-## Step 4 (Raspberry Pi Only)
+## Step 4 (Raspberry Pi OS Only)
 
 **This step is required only for those who wish to use Stream-Pi in console mode.**
 
@@ -87,7 +87,7 @@ With the new block of text added, you can hit <kbd>Ctrl</kbd> <kbd>S</kbd> then 
 
 **After saving, reboot your Pi.**
 
-## Step 5 (Raspberry Pi Only)
+## Step 5 (Raspberry Pi OS Only)
 
 We need to make some changes to the Raspberry Pi's configuration, There are three things we need to do:
 
