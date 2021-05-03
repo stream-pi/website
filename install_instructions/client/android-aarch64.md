@@ -1,7 +1,7 @@
 ---
-lastUpdated: "2021-03-22 11:50:12"
+lastUpdated: "2021-05-03 12:44:00"
 streamPiVersion: "1.0.0"
-editedBy: "SamuelQuinones"
+editedBy: "SamuelQuinones, rnayabed"
 ---
 
 # Setup Stream-Pi on Android
