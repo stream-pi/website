@@ -1,67 +1,71 @@
 ---
-lastUpdated: "2021-04-06 12:11:00"
+lastUpdated: "2021-05-03 12:25:00"
 streamPiVersion: "1.0.0"
-editedBy: "SamuelQuinones"
+editedBy: "rnayabed, SamuelQuinones"
 ---
 
 # Setup Stream-Pi on Raspberry-Pi
 
-The instructions below will go over how to set up a **Stream-Pi Client** on a **RaspberryPi** or a **Linux arm7** device.
+The instructions below will go over how to set up **Stream-Pi Client** on a **RaspberryPi** running **Raspberry Pi OS 32-Bit**. For a general Linux ARMv7 tutorial for other systems, follow the `Linux ARMv7` tutorial.
+
+**This method is NOT to be followed if your Raspberry Pi is running a 64 bit OS.**. Linux aarch64 builds are in the works, and will be available from the next release.
 
 If you have any questions please reach out to us on [the Official Stream-Pi Discord Server](https://discord.gg/BExqGmk).
 
-On some arm7 systems, specifically the RaspberryPi 3 you may experience a where your icon pictures will not render. This only seems to happen when the device is in console mode. Ensure your device is getting the appropriate power it needs and usually this can fix it. In the event that it does not, you can use use Desktop/GUI mode.
+Unlike Server, Stream-Pi Client has two main methods of running on Raspberry Pi and other ARMv7 devices. Desktop Mode and Console Mode.
 
 ## Desktop vs Console Mode
 
-Generally, **_we recommend console mode_** as Desktop mode may result in slower / poorer performance.
+Desktop Mode is to be used when you want to use Stream-Pi as a standard app with its window that you can resize and adjust. 
 
-## Client Instructions
+Console Mode is to be used when you want a clean look without any windowing system.
+
+Generally, **_we recommend console mode_** as Desktop mode may result in slower / poorer performance due to lack of hardware acceleration.
+
+
+**There is a bug in the latest release which prevents some ARMv7 devices like the Raspberry Pi 3 (Raspberry Pi OS) to render icons while running Stream-Pi in console mode. The only solution then is to run Stream-Pi Client in Desktop mode. This issue has been already patched and will no longer be there in future releases.**
+
+
+## Instructions
 
 The below steps have **anchors** associated with them, so you can quickly navigate with the browser's url bar `/install/client/[PLATFORM]#step-1` for example.
 
-### Step 1
+## Step 1
 
 If you downloaded '.zip' file directly from github onto the device you can skip to step 2.
 
-You'll need to get the '.zip' file onto your device, you can always download it directly or you can download on another machine and copy over to this one using like FileZilla, VNC Viewer, or TeamViewer.
+You'll need to get the '.zip' file onto your device, you can always download it directly or you can download on another machine and copy over to this one using like FileZilla, VNC Viewer, Team Viewer, or SCP.
 
-### Step 2
+## Step 2
 
 You'll need to install some additional packages on the system before we continue proper:
 
 - libpangoft2-1.0-0
 - libcairo2-dev
 
-On Raspbian/Debian based distros, open your terminal and run:
+To install them, run:
 
 ```bash
 $ sudo apt install libpangoft2-1.0-0 libcairo2-dev
 ```
 
-### Step 3
+## Step 3
 
 Now that the release '.zip' file is on the device, extract the '.zip' file to a place that is easy for you to remember / easy to access. Also make sure you will always have permission to access this folder.
 
 For example:
 
 ```nginx
-/home/<YOURNAME>/StreamPiClient
+/home/pi/StreamPiClient
 ```
 
-Where `StreamPiClient` holds the unpacked files from the zip. Most programs that unzip will extract its contents to a folder with the same name as the zip file, this is fine too.
+Be careful to not extract the zip in directories which cant be edited by non-root as it will cause Stream-Pi to not work correctly. For example: `/home/`.
 
-What you want to avoid is something like this:
+## Step 4
 
-```nginx
-/home/<YOURNAME>/StreamPiClient/StreamPi-FROM-GITHUB
-```
+**This step is required only for those who wish to use Stream-Pi in console mode. Skip this if you plan to use desktop mode.**
 
-Do not save the '.zip' file contents in any directory above `/home/<YOURNAME>` as this will have permissions issues!
-
-### Step 4
-
-The Stream-Pi client needs access to the input devices on the RaspberryPi System. To give it this permission we need to edit the `/etc/udev/rules.d/99-com.rules` file. To do this open up your terminal and run the following command:
+Stream-Pi Client takes over touch and other input devices when run in console mode, since there is no DM to get those services from. To give it this permission we need to edit the `/etc/udev/rules.d/99-com.rules` file. Open up your terminal and run the following command:
 
 ```bash
 $ sudo nano /etc/udev/rules.d/99-com.rules
@@ -79,17 +83,18 @@ Be weary that keyboard shortcuts to paste this chunk of text don't work when run
 
 With the new block of text added, you can hit <kbd>Ctrl</kbd> <kbd>S</kbd> then press `Y` to confirm the changes and `Enter` to confirm the name. Then <kbd>Ctrl</kbd> <kbd>C</kbd> to close nano editor.
 
-**Please now REBOOT your RaspberryPi**
+**After saving, reboot your Pi.**
 
-### Step 5
+## Step 5
 
-We need to make some changes to the RaspberryPi's configuration, There are three things we need to do:
+We need to make some changes to the Raspberry Pi's configuration, There are three things we need to do:
 
-1. Change the GPU memory split to be at least 128 MB
-2. Switch the Video Driver
-3. We'll change the system into console mode
+1. Assign required GPU Memory.
+2. Select GPU Driver.
+3. Select Desktop/Console boot mode.
+4. Reboot
 
-We can do all of this using the RaspberryPi Config, open your terminal and run the following command:
+We can do all of this using the Raspberry Pi Config, open your terminal and run the following command:
 
 ```bash
 $ sudo raspi-config
@@ -101,7 +106,7 @@ A window should pop up that looks like this:
 
 Use the `up` and `down` arrow keys to move the highlighted selection between the options available. Pressing the `right` arrow key will jump out of the Options menu and take you to the `<Select>` and `<Finish>` buttons. Pressing `left` will take you back to the options. Alternatively, you can use the `Tab` key to switch between these.
 
-### Step 5 - GPU Memory
+#### 1. Assign required GPU Memory
 
 Navigate down to `7 Advanced Options`
 
@@ -109,66 +114,54 @@ You should now see a menu item called `Memory Split`, navigate to it, press ente
 
 Once the new value is set, hit the right arrow key and navigate to `<Ok>`. Press enter to confirm any additional messages.
 
-### Step 5 - Video Driver
+#### 2. Select GPU Driver
 
-Still in the advanced options menu, navigate to
+Still in the advanced options menu, navigate to `GPU Driver`.
 
-Next we'll change the video driver...
+Select the **FAKE KMS** Driver and press enter to choose it.
 
-### Step 5 - Console Mode
+#### 3. Select Desktop/Console Mode 
 
-Finally we'll change it so the device so that it boots into console mode...
+Go back to the main menu, and navigate to `System Options.`
 
-### Step 6
+Select the option `Boot / Auto login`.
 
-When you're done, exit raspi-config if you are not prompted to reboot you can go back into your terminal and run:
+If you plan to run Stream-Pi with Desktop mode, choose `Desktop autologin`, or else if you want to run Stream-Pi with Console Mode, choose `Console autologin`
+
+Instead of autologin, you may choose the other option available for password prompt as well. 
+
+#### 4. Reboot
+
+Now go ahead and reboot your Raspberry Pi.
+
+## Step 6 - Installation Done, now first run.
+
+All required prerequisites and configuration to run Stream-Pi Client has been done. The instructions below show how you to run it.
+
+First navigate to the directory where Stream-Pi Client is extracted. For example: 
 
 ```bash
-$ sudo reboot
+$ cd /home/pi/Stream-Pi-Client
 ```
 
-### Step 7
-
-These steps differ slightly depending on if you are in Desktop / Console mode. Navigate into your new Stream-Pi directory using the terminal.
-
-```bash
-$ cd /home/<YOURNAME>/StreamPiClient
-# OR
-$ cd ~/StreamPiClient
-```
-
-### Step 7 - Console
-
-Once you change into this directory, run the `run` script from the terminal like so:
+If you want to run it on console mode, run:
 
 ```bash
 $ ./run_console
-# you MAY need root permissions, so also try
-$ sudo ./run_console
 ```
 
-If you run with `sudo` then start on boot **WILL NOT WORK**.
-
-### Step 7 - Desktop
-
-Once you change into this directory, run the `run` script from the terminal like so:
+If you want to run it on desktop mode, run :
 
 ```bash
 $ ./run_desktop
-# you MAY need root permissions, so also try
-$ sudo ./run_desktop
 ```
 
-If you run with `sudo` then start on boot **WILL NOT WORK**.
+**DO NOT run Stream-Pi Client as root. This may break the auto startup mechanism.**
 
-### Step 8
+## Thats it!
 
-Stream-Pi **_SHOULD_** now launch, if it does not please take a look at our common troubleshooting steps.
+Stream-Pi Client should now launch and greet you with a "Welcome!" Message. Proceed through the first time setup by agreeing to the license, and setting the required properties like the Width and Height of your screen, and the Server IP.
 
-Go through the setup, making sure to read the EULA.
+## Troubleshoot
 
-This setup will allow you to name your device and look for the server to pair with.
-
-### You're Done!
-
-That's it! Stream-Pi should now run and you can add set up a server if you have not yet done so.
+If you cant get it to work or need additional support, please dont hesitate to reach us out on [Discord](https://discord.gg/BExqGmk).
