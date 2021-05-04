@@ -63,9 +63,7 @@ const ContactForm: FC = () => {
       } else {
         toast.error(
           <ResponseMessage title="Error" long_msg={error.message} />,
-          {
-            onClose: () => setDisabled(false),
-          }
+          { onClose: () => setDisabled(false) }
         );
       }
     } finally {
