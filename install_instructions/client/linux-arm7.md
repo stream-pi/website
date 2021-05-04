@@ -7,8 +7,10 @@ editedBy: "rnayabed"
 # Setup Stream-Pi on Linux ARMv7 (32 Bit) (Raspberry Pi)
 
 The instructions below will go over how to set up **Stream-Pi Client** on a **Linux ARMv7** device.
+
 Examples of Linux ARMv7 devices include **Raspberry Pi** running on **Raspberry Pi OS 32-bit**. 
-**This is NOT to be followed if your Raspberry Pi is running a 64 bit OS.**
+
+**This is NOT to be followed if your Raspberry Pi is running a 64 bit OS.** 
 
 If you have any questions please reach out to us on [the Official Stream-Pi Discord Server](https://discord.gg/BExqGmk).
 
@@ -32,13 +34,13 @@ Desktop Mode runs Stream-Pi Client on top of X11. Console Mode runs Stream-Pi Cl
 
 The below steps have **anchors** associated with them, so you can quickly navigate with the browser's url bar `/install/client/[PLATFORM]#step-1` for example.
 
-## Step 1
+### Step 1
 
 If you downloaded '.zip' file directly from github onto the device you can skip to step 2.
 
 You'll need to get the '.zip' file onto your device, you can always download it directly or you can download on another machine and copy over to this one using like FileZilla, VNC Viewer, Team Viewer, or SCP.
 
-## Step 2
+### Step 2
 
 You'll need to install some additional packages on the system before we continue proper:
 
@@ -51,7 +53,7 @@ On Raspberry Pi OS or other Debian based distros, open your terminal and run:
 $ sudo apt install libpangoft2-1.0-0 libcairo2-dev
 ```
 
-## Step 3
+### Step 3
 
 Now that the release '.zip' file is on the device, extract the '.zip' file to a place that is easy for you to remember / easy to access. Also make sure you will always have permission to access this folder.
 
@@ -63,7 +65,7 @@ For example:
 
 Be careful to not extract the zip in directories which cant be edited by non-root as it will cause Stream-Pi to not work correctly. For example: `/home/`.
 
-## Step 4 (Raspberry Pi OS Only)
+### Step 4 (Raspberry Pi OS Only)
 
 **This step is required only for those who wish to use Stream-Pi in console mode.**
 
@@ -87,7 +89,7 @@ With the new block of text added, you can hit <kbd>Ctrl</kbd> <kbd>S</kbd> then 
 
 **After saving, reboot your Pi.**
 
-## Step 5 (Raspberry Pi OS Only)
+### Step 5 (Raspberry Pi OS Only)
 
 We need to make some changes to the Raspberry Pi's configuration, There are three things we need to do:
 
@@ -136,7 +138,7 @@ Instead of autologin, you may choose the other option available for password pro
 
 Now go ahead and reboot your Raspberry Pi.
 
-## Step 6 - Installation Done, now first run.
+### Step 6 - Installation Done, now first run.
 
 All required prerequisites and configuration to run Stream-Pi Client has been done. The instructions below show how you to run it.
 
