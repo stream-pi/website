@@ -28,8 +28,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       const raw = {
         "Total Downloads": sumTotalDownloads(repoDeets) + init_count[repo],
       };
-      // GH.Downloads = { ...raw }; // creates new obj in memory
-      GH[repo].Downloads = raw;
+      GH[repo].Downloads = { ...raw };
       res.send(prettyPrint(raw));
     } catch (error) {
       if (error.response?.status === 304) {

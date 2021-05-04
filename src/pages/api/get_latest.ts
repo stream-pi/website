@@ -27,8 +27,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       };
 
       res.statusCode = 200;
-      // GH.ReleaseInfo = { ...final }; // creates new obj in memory
-      GH[repo].ReleaseInfo = final;
+      GH[repo].ReleaseInfo = { ...final };
       res.send(prettyPrint(final));
     } catch (error) {
       // console.log(error);
