@@ -5,6 +5,7 @@ import useDarkMode from "use-dark-mode";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ThemeSwitch: FC = () => {
+  //* used to add a transition helper class to the doc-body
   const [containsTransition, setContainsTransition] = useState(false);
   //* For some reason, without this state the onChange event wont fire
   const [checked, setChecked] = useState(true);

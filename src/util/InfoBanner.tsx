@@ -116,6 +116,7 @@ export const useInfoBanner = ({
           containerId: "BannerToasts",
           toastId,
           delay: 1000,
+          draggable: false,
           type: variant || "default",
         }
       );

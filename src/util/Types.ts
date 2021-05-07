@@ -55,4 +55,4 @@ export type LatestRelease = {
   Downloads: ReleaseDownloads[];
 };
 
-export type OBJ = Record<string, unknown>;
+export type OBJ = Record<string, any>;

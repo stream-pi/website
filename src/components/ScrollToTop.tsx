@@ -8,6 +8,8 @@ import Fade from "react-bootstrap/Fade";
 /**
  * A Button element that appears when the vertical offest exceeds 300px.
  *
+ * Currently throws strict mode error
+ *
  * @returns DOM element that when clicked, will smoothly scroll back to the top of the page.
  */
 const ScrollToTop: FC = () => {
