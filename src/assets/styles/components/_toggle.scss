@@ -4,14 +4,13 @@ $bg-width: 3.5rem;
 $bg-height: 2rem;
 $dark-dot: hsl(262, 49%, 10%);
 
-// 2 dot-size
 .toggle-class {
   cursor: pointer;
   .transition {
     transition-property: background-color, border-color, color, fill, stroke,
       opacity, box-shadow, transform, filter, backdrop-filter;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 200ms;
+    transition-duration: 250ms;
   }
 
   .theme-icon {
@@ -20,7 +19,7 @@ $dark-dot: hsl(262, 49%, 10%);
     position: absolute;
     margin-top: auto !important;
     margin-bottom: auto !important;
-    transition: all cubic-bezier(0.4, 0, 0.2, 1) 200ms;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) 250ms;
 
     &.moon {
       right: $mini-margin * 1.75;

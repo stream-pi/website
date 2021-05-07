@@ -8,6 +8,10 @@ p {
   font-size: 1.1rem;
 }
 
+pre:hover {
+  cursor: text;
+}
+
 .streamPiAbout {
   font-weight: 300;
   &::before {

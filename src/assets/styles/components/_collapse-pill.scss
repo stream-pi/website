@@ -1,0 +1,38 @@
+// mixins
+@mixin pill-wrapper($current, $before) {
+  height: 20px;
+  border-style: solid;
+  border-width: $current;
+  border-radius: 25px;
+  &::before {
+    display: block;
+    content: "";
+    height: 20px;
+    margin-top: -21px;
+    border-style: solid;
+    border-width: $before;
+    border-radius: 25px;
+  }
+}
+
+hr.capsule {
+  overflow: hidden;
+  &.top-hr {
+    @include pill-wrapper(2px 0 0 0, 0 0 2px 0);
+  }
+  &.bottom-hr {
+    @include pill-wrapper(0 0 2px 0, 2px 0 0 0);
+  }
+}
+
+.my-collapse-select {
+  font-size: 1.1rem;
+  &:focus {
+    box-shadow: none;
+    border: unset;
+  }
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}

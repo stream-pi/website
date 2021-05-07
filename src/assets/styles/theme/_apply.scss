@@ -1,20 +1,3 @@
-// mixins
-@mixin pill-wrapper($current, $before) {
-  height: 20px;
-  border-style: solid;
-  border-width: $current;
-  border-radius: 25px;
-  &::before {
-    display: block;
-    content: "";
-    height: 20px;
-    margin-top: -21px;
-    border-style: solid;
-    border-width: $before;
-    border-radius: 25px;
-  }
-}
-
 .body-transition {
   transition: background-color 0.25s ease-in-out, color 0.5s ease-in-out;
 }
@@ -34,37 +17,15 @@ h1 {
   color: var(--spi-color-heading);
 }
 
-pre:hover {
-  cursor: text;
-}
-
 hr {
   border-color: var(--spi-color-hr);
-  &.capsule {
-    overflow: hidden;
-    &.top-hr {
-      @include pill-wrapper(2px 0 0 0, 0 0 2px 0);
-    }
-    &.bottom-hr {
-      @include pill-wrapper(0 0 2px 0, 2px 0 0 0);
-    }
-  }
 }
 
 // CLASSES / IDS
 
-.my-collapse-select {
-  font-size: 1.1rem;
+.my-collapse-select,
+.my-collapse-select:hover {
   color: var(--spi-color-text);
-  &:focus {
-    box-shadow: none;
-    border: unset;
-  }
-  &:hover {
-    color: var(--spi-color-text);
-    cursor: pointer;
-    text-decoration: underline;
-  }
 }
 
 .footer {
@@ -72,10 +33,6 @@ hr {
   * {
     font-size: 0.9rem;
   }
-}
-
-.lds-ellipsis div {
-  background: var(--spi-color-text);
 }
 
 .bg-card {
