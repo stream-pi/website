@@ -2,7 +2,7 @@ import { FC } from "react";
 import StreamPiSEO from "@components/StreamPiSEO";
 import {
   Developers,
-  PublicRelations,
+  CommunityRelations,
   Infrastructure,
   UserExperience,
   RowCol,
@@ -46,10 +46,10 @@ const StreamPiAbout: FC = () => {
       {/* Developers */}
       <TeamMemberRow teamMembers={Developers} identifier="Lead Developers" />
 
-      {/* PR */}
+      {/* CR */}
       <TeamMemberRow
-        teamMembers={PublicRelations}
-        identifier="Public Relations"
+        teamMembers={CommunityRelations}
+        identifier="Community Relations"
       />
 
       {/* User Experience */}

@@ -27,7 +27,7 @@ export const Debayan: TeamMember = {
   ],
 };
 
-// PR / User Experience
+// CR / User Experience
 export const TOGLK: TeamMember = {
   name: "Toglk",
   picture: togpic,
@@ -48,6 +48,6 @@ export const Jtoland: TeamMember = {
 };
 
 export const Developers = [Samuel, Debayan];
-export const PublicRelations = [Brady];
+export const CommunityRelations = [Brady];
 export const UserExperience = [TOGLK];
 export const Infrastructure = [Jtoland];

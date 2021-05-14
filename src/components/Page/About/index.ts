@@ -8,7 +8,7 @@ export {
   Developers,
   Infrastructure,
   Jtoland,
-  PublicRelations,
+  CommunityRelations,
   Samuel,
   TOGLK,
   UserExperience,
