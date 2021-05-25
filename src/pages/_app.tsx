@@ -65,7 +65,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     message:
       "stream-pi.com has been rebuilt using React! It may look similar but it is a NEW site with NEW functionality.",
     toastId: "new-site-toast",
-    stopShowing: "2021-05-30",
+    stopShowing: "2022-01-31",
     keysToDelete: ["test-toast", "theme"],
   });
   const { asPath } = useRouter();
