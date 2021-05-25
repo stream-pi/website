@@ -3,26 +3,20 @@
 import { useState, FC, useEffect } from "react";
 import useDarkMode from "use-dark-mode";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useRenderOnMount } from "@util";
 
 const ThemeSwitch: FC = () => {
   //* used to add a transition helper class to the doc-body
   const [containsTransition, setContainsTransition] = useState(false);
   //* For some reason, without this state the onChange event wont fire
   const [checked, setChecked] = useState(true);
-  //* this helps with the switcher swinging if the default is light
-  const [mounted, setMounted] = useState(false);
   const { value, toggle } = useDarkMode(true);
+  const mounted = useRenderOnMount();
 
   //? should this be a useMemo or useLayoutEffect instead?
   useEffect(() => {
     setChecked(value);
   }, [value]);
-
-  //? is a separate useEffect to ensure this happens only once
-  //? should this have a useEffect cleanup?
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const toggleTheme = () => {
     if (!containsTransition) {
