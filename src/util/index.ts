@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import dayjs from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
@@ -171,4 +171,52 @@ export function useRegexAsPath() {
   );
 
   return asPathThree;
+}
+
+/**
+ * Checks if a container's immediate child is in our out of the overflow view
+ *
+ * @param container HTMLcontaining element
+ * @param element element in / out of view
+ */
+export function checkIfElementInView(
+  container?: HTMLElement,
+  element?: HTMLElement
+) {
+  if (!container || !element) {
+    console.error("One or both elements was not defined at call time");
+    return;
+  }
+  //* container top
+  const cTop = container.scrollTop;
+  //* container bottom
+  const cBottom = cTop + container.clientHeight;
+
+  //* element top
+  const eTop = element.offsetTop;
+  //* element bottom
+  const eBottom = eTop + element.clientHeight;
+
+  //* check if out of view
+  if (eTop < cTop) {
+    container.scrollTop -= cTop - eTop;
+  } else if (eBottom > cBottom) {
+    container.scrollTop += eBottom - cBottom;
+  }
+}
+
+/**
+ * lightweight custom hook that will return a boolean reflecting the current mount state of the component
+ *
+ * @returns is the component mounted?
+ */
+export function useRenderOnMount() {
+  const [mounted, setMounted] = useState(false);
+  //* is a separate useEffect to ensure this happens only once
+  //? should this have a useEffect cleanup?
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  return mounted;
 }
