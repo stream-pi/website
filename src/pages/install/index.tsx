@@ -1,58 +1,11 @@
 //TODO: try to condense picker logic
 
-import { FC, useEffect, useState } from "react";
-import { toast } from "react-toastify";
-import Nav from "react-bootstrap/Nav";
-import Tab from "react-bootstrap/Tab";
+import { FC } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import PropagateLoader from "react-spinners/PropagateLoader";
-import { getReleases } from "@util/API";
 import StreamPiSEO from "@components/StreamPiSEO";
 import CollapsePill from "@components/CollapsePill";
-import { Client, Server, Releases, InstallNav } from "@components/Page/Install";
 
 const StreamPiInstall: FC = () => {
-  const [releaseInfo, setReleaseInfo] = useState<Releases>({ Client, Server });
-  const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    let mounted = true;
-    const doFetch = async () => {
-      try {
-        const server = await getReleases("SERVER");
-        const client = await getReleases("CLIENT");
-
-        const info = await Promise.all([server, client]);
-        return info;
-      } catch (error) {
-        toast.error(
-          <>
-            <h4>There was a Problem</h4>
-            <p>Release info could not be dynamically loaded via api</p>
-            <p className="mb-0">
-              Instructions for most recent release have been loaded statically
-            </p>
-          </>,
-          { toastId: "release-fetch-problem", autoClose: 7000 }
-        );
-        return new Error(error.message);
-      }
-    };
-    if (mounted) {
-      doFetch().then((info) => {
-        if (info instanceof Error) {
-          console.log(info);
-        } else {
-          setReleaseInfo({ Client: info[1].data, Server: info[0].data });
-        }
-        setLoaded(true);
-      });
-    }
-    return () => {
-      mounted = false;
-    };
-  }, []);
-
   return (
     <>
       <StreamPiSEO
@@ -122,49 +75,13 @@ const StreamPiInstall: FC = () => {
         </CollapsePill>
       </div>
       {/* Disclaimer End */}
-
-      {!loaded ? (
-        <div className="d-flex justify-content-center">
-          <PropagateLoader loading={!loaded} color="var(--spi-color-text)" />
-        </div>
-      ) : (
-        <>
-          <div className="animate__animated animate__fadeInUp">
-            <Tab.Container id="sercli-instructions">
-              {/* NAV */}
-              <Nav justify variant="pills">
-                <Nav.Item>
-                  <Nav.Link className="mx-1" eventKey="Client">
-                    Client
-                  </Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link className="mx-1" eventKey="Server">
-                    Server
-                  </Nav.Link>
-                </Nav.Item>
-              </Nav>
-              {/* CONTENT */}
-              <Tab.Content className="pt-2">
-                <Tab.Pane eventKey="Client">
-                  <InstallNav
-                    arr={releaseInfo.Client.Downloads}
-                    sercli="Client"
-                    version={releaseInfo.Client.Version}
-                  />
-                </Tab.Pane>
-                <Tab.Pane eventKey="Server">
-                  <InstallNav
-                    arr={releaseInfo.Server.Downloads}
-                    sercli="Server"
-                    version={releaseInfo.Server.Version}
-                  />
-                </Tab.Pane>
-              </Tab.Content>
-            </Tab.Container>
-          </div>
-        </>
-      )}
+      <div className="text-center">
+        <p>
+          We are currently looking for the best way to distribute and roll out
+          the install instructions. Please bear with us while we make sure we
+          can provide the best experience possible!
+        </p>
+      </div>
     </>
   );
 };
