@@ -18,7 +18,7 @@ jobs:
       if: github.event.action == 'opened'
       with:
         project: 'https://github.com/orgs/stream-pi/projects/1'
-        column_name: 'To Do (Website)'
+        column_name: 'inbox'
 
 #     - name: Assign issues and pull requests with `bug` label to project 3
 #       uses: srggrs/assign-one-project-github-action@1.2.1
