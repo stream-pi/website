@@ -15,6 +15,7 @@ If you have any questions please reach out to us on [the Official Stream-Pi Disc
 The below steps have **anchors** associated with them, so you can quickly navigate with the browser's url bar `/install/client/[PLATFORM]#step-1` for example.
 
 There are two sets of instructions for android, take note of which applies to you based on **your operating system**.
+
 ## For devices running Oreo or **newer** (>= 8.0)
 
 ### Step 1 Modern
@@ -23,9 +24,9 @@ Download the **Stream-Pi Client** `.apk` file from the github repository. The **
 
 ### Step 2 Modern
 
-Install the app by either 
+Install the app by either
 
-a) tapping on the completed download on your mobile browser 
+a) tapping on the completed download on your mobile browser
 
 or
 

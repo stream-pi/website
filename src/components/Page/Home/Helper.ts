@@ -1,3 +1,5 @@
+// TODO: Replace function params with translation function as param
+
 import type { IconObj, ButtonObj } from "@util/Types";
 
 type HomeObj = {
@@ -6,28 +8,33 @@ type HomeObj = {
   extraClass?: string[];
 };
 
-export const KIT: HomeObj = {
-  icons: [
-    { IcoPre: "fab", IcoName: "discord" },
-    { IcoPre: "fab", IcoName: "twitter" },
-  ],
-  buttons: [
-    { text: "Join the Discord", link: "https://discord.gg/BExqGmk" },
-    { text: "Visit our Twitter", link: "https://twitter.com/stream_pi" },
-  ],
-  extraClass: ["mr-2", "ml-2"],
+/** Keep In Touch */
+export const KIT = (joinDiscord: string, joinTwitter: string): HomeObj => {
+  return {
+    icons: [
+      { IcoPre: "fab", IcoName: "discord" },
+      { IcoPre: "fab", IcoName: "twitter" },
+    ],
+    buttons: [
+      { text: joinDiscord, link: "https://discord.gg/BExqGmk" },
+      { text: joinTwitter, link: "https://twitter.com/stream_pi" },
+    ],
+    extraClass: ["mr-2", "ml-2"],
+  };
 };
 
-export const ICF: HomeObj = {
-  icons: [{ IcoPre: "fab", IcoName: "github" }],
-  buttons: [
-    { text: "Check out the Github", link: "https://github.com/stream-pi/" },
-  ],
+/** Its completely free */
+export const ICF = (github: string): HomeObj => {
+  return {
+    icons: [{ IcoPre: "fab", IcoName: "github" }],
+    buttons: [{ text: github, link: "https://github.com/stream-pi/" }],
+  };
 };
 
-export const MIJ: HomeObj = {
-  icons: [{ IcoPre: "fab", IcoName: "java" }],
-  buttons: [
-    { text: "See how it's made", link: "/about#technology", internal: true },
-  ],
+/** Made in JavaFX */
+export const MIJ = (seeHowMade: string): HomeObj => {
+  return {
+    icons: [{ IcoPre: "fab", IcoName: "java" }],
+    buttons: [{ text: seeHowMade, link: "/about#technology", internal: true }],
+  };
 };

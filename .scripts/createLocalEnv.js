@@ -19,7 +19,8 @@ switch (environment) {
       function (host) {
         rl.question("What is the port? (type 'n' for none)\n", function (port) {
           prod_env.host = host.toLowerCase() || "http://localhost";
-          prod_env.port = port.toLowerCase() === "n" ? "" : `:${port || "8080"}`;
+          prod_env.port =
+            port.toLowerCase() === "n" ? "" : `:${port || "8080"}`;
           rl.close();
         });
       }

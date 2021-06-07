@@ -51,8 +51,7 @@
     // use "error" for classnames, but bootstrap color
     @if ($color == "danger") {
       @include toast-color-classes("error", $color, $value);
-    }
-    @else if ($color == "primary") {
+    } @else if ($color == "primary") {
       @include toast-color-classes("default", $color, $value);
     }
     // all others have the same naming convention

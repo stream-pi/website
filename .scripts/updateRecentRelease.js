@@ -4,7 +4,10 @@ const fs = require("fs");
 
 console.log("\x1b[33m", "MUST BE RUN IN DEVELOPMENT", "\x1b[0m");
 
-const recent_release = path.join(process.cwd(), "src/components/Page/Install/Helper");
+const recent_release = path.join(
+  process.cwd(),
+  "src/components/Page/Install/Helper"
+);
 const ser_cli = process.argv.slice(2)[0];
 
 if (ser_cli.toUpperCase() === "SERVER") {

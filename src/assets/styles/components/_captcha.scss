@@ -16,7 +16,6 @@
   height: auto !important;
 }
 
-
 @media screen and (max-width: 430px) {
   @include changeScale(0.8);
 }
