@@ -1,32 +1,15 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import StreamPiSEO from "@components/StreamPiSEO";
 import { ContactForm, PreFormInfo } from "@components/Page/Contact";
+import { useCountDown } from "@util";
 
 const StreamPiContact: FC = () => {
   const [agreed, setAgreed] = useState(false);
-  const [disable, setDisable] = useState(true);
-  const [remainingSeconds, setRemainingSeconds] = useState<number>(8);
-
-  useEffect(() => {
-    const intervalRef = setInterval(() => {
-      // console.log("Interval");
-      setRemainingSeconds((initial) => initial - 1);
-    }, 1000);
-    const timeoutRef = setTimeout(() => {
-      // console.log("Timeout");
-      clearInterval(intervalRef);
-      setDisable(false);
-    }, 8000);
-
-    return () => {
-      clearInterval(intervalRef);
-      clearInterval(timeoutRef);
-    };
-  }, []);
+  const { counting, remainingSeconds } = useCountDown(8000);
 
   return (
     <>
@@ -50,8 +33,8 @@ const StreamPiContact: FC = () => {
             <>
               {!agreed ? (
                 <PreFormInfo>
-                  <Button disabled={disable} onClick={() => setAgreed(true)}>
-                    {disable
+                  <Button disabled={counting} onClick={() => setAgreed(true)}>
+                    {counting
                       ? `Please wait ${remainingSeconds} seconds`
                       : "I understand"}
                   </Button>

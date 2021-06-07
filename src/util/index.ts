@@ -220,3 +220,36 @@ export function useRenderOnMount() {
 
   return mounted;
 }
+
+/**
+ *
+ * @param totalTime countdown length in `MS`
+ * @param changeInterval the interval subtracted from `totalTime`
+ * @returns seconds remaining and if the countdown is still going
+ */
+export function useCountDown(totalTime: number) {
+  const [counting, setCounting] = useState(true);
+  const [remainingSeconds, setRemainingSeconds] = useState(totalTime / 1000);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // console.log("Interval");
+      setRemainingSeconds((initial) => initial - 1);
+    }, 1000);
+    const timeout = setTimeout(() => {
+      // console.log("Timeout");
+      clearInterval(interval);
+      setCounting(false);
+    }, totalTime);
+
+    return () => {
+      clearInterval(interval);
+      clearInterval(timeout);
+    };
+  }, [totalTime]);
+
+  return {
+    counting,
+    remainingSeconds,
+  };
+}
