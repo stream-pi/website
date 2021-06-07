@@ -5,7 +5,7 @@ import { printOutDate } from "@util";
 import StreamPiSEO from "@components/StreamPiSEO";
 
 const Troubleshooting: FC = () => {
-  const dateOfLastUpdate = "2021-03-13 22:35:27";
+  const dateOfLastUpdate = "2021-06-07 11:25:50";
   return (
     <>
       <StreamPiSEO
