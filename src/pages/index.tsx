@@ -36,19 +36,25 @@ const StreamPiHome: FC = () => {
       </Row>
       {/* Info type stuff */}
       <Row className="pt-4 animate__animated animate__fadeInLeft">
-        <HomeCard {...KIT} title="Keep in touch with us!">
+        <HomeCard
+          {...KIT("Join the Discord", "Visit our Twitter")}
+          title="Keep in touch with us!"
+        >
           We have a discord where we talk about all things code! We've also got
           a twitter where we share updates and community submissions. These are
           the best places to keep up to date about what's going on development
           wise with the Stream-Pi
         </HomeCard>
-        <HomeCard {...ICF} title="It's Completely Free!">
+        <HomeCard
+          {...ICF("Check out the Github")}
+          title="It's Completely Free!"
+        >
           We will never put the Stream-Pi behind a pay wall, we wanted to create
           an alternative that wouldn't break the bank and as such it is and
           always will be free to download. It's also{" "}
           <strong>open source</strong> and <strong>very modular</strong>.
         </HomeCard>
-        <HomeCard {...MIJ} title="Made in JavaFX">
+        <HomeCard {...MIJ("See how it's made")} title="Made in JavaFX">
           We wanted to make something in JavaFX because it seemed to have been
           forgotten by the community and given that it's a great way to build UI
           and a challenge to build for on the Raspberry Pi.
