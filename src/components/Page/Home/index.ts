@@ -1,6 +1,4 @@
-import HomeCard from "./HomeCard";
-import StreamPiVideo from "./Video";
+export { default as HomeCard } from "./_HomeCard";
+export { default as StreamPiVideo } from "./_Video";
 import { ICF, KIT, MIJ } from "./Helper";
-const HomeInfo = { ICF, KIT, MIJ };
-
-export { HomeInfo, HomeCard, StreamPiVideo };
+export const HomeInfo = { ICF, KIT, MIJ };

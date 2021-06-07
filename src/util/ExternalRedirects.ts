@@ -31,5 +31,3 @@ export const ExternalObjs: ExternalMaster = {
     link: "https://www.patreon.com/streampi",
   },
 };
-
-export const ExternalPaths = new Set(Object.keys(ExternalObjs));

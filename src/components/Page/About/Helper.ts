@@ -1,4 +1,11 @@
 import { TeamMember, MyIconHelper, PersonIcon } from "@util/Types";
+
+export type TeamRow = {
+  teamMembers: TeamMember[];
+  className?: string;
+  identifier: string;
+};
+
 const sampic = "/images/sampic.png";
 const defaultpic = "/images/defpic.png";
 const togpic = "/images/togpic.png";

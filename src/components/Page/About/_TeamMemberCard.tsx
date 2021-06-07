@@ -2,7 +2,7 @@ import { Fragment, FC } from "react";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import type { TeamMember } from "@util/Types";
-import LinkWithPop from "./LinkWithPop";
+import LinkWithPop from "./_LinkWithPop";
 
 const TeamMemberCard: FC<TeamMember> = ({ picture, name, icons }) => {
   return (

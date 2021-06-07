@@ -1,7 +1,7 @@
-import LinkWithProp from "./LinkWithPop";
-import RowCol from "./RowCol";
-import TeamMemberCard from "./TeamMemberCard";
-import TeamMemberRow from "./TeamMemberRow";
+import LinkWithProp from "./_LinkWithPop";
+import RowCol from "./_RowCol";
+import TeamMemberCard from "./_TeamMemberCard";
+import TeamMemberRow from "./_TeamMemberRow";
 export {
   Brady,
   Debayan,

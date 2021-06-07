@@ -8,6 +8,13 @@ type HomeObj = {
   extraClass?: string[];
 };
 
+export type HomeCardProps = {
+  icons: IconObj[];
+  buttons: ButtonObj[];
+  title: string;
+  extraClass?: string[];
+};
+
 /** Keep In Touch */
 export const KIT = (joinDiscord: string, joinTwitter: string): HomeObj => {
   return {

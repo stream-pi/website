@@ -4,6 +4,7 @@ import FormLabel from "react-bootstrap/FormLabel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { LabelProps } from "./Helper";
 
+//* Makes sense to keep props here to minimize multi-imports
 type Props = ComponentProps<typeof FormControl> & {
   errorText: string;
 };

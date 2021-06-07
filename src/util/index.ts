@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 import dayjs from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
 import type { OBJ } from "./Types";
@@ -150,27 +149,6 @@ export function prettyPrint(obj: OBJ) {
  */
 export function printOutDate(dateIn: dayjs.ConfigType) {
   return dayjs(dateIn).format("MMMM Do, YYYY");
-}
-
-/**
- * To be written
- *
- * @returns the router's `asPath` variable, having been formatted
- */
-export function useRegexAsPath() {
-  const { asPath } = useRouter();
-  // Queries and hashes
-  const asPathTwo = /(#.*|\?.+=.*)/g.test(asPath)
-    ? asPath.replace(/(#.*|\?.+=.*)/g, "")
-    : asPath;
-
-  // Nested Paths
-  const asPathThree = asPathTwo.replace(
-    /^(\/[A-Za-z\-0-9]+)(?:\/[A-Za-z\-0-9]+)+/i,
-    "$1"
-  );
-
-  return asPathThree;
 }
 
 /**

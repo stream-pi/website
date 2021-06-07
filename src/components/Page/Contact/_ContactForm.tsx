@@ -7,8 +7,8 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import ResponseMessage from "./ResponseMessage";
-import { MyFormControl, MyFormLabel } from "./MyFormControl";
+import ResponseMessage from "./_ResponseMessage";
+import { MyFormControl, MyFormLabel } from "./_MyFormControl";
 
 const ContactForm: FC = () => {
   /** more controllable than the react hook form variables */

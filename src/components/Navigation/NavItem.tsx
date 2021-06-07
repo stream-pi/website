@@ -1,10 +1,7 @@
 import { FC } from "react";
 import NavLink from "react-bootstrap/NavLink";
-import ActiveLink, { ActiveLinkProps } from "./ActiveLink";
-
-type ItemProps = Omit<ActiveLinkProps, "href" | "activeClassName"> & {
-  to: string;
-};
+import ActiveLink from "./ActiveLink";
+import { ItemProps } from "./Helper";
 
 const StreamPiNavItem: FC<ItemProps> = ({ children, to, ...props }) => {
   return (

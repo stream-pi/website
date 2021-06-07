@@ -1,10 +1,6 @@
 import { Children, FC, ReactElement, cloneElement } from "react";
-import Link, { LinkProps } from "next/link";
-import { useRegexAsPath } from "@util";
-
-export type ActiveLinkProps = LinkProps & {
-  activeClassName: string;
-};
+import Link from "next/link";
+import { ActiveLinkProps, useRegexAsPath } from "./Helper";
 
 const ActiveLink: FC<ActiveLinkProps> = ({
   children,

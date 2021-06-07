@@ -3,14 +3,7 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import type { IconObj, ButtonObj } from "@util/Types";
-
-type HomeCardProps = {
-  icons: IconObj[];
-  buttons: ButtonObj[];
-  title: string;
-  extraClass?: string[];
-};
+import type { HomeCardProps } from "./Helper";
 
 const HomeCard: FC<HomeCardProps> = ({
   icons,

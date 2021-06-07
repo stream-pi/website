@@ -1,14 +1,8 @@
 import { FC, Fragment } from "react";
 import Row from "react-bootstrap/Row";
-import type { TeamMember } from "@util/Types";
-import RowCol from "./RowCol";
-import TeamMemberCard from "./TeamMemberCard";
-
-type TeamRow = {
-  teamMembers: TeamMember[];
-  className?: string;
-  identifier: string;
-};
+import RowCol from "./_RowCol";
+import TeamMemberCard from "./_TeamMemberCard";
+import { TeamRow } from "./Helper";
 
 const TeamMemberRow: FC<TeamRow> = ({ teamMembers, className, identifier }) => {
   const idFormat = identifier.replace(/[^A-Za-z0-9]/g, "").toLowerCase();
