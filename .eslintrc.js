@@ -72,7 +72,7 @@ module.exports = {
         //     allowConciseArrowFunctionExpressionsStartingWithVoid: true,
         //   },
         // ],
-        "prettier/prettier": ["error", {}, { usePrettierrc: true }], // Includes .prettierrc.js rules
+        "prettier/prettier": ["warn", {}, { usePrettierrc: true }], // Includes .prettierrc.js rules
       },
     },
   ],
