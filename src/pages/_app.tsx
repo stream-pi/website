@@ -1,7 +1,7 @@
+//* Core
 import "animate.css/animate.min.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "../assets/styles/globals.scss";
-import { useRouter } from "next/router";
 import type { AppProps } from "next/app";
 import { library, config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
@@ -31,12 +31,12 @@ import Container from "react-bootstrap/Container";
 import { ToastContainer } from "react-toastify";
 import { useHashChange } from "@util";
 import { useInfoBanner } from "@util/InfoBanner";
-import { ExternalPaths } from "@util/ExternalRedirects";
 import StreamPiNavItem from "@components/Navigation/NavItem";
 import StreamPiFooter from "@components/Footer";
 import StreamPiNavbar from "@components/Navbar";
 import ThemeSwitch from "@components/ThemeSwitch";
 import ScrollToTop from "@components/ScrollToTop";
+import { useEffect } from "react";
 
 library.add(
   faRaspberryPi,
@@ -59,7 +59,14 @@ library.add(
   faAngleDown
 );
 
+//* REDUX
+import { Provider } from "react-redux";
+import store from "src/store";
+
 function MyApp({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    document.body.classList.add("body-transition");
+  }, []);
   useHashChange();
   useInfoBanner({
     message:
@@ -68,24 +75,19 @@ function MyApp({ Component, pageProps }: AppProps) {
     stopShowing: "2022-01-31",
     keysToDelete: ["test-toast", "theme"],
   });
-  const { asPath } = useRouter();
 
   return (
-    <>
+    <Provider store={store}>
       <ToastContainer position="top-center" enableMultiContainer />
-      {!ExternalPaths.has(asPath.replace(/\/+/gm, "")) && (
-        <StreamPiNavbar>
-          <StreamPiNavItem to="/">Home</StreamPiNavItem>
-          <StreamPiNavItem to="/about">About</StreamPiNavItem>
-          <StreamPiNavItem to="/features">Features</StreamPiNavItem>
-          <StreamPiNavItem to="/contact">Contact</StreamPiNavItem>
-          <StreamPiNavItem to="/install">Install</StreamPiNavItem>
-          <StreamPiNavItem to="/troubleshooting">
-            Troubleshooting
-          </StreamPiNavItem>
-          <ThemeSwitch />
-        </StreamPiNavbar>
-      )}
+      <StreamPiNavbar>
+        <StreamPiNavItem to="/">Home</StreamPiNavItem>
+        <StreamPiNavItem to="/about">About</StreamPiNavItem>
+        <StreamPiNavItem to="/features">Features</StreamPiNavItem>
+        <StreamPiNavItem to="/contact">Contact</StreamPiNavItem>
+        <StreamPiNavItem to="/install">Install</StreamPiNavItem>
+        <StreamPiNavItem to="/troubleshooting">Troubleshooting</StreamPiNavItem>
+        <ThemeSwitch />
+      </StreamPiNavbar>
       <Container style={{ paddingTop: "4rem" }} fluid="md">
         <Component {...pageProps} />
       </Container>
@@ -101,7 +103,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         containerId={"BannerToasts"}
       />
       <ScrollToTop />
-    </>
+    </Provider>
   );
 }
 

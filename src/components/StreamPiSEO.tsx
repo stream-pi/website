@@ -1,15 +1,35 @@
-import { FC } from "react";
+//* Core
+import { FC, useEffect } from "react";
 import Head from "next/head";
 import { MetaData } from "@util/Config";
+
+//* Redux
+import { useAppDispatch } from "src/store/hooks";
+import { clientActions } from "src/store/Client/slice";
 
 type SEOProps = {
   title: string;
   flipOrder?: boolean;
   description: string;
   slug?: string;
+  hideNavbar?: boolean;
 };
 
-const StreamPiSEO: FC<SEOProps> = ({ title, flipOrder, description, slug }) => {
+const StreamPiSEO: FC<SEOProps> = ({
+  title,
+  flipOrder,
+  description,
+  slug,
+  hideNavbar = false,
+}) => {
+  //* REDUX
+  const dispatch = useAppDispatch();
+
+  //* Core
+  useEffect(() => {
+    dispatch(clientActions.setShowNavbar(!hideNavbar));
+  }, [hideNavbar, dispatch]);
+
   const titleString = flipOrder
     ? `${MetaData.title} ${title}`
     : `${title} ${MetaData.title}`;

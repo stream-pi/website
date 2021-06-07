@@ -1,32 +1,27 @@
-//* FIXME: consider renaming
-
+//* Core
 import { useState, FC, useEffect } from "react";
 import useDarkMode from "use-dark-mode";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRenderOnMount } from "@util";
 
+//* REDUX
+import { useAppDispatch } from "src/store/hooks";
+import { clientActions } from "src/store/Client/slice";
+
 const ThemeSwitch: FC = () => {
-  //* used to add a transition helper class to the doc-body
-  const [containsTransition, setContainsTransition] = useState(false);
+  //* Core
   //* For some reason, without this state the onChange event wont fire
   const [checked, setChecked] = useState(true);
   const { value, toggle } = useDarkMode(true);
   const mounted = useRenderOnMount();
 
-  //? should this be a useMemo or useLayoutEffect instead?
-  useEffect(() => {
-    setChecked(value);
-  }, [value]);
+  //* REDUX
+  const dispatch = useAppDispatch();
 
-  const toggleTheme = () => {
-    if (!containsTransition) {
-      document.body.classList.add("body-transition");
-      setContainsTransition(true);
-    }
-    toggle();
-    //? This set state seems unneeded as the above useEffect hook handles the change
-    // setChecked(!checked);
-  };
+  useEffect(() => {
+    dispatch(clientActions.setColorThemeBoolean(value));
+    setChecked(value);
+  }, [value, dispatch]);
 
   return (
     <div className="my-auto mx-auto">
@@ -38,7 +33,7 @@ const ThemeSwitch: FC = () => {
           <input
             className="toggle-check sr-only"
             checked={checked}
-            onChange={toggleTheme}
+            onChange={toggle}
             type="checkbox"
             id="toggler"
           />

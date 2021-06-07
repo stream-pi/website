@@ -1,10 +1,17 @@
+//* Core
 import { FC } from "react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Image from "react-bootstrap/Image";
 
+//* REDUX
+import { useAppSelector } from "src/store/hooks";
+import { getShowNavbar } from "src/store/selectors";
+
 const StreamPiNavbar: FC = ({ children }) => {
-  return (
+  //* REDUX
+  const showNavbar = useAppSelector(getShowNavbar);
+  return showNavbar ? (
     <Navbar
       className="shadow streampi-navbar-class"
       collapseOnSelect
@@ -20,6 +27,8 @@ const StreamPiNavbar: FC = ({ children }) => {
         <Nav className="mx-auto">{children}</Nav>
       </Navbar.Collapse>
     </Navbar>
+  ) : (
+    <></>
   );
 };
 
