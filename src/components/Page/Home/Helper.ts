@@ -12,7 +12,6 @@ export type HomeCardProps = {
   icons: IconObj[];
   buttons: ButtonObj[];
   title: string;
-  extraClass?: string[];
 };
 
 /** Keep In Touch */
@@ -26,7 +25,6 @@ export const KIT = (joinDiscord: string, joinTwitter: string): HomeObj => {
       { text: joinDiscord, link: "https://discord.gg/BExqGmk" },
       { text: joinTwitter, link: "https://twitter.com/stream_pi" },
     ],
-    extraClass: ["mr-2", "ml-2"],
   };
 };
 
