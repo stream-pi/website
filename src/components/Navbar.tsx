@@ -20,8 +20,18 @@ const StreamPiNavbar: FC = ({ children }) => {
       variant="dark"
     >
       <Navbar.Brand className="d-sm-none">
-        <Image src="/favicon.ico" height="32px" />
+        <Image
+          src="/favicon.ico"
+          className="align-top d-inline-block"
+          height="30"
+        />
       </Navbar.Brand>
+      <div
+        style={{ fontSize: "1.25rem" }}
+        className="d-sm-none flex-grow-1 text-center text-light"
+      >
+        Stream-Pi
+      </div>
       <Navbar.Toggle aria-controls="streampi-navbar" />
       <Navbar.Collapse id="streampi-navbar">
         <Nav className="mx-auto">{children}</Nav>
