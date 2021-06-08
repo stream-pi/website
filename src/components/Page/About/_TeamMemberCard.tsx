@@ -1,4 +1,4 @@
-import { Fragment, FC } from "react";
+import { FC } from "react";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import type { TeamMember } from "@util/Types";
@@ -17,14 +17,12 @@ const TeamMemberCard: FC<TeamMember> = ({ picture, name, icons }) => {
         />
       </div>
       {icons.map(({ IcoName, IcoPre, description, link }, idx) => (
-        <Fragment key={idx}>
-          <LinkWithPop
-            description={description}
-            icon={{ IcoName, IcoPre }}
-            link={link}
-          />
-          {"\n"} {/* why is this here? */}
-        </Fragment>
+        <LinkWithPop
+          key={idx}
+          description={description}
+          icon={{ IcoName, IcoPre }}
+          link={link}
+        />
       ))}
     </Col>
   );

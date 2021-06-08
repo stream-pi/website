@@ -1,4 +1,4 @@
-import { FC, Fragment } from "react";
+import { FC } from "react";
 import Row from "react-bootstrap/Row";
 import RowCol from "./_RowCol";
 import TeamMemberCard from "./_TeamMemberCard";
@@ -18,10 +18,12 @@ const TeamMemberRow: FC<TeamRow> = ({ teamMembers, className, identifier }) => {
       {/* Team Member Cards */}
       <Row className={`${className} text-center justify-content-md-center`}>
         {teamMembers.map(({ name, icons, picture }, idx) => (
-          <Fragment key={`${idFormat}${idx}`}>
-            <TeamMemberCard name={name} picture={picture} icons={icons} />
-            {"\n"}
-          </Fragment>
+          <TeamMemberCard
+            key={`${idFormat}${idx}`}
+            name={name}
+            picture={picture}
+            icons={icons}
+          />
         ))}
       </Row>
     </div>

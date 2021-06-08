@@ -1,4 +1,4 @@
-import { FC, Fragment } from "react";
+import { FC } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import StreamPiSEO from "@components/StreamPiSEO";
@@ -11,7 +11,7 @@ import {
 
 const StreamPiFeatures: FC = () => {
   return (
-    <Fragment>
+    <>
       <StreamPiSEO
         title="Features"
         description="The Stream-Pi has a large variety of features, see about some of the most notable ones here!"
@@ -49,7 +49,7 @@ const StreamPiFeatures: FC = () => {
           ))}
         </FeatureRow>
       ))}
-    </Fragment>
+    </>
   );
 };
 

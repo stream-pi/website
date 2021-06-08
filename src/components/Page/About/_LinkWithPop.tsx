@@ -22,7 +22,7 @@ const LinkWithPop: FC<LinkProps> = ({
     >
       {(props) => (
         <a
-          className="px-1 about-icon"
+          className="px-1 about-icon mx-1 d-inline-block"
           href={link}
           target="_blank"
           rel="noreferrer"

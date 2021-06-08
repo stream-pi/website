@@ -1,4 +1,4 @@
-import { FC, Fragment } from "react";
+import { FC } from "react";
 import Button from "react-bootstrap/Button";
 import SectionWrapper from "@components/SectionWrapper";
 import ContributionModal from "@components/Modals/Contribution";
@@ -21,16 +21,15 @@ const PreFormInfo: FC = ({ children }) => {
         </p>
         <p className="mb-2">
           {["Client", "Server", "EssentialActions"].map((str, idx) => (
-            <Fragment key={`repo${idx}`}>
-              <Button
-                variant="info"
-                href={`https://github.com/stream-pi/${str.toLowerCase()}/issues`}
-                target="_blank"
-              >
-                {`${str} Issues`}
-              </Button>
-              {idx < 2 ? " " : ""}
-            </Fragment>
+            <Button
+              key={`repo${idx}`}
+              className="text-nowrap mt-1 mx-1"
+              variant="info"
+              href={`https://github.com/stream-pi/${str.toLowerCase()}/issues`}
+              target="_blank"
+            >
+              {`${str} Issues`}
+            </Button>
           ))}
         </p>
         <p className="mb-0">

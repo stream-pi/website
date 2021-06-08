@@ -1,4 +1,4 @@
-import { FC, useEffect, useState, Fragment, CSSProperties } from "react";
+import { FC, useEffect, useState, CSSProperties } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Button from "react-bootstrap/Button";
@@ -19,7 +19,7 @@ const NotFound: FC = () => {
 
   const code: CSSProperties = { color: "inherit", fontWeight: "bold" };
   return (
-    <Fragment>
+    <>
       <Head>
         <title>Resource Not Found</title>
       </Head>
@@ -42,7 +42,7 @@ const NotFound: FC = () => {
           <Button className="mt-5">Go Home</Button>
         </Link>
       </div>
-    </Fragment>
+    </>
   );
 };
 

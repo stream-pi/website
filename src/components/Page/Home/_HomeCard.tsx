@@ -5,25 +5,21 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import type { HomeCardProps } from "./Helper";
 
-const HomeCard: FC<HomeCardProps> = ({
-  icons,
-  buttons,
-  title,
-  children,
-  extraClass,
-}) => {
-  const commonProps = { className: "mb-5", variant: "info" };
+const HomeCard: FC<HomeCardProps> = ({ icons, buttons, title, children }) => {
+  const commonProps = {
+    className: "mb-5",
+    variant: "info",
+    style: { marginRight: "0.125rem", marginLeft: "0.125rem" },
+  };
   return (
     <Col lg={4} className="text-center">
       {icons.map(({ IcoPre, IcoName }, idx) => (
-        <Fragment key={`icon${idx}`}>
-          <FontAwesomeIcon
-            className={extraClass ? extraClass[idx] : ""}
-            icon={[IcoPre, IcoName]}
-            size="4x"
-          />
-          {"\n"}
-        </Fragment>
+        <FontAwesomeIcon
+          key={`icon${idx}`}
+          className="mx-2"
+          icon={[IcoPre, IcoName]}
+          size="4x"
+        />
       ))}
       <h3>{title}</h3>
       <p>{children}</p>
@@ -39,7 +35,6 @@ const HomeCard: FC<HomeCardProps> = ({
                 {text}
               </Button>
             )}
-            {"\n"}
           </Fragment>
         ))}
       </p>
