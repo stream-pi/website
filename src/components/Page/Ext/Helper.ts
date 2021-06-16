@@ -1,3 +1,17 @@
+export type ExtParams = {
+  params: {
+    ext: string;
+  };
+};
+
+export type ExtProps = {
+  pageData: {
+    name: string;
+    link: string;
+    ext: string;
+  };
+};
+
 type ExternalMaster = {
   [x: string]: {
     name: string;

@@ -1,24 +1,14 @@
 //* Core
 import { useEffect } from "react";
-import BarLoader from "react-spinners/BarLoader";
-import { ExternalObjs } from "@util/ExternalRedirects";
+import {
+  ExternalObjs,
+  ExtParams,
+  ExtProps,
+  LoadingIndicator,
+} from "@components/Page/Ext";
 import StreamPiSEO from "@components/StreamPiSEO";
 
-type Params = {
-  params: {
-    ext: string;
-  };
-};
-
-type Props = {
-  pageData: {
-    name: string;
-    link: string;
-    ext: string;
-  };
-};
-
-const ExtRedir = ({ pageData }: Props) => {
+const ExtRedir = ({ pageData }: ExtProps) => {
   useEffect(() => {
     window.location.replace(pageData.link);
   }, [pageData.link]);
@@ -30,19 +20,16 @@ const ExtRedir = ({ pageData }: Props) => {
         title={`Redirect ${pageData.name}`}
         description={`Redirecting to ${pageData.name}`}
         hideNavbar
+        slug={pageData.link}
       />
 
       <h1 className="text-center">Redirecting to {pageData.name}</h1>
-      <div className="mt-4 d-flex justify-content-center">
-        <BarLoader loading={true} color="var(--spi-color-text)" />
-      </div>
+      <LoadingIndicator />
     </>
   );
 };
 
 export const getStaticPaths = async () => {
-  // Return a list of possible value for id
-
   const paths = Object.keys(ExternalObjs).map((e) => {
     return { params: { ext: e } };
   });
@@ -53,9 +40,8 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = async ({ params }: Params) => {
+export const getStaticProps = async ({ params }: ExtParams) => {
   const { ext } = params;
-  // Fetch necessary data for the blog post using params.id
   const pageData = { ext, ...ExternalObjs[ext] };
   return {
     props: {
