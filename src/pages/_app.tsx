@@ -1,9 +1,11 @@
 //* Core
+//? May not need?
 import "animate.css/animate.min.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "../assets/styles/globals.scss";
 import type { AppProps } from "next/app";
 import { library, config } from "@fortawesome/fontawesome-svg-core";
+//? May not need?
 config.autoAddCss = false;
 import {
   faDiscord,

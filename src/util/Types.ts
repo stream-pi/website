@@ -3,12 +3,6 @@ import type {
   IconName,
 } from "@fortawesome/fontawesome-common-types";
 
-export type ButtonObj = {
-  text: string;
-  link: string;
-  internal?: boolean;
-};
-
 export type IconObj = {
   IcoPre: IconPrefix;
   IcoName: IconName;

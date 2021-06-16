@@ -1,6 +1,12 @@
 // TODO: Replace function params with translation function as param
 
-import type { IconObj, ButtonObj } from "@util/Types";
+import type { IconObj } from "@util/Types";
+
+type ButtonObj = {
+  text: string;
+  link: string;
+  internal?: boolean;
+};
 
 type HomeObj = {
   icons: IconObj[];
