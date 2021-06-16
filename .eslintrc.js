@@ -13,28 +13,43 @@ module.exports = {
     "http/*",
     "certs/*",
     "logs/*",
-    "certs/*",
     "!.prettierrc",
   ],
-  extends: ["eslint:recommended"],
+  extends: [
+    "eslint:recommended",
+    "plugin:react/recommended", // React rules
+    "plugin:react-hooks/recommended", // React hooks rules
+    "plugin:jsx-a11y/recommended", // Accessibility rules
+    "plugin:prettier/recommended", // Prettier plugin
+    "plugin:@next/next/recommended",
+  ],
+  rules: {
+    // may turn this on later, creates issues for HTML
+    "react/no-unescaped-entities": 0,
+
+    // We will use TypeScript's types for component props instead
+    "react/prop-types": "off",
+
+    // No need to import React when using Next.js
+    "react/react-in-jsx-scope": "off",
+
+    // This rule is not compatible with Next.js's <Link /> components
+    "jsx-a11y/anchor-is-valid": "off",
+
+    "prettier/prettier": ["warn", {}, { usePrettierrc: true }], // Includes .prettierrc rules
+  },
   overrides: [
     // This configuration will apply only to TypeScript files
     {
       files: ["**/*.ts", "**/*.tsx"],
       parser: "@typescript-eslint/parser",
-      settings: { react: { version: "detect" } },
       env: {
         browser: true,
         node: true,
         es6: true,
       },
       extends: [
-        "eslint:recommended",
         "plugin:@typescript-eslint/recommended", // TypeScript rules
-        "plugin:react/recommended", // React rules
-        "plugin:react-hooks/recommended", // React hooks rules
-        "plugin:jsx-a11y/recommended", // Accessibility rules
-        "plugin:prettier/recommended", // Prettier plugin
       ],
       rules: {
         // we should allow implicit any
@@ -45,21 +60,6 @@ module.exports = {
 
         // should probably allow this ... but we wont for now
         "@typescript-eslint/no-non-null-assertion": "off",
-
-        // may turn this on later, creates issues for HTML
-        "react/no-unescaped-entities": 0,
-
-        // we use namespaces so...
-        "@typescript-eslint/no-namespace": "off",
-
-        // We will use TypeScript's types for component props instead
-        "react/prop-types": "off",
-
-        // No need to import React when using Next.js
-        "react/react-in-jsx-scope": "off",
-
-        // This rule is not compatible with Next.js's <Link /> components
-        "jsx-a11y/anchor-is-valid": "off",
 
         // Why would you want unused vars?
         "@typescript-eslint/no-unused-vars": ["warn"],
@@ -72,8 +72,8 @@ module.exports = {
         //     allowConciseArrowFunctionExpressionsStartingWithVoid: true,
         //   },
         // ],
-        "prettier/prettier": ["warn", {}, { usePrettierrc: true }], // Includes .prettierrc.js rules
       },
     },
   ],
+  settings: { react: { version: "detect" } },
 };
