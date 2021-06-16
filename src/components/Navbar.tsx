@@ -28,7 +28,7 @@ const StreamPiNavbar: FC = ({ children }) => {
       </Navbar.Brand>
       <div
         style={{ fontSize: "1.25rem" }}
-        className="d-sm-none flex-grow-1 text-center text-light"
+        className="d-sm-none flex-grow-1 text-center spi-brand-text"
       >
         Stream-Pi
       </div>

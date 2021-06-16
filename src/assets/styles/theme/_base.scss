@@ -5,6 +5,10 @@ body.dark-mode {
   --spi-color-heading: #818cab;
   --spi-color-card: #595775;
   --spi-color-hr: #ffffff66;
+
+  .spi-brand-text {
+    color: $light;
+  }
 }
 
 body.light-mode {
@@ -16,5 +20,9 @@ body.light-mode {
 
   .streampi-navbar-class {
     @extend .navbar-light;
+  }
+
+  .spi-brand-text {
+    color: $dark;
   }
 }
