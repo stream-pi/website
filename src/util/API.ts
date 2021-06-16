@@ -17,7 +17,7 @@ type LatesteReleasePromise = Promise<LatestReleaseResponse>;
 export async function getReleases(repo: string): LatesteReleasePromise {
   return spi.get("/get_latest", {
     params: {
-      TYPE: repo,
+      REPO: repo,
     },
   });
 }

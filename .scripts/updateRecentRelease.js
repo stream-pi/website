@@ -12,7 +12,7 @@ const ser_cli = process.argv.slice(2)[0];
 
 if (ser_cli.toUpperCase() === "SERVER") {
   axios
-    .get("http://localhost:4000/api/get_latest?TYPE=SERVER")
+    .get("http://localhost:4000/api/get_latest?REPO=SERVER")
     .then((res) => {
       fs.writeFileSync(
         `${recent_release}/server.ts`,
@@ -23,7 +23,7 @@ if (ser_cli.toUpperCase() === "SERVER") {
     .catch((err) => console.error(err));
 } else if (ser_cli.toUpperCase() === "CLIENT") {
   axios
-    .get("http://localhost:4000/api/get_latest?TYPE=CLIENT")
+    .get("http://localhost:4000/api/get_latest?REPO=CLIENT")
     .then((res) => {
       fs.writeFileSync(
         `${recent_release}/client.ts`,

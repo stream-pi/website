@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/router";
 import dayjs from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
 import type { OBJ } from "./Types";
@@ -8,24 +9,26 @@ dayjs.extend(advancedFormat);
 /**
  * This is a custom hook that we have to use for any all all hash URL's.
  * This is a very hacky solution but it works so we'll use it
- *
- * **CAN NOT HAVE A DEPENDENCY ARRAY**
  */
 export const useHashChange = () => {
+  const { asPath } = useRouter();
+  const time = useRef<any>();
   useEffect(() => {
-    const path = window.location.hash;
-    if (path && path.includes("#")) {
-      setTimeout(() => {
-        const id = path.replace("#", "");
-        const el = window.document.getElementById(id);
-        const r = el?.getBoundingClientRect();
-        window.top.scroll({
-          top: pageYOffset + (r?.top || 0),
-          behavior: "smooth",
-        });
-      }, 100);
+    if (/#.+/g.test(asPath)) {
+      const id = asPath.replace(/\/.*#(.+)/g, "$1");
+      const el = window.document.getElementById(id);
+      if (el) {
+        time.current = setTimeout(() => {
+          const r = el.getBoundingClientRect();
+          window.top.scroll({
+            top: pageYOffset + r.top,
+            behavior: "smooth",
+          });
+        }, 100);
+      }
     }
-  });
+    return () => clearTimeout(time.current);
+  }, [asPath]);
 };
 
 /**
@@ -35,7 +38,8 @@ export const useHashChange = () => {
  * @returns the global variable representing the repository name or "Bad_call"
  */
 export function queryParser(query: string | string[]) {
-  switch (query) {
+  if (typeof query !== "string") return "Bad_Call";
+  switch (query.toUpperCase()) {
     case "CLIENT":
       return "client";
     case "SERVER":
@@ -223,6 +227,43 @@ export function useCountDown(totalTime: number) {
     return () => {
       clearInterval(interval);
       clearInterval(timeout);
+    };
+  }, [totalTime]);
+
+  return {
+    counting,
+    remainingSeconds,
+  };
+}
+
+/**
+ * Uses `ref` objects to store interval and timeout
+ *
+ * @param totalTime countdown length in `MS`
+ * @param changeInterval the interval subtracted from `totalTime`
+ * @returns seconds remaining and if the countdown is still going
+ */
+export function useCountDownRef(totalTime: number) {
+  const [counting, setCounting] = useState(true);
+  const [remainingSeconds, setRemainingSeconds] = useState(totalTime / 1000);
+
+  const interval = useRef<any>();
+  const timeout = useRef<any>();
+
+  useEffect(() => {
+    interval.current = setInterval(() => {
+      // console.log("Interval");
+      setRemainingSeconds((initial) => initial - 1);
+    }, 1000);
+    timeout.current = setTimeout(() => {
+      // console.log("Timeout");
+      clearInterval(interval.current);
+      setCounting(false);
+    }, totalTime);
+
+    return () => {
+      clearInterval(interval.current);
+      clearInterval(timeout.current);
     };
   }, [totalTime]);
 

@@ -15,7 +15,7 @@ const sumTotalDownloads = (response: GithubResponse) => {
   return num_arr.reduce((a, b) => a + b);
 };
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   res.setHeader("Content-Type", "application/json");
   const repo = queryParser(req.query.REPO);
   if (repo === "Bad_Call") {
@@ -40,3 +40,4 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     }
   }
 };
+export default handler;

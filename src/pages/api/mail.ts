@@ -82,7 +82,7 @@ const sendMailAttempt = async (body: Body) => {
   }
 };
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   res.setHeader("Content-Type", "application/json");
 
   if (req.method === "POST") {
@@ -95,3 +95,4 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     res.send(prettyPrint({ Message: "Must be queried as POST req" }));
   }
 };
+export default handler;

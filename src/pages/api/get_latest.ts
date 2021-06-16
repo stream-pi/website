@@ -2,9 +2,9 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { prettyPrint, queryParser } from "@util";
 import { getGithub, GH } from "@util/Github";
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   res.setHeader("Content-Type", "application/json");
-  const repo = queryParser(req.query.TYPE);
+  const repo = queryParser(req.query.REPO);
   if (repo === "Bad_Call") {
     res.status(400).json(prettyPrint({ message: "Bad Call" }));
   } else {
@@ -40,3 +40,4 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     }
   }
 };
+export default handler;
