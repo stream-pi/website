@@ -1,9 +1,18 @@
-import { TeamMember, MyIconHelper, PersonIcon } from "@util/Types";
+import { TeamMember, MyIconHelper, PersonIcon, IconObj } from "@util/Types";
 
 export type TeamRow = {
   teamMembers: TeamMember[];
   className?: string;
   identifier: string;
+};
+
+export type SocialBubbleProps = {
+  IcoPre: IconObj["IcoPre"];
+  IcoName: IconObj["IcoName"];
+  text: string;
+  className?: string;
+  iconClassName?: string;
+  textClassName?: string;
 };
 
 const sampic = "/images/sampic.png";
