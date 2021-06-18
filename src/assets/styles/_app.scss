@@ -24,13 +24,6 @@ pre:hover {
   }
 }
 
-.firstCard {
-  transition: transform 0.2s;
-  &:hover {
-    transform: scale(1.05);
-  }
-}
-
 #streamPiHome {
   font-weight: 300;
   @media screen and (max-width: 576px) {
