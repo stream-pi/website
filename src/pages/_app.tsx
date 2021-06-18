@@ -12,7 +12,6 @@ import {
   faGithub,
   faTwitter,
   faYoutube,
-  faJava,
   faPatreon,
   faRaspberryPi,
 } from "@fortawesome/free-brands-svg-icons";
@@ -28,6 +27,9 @@ import {
   faSearch,
   faAngleDown,
   faAngleUp,
+  faCubes,
+  faDesktop,
+  faMobileAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import Container from "react-bootstrap/Container";
 import { ToastContainer } from "react-toastify";
@@ -46,7 +48,6 @@ library.add(
   faGithub,
   faTwitter,
   faYoutube,
-  faJava,
   faPatreon,
   faGlobe,
   faEnvelope,
@@ -58,7 +59,10 @@ library.add(
   faDownload,
   faSearch,
   faAngleUp,
-  faAngleDown
+  faAngleDown,
+  faCubes,
+  faDesktop,
+  faMobileAlt
 );
 
 //* REDUX

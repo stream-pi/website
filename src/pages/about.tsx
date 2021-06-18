@@ -21,17 +21,23 @@ const StreamPiAbout: FC = () => {
       </RowCol>
       <RowCol className="mt-4 animate__animated animate__fadeInUp">
         <p>
-          Well, as the home page says it was created with the idea to make a
-          robust macro keyboard alternative.
+          Stream-Pi was created to fill the gap in the open-source for a proper,
+          powerful macro pad keyboard software.
         </p>
         <p>
-          There are other alternatives, but we found the functionality limiting,
-          we wanted to be able to do more!
+          The existing free alternatives are either proprietary or are limited
+          in terms of personalization or expansion.
         </p>
-        <p>The Stream-Pi seeks to make the experience as robust as possible;</p>
         <p>
-          It actually integrates with software and utilizes API from OBS,
-          Twitter, and more to bring an amazing user experience all for FREE.
+          Stream-Pi exists as a proper open-source alternative as it offers a
+          rich Theme System, that users can use to personalize every crook and
+          nook of the UI System with CSS.
+        </p>
+        <p>
+          Stream-Pi also offers a rich API, that developers can use to write
+          their own custom plug-ins – just like some paid and proprietary
+          options currently available. The big difference here is that Stream-Pi
+          is completely Free!
         </p>
       </RowCol>
       <RowCol className="mt-4 animate__animated animate__fadeInUp">
@@ -62,37 +68,98 @@ const StreamPiAbout: FC = () => {
       <TeamMemberRow teamMembers={Infrastructure} identifier="Infrastructure" />
       {/* How is it made? */}
       <RowCol className="mt-5 animate__animated animate__fadeIn">
-        <h2 id="technology" className="streamPiAbout mt-3">
+        <h2 id="how-its-made" className="streamPiAbout mt-3">
           How is it Made?
         </h2>
       </RowCol>
       <RowCol className="animate__animated animate__fadeIn">
+        <p>Stream-Pi is completely built using Java and JavaFX technology.</p>
         <p>
-          Well, as it says on the homepage, Stream-Pi is made using the Java
-          language and the JavaFX library. We use the Graal VM Community Edition
-          as our JDK.
+          The{" "}
+          <a
+            href="https://github.com/stream-pi/theme-api"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            theme system
+          </a>{" "}
+          makes use of JavaFX CSS for stylizing the UI.
         </p>
         <p>
-          We use a modular system to be able to break the project up into parts.
-          The software is not just one Java "project" but several smaller
-          projects that make up a whole.
+          The{" "}
+          <a
+            href="https://github.com/stream-pi/action-api"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Action API
+          </a>{" "}
+          makes use of the Java Platform Module System or JPMS. This system
+          allows developers to write their own plug-ins.
         </p>
         <p>
-          Originally we were only going to do this for our plugin system, but it
-          was such a useful design patern that it was extened into a utility
-          module and a theme API.
+          The{" "}
+          <a
+            href="https://github.com/stream-pi/essential-actions"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            essential actions
+          </a>{" "}
+          that are pre-bundled with Stream-Pi public builds, are all based on
+          this system.
         </p>
         <p>
-          In order to implement all of our Stream-Pi modules into the base
-          Client and Server projects, we implemented maven. This additionally
-          allows us to streamline a build system that is not platform
-          restrictive.
+          The Android and iOS builds, unlike the other builds, run natively and
+          are compiled "Ahead-Of-Time" (AOT). This is possible because Stream-Pi
+          uses{" "}
+          <a
+            href="https://gluonhq.com/products/javafx/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GluonFX technology
+          </a>
+          , which itself makes use of{" "}
+          <a
+            href="https://www.graalvm.org/reference-manual/native-image/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Oracle’s GraalVM native image
+          </a>{" "}
+          tool to create natively run, Ahead-Of-Time (AOT) executables, that do
+          not run on JVM, and consume far less memory and resources.
         </p>
         <p>
-          In order to compile the software into native platform images, we use
-          the Gluon Client. Native images run directly on the platform like
-          actual native apps, rather than running on a Java Virtual Machine,
-          reducing footprint and resources needed.
+          The Linux ARM builds makes use of Gluon’s DRM library, that allows
+          Stream-Pi to leverage hardware acceleration via OpenGL ES on ARM
+          systems that offer DRM/KMS support (Example: Raspberry Pi). In case if
+          the system has no DRM support, Stream-Pi can still run on X Server,
+          although the performance will be slower since Stream-Pi will not be
+          able to leverage hardware acceleration.
+        </p>
+      </RowCol>
+      {/* How it works */}
+      <RowCol className="mt-5 animate__animated animate__fadeIn">
+        <h2 id="how-it-works" className="streamPiAbout mt-3">
+          How does it Work?
+        </h2>
+      </RowCol>
+      <RowCol className="animate__animated animate__fadeIn">
+        <p>
+          Stream-Pi consists of two main components – Server and Client. The
+          Server is meant to be run on the host PC, and the Client is what you
+          want to use as the macropad (Example: Android device, Raspberry Pi,
+          iPad, etc.)
+        </p>
+        <p>
+          The Server and Client are connected to and communicate with each other
+          over your local network. When the Client registers the user clicking
+          on an action, it talks to the Server about the clicked action – which
+          the Server then proceeds to execute. If failed, the Server replies
+          back with an error, and a danger icon is shown on the action box on
+          the client, and an alert popup is shown to the user on the Server.
         </p>
       </RowCol>
     </>

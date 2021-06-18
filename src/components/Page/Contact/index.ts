@@ -1,6 +1,6 @@
-import ContactForm from "./_ContactForm";
-import ResponseMessage from "./_ResponseMessage";
-import PreFormInfo from "./_PreFormInfo";
+export { default as ContactForm } from "./_ContactForm";
+export { default as ResponseMessage } from "./_ResponseMessage";
+export { default as PreFormInfo } from "./_PreFormInfo";
 export {
   ContactFormMethods,
   regex,
@@ -10,5 +10,3 @@ export {
 } from "./Helper";
 export { MyFormControl, MyFormLabel } from "./_MyFormControl";
 export type { FormInputs, LabelProps } from "./Helper";
-
-export { ContactForm, ResponseMessage, PreFormInfo };

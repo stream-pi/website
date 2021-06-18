@@ -20,32 +20,32 @@ export type HomeCardProps = {
   title: string;
 };
 
-/** Keep In Touch */
-export const KIT = (joinDiscord: string, joinTwitter: string): HomeObj => {
+/** Cross Platform */
+export const CP = (downloadNow: string): HomeObj => {
   return {
     icons: [
-      { IcoPre: "fab", IcoName: "discord" },
-      { IcoPre: "fab", IcoName: "twitter" },
+      { IcoPre: "fas", IcoName: "desktop" },
+      { IcoPre: "fas", IcoName: "mobile-alt" },
     ],
-    buttons: [
-      { text: joinDiscord, link: "https://discord.gg/BExqGmk" },
-      { text: joinTwitter, link: "https://twitter.com/stream_pi" },
-    ],
+    buttons: [{ text: downloadNow, link: "/install", internal: true }],
   };
 };
 
-/** Its completely free */
-export const ICF = (github: string): HomeObj => {
+/** Free and Open Source */
+export const FOS = (github: string): HomeObj => {
   return {
     icons: [{ IcoPre: "fab", IcoName: "github" }],
     buttons: [{ text: github, link: "https://github.com/stream-pi/" }],
   };
 };
 
-/** Made in JavaFX */
-export const MIJ = (seeHowMade: string): HomeObj => {
+/** Highly Modular */
+export const HM = (seeHowMade: string, seeHowWorks: string): HomeObj => {
   return {
-    icons: [{ IcoPre: "fab", IcoName: "java" }],
-    buttons: [{ text: seeHowMade, link: "/about#technology", internal: true }],
+    icons: [{ IcoPre: "fas", IcoName: "cubes" }],
+    buttons: [
+      { text: seeHowMade, link: "/about#how-its-made", internal: true },
+      { text: seeHowWorks, link: "/about#how-it-works", internal: true },
+    ],
   };
 };

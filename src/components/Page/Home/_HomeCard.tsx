@@ -12,18 +12,20 @@ const HomeCard: FC<HomeCardProps> = ({ icons, buttons, title, children }) => {
     style: { marginRight: "0.125rem", marginLeft: "0.125rem" },
   };
   return (
-    <Col lg={4} className="text-center">
-      {icons.map(({ IcoPre, IcoName }, idx) => (
-        <FontAwesomeIcon
-          key={`icon${idx}`}
-          className="mx-2"
-          icon={[IcoPre, IcoName]}
-          size="4x"
-        />
-      ))}
+    <Col lg={4} className="d-flex flex-column align-items-center">
+      <div className="flex-row">
+        {icons.map(({ IcoPre, IcoName }, idx) => (
+          <FontAwesomeIcon
+            key={`icon${idx}`}
+            className="mx-2"
+            icon={[IcoPre, IcoName]}
+            size="4x"
+          />
+        ))}
+      </div>
       <h3>{title}</h3>
-      <p>{children}</p>
-      <p>
+      <p className="text-center flex-grow-1">{children}</p>
+      <div>
         {buttons.map(({ link, text, internal }, idx) => (
           <Fragment key={`button${idx}`}>
             {internal ? (
@@ -37,7 +39,7 @@ const HomeCard: FC<HomeCardProps> = ({ icons, buttons, title, children }) => {
             )}
           </Fragment>
         ))}
-      </p>
+      </div>
     </Col>
   );
 };

@@ -1,5 +1,3 @@
-//TODO: try to condense picker logic
-
 import { FC } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import StreamPiSEO from "@components/StreamPiSEO";
@@ -32,29 +30,31 @@ const StreamPiInstall: FC = () => {
       {/* Disclaimer Start */}
       <div className="animate__animated animate__fadeIn">
         <CollapsePill
-          id="anti-virus-disclaimer"
-          titleText="Click for a disclaimer in regards to Anti-Virus Software"
+          id="software-disclaimer"
+          titleText="Click for a disclaimer in regards to Security"
           className="text-center"
         >
           <p>
-            Currently, Stream-Pi is known that it may be picked up by SOME
-            anti-virus software solutions, often as a PUP (Potentially Unwanted
-            Program), due to how new Stream-Pi is it has very little presence on
-            existing Anti-Virus databases and so has no KNOWN state as to
-            whether or not it truly is a PUP, as we upload more entries to the
-            various anti-virus databases this issue SHOULD eventually resolve
-            itself, for now all we can do is assure you that it is NOT a PUP,
-            Malware, or, Virus.
+            Windows Smart Screen or any popular browser (Google Chrome,
+            Microsoft Edge, Mozilla Firefox, etc.) may warn the user of the EXE
+            installer being potentially malicious.
           </p>
           <p>
-            Another contributing factor is that Stream-Pi is launched via a{" "}
-            <strong>VBS SCRIPT</strong> which is unconventional, and we are
-            currently working on a more standard solution.
+            This is because the EXE itself is not signed by Microsoft. The
+            process to get the EXE signed requires a fee which we currently can
+            not cover. However, as soon as that changes we will make getting the
+            EXE signed a priority.
           </p>
           <p>
             If you are unsure then feel free to upload the ZIP file to
             VirusTotal, or your own chosen database, OR, Check the actual source
             code for yourself. We have nothing to hide.
+          </p>
+          <p>
+            The code is open-source, so you as the user can see what goes into a
+            build and can verify yourself that nothing malicious is in the
+            code-base. This same privilage also allows you to compile your own
+            builds straight from the source.
           </p>
           <p>
             If you're still unsure and don't trust Stream-Pi running on your
@@ -66,11 +66,6 @@ const StreamPiInstall: FC = () => {
             public network, currently we do not encrypt the connection from
             client to server so the connection is vulnerable. Using a private
             network is safe.
-          </p>
-          <p>
-            We hope that this sufficiently explains why some anti-virus software
-            flags Stream-Pi, and, what solutions are available to overcome these
-            issues.
           </p>
         </CollapsePill>
       </div>

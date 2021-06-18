@@ -9,7 +9,7 @@ import StreamPiSEO from "@components/StreamPiSEO";
 import { HomeCard, HomeInfo, StreamPiVideo } from "@components/Page/Home";
 
 const StreamPiHome: FC = () => {
-  const { KIT, ICF, MIJ } = HomeInfo;
+  const { CP, FOS, HM } = HomeInfo;
   return (
     <>
       <StreamPiSEO title="Home" description={MetaData.description} flipOrder />
@@ -27,37 +27,32 @@ const StreamPiHome: FC = () => {
       {/* Description */}
       <Row className="animate__animated animate__fadeIn">
         <Col>
-          <p className="text-center">A robust Macro keyboard alternative</p>
-          <p className="text-center mb-0">Built for Raspberry Pi</p>
-          <p className="text-center mb-0">
-            Runs on Windows, Mac, Linux, and Android
-          </p>
+          <p className="text-center">A robust Macro keyboard software</p>
         </Col>
       </Row>
       {/* Info type stuff */}
       <Row className="pt-4 animate__animated animate__fadeInLeft">
         <HomeCard
-          {...KIT("Join the Discord", "Visit our Twitter")}
-          title="Keep in touch with us!"
+          {...FOS("Check out the Source code")}
+          title="Free and Open Source"
         >
-          We have a discord where we talk about all things code! We've also got
-          a twitter where we share updates and community submissions. These are
-          the best places to keep up to date about what's going on development
-          wise with the Stream-Pi
+          Stream-Pi is completely free and <strong>open-source</strong>. It is
+          licensed according to the GNU GPL v3 Open-Source License. This
+          guarantees the fact that we strictly do not collect ANY data or
+          information and respect your privacy.
+        </HomeCard>
+        <HomeCard {...CP("Download The Latest")} title="Cross Platform">
+          Stream-Pi runs on multiple platforms; Windows, MacOS, Android, iOS and
+          Linux. This also includes ARM Systems like Raspberry Pi. No matter
+          which platform you use, you'll still have the same great experience!
         </HomeCard>
         <HomeCard
-          {...ICF("Check out the Github")}
-          title="It's Completely Free!"
+          {...HM("How it's made", "How it works")}
+          title="Highly Modular" //* Maybe "Developer Friendly"?
         >
-          We will never put the Stream-Pi behind a pay wall, we wanted to create
-          an alternative that wouldn't break the bank and as such it is and
-          always will be free to download. It's also{" "}
-          <strong>open source</strong> and <strong>very modular</strong>.
-        </HomeCard>
-        <HomeCard {...MIJ("See how it's made")} title="Made in JavaFX">
-          We wanted to make something in JavaFX because it seemed to have been
-          forgotten by the community and given that it's a great way to build UI
-          and a challenge to build for on the Raspberry Pi.
+          Stream-Pi supports offers a rich API, that developers can use to make
+          their own custom Actions. Not only that, Stream-Pi has a rich theme
+          system where users can develop their own themes with JavaFX CSS.
         </HomeCard>
       </Row>
       {/* video */}
