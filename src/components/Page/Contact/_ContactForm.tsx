@@ -13,7 +13,7 @@ import { MyFormControl, MyFormLabel } from "./_MyFormControl";
 const ContactForm: FC = () => {
   /** more controllable than the react hook form variables */
   const [disabled, setDisabled] = useState(false);
-  /** used to control  the captcha */
+  /** used to control the captcha */
   const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const {

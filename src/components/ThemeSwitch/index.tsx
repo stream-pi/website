@@ -1,17 +1,15 @@
 //* Core
-import { useState, FC, useEffect } from "react";
+import { FC, useEffect } from "react";
 import useDarkMode from "use-dark-mode";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useRenderOnMount } from "@util";
+import { useRenderOnMount } from "@util/Hooks";
 
 //* REDUX
-import { useAppDispatch } from "src/store/hooks";
-import { clientActions } from "src/store/Client/slice";
+import { useAppDispatch } from "@store/hooks";
+import { clientActions } from "@store/Client/slice";
 
 const ThemeSwitch: FC = () => {
   //* Core
-  //* For some reason, without this state the onChange event wont fire
-  const [checked, setChecked] = useState(true);
   const { value, toggle } = useDarkMode(true);
   const mounted = useRenderOnMount();
 
@@ -20,7 +18,6 @@ const ThemeSwitch: FC = () => {
 
   useEffect(() => {
     dispatch(clientActions.setColorThemeBoolean(value));
-    setChecked(value);
   }, [value, dispatch]);
 
   return (
@@ -32,7 +29,7 @@ const ThemeSwitch: FC = () => {
         >
           <input
             className="toggle-check sr-only"
-            checked={checked}
+            checked={value}
             onChange={toggle}
             type="checkbox"
             id="toggler"
