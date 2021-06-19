@@ -34,6 +34,7 @@ It'll also in general just be easier to maintain.
 - Use-dark-mode (better management of dark mode for the site)
 - React-spinners (for loading indicators)
 - React-Hook-Form (for form validation and state management)
+- Redux (Global State management)
 
 ## How Can I Contribute?
 
