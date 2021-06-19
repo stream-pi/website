@@ -1,10 +1,16 @@
 // TODO: Make footer look nicer
-
+//* Core
 import { FC } from "react";
 import LegalInfoModal from "@components/Modals/TermsOfUse";
 
+//* REDUX
+import { useAppSelector } from "@store/hooks";
+import { getCurrentYear } from "@store/selectors";
+
 const StreamPiFooter: FC = () => {
-  const currentYear = new Date().getFullYear();
+  //* REDUX
+  const currentYear = useAppSelector(getCurrentYear);
+
   return (
     <>
       <main className="flex-fill"></main>

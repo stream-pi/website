@@ -1,8 +1,14 @@
+//* Core
 import { FC } from "react";
 import StreamPiModal from "@components/Modal";
+//* REDUX
+import { useAppSelector } from "@store/hooks";
+import { getCurrentYear } from "@store/selectors";
 
 const LegalInfoModal: FC = () => {
-  const currentYear = new Date().getFullYear();
+  //* REDUX
+  const currentYear = useAppSelector(getCurrentYear);
+
   return (
     <StreamPiModal
       modalTitle="StreamPi Terms of Use"
