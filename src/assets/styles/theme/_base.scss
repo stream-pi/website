@@ -9,6 +9,10 @@ body.dark-mode {
   .spi-brand-text {
     color: $light;
   }
+
+  .footer {
+    background-color: hsl(240, 25%, 9%);
+  }
 }
 
 body.light-mode {
@@ -24,5 +28,9 @@ body.light-mode {
 
   .spi-brand-text {
     color: $dark;
+  }
+
+  .footer {
+    background-color: $gray-200;
   }
 }

@@ -15,7 +15,7 @@ const StreamPiFooter: FC<FooterProps> = ({ footerColumns }) => {
   return (
     <>
       <main className="flex-fill" />
-      <footer className="footer p-3 mt-2">
+      <footer className="footer pt-4 pb-2 mt-2">
         <Container>
           <Row>
             <Col
