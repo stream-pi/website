@@ -22,7 +22,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
       const final = {
         Version: version,
-        "Release Page": release,
+        ReleasePage: release,
         Downloads: downloads,
       };
 

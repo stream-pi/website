@@ -45,7 +45,7 @@ export type ReleaseDownloads = { Name: string; Link: string };
 
 export type LatestRelease = {
   Version: string;
-  "Release Page": string;
+  ReleasePage: string;
   Downloads: ReleaseDownloads[];
 };
 

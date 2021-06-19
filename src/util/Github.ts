@@ -59,25 +59,22 @@ export interface AssetsEntity {
   browser_download_url: string;
 }
 
-const github = axios.create({
-  baseURL: "https://api.github.com",
-});
-
 export type GithubResponse = AxiosResponse<Github[]>;
 type GitHubPromise = Promise<GithubResponse>;
 
-type GithubHelper = {
-  server: {
-    ETag: string;
-    Downloads: GithubDownloads;
-    ReleaseInfo: LatestRelease;
-  };
-  client: {
-    ETag: string;
-    Downloads: GithubDownloads;
-    ReleaseInfo: LatestRelease;
-  };
+type HelperObj = {
+  ETag: string;
+  Downloads: GithubDownloads;
+  ReleaseInfo: LatestRelease;
 };
+type GithubHelper = {
+  server: HelperObj;
+  client: HelperObj;
+};
+
+const github = axios.create({
+  baseURL: "https://api.github.com",
+});
 
 /** Faux cache object */
 export const GH: GithubHelper = {
@@ -86,7 +83,7 @@ export const GH: GithubHelper = {
     Downloads: { "Total Downloads": 0 },
     ReleaseInfo: {
       Version: "0.0.0",
-      "Release Page": "N/A",
+      ReleasePage: "N/A",
       Downloads: [],
     },
   },
@@ -95,19 +92,25 @@ export const GH: GithubHelper = {
     Downloads: { "Total Downloads": 0 },
     ReleaseInfo: {
       Version: "0.0.0",
-      "Release Page": "N/A",
+      ReleasePage: "N/A",
       Downloads: [],
     },
   },
 };
 
 export async function getGithub(repo: "server" | "client"): GitHubPromise {
+  let auth: any = undefined;
   const owner = process.env.NEXT_PUBLIC_REPO_OWNER;
+  //* Check to see if github credentials exist
+  if (process.env.GITHUB_USR && process.env.GITHUB_KEY) {
+    auth = {
+      username: process.env.GITHUB_USR,
+      password: process.env.GITHUB_KEY,
+    };
+  }
+
   return github.get(`/repos/${owner}/${repo}/releases`, {
     headers: { "If-None-Match": GH[repo].ETag },
-    auth: {
-      username: process.env.GITHUB_USR!,
-      password: process.env.GITHUB_KEY!,
-    },
+    auth: auth,
   });
 }
