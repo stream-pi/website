@@ -5,8 +5,8 @@ import Navbar from "react-bootstrap/Navbar";
 import Image from "react-bootstrap/Image";
 
 //* REDUX
-import { useAppSelector } from "src/store/hooks";
-import { getShowNavbar } from "src/store/selectors";
+import { useAppSelector } from "@store/hooks";
+import { getShowNavbar } from "@store/selectors";
 
 const StreamPiNavbar: FC = ({ children }) => {
   //* REDUX

@@ -4,7 +4,9 @@
     "paths": {
       "@components/*": ["./src/components/*"],
       "@util": ["./src/util"],
-      "@util/*": ["./src/util/*"]
+      "@util/*": ["./src/util/*"],
+      "@store": ["./src/store"],
+      "@store/*": ["./src/store/*"]
     },
     "noImplicitAny": false,
     "target": "es2015",

@@ -4,8 +4,8 @@ import Head from "next/head";
 import { MetaData } from "@util/Config";
 
 //* Redux
-import { useAppDispatch } from "src/store/hooks";
-import { clientActions } from "src/store/Client/slice";
+import { useAppDispatch } from "@store/hooks";
+import { clientActions } from "@store/Client/slice";
 
 type SEOProps = {
   title: string;
