@@ -8,17 +8,19 @@ type LinkProps = {
   description: string;
   link: string;
   icon: IconObj;
+  tooltipId: string;
 };
 
 const LinkWithPop: FC<LinkProps> = ({
   description,
   link,
   icon: { IcoPre, IcoName },
+  tooltipId,
 }) => {
   return (
     <OverlayTrigger
       placement="bottom"
-      overlay={<Tooltip id="tooltip-test">{description}</Tooltip>}
+      overlay={<Tooltip id={`tooltip-${tooltipId}`}>{description}</Tooltip>}
     >
       {(props) => (
         <a

@@ -35,6 +35,10 @@ export class MyIconHelper {
   static TwitterIcon = (url: string) => {
     return new PersonIcon("fab", "twitter", "Twitter", url);
   };
+
+  static WebsiteIcon = (url: string) => {
+    return new PersonIcon("fas", "globe", "Website", url);
+  };
 }
 
 export type GithubDownloads = { "Total Downloads": number };

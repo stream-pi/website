@@ -1,26 +1,12 @@
-import { TeamMember, MyIconHelper, PersonIcon, IconObj } from "@util/Types";
+import { MyIconHelper, TeamMember } from "@util/Types";
 
-export type TeamRow = {
-  teamMembers: TeamMember[];
-  className?: string;
-  identifier: string;
-};
+//* Core Team
+const sampic = "/images/team/sampic.png";
+const defaultpic = "/images/team/defpic.png";
+const togpic = "/images/team/togpic.png";
+const brapic = "/images/team/brapic.jpg";
 
-export type SocialBubbleProps = {
-  IcoPre: IconObj["IcoPre"];
-  IcoName: IconObj["IcoName"];
-  text: string;
-  className?: string;
-  iconClassName?: string;
-  textClassName?: string;
-};
-
-const sampic = "/images/sampic.png";
-const defaultpic = "/images/defpic.png";
-const togpic = "/images/togpic.png";
-const brapic = "/images/brapic.jpg";
-
-const { TwitterIcon, GithubIcon, YouTubeIcon } = MyIconHelper;
+const { TwitterIcon, GithubIcon, YouTubeIcon, WebsiteIcon } = MyIconHelper;
 
 export const Samuel: TeamMember = {
   name: "Samuel Quinones",
@@ -29,7 +15,7 @@ export const Samuel: TeamMember = {
     TwitterIcon("https://twitter.com/SamuelQuinones1"),
     GithubIcon("https://github.com/SamuelQuinones"),
     YouTubeIcon("http://corporalsaturn.com/"),
-    new PersonIcon("fas", "globe", "Website", "https://samtheq.com"),
+    WebsiteIcon("https://samtheq.com"),
   ],
 };
 
@@ -62,8 +48,3 @@ export const Jtoland: TeamMember = {
   picture: defaultpic,
   icons: [GithubIcon("https://github.com/jtoland")],
 };
-
-export const Developers = [Samuel, Debayan];
-export const CommunityRelations = [Brady];
-export const UserExperience = [TOGLK];
-export const Infrastructure = [Jtoland];

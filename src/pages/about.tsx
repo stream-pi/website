@@ -1,13 +1,15 @@
 import { FC } from "react";
 import StreamPiSEO from "@components/StreamPiSEO";
 import {
-  Developers,
-  CommunityRelations,
-  Infrastructure,
-  UserExperience,
+  CoreDevelopers,
+  CoreCommunityRelations,
+  CoreInfrastructure,
+  CoreUserExperience,
   RowCol,
   TeamMemberRow,
+  JavaDevelopers,
 } from "@components/Page/About";
+import { TestingAuditing } from "@components/Page/About/Helper";
 
 const StreamPiAbout: FC = () => {
   return (
@@ -49,23 +51,43 @@ const StreamPiAbout: FC = () => {
           smoothly.
         </p>
       </RowCol>
-      {/* Developers */}
-      <TeamMemberRow teamMembers={Developers} identifier="Lead Developers" />
-
-      {/* CR */}
+      {/* Lead Developers */}
       <TeamMemberRow
-        teamMembers={CommunityRelations}
-        identifier="Community Relations"
+        teamMembers={CoreDevelopers}
+        identifier="Lead Developers"
+        coreTeamRow
+      />
+      {/* Other Developers */}
+      <TeamMemberRow
+        teamMembers={JavaDevelopers}
+        identifier="Java Developers"
       />
 
       {/* User Experience */}
       <TeamMemberRow
-        teamMembers={UserExperience}
+        teamMembers={CoreUserExperience}
         identifier="User Experience"
+        coreTeamRow
+      />
+      {/* Testing Auditing */}
+      <TeamMemberRow
+        teamMembers={TestingAuditing}
+        identifier="Testing &amp; Auditing"
+      />
+
+      {/* CR */}
+      <TeamMemberRow
+        teamMembers={CoreCommunityRelations}
+        identifier="Community Relations"
+        coreTeamRow
       />
 
       {/* INFRASTRUCTURE */}
-      <TeamMemberRow teamMembers={Infrastructure} identifier="Infrastructure" />
+      <TeamMemberRow
+        teamMembers={CoreInfrastructure}
+        identifier="Infrastructure"
+        coreTeamRow
+      />
       {/* How is it made? */}
       <RowCol className="mt-5 animate__animated animate__fadeIn">
         <h2 id="how-its-made" className="streamPiAbout mt-3">
