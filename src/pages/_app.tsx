@@ -1,39 +1,18 @@
-//* Core
-//? May not need?
+//* Style
 import "animate.css/animate.min.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "../assets/styles/globals.scss";
+//* FontAwesome Setup
+import { initializeFontAwesome } from "@util/IconLibrary";
+//* For now, tried moving this into the above function
+// import { config } from "@fortawesome/fontawesome-svg-core";
+// config.autoAddCss = false;
+
+//* Core
 import type { AppProps } from "next/app";
-import { library, config } from "@fortawesome/fontawesome-svg-core";
-//? May not need?
-config.autoAddCss = false;
-import {
-  faDiscord,
-  faGithub,
-  faTwitter,
-  faYoutube,
-  faPatreon,
-  faRaspberryPi,
-} from "@fortawesome/free-brands-svg-icons";
-import {
-  faGlobe,
-  faEnvelope,
-  faQuestionCircle,
-  faComment,
-  faMoon,
-  faSun,
-  faUser,
-  faDownload,
-  faSearch,
-  faAngleDown,
-  faAngleUp,
-  faCubes,
-  faDesktop,
-  faMobileAlt,
-} from "@fortawesome/free-solid-svg-icons";
 import Container from "react-bootstrap/Container";
 import { ToastContainer } from "react-toastify";
-import { useHashChange } from "@util";
+import { useHashChange } from "@util/Hooks";
 import { useInfoBanner } from "@util/InfoBanner";
 import StreamPiNavItem from "@components/Navigation/NavItem";
 import StreamPiFooter from "@components/Footer";
@@ -42,32 +21,12 @@ import ThemeSwitch from "@components/ThemeSwitch";
 import ScrollToTop from "@components/ScrollToTop";
 import { useEffect } from "react";
 
-library.add(
-  faRaspberryPi,
-  faDiscord,
-  faGithub,
-  faTwitter,
-  faYoutube,
-  faPatreon,
-  faGlobe,
-  faEnvelope,
-  faQuestionCircle,
-  faComment,
-  faMoon,
-  faSun,
-  faUser,
-  faDownload,
-  faSearch,
-  faAngleUp,
-  faAngleDown,
-  faCubes,
-  faDesktop,
-  faMobileAlt
-);
-
 //* REDUX
 import { Provider } from "react-redux";
-import store from "src/store";
+import store from "@store";
+
+//* MUST be called outside the main App
+initializeFontAwesome();
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {

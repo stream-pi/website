@@ -27,7 +27,9 @@ const StreamPiHome: FC = () => {
       {/* Description */}
       <Row className="animate__animated animate__fadeIn">
         <Col>
-          <p className="text-center">A robust Macro keyboard software</p>
+          <h2 className="text-center">
+            <em>A robust Macro keyboard software</em>
+          </h2>
         </Col>
       </Row>
       {/* Info type stuff */}
