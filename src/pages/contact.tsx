@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import StreamPiSEO from "@components/StreamPiSEO";
 import { ContactForm, PreFormInfo } from "@components/Page/Contact";
-import { useCountDown } from "@util";
+import { useCountDown } from "@util/Hooks";
 
 const StreamPiContact: FC = () => {
   const [agreed, setAgreed] = useState(false);
@@ -15,7 +15,7 @@ const StreamPiContact: FC = () => {
     <>
       <StreamPiSEO
         title="Contact"
-        description="Get into contact with the Stream-Pi team!  Ask us a question, give us some feedback, we'd love to hear from you!"
+        description="Get into contact with the Stream-Pi team! Ask us a question, give us some feedback, we'd love to hear from you!"
       />
       <Row className="pt-2 animate__animated animate__fadeIn">
         <Col className="text-center">
