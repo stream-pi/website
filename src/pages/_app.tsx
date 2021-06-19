@@ -24,11 +24,12 @@ import { useEffect } from "react";
 //* REDUX
 import { Provider } from "react-redux";
 import store from "@store";
+import FooterColumn from "@components/FooterColumn";
 
 //* MUST be called outside the main App
 initializeFontAwesome();
 
-function MyApp({ Component, pageProps }: AppProps) {
+const MyApp = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {
     document.body.classList.add("body-transition");
   }, []);
@@ -40,6 +41,51 @@ function MyApp({ Component, pageProps }: AppProps) {
     stopShowing: "2022-01-31",
     keysToDelete: ["test-toast", "theme"],
   });
+
+  // TODO: Update links
+  const footerColumns = (
+    <>
+      <FooterColumn
+        header={"Links"}
+        links={[
+          {
+            name: "Documentation",
+            href: "",
+          },
+          {
+            name: "Download",
+            href: "",
+          },
+        ]}
+      />
+      <FooterColumn
+        header={"Social"}
+        links={[
+          {
+            name: "Twitter",
+            href: "",
+          },
+          {
+            name: "Reddit",
+            href: "",
+          },
+        ]}
+      />
+      <FooterColumn
+        header={"Community"}
+        links={[
+          {
+            name: "Discord",
+            href: "",
+          },
+          {
+            name: "Matrix",
+            href: "",
+          },
+        ]}
+      />
+    </>
+  );
 
   return (
     <Provider store={store}>
@@ -56,7 +102,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Container style={{ paddingTop: "4rem" }} fluid="md">
         <Component {...pageProps} />
       </Container>
-      <StreamPiFooter />
+      <StreamPiFooter footerColumns={footerColumns} />
       {/* For Site Updates */}
       <ToastContainer
         position="bottom-center"
@@ -70,6 +116,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ScrollToTop />
     </Provider>
   );
-}
+};
 
 export default MyApp;
