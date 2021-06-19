@@ -10,26 +10,27 @@ import { initializeFontAwesome } from "@util/IconLibrary";
 
 //* Core
 import type { AppProps } from "next/app";
-import Container from "react-bootstrap/Container";
-import { ToastContainer } from "react-toastify";
+import { useEffect } from "react";
 import { useHashChange } from "@util/Hooks";
 import { useInfoBanner } from "@util/InfoBanner";
+import { ToastContainer } from "react-toastify";
+import Container from "react-bootstrap/Container";
 import StreamPiNavItem from "@components/Navigation/NavItem";
 import StreamPiFooter from "@components/Footer";
 import StreamPiNavbar from "@components/Navbar";
 import ThemeSwitch from "@components/ThemeSwitch";
 import ScrollToTop from "@components/ScrollToTop";
-import { useEffect } from "react";
+import FooterColumn from "@components/Footer/Column";
 
 //* REDUX
 import { Provider } from "react-redux";
 import store from "@store";
-import FooterColumn from "@components/FooterColumn";
 
 //* MUST be called outside the main App
 initializeFontAwesome();
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+//* Keeping this a standard function on purpose for now...
+function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     document.body.classList.add("body-transition");
   }, []);
@@ -43,6 +44,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   });
 
   // TODO: Update links
+  // TODO: Move to another file?
   const footerColumns = (
     <>
       <FooterColumn
@@ -50,11 +52,15 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         links={[
           {
             name: "Documentation",
-            href: "",
+            href: "https://github.com/stream-pi/",
           },
           {
             name: "Download",
-            href: "",
+            href: "https://github.com/stream-pi/server/releases/latest",
+          },
+          {
+            name: "Roadmap",
+            href: "https://github.com/orgs/stream-pi/projects/2",
           },
         ]}
       />
@@ -63,11 +69,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         links={[
           {
             name: "Twitter",
-            href: "",
-          },
-          {
-            name: "Reddit",
-            href: "",
+            href: "https://twitter.com/stream_pi",
           },
         ]}
       />
@@ -76,11 +78,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         links={[
           {
             name: "Discord",
-            href: "",
+            href: "https://discord.gg/BExqGmk",
           },
           {
             name: "Matrix",
-            href: "",
+            href: "https://matrix.to/#/+stream-pi-official:matrix.org",
           },
         ]}
       />
@@ -116,6 +118,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <ScrollToTop />
     </Provider>
   );
-};
+}
 
 export default MyApp;
