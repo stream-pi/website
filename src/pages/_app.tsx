@@ -82,7 +82,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           },
           {
             name: "Matrix",
-            href: "https://matrix.to/#/+stream-pi-official:matrix.org",
+            href: "https://matrix.to/#/!hTwUYZonUXThjkMhCD:matrix.org?via=matrix.org",
           },
         ]}
       />
