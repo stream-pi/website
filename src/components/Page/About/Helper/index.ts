@@ -1,6 +1,6 @@
 //TODO: Make an API for the developers
 
-import { TeamMember, IconObj } from "@util/Types";
+import { TeamMember } from "@util/Types";
 import { ColProps } from "react-bootstrap/Col";
 import { Brady, Debayan, Jtoland, Samuel, TOGLK } from "./_CoreTeam";
 import { Jordan, Quimo } from "./_Developers";
@@ -21,15 +21,6 @@ export type TeamRow = {
   className?: string;
   identifier: string;
   coreTeamRow?: boolean;
-};
-
-export type SocialBubbleProps = {
-  IcoPre: IconObj["IcoPre"];
-  IcoName: IconObj["IcoName"];
-  text: string;
-  className?: string;
-  iconClassName?: string;
-  textClassName?: string;
 };
 
 export type TeamCardProps = TeamMember & {
