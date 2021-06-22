@@ -25,19 +25,20 @@ const ThemeSwitch: FC = () => {
       {mounted && (
         <label
           className="toggle-class mb-0 d-flex position-relative align-items-center"
-          htmlFor="toggler"
+          htmlFor="theme-toggler"
         >
           <input
             className="toggle-check sr-only"
             checked={value}
             onChange={toggle}
             type="checkbox"
-            id="toggler"
+            id="theme-toggler"
           />
           <div className="toggle-bg d-block rounded-pill transition" />
-          <div className="dot position-absolute rounded-circle transition" />
-          <FontAwesomeIcon className="theme-icon sun" icon={["fas", "sun"]} />
-          <FontAwesomeIcon className="theme-icon moon" icon={["fas", "moon"]} />
+          <div className="dot position-absolute rounded-circle transition d-flex align-items-center justify-content-center">
+            <FontAwesomeIcon className="theme-sun" icon={["fas", "sun"]} />
+            <FontAwesomeIcon className="theme-moon" icon={["fas", "moon"]} />
+          </div>
         </label>
       )}
     </div>

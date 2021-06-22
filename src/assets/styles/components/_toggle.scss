@@ -13,23 +13,10 @@ $dark-dot: hsl(262, 49%, 10%);
     transition-duration: 250ms;
   }
 
-  .theme-icon {
-    top: 0;
-    bottom: 0;
+  .theme-sun,
+  .theme-moon {
     position: absolute;
-    margin-top: auto !important;
-    margin-bottom: auto !important;
     transition: all cubic-bezier(0.4, 0, 0.2, 1) 250ms;
-
-    &.moon {
-      right: $mini-margin * 1.75;
-      transform: translateX(calc(-100% - #{$mini-margin * 1.75}));
-      color: transparent;
-    }
-    &.sun {
-      left: $mini-margin * 1.75;
-      color: $dark;
-    }
   }
 
   .dot {
@@ -41,6 +28,13 @@ $dark-dot: hsl(262, 49%, 10%);
 
     box-shadow: 0 0 transparent, 0 0 transparent, 0 0 transparent,
       0 0 transparent, inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+
+    .theme-moon {
+      color: transparent;
+    }
+    .theme-sun {
+      color: $dark;
+    }
   }
   .toggle-bg {
     height: $bg-height;
@@ -54,20 +48,16 @@ $dark-dot: hsl(262, 49%, 10%);
       ~ .dot {
         transform: translateX(100%);
         background-color: $dark-dot;
+        .theme-sun {
+          color: transparent;
+        }
+        .theme-moon {
+          color: $light;
+        }
       }
       ~ .toggle-bg {
         background-color: hsl(215, 14%, 40%);
         border-color: $dark-dot;
-      }
-      ~ .theme-icon {
-        &.moon {
-          transform: translateX(0);
-          color: $light;
-        }
-        &.sun {
-          transform: translateX(calc(100% + #{$mini-margin * 1.75}));
-          color: transparent;
-        }
       }
     }
   }
