@@ -26,7 +26,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       GH[repo].ETag = repoDeets.headers.etag;
       res.statusCode = 200;
       const raw = {
-        "Total Downloads": sumTotalDownloads(repoDeets) + init_count[repo],
+        TotalDownloads: sumTotalDownloads(repoDeets) + init_count[repo],
       };
       GH[repo].Downloads = { ...raw };
       res.send(prettyPrint(raw));

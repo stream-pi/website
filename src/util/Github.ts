@@ -80,7 +80,7 @@ const github = axios.create({
 export const GH: GithubHelper = {
   server: {
     ETag: "",
-    Downloads: { "Total Downloads": 0 },
+    Downloads: { TotalDownloads: 0 },
     ReleaseInfo: {
       Version: "0.0.0",
       ReleasePage: "N/A",
@@ -89,7 +89,7 @@ export const GH: GithubHelper = {
   },
   client: {
     ETag: "",
-    Downloads: { "Total Downloads": 0 },
+    Downloads: { TotalDownloads: 0 },
     ReleaseInfo: {
       Version: "0.0.0",
       ReleasePage: "N/A",

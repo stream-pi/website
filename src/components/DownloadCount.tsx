@@ -26,8 +26,8 @@ const DownloadCount: FC = () => {
         if (info instanceof Error) {
           console.log(info);
         } else {
-          setServerDownloads(info[0].data["Total Downloads"]);
-          setClientDownloads(info[1].data["Total Downloads"]);
+          setServerDownloads(info[0].data.TotalDownloads);
+          setClientDownloads(info[1].data.TotalDownloads);
         }
         setLoaded(true);
       });

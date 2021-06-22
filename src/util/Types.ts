@@ -41,7 +41,7 @@ export class MyIconHelper {
   };
 }
 
-export type GithubDownloads = { "Total Downloads": number };
+export type GithubDownloads = { TotalDownloads: number };
 
 export type MailMsg = { title: string; long_msg: string };
 
