@@ -3,26 +3,17 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import LegalInfoModal from "@components/Modals/TermsOfUse";
-import { FooterProps } from "./Helper";
 
-//* REDUX
-import { useAppSelector } from "@store/hooks";
-import { getCurrentYear } from "@store/selectors";
-
-const StreamPiFooter: FC<FooterProps> = ({ footerColumns }) => {
+const StreamPiFooter: FC = ({ children }) => {
   //* REDUX
-  const currentYear = useAppSelector(getCurrentYear);
+  const currentYear = new Date().getFullYear();
   return (
     <>
       <main className="flex-fill" />
       <footer className="footer pt-4 pb-2 mt-2">
         <Container>
           <Row>
-            <Col
-              className="mb-3 mb-lg-0"
-              // xs={{ order: "last", span: "12" }}
-              lg="6"
-            >
+            <Col className="mb-3 mb-lg-0" lg="6">
               <p className="mb-1">
                 &copy; 2019 - {currentYear}, Stream-Pi Group and its Affiliates
               </p>
@@ -34,7 +25,7 @@ const StreamPiFooter: FC<FooterProps> = ({ footerColumns }) => {
                 <strong>{process.env.NEXT_PUBLIC_WEB_VERSION}</strong>
               </p>
             </Col>
-            {footerColumns}
+            {children}
           </Row>
         </Container>
       </footer>

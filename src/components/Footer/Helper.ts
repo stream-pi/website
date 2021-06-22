@@ -1,9 +1,3 @@
-import { ReactNode } from "react";
-
-export type FooterProps = {
-  footerColumns: ReactNode;
-};
-
 export type FooterLink = {
   name: string;
   href: string;

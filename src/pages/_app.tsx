@@ -43,52 +43,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     keysToDelete: ["test-toast", "theme"],
   });
 
-  // TODO: Update links
-  // TODO: Move to another file?
-  const footerColumns = (
-    <>
-      <FooterColumn
-        header={"Links"}
-        links={[
-          {
-            name: "Documentation",
-            href: "https://github.com/stream-pi/",
-          },
-          {
-            name: "Download",
-            href: "https://github.com/stream-pi/server/releases/latest",
-          },
-          {
-            name: "Roadmap",
-            href: "https://github.com/orgs/stream-pi/projects/2",
-          },
-        ]}
-      />
-      <FooterColumn
-        header={"Social"}
-        links={[
-          {
-            name: "Twitter",
-            href: "https://twitter.com/stream_pi",
-          },
-        ]}
-      />
-      <FooterColumn
-        header={"Community"}
-        links={[
-          {
-            name: "Discord",
-            href: "https://discord.gg/BExqGmk",
-          },
-          {
-            name: "Matrix",
-            href: "https://matrix.to/#/!hTwUYZonUXThjkMhCD:matrix.org?via=matrix.org",
-          },
-        ]}
-      />
-    </>
-  );
-
   return (
     <Provider store={store}>
       <ToastContainer position="top-center" enableMultiContainer />
@@ -104,7 +58,43 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Container style={{ paddingTop: "4rem" }} fluid="md">
         <Component {...pageProps} />
       </Container>
-      <StreamPiFooter footerColumns={footerColumns} />
+      <StreamPiFooter>
+        <FooterColumn
+          header={"Links"}
+          links={[
+            {
+              name: "Documentation",
+              href: "https://github.com/stream-pi/",
+            },
+            {
+              name: "Roadmap",
+              href: "https://github.com/orgs/stream-pi/projects/2",
+            },
+          ]}
+        />
+        <FooterColumn
+          header={"Social"}
+          links={[
+            {
+              name: "Twitter",
+              href: "https://twitter.com/stream_pi",
+            },
+          ]}
+        />
+        <FooterColumn
+          header={"Community"}
+          links={[
+            {
+              name: "Discord",
+              href: "https://discord.gg/BExqGmk",
+            },
+            {
+              name: "Matrix",
+              href: "https://matrix.to/#/!hTwUYZonUXThjkMhCD:matrix.org?via=matrix.org",
+            },
+          ]}
+        />
+      </StreamPiFooter>
       {/* For Site Updates */}
       <ToastContainer
         position="bottom-center"
