@@ -1,13 +1,10 @@
 //* Core
 import { FC } from "react";
 import StreamPiModal from "@components/Modal";
-//* REDUX
-import { useAppSelector } from "@store/hooks";
-import { getCurrentYear } from "@store/selectors";
 
 const LegalInfoModal: FC = () => {
   //* REDUX
-  const currentYear = useAppSelector(getCurrentYear);
+  const currentYear = new Date().getFullYear();
 
   return (
     <StreamPiModal
