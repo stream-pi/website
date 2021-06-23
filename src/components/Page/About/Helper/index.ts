@@ -1,22 +1,9 @@
 //TODO: Make an API for the developers
 
-import { TeamMember } from "@util/Types";
 import { ColProps } from "react-bootstrap/Col";
-import { Brady, Debayan, Jtoland, Samuel, TOGLK } from "./_CoreTeam";
-import { Jordan, Quimo } from "./_Developers";
-import { Cerberus } from "./_TestingAuditing";
+import { PersonIcon, TeamMember } from "@util/Types";
 
-//* Core
-export const CoreDevelopers = [Samuel, Debayan];
-export const CoreCommunityRelations = [Brady];
-export const CoreUserExperience = [TOGLK];
-export const CoreInfrastructure = [Jtoland];
-
-//* NOT core
-export const JavaDevelopers = [Quimo, Jordan];
-export const TestingAuditing = [Cerberus];
-
-export type TeamRow = {
+export type TeamRowProps = {
   teamMembers: TeamMember[];
   className?: string;
   identifier: string;
@@ -26,4 +13,32 @@ export type TeamRow = {
 export type TeamCardProps = TeamMember & {
   md?: ColProps["md"];
   xs?: ColProps["xs"];
+};
+
+//* ICON HELPERS *//
+
+export const YouTubeIcon = (url: string): PersonIcon => {
+  return {
+    IcoPre: "fab",
+    IcoName: "youtube",
+    description: "YouTube",
+    link: url,
+  };
+};
+
+export const GithubIcon = (url: string): PersonIcon => {
+  return { IcoPre: "fab", IcoName: "github", description: "GitHub", link: url };
+};
+
+export const TwitterIcon = (url: string): PersonIcon => {
+  return {
+    IcoPre: "fab",
+    IcoName: "twitter",
+    description: "Twitter",
+    link: url,
+  };
+};
+
+export const WebsiteIcon = (url: string): PersonIcon => {
+  return { IcoPre: "fas", IcoName: "globe", description: "Website", link: url };
 };

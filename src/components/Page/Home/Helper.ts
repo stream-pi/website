@@ -11,12 +11,9 @@ type ButtonObj = {
 type HomeObj = {
   icons: IconObj[];
   buttons: ButtonObj[];
-  extraClass?: string[];
 };
 
-export type HomeCardProps = {
-  icons: IconObj[];
-  buttons: ButtonObj[];
+export type HomeCardProps = HomeObj & {
   title: string;
 };
 

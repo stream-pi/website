@@ -3,13 +3,13 @@ import StreamPiSEO from "@components/StreamPiSEO";
 import {
   CoreDevelopers,
   CoreCommunityRelations,
+  TestingAuditing,
   CoreInfrastructure,
   CoreUserExperience,
   RowCol,
   TeamMemberRow,
   JavaDevelopers,
 } from "@components/Page/About";
-import { TestingAuditing } from "@components/Page/About/Helper";
 
 const StreamPiAbout: FC = () => {
   return (

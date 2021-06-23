@@ -2,9 +2,9 @@ import { FC } from "react";
 import Row from "react-bootstrap/Row";
 import RowCol from "./_RowCol";
 import TeamMemberCard from "./_TeamMemberCard";
-import { TeamRow } from "./Helper";
+import type { TeamRowProps } from "./Helper";
 
-const TeamMemberRow: FC<TeamRow> = ({
+const TeamMemberRow: FC<TeamRowProps> = ({
   teamMembers,
   className = "placeholder",
   identifier,

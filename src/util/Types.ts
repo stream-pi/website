@@ -8,38 +8,16 @@ export type IconObj = {
   IcoName: IconName;
 };
 
-export class PersonIcon {
-  constructor(
-    public IcoPre: IconPrefix,
-    public IcoName: IconName,
-    public description: string,
-    public link: string
-  ) {}
-}
+export type PersonIcon = IconObj & {
+  description: string;
+  link: string;
+};
 
 export type TeamMember = {
   name: string;
   picture: string;
   icons: PersonIcon[];
 };
-
-export class MyIconHelper {
-  static YouTubeIcon = (url: string) => {
-    return new PersonIcon("fab", "youtube", "YouTube", url);
-  };
-
-  static GithubIcon = (url: string) => {
-    return new PersonIcon("fab", "github", "GitHub", url);
-  };
-
-  static TwitterIcon = (url: string) => {
-    return new PersonIcon("fab", "twitter", "Twitter", url);
-  };
-
-  static WebsiteIcon = (url: string) => {
-    return new PersonIcon("fas", "globe", "Website", url);
-  };
-}
 
 export type GithubDownloads = { TotalDownloads: number };
 
