@@ -5,7 +5,6 @@ import Row from "react-bootstrap/Row";
 import LegalInfoModal from "@components/Modals/TermsOfUse";
 
 const StreamPiFooter: FC = ({ children }) => {
-  //* REDUX
   const currentYear = new Date().getFullYear();
   return (
     <>
