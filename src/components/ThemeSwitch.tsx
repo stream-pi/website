@@ -2,7 +2,7 @@
 import { FC, useEffect } from "react";
 import useDarkMode from "use-dark-mode";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useRenderOnMount } from "@util/Hooks";
+import useRenderOnMount from "@hooks/useRenderOnMount";
 
 //* REDUX
 import { useAppDispatch } from "@store/hooks";

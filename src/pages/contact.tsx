@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import StreamPiSEO from "@components/StreamPiSEO";
 import { ContactForm, PreFormInfo } from "@components/Page/Contact";
-import { useCountDown } from "@util/Hooks";
+import { useCountDown } from "@hooks/useCountDown";
 
 const StreamPiContact: FC = () => {
   const [agreed, setAgreed] = useState(false);

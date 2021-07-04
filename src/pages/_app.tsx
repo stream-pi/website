@@ -11,8 +11,8 @@ import { initializeFontAwesome } from "@util/IconLibrary";
 //* Core
 import type { AppProps } from "next/app";
 import { useEffect } from "react";
-import { useHashChange } from "@util/Hooks";
-import { useInfoBanner } from "@util/InfoBanner";
+import useHashChange from "@hooks/useHashChange";
+import useInfoBanner from "@hooks/useInfoBanner";
 import { ToastContainer } from "react-toastify";
 import Container from "react-bootstrap/Container";
 import StreamPiNavItem from "@components/Navigation/NavItem";
@@ -64,7 +64,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           links={[
             {
               name: "Documentation",
-              href: "https://github.com/stream-pi/",
+              href: "https://documentation.stream-pi.com",
             },
             {
               name: "Roadmap",

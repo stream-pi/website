@@ -87,13 +87,13 @@ const InfoBanner: FC<Props> = ({
  *
  * Requires an expiry date - when it will stop popping up on its own.
  */
-export const useInfoBanner = ({
+function useInfoBanner({
   message,
   toastId,
   stopShowing,
   variant,
   keysToDelete,
-}: Hook) => {
+}: Hook) {
   /** If the announcement 'expires' after a certain day, this will check to see if that date has passed */
   useEffect(() => {
     const sameOrAfter = dayjs().isSameOrAfter(stopShowing, "day");
@@ -131,4 +131,6 @@ export const useInfoBanner = ({
         : keysToDelete.forEach((key) => localStorage.removeItem(key));
     }
   }, [keysToDelete]);
-};
+}
+
+export default useInfoBanner;
