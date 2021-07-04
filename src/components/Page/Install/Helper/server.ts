@@ -1,22 +1,26 @@
 export default {
-  Version: "1.0.0-EA+3-SNAPSHOT",
+  Version: "1.0.0-EA+4-SNAPSHOT",
   ReleasePage: "https://github.com/stream-pi/server/releases",
   Downloads: [
     {
-      Name: "stream-pi-server-linux-x64-1.0.0-EA+3-SNAPSHOT-debian.deb",
-      Link: "https://github.com/stream-pi/server/releases/download/1.0.0-EA%2B3-SNAPSHOT/stream-pi-server-linux-x64-1.0.0-EA%2B3-SNAPSHOT-debian.deb",
+      Name: "stream-pi-server-linux-x64-1.0.0-EA+4-SNAPSHOT-executable.zip",
+      Link: "https://github.com/stream-pi/server/releases/download/1.0.0-EA%2B4-SNAPSHOT/stream-pi-server-linux-x64-1.0.0-EA%2B4-SNAPSHOT-executable.zip",
     },
     {
-      Name: "stream-pi-server-linux-x64-1.0.0-EA+3-SNAPSHOT-executable.zip",
-      Link: "https://github.com/stream-pi/server/releases/download/1.0.0-EA%2B3-SNAPSHOT/stream-pi-server-linux-x64-1.0.0-EA%2B3-SNAPSHOT-executable.zip",
+      Name: "stream-pi-server-linux-x64-1.0.0-EA+4-SNAPSHOT.deb",
+      Link: "https://github.com/stream-pi/server/releases/download/1.0.0-EA%2B4-SNAPSHOT/stream-pi-server-linux-x64-1.0.0-EA%2B4-SNAPSHOT.deb",
     },
     {
-      Name: "stream-pi-server-macos-x64-1.0.0-EA+3-SNAPSHOT.dmg",
-      Link: "https://github.com/stream-pi/server/releases/download/1.0.0-EA%2B3-SNAPSHOT/stream-pi-server-macos-x64-1.0.0-EA%2B3-SNAPSHOT.dmg",
+      Name: "stream-pi-server-linux-x64-1.0.0-EA+4-SNAPSHOT.rpm",
+      Link: "https://github.com/stream-pi/server/releases/download/1.0.0-EA%2B4-SNAPSHOT/stream-pi-server-linux-x64-1.0.0-EA%2B4-SNAPSHOT.rpm",
     },
     {
-      Name: "stream-pi-server-windows-x64-1.0.0-EA+3-SNAPSHOT-installer.exe",
-      Link: "https://github.com/stream-pi/server/releases/download/1.0.0-EA%2B3-SNAPSHOT/stream-pi-server-windows-x64-1.0.0-EA%2B3-SNAPSHOT-installer.exe",
+      Name: "stream-pi-server-macos-x64-1.0.0-EA+4-SNAPSHOT.pkg",
+      Link: "https://github.com/stream-pi/server/releases/download/1.0.0-EA%2B4-SNAPSHOT/stream-pi-server-macos-x64-1.0.0-EA%2B4-SNAPSHOT.pkg",
+    },
+    {
+      Name: "stream-pi-server-windows-x64-1.0.0-EA+4-SNAPSHOT-installer.msi",
+      Link: "https://github.com/stream-pi/server/releases/download/1.0.0-EA%2B4-SNAPSHOT/stream-pi-server-windows-x64-1.0.0-EA%2B4-SNAPSHOT-installer.msi",
     },
   ],
 };
