@@ -60,6 +60,10 @@ const StreamPiSEO: FC<SEOProps> = ({
       <meta property="twitter:creator" content={MetaData.social.twitter} />
       <meta property="twitter:title" content={titleString} />
       <meta property="twitter:description" content={description} />
+      <meta
+        property="twitter:image"
+        content={`${process.env.NEXT_PUBLIC_BASE_URL}/images/logo.png`}
+      />
     </Head>
   );
 };
