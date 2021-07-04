@@ -4,6 +4,7 @@ module.exports = {
     node: true,
     es6: true,
   },
+  parser: "@typescript-eslint/parser",
   parserOptions: { ecmaVersion: 8 }, // to enable features such as async/await
   // We don't want to lint generated files nor node_modules, but we want to lint .prettierrc.js (ignored by default by eslint)
   ignorePatterns: [
@@ -42,7 +43,6 @@ module.exports = {
     // This configuration will apply only to TypeScript files
     {
       files: ["**/*.ts", "**/*.tsx"],
-      parser: "@typescript-eslint/parser",
       env: {
         browser: true,
         node: true,
