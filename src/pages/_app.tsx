@@ -17,10 +17,10 @@ import { ToastContainer } from "react-toastify";
 import Container from "react-bootstrap/Container";
 import StreamPiNavItem from "@components/Navigation/NavItem";
 import StreamPiFooter from "@components/Footer";
+import FooterColumn from "@components/Footer/Column";
 import StreamPiNavbar from "@components/Navbar";
 import ThemeSwitch from "@components/ThemeSwitch";
 import ScrollToTop from "@components/ScrollToTop";
-import FooterColumn from "@components/Footer/Column";
 
 //* REDUX
 import { Provider } from "react-redux";
@@ -95,7 +95,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           ]}
         />
       </StreamPiFooter>
-      {/* For Site Updates */}
+      {/* For Site Updates - useInfoBanner */}
       <ToastContainer
         position="bottom-center"
         autoClose={false}
@@ -103,7 +103,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         closeButton={false}
         newestOnTop={true}
         closeOnClick={false}
-        containerId={"BannerToasts"}
+        containerId={"useInfoBanner"}
       />
       <ScrollToTop />
     </Provider>

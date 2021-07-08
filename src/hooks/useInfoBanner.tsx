@@ -113,7 +113,7 @@ function useInfoBanner({
           {message}
         </InfoBanner>,
         {
-          containerId: "BannerToasts",
+          containerId: "useInfoBanner",
           toastId,
           delay: 1000,
           draggable: false,
