@@ -27,11 +27,12 @@ const TOGLK: TeamMember = {
   picture: "/images/team/togpic.png",
   icons: [GithubIcon("https://github.com/TOGLK")],
 };
-const Brady: TeamMember = {
-  name: "Brady",
-  picture: "/images/team/brapic.jpg",
-  icons: [GithubIcon("https://github.com/Brady-StreamPi")],
-};
+//* Sorry Brady...
+// const Brady: TeamMember = {
+//   name: "Brady",
+//   picture: "/images/team/brapic.jpg",
+//   icons: [GithubIcon("https://github.com/Brady-StreamPi")],
+// };
 // Infrastructure
 const Jtoland: TeamMember = {
   name: "Jason Toland",
@@ -40,9 +41,9 @@ const Jtoland: TeamMember = {
 };
 //* ARRAYS *//
 export const CoreDevelopers = [Samuel, Debayan];
-export const CoreCommunityRelations = [Brady];
 export const CoreUserExperience = [TOGLK];
 export const CoreInfrastructure = [Jtoland];
+//* Core Team End *//
 
 //* ------------------ *//
 
