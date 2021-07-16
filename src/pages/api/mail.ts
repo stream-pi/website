@@ -67,7 +67,6 @@ const sendMailAttempt = async (body: Body) => {
         responseCode: 200,
         responseData: {
           title: "Message Sent!",
-          long_msg: "",
         },
       };
     } catch (error) {

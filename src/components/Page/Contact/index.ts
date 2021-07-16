@@ -1,5 +1,4 @@
 export { default as ContactForm } from "./_ContactForm";
-export { default as ResponseMessage } from "./_ResponseMessage";
 export { default as PreFormInfo } from "./_PreFormInfo";
 export {
   ContactFormMethods,

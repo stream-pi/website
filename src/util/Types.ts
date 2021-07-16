@@ -21,7 +21,7 @@ export type TeamMember = {
 
 export type GithubDownloads = { TotalDownloads: number };
 
-export type MailMsg = { title: string; long_msg: string };
+export type MailMsg = { title: string; long_msg?: string };
 
 export type ReleaseDownloads = { Name: string; Link: string };
 

@@ -3,6 +3,14 @@ export default {
   ReleasePage: "https://github.com/stream-pi/server/releases",
   Downloads: [
     {
+      Name: "stream-pi-server-linux-aarch64-1.0.0-EA+4-SNAPSHOT-executable.zip",
+      Link: "https://github.com/stream-pi/server/releases/download/1.0.0-EA%2B4-SNAPSHOT/stream-pi-server-linux-aarch64-1.0.0-EA%2B4-SNAPSHOT-executable.zip",
+    },
+    {
+      Name: "stream-pi-server-linux-arm32-1.0.0-EA+4-SNAPSHOT-executable.zip",
+      Link: "https://github.com/stream-pi/server/releases/download/1.0.0-EA%2B4-SNAPSHOT/stream-pi-server-linux-arm32-1.0.0-EA%2B4-SNAPSHOT-executable.zip",
+    },
+    {
       Name: "stream-pi-server-linux-x64-1.0.0-EA+4-SNAPSHOT-executable.zip",
       Link: "https://github.com/stream-pi/server/releases/download/1.0.0-EA%2B4-SNAPSHOT/stream-pi-server-linux-x64-1.0.0-EA%2B4-SNAPSHOT-executable.zip",
     },

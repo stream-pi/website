@@ -1,6 +1,15 @@
 import { FC } from "react";
 import Col from "react-bootstrap/Col";
-import type { FooterColProps } from "./Helper";
+
+type FooterLink = {
+  name: string;
+  href: string;
+};
+
+type FooterColProps = {
+  header: string;
+  links: FooterLink[];
+};
 
 const FooterColumn: FC<FooterColProps> = ({ header, links }) => {
   return (
@@ -9,7 +18,7 @@ const FooterColumn: FC<FooterColProps> = ({ header, links }) => {
       {links.map(({ name, href }) => (
         <li
           style={{ listStyleType: "none" }}
-          key={`footer-link-${name.toLowerCase()}`}
+          key={`footer-link-${name.toLowerCase().replace(/[^A-Z0-9]/gim, "-")}`}
         >
           <a href={href} target="_blank" rel="noopener noreferrer">
             {name}

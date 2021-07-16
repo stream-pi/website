@@ -9,6 +9,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import ResponseMessage from "./_ResponseMessage";
 import { MyFormControl, MyFormLabel } from "./_MyFormControl";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ContactForm: FC = () => {
   /** more controllable than the react hook form variables */
@@ -43,7 +44,11 @@ const ContactForm: FC = () => {
     try {
       const res = await sendEmail(mail);
       toast.success(
-        <ResponseMessage title={res.data.title} long_msg={res.data.long_msg} />,
+        <ResponseMessage
+          title={res.data.title}
+          long_msg={res.data.long_msg}
+          icon={<FontAwesomeIcon icon={["fas", "check-circle"]} />}
+        />,
         { onClose: () => setDisabled(false) }
       );
     } catch (error) {
@@ -52,17 +57,26 @@ const ContactForm: FC = () => {
           <ResponseMessage
             title={error.response.data.title}
             long_msg={error.response.data.long_msg}
+            icon={<FontAwesomeIcon icon={["fas", "exclamation-circle"]} />}
           />,
           { onClose: () => setDisabled(false) }
         );
       } else if (error.request /* request error */) {
         toast.error(
-          <ResponseMessage title="Request Error" long_msg={error.message} />,
+          <ResponseMessage
+            title="Request Error"
+            long_msg={error.message}
+            icon={<FontAwesomeIcon icon={["fas", "exclamation-circle"]} />}
+          />,
           { onClose: () => setDisabled(false) }
         );
       } else {
         toast.error(
-          <ResponseMessage title="Error" long_msg={error.message} />,
+          <ResponseMessage
+            title="Error"
+            long_msg={error.message}
+            icon={<FontAwesomeIcon icon={["fas", "exclamation-circle"]} />}
+          />,
           { onClose: () => setDisabled(false) }
         );
       }

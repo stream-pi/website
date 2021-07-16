@@ -25,6 +25,8 @@ import {
   faCubes,
   faDesktop,
   faMobileAlt,
+  faExclamationCircle,
+  faCheckCircle,
 } from "@fortawesome/free-solid-svg-icons";
 
 /**
@@ -54,6 +56,8 @@ export const initializeFontAwesome = () => {
     faAngleDown,
     faCubes,
     faDesktop,
-    faMobileAlt
+    faMobileAlt,
+    faExclamationCircle,
+    faCheckCircle
   );
 };

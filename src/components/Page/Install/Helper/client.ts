@@ -7,8 +7,12 @@ export default {
       Link: "https://github.com/stream-pi/client/releases/download/1.0.0-EA%2B4-SNAPSHOT/stream-pi-client-android-aarch64-1.0.0-EA%2B4-SNAPSHOT.apk",
     },
     {
-      Name: "stream-pi-client-linux-aarch64-1.0.0-EA+4-SNAPSHOT-executable.zip",
-      Link: "https://github.com/stream-pi/client/releases/download/1.0.0-EA%2B4-SNAPSHOT/stream-pi-client-linux-aarch64-1.0.0-EA%2B4-SNAPSHOT-executable.zip",
+      Name: "stream-pi-client-linux-aarch64-1.0.0-EA+4-SNAPSHOT-jvm-executable.zip",
+      Link: "https://github.com/stream-pi/client/releases/download/1.0.0-EA%2B4-SNAPSHOT/stream-pi-client-linux-aarch64-1.0.0-EA%2B4-SNAPSHOT-jvm-executable.zip",
+    },
+    {
+      Name: "stream-pi-client-linux-aarch64-1.0.0-EA+4-SNAPSHOT-native-executable.zip",
+      Link: "https://github.com/stream-pi/client/releases/download/1.0.0-EA%2B4-SNAPSHOT/stream-pi-client-linux-aarch64-1.0.0-EA%2B4-SNAPSHOT-native-executable.zip",
     },
     {
       Name: "stream-pi-client-linux-arm32-1.0.0-EA+4-SNAPSHOT-executable.zip",
