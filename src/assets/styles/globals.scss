@@ -1,12 +1,4 @@
-// Required bootstrap imports
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
-
-// add NON DEFAULT BOOTSTRAP EXTENSIONS here
-@import "spi-bootstrap/extend";
-
-// all of bootstrap - needed for changes
+$enable-responsive-font-sizes: true;
 @import "~bootstrap/scss/bootstrap";
 
 // Stream-Pi SCSS Imports

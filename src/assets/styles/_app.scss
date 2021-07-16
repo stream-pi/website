@@ -26,23 +26,23 @@ pre:hover {
 
 #streamPiHome {
   font-weight: 300;
-  @media screen and (max-width: 576px) {
-    font-size: 5rem;
-  }
-  @media screen and (max-width: 400px) {
-    font-size: 4rem;
-  }
-  @media screen and (max-width: 320px) {
-    font-size: 3rem;
-  }
-  @media screen and (max-width: 240px) {
-    font-size: 2.5rem;
-  }
-  @media screen and (max-width: 200px) {
-    font-size: 2rem;
-  }
-
-  font-size: 7rem;
+  @include font-size(7rem);
+  // @media screen and (max-width: 576px) {
+  //   font-size: 5rem;
+  // }
+  // @media screen and (max-width: 400px) {
+  //   font-size: 4rem;
+  // }
+  // @media screen and (max-width: 320px) {
+  //   font-size: 3rem;
+  // }
+  // @media screen and (max-width: 240px) {
+  //   font-size: 2.5rem;
+  // }
+  // @media screen and (max-width: 200px) {
+  //   font-size: 2rem;
+  // }
+  // font-size: 7rem;
 }
 
 .footer {
