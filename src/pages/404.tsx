@@ -4,7 +4,7 @@ import Link from "next/link";
 import Button from "react-bootstrap/Button";
 import { useRouter } from "next/router";
 
-const NotFound: FC = () => {
+const Custom404: FC = () => {
   const router = useRouter();
 
   const code: CSSProperties = { color: "inherit", fontWeight: "bold" };
@@ -35,4 +35,4 @@ const NotFound: FC = () => {
   );
 };
 
-export default NotFound;
+export default Custom404;

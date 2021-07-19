@@ -44,7 +44,7 @@ const ScrollToTop: FC = () => {
         <Button
           onClick={scroll}
           variant="primary"
-          className="rounded-circle shadow"
+          className="rounded-circle shadow d-flex"
         >
           <FontAwesomeIcon icon={["fas", "angle-up"]} size="2x" />
         </Button>
