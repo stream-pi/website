@@ -27,8 +27,6 @@ It'll also in general just be easier to maintain.
 - Animate.css (for complex animations)
 - Yup (for form validation schema)
 - Axios (API calls and GET / POST requests)
-- Gray Matter (For reading hidden metadata in markdown files)
-- Remark (For rendering markdown as HTML with syntax)
 - dayjs (for parsing / formatting date-time stamps)
 - React-Toastify (for easy, global, customizable site alerts)
 - Use-dark-mode (better management of dark mode for the site)

@@ -5,5 +5,4 @@ $enable-responsive-font-sizes: true;
 @import "fonts"; // FontFace
 @import "theme"; // dark / light theme related
 @import "components"; // all component-level styles
-@import "markdown"; // when rendering markdown, these styles will be used.
 @import "app"; // styles meant for the WHOLE app
