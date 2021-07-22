@@ -5,24 +5,6 @@ import type { OBJ } from "./Types";
 dayjs.extend(advancedFormat);
 
 /**
- * Function used to handle any query that needs to get information for either the server or the client repo.
- *
- * @param query - The URL query, should only ever be a single query
- * @returns the global variable representing the repository name or "Bad_call"
- */
-export function queryParser(query: string | string[]) {
-  if (typeof query !== "string") return "Bad_Call";
-  switch (query.toUpperCase()) {
-    case "CLIENT":
-      return "client";
-    case "SERVER":
-      return "server";
-    default:
-      return "Bad_Call";
-  }
-}
-
-/**
  * Takes in an **array** and a **number** to produce a new two dimmensional array.
  * These smaller arrays have a max length equal to the input number
  *

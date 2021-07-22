@@ -9,7 +9,7 @@ import {
   RowCol,
   TeamMemberRow,
   JavaDevelopers,
-} from "@components/Page/About";
+} from "@modules/About";
 
 const StreamPiAbout: FC = () => {
   return (

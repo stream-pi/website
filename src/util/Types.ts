@@ -19,16 +19,4 @@ export type TeamMember = {
   icons: PersonIcon[];
 };
 
-export type GithubDownloads = { TotalDownloads: number };
-
-export type MailMsg = { title: string; long_msg?: string };
-
-export type ReleaseDownloads = { Name: string; Link: string };
-
-export type LatestRelease = {
-  Version: string;
-  ReleasePage: string;
-  Downloads: ReleaseDownloads[];
-};
-
 export type OBJ = Record<string, any>;

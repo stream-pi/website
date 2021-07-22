@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { prettyPrint } from "@util";
-import { callGithubAndUpdateCache } from "@modules/API/github/functions";
 import { queryParser } from "@modules/API/services";
+import { callGithubAndUpdateCache } from "@modules/API/github/functions";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   res.setHeader("Content-Type", "application/json");
@@ -15,7 +15,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const response = await callGithubAndUpdateCache(repo);
     res.statusCode = 200;
-    res.send(prettyPrint(response.Downloads));
+    res.send(prettyPrint(response.LatestRelease));
   } catch (error) {
     res.status(400).json({ Error: error });
   }

@@ -1,5 +1,4 @@
-import axios, { AxiosResponse } from "axios";
-import type { LatestRelease, GithubDownloads } from "./Types";
+import { AxiosResponse } from "axios";
 
 export interface Github {
   url: string;
@@ -60,57 +59,22 @@ export interface AssetsEntity {
 }
 
 export type GithubResponse = AxiosResponse<Github[]>;
-type GitHubPromise = Promise<GithubResponse>;
+export type GitHubPromise = Promise<GithubResponse>;
 
+export type GithubDownloads = { TotalDownloads: number };
+
+export type ReleaseObject = {
+  Version: string;
+  ReleasePage: string;
+  Downloads: { Name: string; Link: string }[];
+};
 type HelperObj = {
   ETag: string;
   Downloads: GithubDownloads;
-  ReleaseInfo: LatestRelease;
+  AllReleases: ReleaseObject[];
+  LatestRelease: ReleaseObject;
 };
-type GithubHelper = {
+export type GithubHelper = {
   server: HelperObj;
   client: HelperObj;
 };
-
-const github = axios.create({
-  baseURL: "https://api.github.com",
-});
-
-/** Faux cache object */
-export const GH: GithubHelper = {
-  server: {
-    ETag: "",
-    Downloads: { TotalDownloads: 0 },
-    ReleaseInfo: {
-      Version: "0.0.0",
-      ReleasePage: "N/A",
-      Downloads: [],
-    },
-  },
-  client: {
-    ETag: "",
-    Downloads: { TotalDownloads: 0 },
-    ReleaseInfo: {
-      Version: "0.0.0",
-      ReleasePage: "N/A",
-      Downloads: [],
-    },
-  },
-};
-
-export async function getGithub(repo: "server" | "client"): GitHubPromise {
-  let auth: any = undefined;
-  const owner = process.env.NEXT_PUBLIC_REPO_OWNER;
-  //* Check to see if github credentials exist
-  if (process.env.GITHUB_USR && process.env.GITHUB_KEY) {
-    auth = {
-      username: process.env.GITHUB_USR,
-      password: process.env.GITHUB_KEY,
-    };
-  }
-
-  return github.get(`/repos/${owner}/${repo}/releases`, {
-    headers: { "If-None-Match": GH[repo].ETag },
-    auth: auth,
-  });
-}

@@ -4,7 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import StreamPiSEO from "@components/StreamPiSEO";
-import { ContactForm, PreFormInfo } from "@components/Page/Contact";
+import { ContactForm, PreFormInfo } from "@modules/Contact";
 import { useCountDown } from "@hooks/useCountDown";
 
 const StreamPiContact: FC = () => {
@@ -30,19 +30,17 @@ const StreamPiContact: FC = () => {
       <Row className="py-2">
         <Col>
           <Container className="animate__animated animate__fadeIn">
-            <>
-              {!agreed ? (
-                <PreFormInfo>
-                  <Button disabled={counting} onClick={() => setAgreed(true)}>
-                    {counting
-                      ? `Please wait ${remainingSeconds} seconds`
-                      : "I understand"}
-                  </Button>
-                </PreFormInfo>
-              ) : (
-                <ContactForm />
-              )}
-            </>
+            {!agreed ? (
+              <PreFormInfo>
+                <Button disabled={counting} onClick={() => setAgreed(true)}>
+                  {counting
+                    ? `Please wait ${remainingSeconds} seconds`
+                    : "I understand"}
+                </Button>
+              </PreFormInfo>
+            ) : (
+              <ContactForm />
+            )}
           </Container>
         </Col>
       </Row>

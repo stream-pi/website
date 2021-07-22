@@ -2,36 +2,20 @@
 
 import type { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from "nodemailer";
-import axios from "axios";
 import { prettyPrint } from "@util";
 import { EmailConfig } from "@util/Config";
+import { validate } from "@modules/API/captcha";
 
 type Body = {
-  captcha: string;
+  captcha: string | null | undefined;
   contactName: string;
   contactEmail: string;
   contactSubject: string;
   contactMessage: string;
 };
 
-const servermail = axios.create();
-
-const validateHuman = async (token: string): Promise<boolean> => {
-  const secret = process.env.CAPTHCA_SECRET;
-  try {
-    const response = await servermail.post(
-      `https://www.google.com/recaptcha/api/siteverify?secret=${secret}&response=${token}`
-    );
-
-    return response.data.success;
-  } catch (error) {
-    console.error(error);
-    return false;
-  }
-};
-
 const sendMailAttempt = async (body: Body) => {
-  const isHuman = await validateHuman(body.captcha);
+  const isHuman = await validate(body.captcha);
 
   if (!isHuman) {
     return {

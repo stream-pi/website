@@ -1,5 +1,5 @@
 import { useEffect, useState, FC } from "react";
-import { getDownloads } from "@util/API";
+import { getDownloads } from "@modules/API/services";
 import SyncLoader from "react-spinners/SyncLoader";
 
 const DownloadCount: FC = () => {

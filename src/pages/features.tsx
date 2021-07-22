@@ -7,7 +7,7 @@ import {
   chunkedPlanFeatures,
   FeatureCol,
   FeatureRow,
-} from "@components/Page/Features";
+} from "@modules/Features";
 
 const StreamPiFeatures: FC = () => {
   return (

@@ -5,7 +5,7 @@ import {
   ExtParams,
   ExtProps,
   LoadingIndicator,
-} from "@components/Page/Ext";
+} from "@modules/Ext";
 import StreamPiSEO from "@components/StreamPiSEO";
 
 const ExtRedir = ({ pageData }: ExtProps) => {

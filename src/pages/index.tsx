@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { MetaData } from "@util/Config";
 import StreamPiSEO from "@components/StreamPiSEO";
-import { HomeCard, HomeInfo, StreamPiVideo } from "@components/Page/Home";
+import { HomeCard, HomeInfo, StreamPiVideo } from "@modules/Home";
 
 const StreamPiHome: FC = () => {
   const { CP, FOS, HM } = HomeInfo;
