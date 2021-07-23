@@ -34,8 +34,7 @@
     "update-release:server": "node ./.scripts/updateRecentRelease.js server && prettier --write ./src/components/Page/Install/Helper/server.ts",
     "update-release:client": "node ./.scripts/updateRecentRelease.js client && prettier --write ./src/components/Page/Install/Helper/client.ts",
     "update-release:all": "npm run update-release:server && npm run update-release:client",
-    "preinstall": "node ./.scripts/nodeVersionCheck.js && node ./.scripts/npmVersionCheck.js",
-    "create-env": "node ./.scripts/createLocalEnv.js"
+    "preinstall": "node ./.scripts/nodeVersionCheck.js && node ./.scripts/npmVersionCheck.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "1.2.35",
