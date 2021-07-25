@@ -7,8 +7,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
+import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
-import { MyFormControl, MyFormLabel } from "./_MyFormControl";
+import { MyFormControl, MyFormLabel, MyFormSelect } from "./_MyFormControl";
 import ResponseMessage from "./_ResponseMessage";
 
 const ContactForm: FC = () => {
@@ -91,9 +92,14 @@ const ContactForm: FC = () => {
       <Card.Body className="pb-0 pt-2">
         <Form noValidate onSubmit={handleSubmit(onSubmit)} autoComplete="off">
           {/* Name & Email */}
-          <Form.Row className="pt-2">
+          <Row className="pt-2">
             {/* Name */}
-            <Form.Group as={Col} md="6" controlId="ContactNameInput">
+            <Form.Group
+              as={Col}
+              md="6"
+              className="position-relative"
+              controlId="ContactNameInput"
+            >
               <MyFormLabel label="Name" IcoPre="fas" IcoName="user" />
               <MyFormControl
                 placeholder="Your Name"
@@ -105,7 +111,12 @@ const ContactForm: FC = () => {
             </Form.Group>
 
             {/* Email */}
-            <Form.Group as={Col} md="6" controlId="ContactEmailInput">
+            <Form.Group
+              as={Col}
+              md="6"
+              className="position-relative"
+              controlId="ContactEmailInput"
+            >
               <MyFormLabel label="Email" IcoPre="fas" IcoName="envelope" />
               <MyFormControl
                 placeholder="Your Email Address"
@@ -115,37 +126,43 @@ const ContactForm: FC = () => {
                 disabled={disabled}
               />
             </Form.Group>
-          </Form.Row>
+          </Row>
 
           {/* Subject */}
-          <Form.Row>
-            <Form.Group as={Col} controlId="ContactSubjectSelect">
+          <Row>
+            <Form.Group
+              as={Col}
+              className="position-relative"
+              controlId="ContactSubjectSelect"
+            >
               <MyFormLabel
                 label="Subject"
                 IcoPre="fas"
                 IcoName="question-circle"
                 subtext="(Select One)"
               />
-              <MyFormControl
+              <MyFormSelect
                 isInvalid={!!errors.contactSubject}
                 errorText={errors.contactSubject?.message}
                 {...register("contactSubject")}
                 disabled={disabled}
-                as="select"
-                custom
               >
                 {validSubjects.map((sub, idx) => (
                   <option key={`option${idx}`} value={sub}>
                     {sub}
                   </option>
                 ))}
-              </MyFormControl>
+              </MyFormSelect>
             </Form.Group>
-          </Form.Row>
+          </Row>
 
           {/* Message */}
-          <Form.Row>
-            <Form.Group as={Col} controlId="ContactMessageInput">
+          <Row>
+            <Form.Group
+              as={Col}
+              className="position-relative"
+              controlId="ContactMessageInput"
+            >
               <MyFormLabel label="Message" IcoPre="fas" IcoName="comment" />
               <MyFormControl
                 placeholder="Your Message"
@@ -158,7 +175,7 @@ const ContactForm: FC = () => {
                 maxLength={6000}
               />
             </Form.Group>
-          </Form.Row>
+          </Row>
 
           {/* Recaptcha */}
           <div className="form-group mt-3" id="rcap">
@@ -166,7 +183,7 @@ const ContactForm: FC = () => {
           </div>
 
           {/* Button */}
-          <Form.Row>
+          <Row>
             <Form.Group as={Col} controlId="sendButton">
               <Button
                 className="w-100"
@@ -179,7 +196,7 @@ const ContactForm: FC = () => {
                 Send Mail
               </Button>
             </Form.Group>
-          </Form.Row>
+          </Row>
         </Form>
       </Card.Body>
     </Card>

@@ -28,7 +28,7 @@ const ThemeSwitch: FC = () => {
           htmlFor="theme-toggler"
         >
           <input
-            className="toggle-check sr-only"
+            className="toggle-check visually-hidden"
             checked={value}
             onChange={toggle}
             type="checkbox"

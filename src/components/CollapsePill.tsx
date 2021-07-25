@@ -24,7 +24,7 @@ const CollapsePill: FC<Props> = ({ id, className, children, titleText }) => {
       >
         {titleText}
         <FontAwesomeIcon
-          className="ml-3"
+          className="ms-3"
           icon={["fas", open ? "angle-up" : "angle-down"]}
           size="lg"
         />

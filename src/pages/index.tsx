@@ -78,7 +78,7 @@ const StreamPiHome: FC = () => {
             style={{ borderRadius: "25px" }}
             className="px-4"
           >
-            <span className="pr-2">
+            <span className="pe-2">
               <FontAwesomeIcon icon={["fab", "patreon"]} />
             </span>{" "}
             Visit Our Patreon

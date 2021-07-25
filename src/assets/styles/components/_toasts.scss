@@ -17,14 +17,14 @@
   &__toast--#{$className} {
     @include displayed-toast(
       $colorName,
-      theme-color-level($colorName, $alert-bg-level),
-      theme-color-level($colorName, $alert-border-level),
-      theme-color-level($colorName, $alert-color-level)
+      shift-color(map-get($theme-colors, $colorName), $alert-bg-scale),
+      shift-color(map-get($theme-colors, $colorName), $alert-border-scale),
+      shift-color(map-get($theme-colors, $colorName), $alert-color-scale)
     );
   }
   &__close-button {
     &--#{$className} {
-      color: theme-color-level($colorName, $alert-color-level);
+      color: shift-color(map-get($theme-colors, $colorName), $alert-color-scale);
     }
   }
   &__progress-bar {

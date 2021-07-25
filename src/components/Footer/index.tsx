@@ -24,7 +24,9 @@ const StreamPiFooter: FC = ({ children }) => {
                 <strong>{process.env.NEXT_PUBLIC_WEB_VERSION}</strong>
               </p>
             </Col>
-            {children}
+            <Col lg="6">
+              <Row className="row-cols-2 row-cols-sm-3">{children}</Row>
+            </Col>
           </Row>
         </Container>
       </footer>
