@@ -20,11 +20,13 @@ const TeamMemberRow: FC<TeamRowProps> = ({
         </h2>
       </RowCol>
 
-      <Row className={`${className} text-center justify-content-md-center`}>
+      <Row
+        xs={{ cols: coreTeamRow ? 1 : 2 }}
+        md={{ cols: coreTeamRow ? 2 : 4 }}
+        className={`${className} text-center justify-content-md-center`}
+      >
         {teamMembers.map(({ name, icons, picture }, idx) => (
           <TeamMemberCard
-            md={coreTeamRow ? "6" : "3"}
-            xs={!coreTeamRow && "6"}
             key={`${idFormat}${idx}`}
             name={name}
             picture={picture}

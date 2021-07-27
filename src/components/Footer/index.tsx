@@ -25,7 +25,9 @@ const StreamPiFooter: FC = ({ children }) => {
               </p>
             </Col>
             <Col lg="6">
-              <Row className="row-cols-2 row-cols-sm-3">{children}</Row>
+              <Row xs={{ cols: 2 }} sm={{ cols: 3 }}>
+                {children}
+              </Row>
             </Col>
           </Row>
         </Container>

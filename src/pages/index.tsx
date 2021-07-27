@@ -1,5 +1,5 @@
 import { FC } from "react";
-import Image from "react-bootstrap/Image";
+import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -21,7 +21,13 @@ const StreamPiHome: FC = () => {
       </Row>
       <Row className="animate__animated animate__fadeIn animate__slower">
         <Col className="text-center">
-          <Image height="200px" id="logo" src="/images/logo.png" alt="Logo" />
+          <Image
+            width="187.42"
+            height="200"
+            id="logo"
+            src="/images/logo.png"
+            alt="Logo"
+          />
         </Col>
       </Row>
       {/* Description */}

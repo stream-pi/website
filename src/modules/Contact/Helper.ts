@@ -18,7 +18,8 @@ export type LabelProps = IconObj & {
 // const regex = /(((http|https|ftp|ftps)\:\/\/)?[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?)/gm
 export const regex =
   /(((http|https|ftp|ftps|sftp):\/\/)?[a-zA-Z0-9\-.]+\.[a-zA-Z]{2,3}(\/\S*)?)/i;
-export const sKey = "6LeW0r0UAAAAAKlB50lc_4pFxwDWDMBhXPrz5lKU";
+// export const sKey = "6LeW0r0UAAAAAKlB50lc_4pFxwDWDMBhXPrz5lKU"; // * Checkbox
+export const sKey = "6LfbkKwbAAAAABZ-i0bblRuzm9dINAODj_Jk82BY"; // * Badge
 export const validSubjects = [
   "Press",
   "Feedback",

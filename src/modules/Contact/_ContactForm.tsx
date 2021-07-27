@@ -1,4 +1,5 @@
 import { FC, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { sKey, validSubjects, ContactFormMethods, FormInputs } from "./Helper";
 import { sendEmail } from "@modules/API/services";
 import { toast } from "react-toastify";
@@ -39,7 +40,7 @@ const ContactForm: FC = () => {
    */
   const onSubmit = async (data: FormInputs) => {
     setDisabled(true);
-    const captcha = recaptchaRef.current?.getValue();
+    const captcha = await recaptchaRef.current?.executeAsync();
     const mail = { ...data, captcha };
 
     try {
@@ -89,14 +90,18 @@ const ContactForm: FC = () => {
 
   return (
     <Card className="animate__animated animate__fadeIn bg-card">
-      <Card.Body className="pb-0 pt-2">
+      {/* Teleport the captcha outside the form */}
+      {createPortal(
+        <ReCAPTCHA size="invisible" ref={recaptchaRef} sitekey={sKey} />,
+        document.body
+      )}
+      <Card.Body>
         <Form noValidate onSubmit={handleSubmit(onSubmit)} autoComplete="off">
           {/* Name & Email */}
-          <Row className="pt-2">
+          <Row xs={{ cols: 1 }} md={{ cols: 2 }} className="mb-3">
             {/* Name */}
             <Form.Group
               as={Col}
-              md="6"
               className="position-relative"
               controlId="ContactNameInput"
             >
@@ -113,7 +118,6 @@ const ContactForm: FC = () => {
             {/* Email */}
             <Form.Group
               as={Col}
-              md="6"
               className="position-relative"
               controlId="ContactEmailInput"
             >
@@ -129,7 +133,7 @@ const ContactForm: FC = () => {
           </Row>
 
           {/* Subject */}
-          <Row>
+          <Row className="mb-3">
             <Form.Group
               as={Col}
               className="position-relative"
@@ -157,7 +161,7 @@ const ContactForm: FC = () => {
           </Row>
 
           {/* Message */}
-          <Row>
+          <Row className="mb-3">
             <Form.Group
               as={Col}
               className="position-relative"
@@ -177,13 +181,13 @@ const ContactForm: FC = () => {
             </Form.Group>
           </Row>
 
-          {/* Recaptcha */}
-          <div className="form-group mt-3" id="rcap">
+          {/* Recaptcha - Checkbox */}
+          {/* <div className="mt-3" id="rcap">
             <ReCAPTCHA ref={recaptchaRef} sitekey={sKey} />
-          </div>
+          </div> */}
 
           {/* Button */}
-          <Row>
+          <Row className="mb-2">
             <Form.Group as={Col} controlId="sendButton">
               <Button
                 className="w-100"

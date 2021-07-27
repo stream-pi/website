@@ -1,6 +1,5 @@
 //TODO: Make an API for the developers
 
-import { ColProps } from "react-bootstrap/Col";
 import { PersonIcon, TeamMember } from "@util/Types";
 
 export type TeamRowProps = {
@@ -8,11 +7,6 @@ export type TeamRowProps = {
   className?: string;
   identifier: string;
   coreTeamRow?: boolean;
-};
-
-export type TeamCardProps = TeamMember & {
-  md?: ColProps["md"];
-  xs?: ColProps["xs"];
 };
 
 //* ICON HELPERS *//

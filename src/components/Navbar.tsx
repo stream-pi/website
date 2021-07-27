@@ -2,7 +2,7 @@
 import { FC } from "react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import Image from "react-bootstrap/Image";
+import Image from "next/image";
 import Container from "react-bootstrap/Container";
 
 //* REDUX
@@ -26,6 +26,7 @@ const StreamPiNavbar: FC = ({ children }) => {
             src="/favicon.ico"
             className="align-top d-inline-block"
             height="30"
+            width="30"
           />
         </Navbar.Brand>
         <div

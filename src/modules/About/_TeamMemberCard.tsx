@@ -1,18 +1,13 @@
+import { TeamMember } from "@util/Types";
 import { FC } from "react";
 import Col from "react-bootstrap/Col";
+// TODO: Convert to next/image
 import Image from "react-bootstrap/Image";
-import type { TeamCardProps } from "./Helper";
 import LinkWithPop from "./_LinkWithPop";
 
-const TeamMemberCard: FC<TeamCardProps> = ({
-  picture,
-  name,
-  icons,
-  md = "6",
-  xs,
-}) => {
+const TeamMemberCard: FC<TeamMember> = ({ picture, name, icons }) => {
   return (
-    <Col xs={xs} md={md} className="my-4 my-md-2">
+    <Col className="my-4 my-md-2">
       <h3>{name}</h3>
       <div className="w-100 mx-auto mb-1">
         <Image
