@@ -27,12 +27,6 @@ const TOGLK: TeamMember = {
   picture: "/images/team/togpic.png",
   icons: [GithubIcon("https://github.com/TOGLK")],
 };
-//* Sorry Brady...
-// const Brady: TeamMember = {
-//   name: "Brady",
-//   picture: "/images/team/brapic.jpg",
-//   icons: [GithubIcon("https://github.com/Brady-StreamPi")],
-// };
 // Infrastructure
 const Jtoland: TeamMember = {
   name: "Jason Toland",
