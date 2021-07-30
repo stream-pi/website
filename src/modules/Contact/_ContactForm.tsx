@@ -1,5 +1,4 @@
 import { FC, useRef, useState } from "react";
-import { createPortal } from "react-dom";
 import { sKey, validSubjects, ContactFormMethods, FormInputs } from "./Helper";
 import { sendEmail } from "@modules/API/services";
 import { toast } from "react-toastify";
@@ -40,7 +39,7 @@ const ContactForm: FC = () => {
    */
   const onSubmit = async (data: FormInputs) => {
     setDisabled(true);
-    const captcha = await recaptchaRef.current?.executeAsync();
+    const captcha = recaptchaRef.current?.getValue();
     const mail = { ...data, captcha };
 
     try {
@@ -90,11 +89,6 @@ const ContactForm: FC = () => {
 
   return (
     <Card className="animate__animated animate__fadeIn bg-card">
-      {/* Teleport the captcha outside the form */}
-      {createPortal(
-        <ReCAPTCHA size="invisible" ref={recaptchaRef} sitekey={sKey} />,
-        document.body
-      )}
       <Card.Body>
         <Form noValidate onSubmit={handleSubmit(onSubmit)} autoComplete="off">
           {/* Name & Email */}
@@ -182,9 +176,9 @@ const ContactForm: FC = () => {
           </Row>
 
           {/* Recaptcha - Checkbox */}
-          {/* <div className="mt-3" id="rcap">
+          <div className="mt-3" id="rcap">
             <ReCAPTCHA ref={recaptchaRef} sitekey={sKey} />
-          </div> */}
+          </div>
 
           {/* Button */}
           <Row className="mb-2">

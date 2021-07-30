@@ -13,7 +13,7 @@ import type { AppProps } from "next/app";
 import { useEffect } from "react";
 import useHashChange from "@hooks/useHashChange";
 import useInfoBanner from "@hooks/useInfoBanner";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, Zoom } from "react-toastify";
 import Container from "react-bootstrap/Container";
 import StreamPiNavItem from "@components/Navigation/NavItem";
 import StreamPiFooter from "@components/Footer";
@@ -45,7 +45,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <Provider store={store}>
-      <ToastContainer position="top-center" enableMultiContainer />
+      <ToastContainer
+        transition={Zoom}
+        position="top-center"
+        enableMultiContainer
+      />
       <StreamPiNavbar>
         <StreamPiNavItem to="/">Home</StreamPiNavItem>
         <StreamPiNavItem to="/about">About</StreamPiNavItem>
