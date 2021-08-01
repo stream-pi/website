@@ -31,8 +31,8 @@
     "pretty:check": "prettier --check .",
     "pretty:fix": "prettier --write .",
     "checkTs": "tsc --noEmit",
-    "update-release:server": "node ./.scripts/updateRecentRelease.js server && prettier --write ./src/components/Page/Install/Helper/server.ts",
-    "update-release:client": "node ./.scripts/updateRecentRelease.js client && prettier --write ./src/components/Page/Install/Helper/client.ts",
+    "update-release:server": "node ./.scripts/updateRecentRelease.js server && prettier --write ./src/modules/Install/Helper/server.ts",
+    "update-release:client": "node ./.scripts/updateRecentRelease.js client && prettier --write ./src/modules/Install/Helper/client.ts",
     "update-release:all": "npm run update-release:server && npm run update-release:client",
     "preinstall": "node ./.scripts/nodeVersionCheck.js && node ./.scripts/npmVersionCheck.js"
   },
@@ -63,7 +63,7 @@
     "yup": "0.32.9"
   },
   "devDependencies": {
-    "@types/node": "15.12.4",
+    "@types/node": "14.17.7",
     "@types/nodemailer": "6.4.4",
     "@types/react": "17.0.14",
     "@types/react-dom": "17.0.9",
