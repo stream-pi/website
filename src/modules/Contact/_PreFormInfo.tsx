@@ -1,5 +1,5 @@
 import { FC } from "react";
-import Button from "react-bootstrap/Button";
+import Button from "@components/Button";
 import SectionWrapper from "@components/SectionWrapper";
 import ContributionModal from "@components/Modals/Contribution";
 

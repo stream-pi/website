@@ -2,7 +2,7 @@ import { FC, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
+import Button from "@components/Button";
 import StreamPiSEO from "@components/StreamPiSEO";
 import { ContactForm, PreFormInfo } from "@modules/Contact";
 import { useCountDown } from "@hooks/useCountDown";

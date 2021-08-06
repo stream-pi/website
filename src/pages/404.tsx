@@ -1,7 +1,7 @@
 import { FC, CSSProperties } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import Button from "react-bootstrap/Button";
+import Button from "@components/Button";
 import { useRouter } from "next/router";
 
 const Custom404: FC = () => {

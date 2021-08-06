@@ -3,7 +3,7 @@ import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
+import Button from "@components/Button";
 import { MetaData } from "@util/Config";
 import StreamPiSEO from "@components/StreamPiSEO";
 import { HomeCard, HomeInfo, StreamPiVideo } from "@modules/Home";
@@ -81,7 +81,7 @@ const StreamPiHome: FC = () => {
             variant="danger"
             href="https://www.patreon.com/streampi"
             target="_blank"
-            style={{ borderRadius: "25px" }}
+            shape="pill"
             className="px-4"
           >
             <span className="pe-2">

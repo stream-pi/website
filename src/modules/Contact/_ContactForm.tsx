@@ -8,7 +8,7 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
-import Button from "react-bootstrap/Button";
+import Button from "@components/Button";
 import { MyFormControl, MyFormLabel, MyFormSelect } from "./_MyFormControl";
 import ResponseMessage from "./_ResponseMessage";
 

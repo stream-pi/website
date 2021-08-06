@@ -2,7 +2,7 @@
 
 import { FC, useEffect, useState, MouseEvent } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Button from "react-bootstrap/Button";
+import Button from "@components/Button";
 import Fade from "react-bootstrap/Fade";
 
 /**
