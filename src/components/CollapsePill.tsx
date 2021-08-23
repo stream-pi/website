@@ -2,6 +2,7 @@ import { useState, FC } from "react";
 import Collapse from "react-bootstrap/Collapse";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SectionWrapper from "@components/SectionWrapper";
+import classNames from "classnames";
 
 type Props = {
   id: string;
@@ -12,8 +13,7 @@ type Props = {
 const CollapsePill: FC<Props> = ({ id, className, children, titleText }) => {
   const [open, setOpen] = useState(false);
 
-  const _className = className ? { className } : {};
-
+  const cn = classNames(className);
   return (
     <SectionWrapper>
       <button
@@ -30,7 +30,7 @@ const CollapsePill: FC<Props> = ({ id, className, children, titleText }) => {
         />
       </button>
       <Collapse in={open}>
-        <div id={id} {..._className}>
+        <div id={id} className={cn}>
           <br />
           {children}
         </div>
