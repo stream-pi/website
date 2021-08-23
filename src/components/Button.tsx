@@ -1,32 +1,53 @@
 import { forwardRef } from "react";
-import BsButton, { ButtonProps } from "react-bootstrap/Button";
+import { ButtonVariant } from "react-bootstrap/types";
+import { useButtonProps, ButtonProps } from "@restart/ui/Button";
 import classNames from "classnames";
 
 type StreamPiButtonProps = ButtonProps & {
+  as?: keyof JSX.IntrinsicElements;
+  active?: boolean;
+  variant?: ButtonVariant;
   shape?: "square" | "pill" | "default";
+  size?: "sm" | "lg";
 };
 
 const Button = forwardRef<HTMLElement, StreamPiButtonProps>(
-  ({ className, shape, as, variant = "primary", ...props }, ref) => {
-    //* Setup
-    const classes = classNames(className, {
-      "rounded-0": shape === "square",
-      "rounded-pill": shape === "pill",
+  (
+    {
+      as,
+      variant = "primary",
+      size,
+      active = false,
+      className,
+      disabled = false,
+      shape,
+      ...props
+    },
+    ref
+  ) => {
+    const [buttonProps, { tagName: Component }] = useButtonProps({
+      tagName: as,
+      disabled,
+      ...props,
     });
 
-    //* Should use if outline will be its own prop...
-    // const newVariant = classNames({
-    //   outline: outline || variant.includes("outline"),
-    //   [variant.replace("outline-", "")]: true,
-    // }).replace(/[\s]+/gi, "-");
-
     return (
-      <BsButton
-        as={as}
-        ref={ref}
-        variant={variant}
+      <Component
         {...props}
-        className={classes}
+        {...buttonProps}
+        ref={ref}
+        className={classNames(
+          "btn",
+          variant && `btn-${variant}`,
+          active && "active",
+          size && `btn-${size}`,
+          {
+            disabled: props.href && disabled,
+            "rounded-0": shape === "square",
+            "rounded-pill": shape === "pill",
+          },
+          className
+        )}
       />
     );
   }
