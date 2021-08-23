@@ -5,14 +5,8 @@ import Navbar from "react-bootstrap/Navbar";
 import Image from "next/image";
 import Container from "react-bootstrap/Container";
 
-//* REDUX
-import { useAppSelector } from "@store/hooks";
-import { getShowNavbar } from "@store/selectors";
-
 const StreamPiNavbar: FC = ({ children }) => {
-  //* REDUX
-  const showNavbar = useAppSelector(getShowNavbar);
-  return showNavbar ? (
+  return (
     <Navbar
       className="shadow streampi-navbar-class"
       collapseOnSelect
@@ -41,8 +35,6 @@ const StreamPiNavbar: FC = ({ children }) => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  ) : (
-    <></>
   );
 };
 

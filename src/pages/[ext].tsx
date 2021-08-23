@@ -6,7 +6,7 @@ import {
   ExtProps,
   LoadingIndicator,
 } from "@modules/Ext";
-import StreamPiSEO from "@components/StreamPiSEO";
+import Layout from "@modules/Layout";
 
 const ExtRedir = ({ pageData }: ExtProps) => {
   useEffect(() => {
@@ -14,18 +14,16 @@ const ExtRedir = ({ pageData }: ExtProps) => {
   }, [pageData.link]);
 
   return (
-    <>
-      <StreamPiSEO
-        flipOrder
-        title={`Redirect ${pageData.name}`}
-        description={`Redirecting to ${pageData.name}`}
-        hideNavbar
-        slug={pageData.link}
-      />
-
+    <Layout
+      flipOrder
+      title={`Redirect ${pageData.name}`}
+      description={`Redirecting to ${pageData.name}`}
+      hideNavbar
+      slug={pageData.link}
+    >
       <h1 className="text-center">Redirecting to {pageData.name}</h1>
       <LoadingIndicator />
-    </>
+    </Layout>
   );
 };
 

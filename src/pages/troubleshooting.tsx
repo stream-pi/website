@@ -2,17 +2,15 @@ import { FC } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { printOutDate } from "@util";
-import StreamPiSEO from "@components/StreamPiSEO";
+import Layout from "@modules/Layout";
 
 const Troubleshooting: FC = () => {
   const dateOfLastUpdate = "2021-06-07 11:25:50";
   return (
-    <>
-      <StreamPiSEO
-        title="Troubleshoot"
-        description="This page outlines common problems and troubleshooting steps for your Stream-Pi"
-      />
-
+    <Layout
+      title="Troubleshoot"
+      description="This page outlines common problems and troubleshooting steps for your Stream-Pi"
+    >
       <Row className="text-center animate__animated animate__fadeIn">
         <Col>
           <h1>Troubleshooting Stream-Pi</h1>
@@ -49,7 +47,7 @@ const Troubleshooting: FC = () => {
           <h2>Coming soon!</h2>
         </Col>
       </Row>
-    </>
+    </Layout>
   );
 };
 

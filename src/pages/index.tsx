@@ -4,15 +4,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "@components/Button";
-import { MetaData } from "@util/Config";
-import StreamPiSEO from "@components/StreamPiSEO";
 import { HomeCard, HomeInfo, StreamPiVideo } from "@modules/Home";
+import Layout from "@modules/Layout";
 
 const StreamPiHome: FC = () => {
   const { CP, FOS, HM } = HomeInfo;
   return (
-    <>
-      <StreamPiSEO title="Home" description={MetaData.description} flipOrder />
+    <Layout title="Home" flipOrder>
       {/* title */}
       <Row>
         <Col className="text-center animate__animated animate__fadeIn">
@@ -91,7 +89,7 @@ const StreamPiHome: FC = () => {
           </Button>
         </Col>
       </Row>
-    </>
+    </Layout>
   );
 };
 

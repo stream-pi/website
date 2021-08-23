@@ -1,15 +1,14 @@
 import { FC } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import StreamPiSEO from "@components/StreamPiSEO";
 import CollapsePill from "@components/CollapsePill";
+import Layout from "@modules/Layout";
 
 const StreamPiInstall: FC = () => {
   return (
-    <>
-      <StreamPiSEO
-        title="Install"
-        description="Download and Setup your Stream-Pi using these instructions!"
-      />
+    <Layout
+      title="Install"
+      description="Download and Setup your Stream-Pi using these instructions!"
+    >
       <div className="animate__animated animate__fadeIn">
         <h1 className="text-center pb-4">How to Setup Stream-Pi</h1>
         <p className="text-center">
@@ -77,7 +76,7 @@ const StreamPiInstall: FC = () => {
           can provide the best experience possible!
         </p>
       </div>
-    </>
+    </Layout>
   );
 };
 
