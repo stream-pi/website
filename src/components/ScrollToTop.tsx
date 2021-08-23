@@ -40,7 +40,7 @@ const ScrollToTop: FC = () => {
 
   return (
     <Fade in={isVisible} unmountOnExit mountOnEnter>
-      <div id="scroll-to-top">
+      <div className="position-fixed" style={{ bottom: "1rem", right: "1rem" }}>
         <Button
           onClick={scroll}
           variant="primary"
