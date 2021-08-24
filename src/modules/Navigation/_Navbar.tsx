@@ -15,7 +15,7 @@ const StreamPiNavbar: FC = ({ children }) => {
       variant="dark"
     >
       <Container fluid>
-        <Navbar.Brand className="d-sm-none">
+        <Navbar.Brand className="d-flex d-sm-none">
           <Image
             src="/favicon.ico"
             className="align-top d-inline-block"
