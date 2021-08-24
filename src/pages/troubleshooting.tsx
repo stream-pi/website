@@ -10,6 +10,8 @@ const Troubleshooting: FC = () => {
     <Layout
       title="Troubleshoot"
       description="This page outlines common problems and troubleshooting steps for your Stream-Pi"
+      underConstruction
+      pageSource="/troubleshooting.tsx"
     >
       <Row className="text-center animate__animated animate__fadeIn">
         <Col>

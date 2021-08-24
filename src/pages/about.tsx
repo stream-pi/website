@@ -18,7 +18,7 @@ const StreamPiAbout: FC = () => {
       description="Learn about Stream-Pi and the team behind it"
     >
       <RowCol className="animate__animated animate__fadeIn">
-        <h2 className="streamPiAbout">What is "Stream-Pi"?</h2>
+        <h1>What is "Stream-Pi"?</h1>
       </RowCol>
       <RowCol className="mt-4 animate__animated animate__fadeInUp">
         <p>
