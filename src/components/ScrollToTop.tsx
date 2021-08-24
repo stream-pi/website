@@ -2,7 +2,7 @@
 
 import { FC, useEffect, useState, MouseEvent } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Button from "react-bootstrap/Button";
+import Button from "@components/Button";
 import Fade from "react-bootstrap/Fade";
 
 /**
@@ -40,7 +40,7 @@ const ScrollToTop: FC = () => {
 
   return (
     <Fade in={isVisible} unmountOnExit mountOnEnter>
-      <div id="scroll-to-top">
+      <div className="position-fixed" style={{ bottom: "1rem", right: "1rem" }}>
         <Button
           onClick={scroll}
           variant="primary"

@@ -2,7 +2,8 @@ import { useEffect, MutableRefObject, RefObject, useCallback } from "react";
 
 function useOutsideClick<T extends HTMLElement>(
   ref: MutableRefObject<T> | RefObject<T>,
-  callback: () => any
+  callback: () => any,
+  options?: boolean | AddEventListenerOptions
 ) {
   //* setup the callback
   const handleClick = useCallback(
@@ -16,11 +17,11 @@ function useOutsideClick<T extends HTMLElement>(
 
   //* Add the listener
   useEffect(() => {
-    document.addEventListener("click", handleClick);
+    document.addEventListener("click", handleClick, options);
     return () => {
-      document.removeEventListener("click", handleClick);
+      document.removeEventListener("click", handleClick, options);
     };
-  }, [handleClick]);
+  }, [handleClick, options]);
 }
 
 export default useOutsideClick;

@@ -1,6 +1,7 @@
 export default {
   Version: "1.0.0-EA+4-SNAPSHOT",
-  ReleasePage: "https://github.com/stream-pi/server/releases",
+  ReleasePage:
+    "https://github.com/stream-pi/server/releases/tag/1.0.0-EA%2B4-SNAPSHOT",
   Downloads: [
     {
       Name: "stream-pi-server-linux-aarch64-1.0.0-EA+4-SNAPSHOT-executable.zip",

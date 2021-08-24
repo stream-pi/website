@@ -13,7 +13,7 @@ type FooterColProps = {
 
 const FooterColumn: FC<FooterColProps> = ({ header, links }) => {
   return (
-    <Col xs={6} sm className="mb-3">
+    <Col className="mb-3">
       <h5>{header}</h5>
       {links.map(({ name, href }) => (
         <li

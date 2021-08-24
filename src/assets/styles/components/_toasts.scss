@@ -1,30 +1,17 @@
 @import "~react-toastify/dist/ReactToastify.css";
 // ^^ override toast classes in the file above ^^
 
-@mixin displayed-toast(
-  $colorName,
-  $backgroundColorValue,
-  $borderColorValue,
-  $colorValue
-) {
-  @include alert-variant($backgroundColorValue, $borderColorValue, $colorValue);
-  @extend .alert;
-  @extend .alert-#{$colorName};
-  // @extend .shadow-sm;
-}
-
 @mixin toast-color-classes($className, $colorName, $colorValue) {
   &__toast--#{$className} {
-    @include displayed-toast(
-      $colorName,
-      theme-color-level($colorName, $alert-bg-level),
-      theme-color-level($colorName, $alert-border-level),
-      theme-color-level($colorName, $alert-color-level)
-    );
+    @extend .alert;
+    @extend .alert-#{$colorName};
   }
   &__close-button {
     &--#{$className} {
-      color: theme-color-level($colorName, $alert-color-level);
+      color: shift-color(
+        map-get($theme-colors, $colorName),
+        $alert-color-scale
+      );
     }
   }
   &__progress-bar {

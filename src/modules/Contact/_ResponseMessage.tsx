@@ -9,7 +9,7 @@ type Props = {
 const ResponseMessage: FC<Props> = ({ title, long_msg, icon }) => {
   return (
     <>
-      <h4>
+      <h4 className="mb-0">
         {icon} {title}
       </h4>
       {long_msg && <p className="m-0">{long_msg}</p>}

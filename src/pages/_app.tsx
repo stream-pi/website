@@ -13,13 +13,7 @@ import type { AppProps } from "next/app";
 import { useEffect } from "react";
 import useHashChange from "@hooks/useHashChange";
 import useInfoBanner from "@hooks/useInfoBanner";
-import { ToastContainer } from "react-toastify";
-import Container from "react-bootstrap/Container";
-import StreamPiNavItem from "@components/Navigation/NavItem";
-import StreamPiFooter from "@components/Footer";
-import FooterColumn from "@components/Footer/Column";
-import StreamPiNavbar from "@components/Navbar";
-import ThemeSwitch from "@components/ThemeSwitch";
+import { ToastContainer, Zoom } from "react-toastify";
 import ScrollToTop from "@components/ScrollToTop";
 
 //* REDUX
@@ -45,56 +39,12 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <Provider store={store}>
-      <ToastContainer position="top-center" enableMultiContainer />
-      <StreamPiNavbar>
-        <StreamPiNavItem to="/">Home</StreamPiNavItem>
-        <StreamPiNavItem to="/about">About</StreamPiNavItem>
-        <StreamPiNavItem to="/features">Features</StreamPiNavItem>
-        <StreamPiNavItem to="/contact">Contact</StreamPiNavItem>
-        <StreamPiNavItem to="/install">Install</StreamPiNavItem>
-        <StreamPiNavItem to="/troubleshooting">Troubleshooting</StreamPiNavItem>
-        <ThemeSwitch />
-      </StreamPiNavbar>
-      <Container style={{ paddingTop: "4rem" }} fluid="md">
-        <Component {...pageProps} />
-      </Container>
-      <StreamPiFooter>
-        <FooterColumn
-          header={"Links"}
-          links={[
-            {
-              name: "Documentation",
-              href: "https://documentation.stream-pi.com",
-            },
-            {
-              name: "Roadmap",
-              href: "https://github.com/orgs/stream-pi/projects/2",
-            },
-          ]}
-        />
-        <FooterColumn
-          header={"Social"}
-          links={[
-            {
-              name: "Twitter",
-              href: "https://twitter.com/stream_pi",
-            },
-          ]}
-        />
-        <FooterColumn
-          header={"Community"}
-          links={[
-            {
-              name: "Discord",
-              href: "https://discord.gg/BExqGmk",
-            },
-            {
-              name: "Matrix",
-              href: "https://matrix.to/#/!hTwUYZonUXThjkMhCD:matrix.org?via=matrix.org",
-            },
-          ]}
-        />
-      </StreamPiFooter>
+      <ToastContainer
+        transition={Zoom}
+        position="top-center"
+        enableMultiContainer
+      />
+      <Component {...pageProps} />
       {/* For Site Updates - useInfoBanner */}
       <ToastContainer
         position="bottom-center"

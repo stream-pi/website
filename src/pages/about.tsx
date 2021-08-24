@@ -1,5 +1,4 @@
 import { FC } from "react";
-import StreamPiSEO from "@components/StreamPiSEO";
 import {
   CoreDevelopers,
   // CoreCommunityRelations,
@@ -10,16 +9,16 @@ import {
   TeamMemberRow,
   JavaDevelopers,
 } from "@modules/About";
+import Layout from "@modules/Layout";
 
 const StreamPiAbout: FC = () => {
   return (
-    <>
-      <StreamPiSEO
-        title="About"
-        description="Learn about Stream-Pi and the team behind it"
-      />
+    <Layout
+      title="About"
+      description="Learn about Stream-Pi and the team behind it"
+    >
       <RowCol className="animate__animated animate__fadeIn">
-        <h2 className="streamPiAbout">What is "Stream-Pi"?</h2>
+        <h1>What is "Stream-Pi"?</h1>
       </RowCol>
       <RowCol className="mt-4 animate__animated animate__fadeInUp">
         <p>
@@ -177,7 +176,7 @@ const StreamPiAbout: FC = () => {
           the client, and an alert popup is shown to the user on the Server.
         </p>
       </RowCol>
-    </>
+    </Layout>
   );
 };
 

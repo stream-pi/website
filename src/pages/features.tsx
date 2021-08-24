@@ -1,22 +1,21 @@
 import { FC } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import StreamPiSEO from "@components/StreamPiSEO";
 import {
   chunkedFeatures,
   chunkedPlanFeatures,
   FeatureCol,
   FeatureRow,
 } from "@modules/Features";
+import Layout from "@modules/Layout";
 
 const StreamPiFeatures: FC = () => {
   return (
-    <>
-      <StreamPiSEO
-        title="Features"
-        description="The Stream-Pi has a large variety of features, see about some of the most notable ones here!"
-        flipOrder
-      />
+    <Layout
+      title="Features"
+      description="The Stream-Pi has a large variety of features, see about some of the most notable ones here!"
+      flipOrder
+    >
       {/* title */}
       <Row className="pt-3 animate__animated animate__fadeIn">
         <Col className="text-center">
@@ -56,7 +55,7 @@ const StreamPiFeatures: FC = () => {
           ))}
         </FeatureRow>
       ))}
-    </>
+    </Layout>
   );
 };
 

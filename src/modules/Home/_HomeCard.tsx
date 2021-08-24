@@ -2,7 +2,7 @@ import { FC, Fragment } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
+import Button from "@components/Button";
 import type { HomeCardProps } from "./Helper";
 
 const HomeCard: FC<HomeCardProps> = ({ icons, buttons, title, children }) => {

@@ -1,5 +1,5 @@
 import { useState, ReactNode, FC } from "react";
-import Button from "react-bootstrap/Button";
+import Button from "@components/Button";
 import Modal from "react-bootstrap/Modal";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";

@@ -7,8 +7,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import { MyFormControl, MyFormLabel } from "./_MyFormControl";
+import Row from "react-bootstrap/Row";
+import Button from "@components/Button";
+import { MyFormControl, MyFormLabel, MyFormSelect } from "./_MyFormControl";
 import ResponseMessage from "./_ResponseMessage";
 
 const ContactForm: FC = () => {
@@ -88,12 +89,16 @@ const ContactForm: FC = () => {
 
   return (
     <Card className="animate__animated animate__fadeIn bg-card">
-      <Card.Body className="pb-0 pt-2">
+      <Card.Body>
         <Form noValidate onSubmit={handleSubmit(onSubmit)} autoComplete="off">
           {/* Name & Email */}
-          <Form.Row className="pt-2">
+          <Row xs={{ cols: 1 }} md={{ cols: 2 }} className="mb-3">
             {/* Name */}
-            <Form.Group as={Col} md="6" controlId="ContactNameInput">
+            <Form.Group
+              as={Col}
+              className="position-relative"
+              controlId="ContactNameInput"
+            >
               <MyFormLabel label="Name" IcoPre="fas" IcoName="user" />
               <MyFormControl
                 placeholder="Your Name"
@@ -105,7 +110,11 @@ const ContactForm: FC = () => {
             </Form.Group>
 
             {/* Email */}
-            <Form.Group as={Col} md="6" controlId="ContactEmailInput">
+            <Form.Group
+              as={Col}
+              className="position-relative"
+              controlId="ContactEmailInput"
+            >
               <MyFormLabel label="Email" IcoPre="fas" IcoName="envelope" />
               <MyFormControl
                 placeholder="Your Email Address"
@@ -115,37 +124,43 @@ const ContactForm: FC = () => {
                 disabled={disabled}
               />
             </Form.Group>
-          </Form.Row>
+          </Row>
 
           {/* Subject */}
-          <Form.Row>
-            <Form.Group as={Col} controlId="ContactSubjectSelect">
+          <Row className="mb-3">
+            <Form.Group
+              as={Col}
+              className="position-relative"
+              controlId="ContactSubjectSelect"
+            >
               <MyFormLabel
                 label="Subject"
                 IcoPre="fas"
                 IcoName="question-circle"
                 subtext="(Select One)"
               />
-              <MyFormControl
+              <MyFormSelect
                 isInvalid={!!errors.contactSubject}
                 errorText={errors.contactSubject?.message}
                 {...register("contactSubject")}
                 disabled={disabled}
-                as="select"
-                custom
               >
                 {validSubjects.map((sub, idx) => (
                   <option key={`option${idx}`} value={sub}>
                     {sub}
                   </option>
                 ))}
-              </MyFormControl>
+              </MyFormSelect>
             </Form.Group>
-          </Form.Row>
+          </Row>
 
           {/* Message */}
-          <Form.Row>
-            <Form.Group as={Col} controlId="ContactMessageInput">
+          <Row className="mb-3">
+            <Form.Group
+              as={Col}
+              className="position-relative"
+              controlId="ContactMessageInput"
+            >
               <MyFormLabel label="Message" IcoPre="fas" IcoName="comment" />
               <MyFormControl
                 placeholder="Your Message"
@@ -158,15 +173,15 @@ const ContactForm: FC = () => {
                 maxLength={6000}
               />
             </Form.Group>
-          </Form.Row>
+          </Row>
 
-          {/* Recaptcha */}
-          <div className="form-group mt-3" id="rcap">
+          {/* Recaptcha - Checkbox */}
+          <div className="mt-3" id="rcap">
             <ReCAPTCHA ref={recaptchaRef} sitekey={sKey} />
           </div>
 
           {/* Button */}
-          <Form.Row>
+          <Row className="mb-2">
             <Form.Group as={Col} controlId="sendButton">
               <Button
                 className="w-100"
@@ -179,7 +194,7 @@ const ContactForm: FC = () => {
                 Send Mail
               </Button>
             </Form.Group>
-          </Form.Row>
+          </Row>
         </Form>
       </Card.Body>
     </Card>

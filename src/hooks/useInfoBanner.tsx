@@ -2,7 +2,7 @@ import { useEffect, ReactNode, FC } from "react";
 import dayjs from "dayjs";
 import { toast } from "react-toastify";
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
-import Button from "react-bootstrap/Button";
+import Button from "@components/Button";
 
 dayjs.extend(isSameOrAfter);
 

@@ -1,30 +1,20 @@
 import { FC } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import StreamPiSEO from "@components/StreamPiSEO";
 import CollapsePill from "@components/CollapsePill";
+import Layout from "@modules/Layout";
+import Button from "@components/Button";
 
 const StreamPiInstall: FC = () => {
   return (
-    <>
-      <StreamPiSEO
-        title="Install"
-        description="Download and Setup your Stream-Pi using these instructions!"
-      />
+    <Layout
+      title="Install"
+      description="Download and Setup your Stream-Pi using these instructions!"
+    >
       <div className="animate__animated animate__fadeIn">
         <h1 className="text-center pb-4">How to Setup Stream-Pi</h1>
         <p className="text-center">
           To view setup / install instructions, please click on the software
           type (server or client) and then click the button that pertains to
           your device.
-        </p>
-        <p style={{ fontSize: "1.2rem" }} className="text-center">
-          NOTE: There are instructions for the{" "}
-          <strong>
-            Raspberry-Pi <FontAwesomeIcon icon={["fab", "raspberry-pi"]} />
-          </strong>{" "}
-          specifically, look for the button with the "
-          <FontAwesomeIcon icon={["fab", "raspberry-pi"]} />" on it! (it'll
-          shake)
         </p>
       </div>
       {/* Disclaimer Start */}
@@ -70,14 +60,41 @@ const StreamPiInstall: FC = () => {
         </CollapsePill>
       </div>
       {/* Disclaimer End */}
+      {/* THIS IS TEMPORARY */}
       <div className="text-center">
         <p>
           We are currently looking for the best way to distribute and roll out
           the install instructions. Please bear with us while we make sure we
           can provide the best experience possible!
         </p>
+        <p>
+          For now, please visit our GitHub and look at the relases for the
+          client and server
+        </p>
+        <div className="d-inline-flex d-md-flex flex-column flex-md-row justify-content-center animate__animated animate__fadeIn">
+          <Button
+            href="https://github.com/stream-pi/server/releases"
+            variant="info"
+            className="me-md-1"
+            shape="pill"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Server Releases
+          </Button>
+          <Button
+            href="https://github.com/stream-pi/client/releases"
+            variant="info"
+            className="ms-md-1 mt-2 mt-md-0"
+            shape="pill"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Client Releases
+          </Button>
+        </div>
       </div>
-    </>
+    </Layout>
   );
 };
 
