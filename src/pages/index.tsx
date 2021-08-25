@@ -56,9 +56,9 @@ const StreamPiHome: FC = () => {
           {...HM("How it's made", "How it works")}
           title="Highly Modular" //* Maybe "Developer Friendly"?
         >
-          Stream-Pi supports offers a rich API, that developers can use to make
-          their own custom Actions. Not only that, Stream-Pi has a rich theme
-          system where users can develop their own themes with JavaFX CSS.
+          Stream-Pi offers a rich API, that developers can use to make their own
+          custom Actions. Not only that, Stream-Pi has a rich theme system where
+          users can develop their own themes with JavaFX CSS.
         </HomeCard>
       </Row>
       {/* video */}

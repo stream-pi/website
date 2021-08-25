@@ -22,13 +22,13 @@ const StreamPiFeatures: FC = () => {
           <h1>What makes the Stream-Pi Great?</h1>
         </Col>
       </Row>
-      <Row>
+      {/* <Row>
         <Col className="text-center">
           <p>
             For more in depth information, please check our our documentation.
           </p>
         </Col>
-      </Row>
+      </Row> */}
       {/* existing features */}
       {chunkedFeatures.map((feat, idx) => (
         <FeatureRow key={`implementedRow${idx}`}>

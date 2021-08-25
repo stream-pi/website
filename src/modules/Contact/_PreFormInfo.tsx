@@ -76,8 +76,8 @@ const PreFormInfo: FC = ({ children }) => {
         <strong>DO NOT include any personal information in your email.</strong>
       </p>
       <p className="mb-3">
-        The button bellow will be available to click after being on this page
-        for 8 seconds. After clicking, the contact form will be available.
+        The button below will be available to click after being on this page for
+        8 seconds. After clicking, the contact form will be available.
       </p>
       {children}
     </div>
