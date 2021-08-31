@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from "react";
 /**
  *
  * @param totalTime countdown length in `MS`
- * @param changeInterval the interval subtracted from `totalTime`
  * @returns seconds remaining and if the countdown is still going
  */
 export function useCountDown(totalTime: number) {
@@ -37,7 +36,6 @@ export function useCountDown(totalTime: number) {
  * Uses `ref` objects to store interval and timeout
  *
  * @param totalTime countdown length in `MS`
- * @param changeInterval the interval subtracted from `totalTime`
  * @returns seconds remaining and if the countdown is still going
  */
 export function useCountDownRef(totalTime: number) {
