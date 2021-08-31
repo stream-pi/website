@@ -34,7 +34,14 @@ function MyApp({ Component, pageProps }: AppProps) {
       "stream-pi.com has been rebuilt using React! It may look similar but it is a NEW site with NEW functionality.",
     toastId: "new-site-toast",
     stopShowing: "2022-01-31",
-    keysToDelete: ["test-toast", "theme"],
+    keysToDelete: [
+      "test-toast",
+      "theme",
+      "AvoInspectorSessionTimestamp",
+      "AvoInspectorEvents",
+      "AvoInspectorSessionId",
+      "AvoInstallationId",
+    ],
   });
 
   return (
