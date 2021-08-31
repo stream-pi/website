@@ -92,11 +92,11 @@ const ContactForm: FC = () => {
       <Card.Body>
         <Form noValidate onSubmit={handleSubmit(onSubmit)} autoComplete="off">
           {/* Name & Email */}
-          <Row xs={{ cols: 1 }} md={{ cols: 2 }} className="mb-3">
+          <Row xs={{ cols: 1 }} md={{ cols: 2 }}>
             {/* Name */}
             <Form.Group
               as={Col}
-              className="position-relative"
+              className="position-relative mb-3"
               controlId="ContactNameInput"
             >
               <MyFormLabel label="Name" IcoPre="fas" IcoName="user" />
@@ -112,7 +112,7 @@ const ContactForm: FC = () => {
             {/* Email */}
             <Form.Group
               as={Col}
-              className="position-relative"
+              className="position-relative mb-3"
               controlId="ContactEmailInput"
             >
               <MyFormLabel label="Email" IcoPre="fas" IcoName="envelope" />
@@ -127,10 +127,10 @@ const ContactForm: FC = () => {
           </Row>
 
           {/* Subject */}
-          <Row className="mb-3">
+          <Row>
             <Form.Group
               as={Col}
-              className="position-relative"
+              className="position-relative mb-3"
               controlId="ContactSubjectSelect"
             >
               <MyFormLabel
@@ -155,10 +155,10 @@ const ContactForm: FC = () => {
           </Row>
 
           {/* Message */}
-          <Row className="mb-3">
+          <Row>
             <Form.Group
               as={Col}
-              className="position-relative"
+              className="position-relative mb-3"
               controlId="ContactMessageInput"
             >
               <MyFormLabel label="Message" IcoPre="fas" IcoName="comment" />
