@@ -1,17 +1,17 @@
 //* Core
-import { FC, useEffect } from "react";
+import { useEffect, memo } from "react";
 import useDarkMode from "use-dark-mode";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import useRenderOnMount from "@hooks/useRenderOnMount";
+import useIsClient from "@hooks/useIsClient";
 
 //* REDUX
 import { useAppDispatch } from "@store/hooks";
 import { clientActions } from "@store/Client/slice";
 
-const ThemeSwitch: FC = () => {
+const ThemeSwitch = () => {
   //* Core
   const { value, toggle } = useDarkMode(true);
-  const mounted = useRenderOnMount();
+  const isClient = useIsClient();
 
   //* REDUX
   const dispatch = useAppDispatch();
@@ -22,7 +22,7 @@ const ThemeSwitch: FC = () => {
 
   return (
     <div className="my-auto mx-auto">
-      {mounted && (
+      {isClient && (
         <label
           className="toggle-class mb-0 d-flex position-relative align-items-center"
           htmlFor="theme-toggler"
@@ -45,4 +45,4 @@ const ThemeSwitch: FC = () => {
   );
 };
 
-export default ThemeSwitch;
+export default memo(ThemeSwitch);
