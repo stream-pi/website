@@ -1,14 +1,15 @@
 import { FC } from "react";
 import CollapsePill from "@components/CollapsePill";
-import Layout from "@modules/Layout";
 import Button from "@components/Button";
+import StreamPiSEO from "@modules/Layout/Head";
 
 const StreamPiInstall: FC = () => {
   return (
-    <Layout
-      title="Install"
-      description="Download and Setup your Stream-Pi using these instructions!"
-    >
+    <>
+      <StreamPiSEO
+        title="Install"
+        description="Download and Setup your Stream-Pi using these instructions!"
+      />
       <div className="animate__animated animate__fadeIn">
         <h1 className="text-center pb-4">How to Setup Stream-Pi</h1>
         <p className="text-center">
@@ -94,7 +95,7 @@ const StreamPiInstall: FC = () => {
           </Button>
         </div>
       </div>
-    </Layout>
+    </>
   );
 };
 

@@ -1,7 +1,6 @@
 import { FC } from "react";
 import Container from "react-bootstrap/Container";
 import { StreamPiNavbar, StreamPiNavItem } from "@modules/Navigation";
-import StreamPiSEO, { SEOProps } from "./Head";
 import FooterColumn from "./Footer/Column";
 import StreamPiFooter from "./Footer";
 import ThemeSwitch from "@components/ThemeSwitch";
@@ -9,7 +8,7 @@ import UnderConstruction from "@components/UnderConstruction";
 import Button from "@components/Button";
 import Link from "next/link";
 
-type LayoutProps = SEOProps & {
+type LayoutProps = {
   underConstruction?: boolean;
   hideNavbar?: boolean;
   pageSource?: string;
@@ -20,12 +19,10 @@ const Layout: FC<LayoutProps> = ({
   underConstruction = false,
   hideNavbar = false,
   pageSource,
-  ...head
 }) => {
   //TODO: experiment with having the container use the flex-auto class instead of the main tag
   return (
     <>
-      <StreamPiSEO {...head} />
       {!hideNavbar && (
         <StreamPiNavbar>
           <StreamPiNavItem to="/">Home</StreamPiNavItem>

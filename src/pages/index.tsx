@@ -1,16 +1,17 @@
-import { FC } from "react";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "@components/Button";
 import { HomeCard, HomeInfo, StreamPiVideo } from "@modules/Home";
-import Layout from "@modules/Layout";
+import StreamPiSEO from "@modules/Layout/Head";
+import { PageView } from "@util/Types";
 
-const StreamPiHome: FC = () => {
+const StreamPiHome: PageView = () => {
   const { CP, FOS, HM } = HomeInfo;
   return (
-    <Layout title="Home" flipOrder>
+    <>
+      <StreamPiSEO title="Home" flipOrder />
       {/* title */}
       <Row>
         <Col className="text-center animate__animated animate__fadeIn">
@@ -89,7 +90,7 @@ const StreamPiHome: FC = () => {
           </Button>
         </Col>
       </Row>
-    </Layout>
+    </>
   );
 };
 

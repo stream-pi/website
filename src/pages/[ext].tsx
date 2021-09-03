@@ -6,24 +6,26 @@ import {
   ExtProps,
   LoadingIndicator,
 } from "@modules/Ext";
-import Layout from "@modules/Layout";
+import { PageView } from "@util/Types";
+import StreamPiSEO from "@modules/Layout/Head";
 
-const ExtRedir = ({ pageData }: ExtProps) => {
+const ExtRedir: PageView<ExtProps> = ({ pageData }) => {
   useEffect(() => {
     window.location.replace(pageData.link);
   }, [pageData.link]);
 
   return (
-    <Layout
-      flipOrder
-      title={`Redirect ${pageData.name}`}
-      description={`Redirecting to ${pageData.name}`}
-      hideNavbar
-      slug={pageData.link}
-    >
+    <>
+      <StreamPiSEO
+        flipOrder
+        title={`Redirect ${pageData.name}`}
+        description={`Redirecting to ${pageData.name}`}
+        hideNavbar
+        slug={pageData.link}
+      />
       <h1 className="text-center">Redirecting to {pageData.name}</h1>
       <LoadingIndicator />
-    </Layout>
+    </>
   );
 };
 
@@ -48,4 +50,5 @@ export const getStaticProps = async ({ params }: ExtParams) => {
   };
 };
 
+ExtRedir.hideNavbar = true;
 export default ExtRedir;
