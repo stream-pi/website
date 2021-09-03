@@ -1,27 +1,32 @@
-import { useEffect, MutableRefObject, RefObject, useCallback } from "react";
+import { RefObject, useEffect } from "react";
 
-function useOutsideClick<T extends HTMLElement>(
-  ref: MutableRefObject<T> | RefObject<T>,
-  callback: () => any,
+function useOutsideClick<T extends HTMLElement = HTMLElement>(
+  ref: RefObject<T>,
+  handler: (event: MouseEvent | TouchEvent) => void,
   options?: boolean | AddEventListenerOptions
-) {
-  //* setup the callback
-  const handleClick = useCallback(
-    (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as HTMLElement)) {
-        callback();
-      }
-    },
-    [callback, ref]
-  );
-
-  //* Add the listener
+): void {
   useEffect(() => {
-    document.addEventListener("click", handleClick, options);
-    return () => {
-      document.removeEventListener("click", handleClick, options);
+    const listener = (event: MouseEvent | TouchEvent) => {
+      const el = ref?.current;
+
+      // Do nothing if clicking ref's element or descendent elements
+      if (!el || el.contains(event.target as Node)) {
+        return;
+      }
+
+      handler(event);
     };
-  }, [handleClick, options]);
+
+    document.addEventListener(`mousedown`, listener, options);
+    document.addEventListener(`touchstart`, listener, options);
+
+    return () => {
+      document.removeEventListener(`mousedown`, listener);
+      document.removeEventListener(`touchstart`, listener);
+    };
+
+    // Reload only if ref or handler changes
+  }, [ref, handler, options]);
 }
 
 export default useOutsideClick;
