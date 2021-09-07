@@ -1,17 +1,18 @@
+import { PageView } from "@util/Types";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { printOutDate } from "@util";
-import StreamPiSEO from "@modules/Layout/Head";
-import { PageView } from "@util/Types";
+import PageLayout from "@modules/Layout/Page";
 
 const Troubleshooting: PageView = () => {
   const dateOfLastUpdate = "2021-06-07 11:25:50";
   return (
-    <>
-      <StreamPiSEO
-        title="Troubleshoot"
-        description="This page outlines common problems and troubleshooting steps for your Stream-Pi"
-      />
+    <PageLayout
+      title="Troubleshoot"
+      description="This page outlines common problems and troubleshooting steps for your Stream-Pi"
+      underConstruction
+      pageSource="/troubleshooting.tsx"
+    >
       <Row className="text-center animate__animated animate__fadeIn">
         <Col>
           <h1>Troubleshooting Stream-Pi</h1>
@@ -48,10 +49,8 @@ const Troubleshooting: PageView = () => {
           <h2>Coming soon!</h2>
         </Col>
       </Row>
-    </>
+    </PageLayout>
   );
 };
 
-Troubleshooting.underConstruction = true;
-Troubleshooting.pageSource = "/troubleshooting.tsx";
 export default Troubleshooting;

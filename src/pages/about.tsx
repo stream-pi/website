@@ -1,3 +1,4 @@
+import { PageView } from "@util/Types";
 import {
   CoreDevelopers,
   // CoreCommunityRelations,
@@ -8,16 +9,14 @@ import {
   TeamMemberRow,
   JavaDevelopers,
 } from "@modules/About";
-import StreamPiSEO from "@modules/Layout/Head";
-import { PageView } from "@util/Types";
+import PageLayout from "@modules/Layout/Page";
 
 const StreamPiAbout: PageView = () => {
   return (
-    <>
-      <StreamPiSEO
-        title="About"
-        description="Learn about Stream-Pi and the team behind it"
-      />
+    <PageLayout
+      title="About"
+      description="Learn about Stream-Pi and the team behind it"
+    >
       <RowCol className="animate__animated animate__fadeIn">
         <h1>What is "Stream-Pi"?</h1>
       </RowCol>
@@ -177,7 +176,7 @@ const StreamPiAbout: PageView = () => {
           the client, and an alert popup is shown to the user on the Server.
         </p>
       </RowCol>
-    </>
+    </PageLayout>
   );
 };
 

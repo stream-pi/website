@@ -1,3 +1,4 @@
+import { PageView } from "@util/Types";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import {
@@ -6,17 +7,15 @@ import {
   FeatureCol,
   FeatureRow,
 } from "@modules/Features";
-import StreamPiSEO from "@modules/Layout/Head";
-import { PageView } from "@util/Types";
+import PageLayout from "@modules/Layout/Page";
 
 const StreamPiFeatures: PageView = () => {
   return (
-    <>
-      <StreamPiSEO
-        title="Features"
-        description="The Stream-Pi has a large variety of features, see about some of the most notable ones here!"
-        flipOrder
-      />
+    <PageLayout
+      title="Features"
+      description="The Stream-Pi has a large variety of features, see about some of the most notable ones here!"
+      flipOrder
+    >
       {/* title */}
       <Row className="pt-3 animate__animated animate__fadeIn">
         <Col className="text-center">
@@ -56,7 +55,7 @@ const StreamPiFeatures: PageView = () => {
           ))}
         </FeatureRow>
       ))}
-    </>
+    </PageLayout>
   );
 };
 
