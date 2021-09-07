@@ -1,15 +1,16 @@
-import { FC, CSSProperties } from "react";
+import { CSSProperties } from "react";
+import { PageView } from "@util/Types";
 import Link from "next/link";
 import Button from "@components/Button";
 import { useRouter } from "next/router";
-import Layout from "@modules/Layout";
+import PageLayout from "@modules/Layout/Page";
 
-const Custom404: FC = () => {
+const Custom404: PageView = () => {
   const router = useRouter();
 
   const code: CSSProperties = { color: "inherit", fontWeight: "bold" };
   return (
-    <Layout title="Resource Not Found">
+    <PageLayout title="Resource Not Found">
       <div className="text-center">
         <h2 className="mt-5">Error 404</h2>
         <h1>Resource Not found</h1>
@@ -28,7 +29,7 @@ const Custom404: FC = () => {
           <Button className="mt-5">Go Home</Button>
         </Link>
       </div>
-    </Layout>
+    </PageLayout>
   );
 };
 

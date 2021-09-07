@@ -1,11 +1,11 @@
 import { FC } from "react";
 import CollapsePill from "@components/CollapsePill";
-import Layout from "@modules/Layout";
 import Button from "@components/Button";
+import PageLayout from "@modules/Layout/Page";
 
 const StreamPiInstall: FC = () => {
   return (
-    <Layout
+    <PageLayout
       title="Install"
       description="Download and Setup your Stream-Pi using these instructions!"
     >
@@ -94,7 +94,7 @@ const StreamPiInstall: FC = () => {
           </Button>
         </div>
       </div>
-    </Layout>
+    </PageLayout>
   );
 };
 

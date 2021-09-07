@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { PageView } from "@util/Types";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import {
@@ -7,11 +7,11 @@ import {
   FeatureCol,
   FeatureRow,
 } from "@modules/Features";
-import Layout from "@modules/Layout";
+import PageLayout from "@modules/Layout/Page";
 
-const StreamPiFeatures: FC = () => {
+const StreamPiFeatures: PageView = () => {
   return (
-    <Layout
+    <PageLayout
       title="Features"
       description="The Stream-Pi has a large variety of features, see about some of the most notable ones here!"
       flipOrder
@@ -55,7 +55,7 @@ const StreamPiFeatures: FC = () => {
           ))}
         </FeatureRow>
       ))}
-    </Layout>
+    </PageLayout>
   );
 };
 

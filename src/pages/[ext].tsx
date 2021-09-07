@@ -6,15 +6,16 @@ import {
   ExtProps,
   LoadingIndicator,
 } from "@modules/Ext";
-import Layout from "@modules/Layout";
+import { PageView } from "@util/Types";
+import PageLayout from "@modules/Layout/Page";
 
-const ExtRedir = ({ pageData }: ExtProps) => {
+const ExtRedir: PageView<ExtProps> = ({ pageData }) => {
   useEffect(() => {
     window.location.replace(pageData.link);
   }, [pageData.link]);
 
   return (
-    <Layout
+    <PageLayout
       flipOrder
       title={`Redirect ${pageData.name}`}
       description={`Redirecting to ${pageData.name}`}
@@ -23,7 +24,7 @@ const ExtRedir = ({ pageData }: ExtProps) => {
     >
       <h1 className="text-center">Redirecting to {pageData.name}</h1>
       <LoadingIndicator />
-    </Layout>
+    </PageLayout>
   );
 };
 
@@ -48,4 +49,5 @@ export const getStaticProps = async ({ params }: ExtParams) => {
   };
 };
 
+ExtRedir.hideNavbar = true;
 export default ExtRedir;

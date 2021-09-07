@@ -1,18 +1,19 @@
-import { FC, useState } from "react";
+import { useState } from "react";
+import { PageView } from "@util/Types";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "@components/Button";
 import { ContactForm, PreFormInfo } from "@modules/Contact";
 import { useCountDown } from "@hooks/useCountDown";
-import Layout from "@modules/Layout";
+import PageLayout from "@modules/Layout/Page";
 
-const StreamPiContact: FC = () => {
+const StreamPiContact: PageView = () => {
   const [agreed, setAgreed] = useState(false);
   const { counting, remainingSeconds } = useCountDown(8000);
 
   return (
-    <Layout
+    <PageLayout
       title="Contact"
       description="Get into contact with the Stream-Pi team! Ask us a question, give us some feedback, we'd love to hear from you!"
     >
@@ -43,7 +44,7 @@ const StreamPiContact: FC = () => {
           </Container>
         </Col>
       </Row>
-    </Layout>
+    </PageLayout>
   );
 };
 

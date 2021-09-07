@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { PageView } from "@util/Types";
 import {
   CoreDevelopers,
   // CoreCommunityRelations,
@@ -9,11 +9,11 @@ import {
   TeamMemberRow,
   JavaDevelopers,
 } from "@modules/About";
-import Layout from "@modules/Layout";
+import PageLayout from "@modules/Layout/Page";
 
-const StreamPiAbout: FC = () => {
+const StreamPiAbout: PageView = () => {
   return (
-    <Layout
+    <PageLayout
       title="About"
       description="Learn about Stream-Pi and the team behind it"
     >
@@ -176,7 +176,7 @@ const StreamPiAbout: FC = () => {
           the client, and an alert popup is shown to the user on the Server.
         </p>
       </RowCol>
-    </Layout>
+    </PageLayout>
   );
 };
 

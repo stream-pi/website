@@ -1,13 +1,13 @@
-import { FC } from "react";
+import { PageView } from "@util/Types";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { printOutDate } from "@util";
-import Layout from "@modules/Layout";
+import PageLayout from "@modules/Layout/Page";
 
-const Troubleshooting: FC = () => {
+const Troubleshooting: PageView = () => {
   const dateOfLastUpdate = "2021-06-07 11:25:50";
   return (
-    <Layout
+    <PageLayout
       title="Troubleshoot"
       description="This page outlines common problems and troubleshooting steps for your Stream-Pi"
       underConstruction
@@ -49,7 +49,7 @@ const Troubleshooting: FC = () => {
           <h2>Coming soon!</h2>
         </Col>
       </Row>
-    </Layout>
+    </PageLayout>
   );
 };
 

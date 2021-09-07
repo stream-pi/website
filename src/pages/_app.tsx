@@ -15,6 +15,8 @@ import useHashChange from "@hooks/useHashChange";
 import useInfoBanner from "@hooks/useInfoBanner";
 import { ToastContainer, Zoom } from "react-toastify";
 import ScrollToTop from "@components/ScrollToTop";
+import SiteLayout from "@modules/Layout/Site";
+import { PageView } from "@util/Types";
 
 //* REDUX
 import { Provider } from "react-redux";
@@ -51,7 +53,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         position="top-center"
         enableMultiContainer
       />
-      <Component {...pageProps} />
+      <SiteLayout hideNavbar={(Component as PageView).hideNavbar}>
+        <Component {...pageProps} />
+      </SiteLayout>
       {/* For Site Updates - useInfoBanner */}
       <ToastContainer
         position="bottom-center"
