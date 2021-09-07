@@ -25,6 +25,4 @@ export type OBJ = Record<string, any>;
 // eslint-disable-next-line @typescript-eslint/ban-types
 export type PageView<T = {}> = NextPage<T> & {
   hideNavbar?: boolean;
-  underConstruction?: boolean;
-  pageSource?: string;
 };
