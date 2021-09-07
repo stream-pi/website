@@ -15,7 +15,7 @@ import useHashChange from "@hooks/useHashChange";
 import useInfoBanner from "@hooks/useInfoBanner";
 import { ToastContainer, Zoom } from "react-toastify";
 import ScrollToTop from "@components/ScrollToTop";
-import Layout from "@modules/Layout";
+import SiteLayout from "@modules/Layout/Site";
 import { PageView } from "@util/Types";
 
 //* REDUX
@@ -27,8 +27,6 @@ initializeFontAwesome();
 
 //* Keeping this a standard function on purpose for now...
 function MyApp({ Component, pageProps }: AppProps) {
-  const { hideNavbar, pageSource, underConstruction } = Component as PageView;
-
   useEffect(() => {
     document.body.classList.add("body-transition");
   }, []);
@@ -55,13 +53,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         position="top-center"
         enableMultiContainer
       />
-      <Layout
-        hideNavbar={hideNavbar}
-        underConstruction={underConstruction}
-        pageSource={pageSource}
-      >
+      <SiteLayout hideNavbar={(Component as PageView).hideNavbar}>
         <Component {...pageProps} />
-      </Layout>
+      </SiteLayout>
       {/* For Site Updates - useInfoBanner */}
       <ToastContainer
         position="bottom-center"
