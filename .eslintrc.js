@@ -1,11 +1,5 @@
 module.exports = {
   root: true,
-  env: {
-    node: true,
-    es6: true,
-  },
-  parser: "@typescript-eslint/parser",
-  parserOptions: { ecmaVersion: 8 }, // to enable features such as async/await
   // We don't want to lint generated files nor node_modules, but we want to lint .prettierrc.js (ignored by default by eslint)
   ignorePatterns: [
     "node_modules/*",
@@ -17,37 +11,28 @@ module.exports = {
     "!.prettierrc",
   ],
   extends: [
-    "eslint:recommended",
-    "plugin:react/recommended", // React rules
-    "plugin:react-hooks/recommended", // React hooks rules
     "plugin:jsx-a11y/recommended", // Accessibility rules
+    "next/core-web-vitals", // NextJS has some jsx-a11y overrides so we load the base second
     "plugin:prettier/recommended", // Prettier plugin
-    "plugin:@next/next/recommended",
   ],
   rules: {
+    // May turn this off in the future
+    "import/no-anonymous-default-export": "off",
+
     // may turn this on later, creates issues for HTML
     "react/no-unescaped-entities": 0,
-
-    // We will use TypeScript's types for component props instead
-    "react/prop-types": "off",
-
-    // No need to import React when using Next.js
-    "react/react-in-jsx-scope": "off",
 
     // This rule is not compatible with Next.js's <Link /> components
     "jsx-a11y/anchor-is-valid": "off",
 
-    "prettier/prettier": ["warn", {}, { usePrettierrc: true }], // Includes .prettierrc rules
+    // Includes .prettierrc rules
+    "prettier/prettier": ["warn", {}, { usePrettierrc: true }],
   },
   overrides: [
     // This configuration will apply only to TypeScript files
     {
-      files: ["**/*.ts", "**/*.tsx"],
-      env: {
-        browser: true,
-        node: true,
-        es6: true,
-      },
+      files: ["**/*.ts?(x)"],
+      parser: "@typescript-eslint/parser",
       extends: [
         "plugin:@typescript-eslint/recommended", // TypeScript rules
       ],
@@ -65,17 +50,7 @@ module.exports = {
         "no-unused-vars": "off",
         // Why would you want unused vars?
         "@typescript-eslint/no-unused-vars": ["warn"],
-
-        // I suggest this setting for requiring return types on functions only where useful
-        // '@typescript-eslint/explicit-function-return-type': [
-        //   'warn',
-        //   {
-        //     allowExpressions: true,
-        //     allowConciseArrowFunctionExpressionsStartingWithVoid: true,
-        //   },
-        // ],
       },
     },
   ],
-  settings: { react: { version: "detect" } },
 };

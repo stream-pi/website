@@ -21,6 +21,7 @@ const StreamPiNavbar: FC = ({ children }) => {
             className="align-top d-inline-block"
             height="30"
             width="30"
+            alt="Stream-Pi Logo"
           />
         </Navbar.Brand>
         <div
