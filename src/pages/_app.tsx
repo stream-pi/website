@@ -13,6 +13,7 @@ import type { AppProps } from "next/app";
 import { useEffect } from "react";
 import useHashChange from "@hooks/useHashChange";
 import useInfoBanner from "@hooks/useInfoBanner";
+import useResetFocus from "@hooks/useResetFocus";
 import { ToastContainer, Zoom } from "react-toastify";
 import ScrollToTop from "@components/ScrollToTop";
 import SiteLayout from "@modules/Layout/Site";
@@ -31,6 +32,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     document.body.classList.add("body-transition");
   }, []);
   useHashChange();
+  useResetFocus();
   useInfoBanner({
     message:
       "stream-pi.com has been rebuilt using React! It may look similar but it is a NEW site with NEW functionality.",
