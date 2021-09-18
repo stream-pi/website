@@ -12,6 +12,14 @@ body.dark-mode {
 
   .footer {
     background-color: hsl(240, 25%, 5%);
+    a {
+      text-decoration: none;
+      color: $light;
+      &:hover {
+        color: $link-hover-color;
+        text-decoration: underline;
+      }
+    }
   }
 }
 
@@ -32,5 +40,13 @@ body.light-mode {
 
   .footer {
     background-color: $gray-200;
+    a {
+      text-decoration: none;
+      color: $dark;
+      &:hover {
+        color: $link-hover-color;
+        text-decoration: underline;
+      }
+    }
   }
 }
