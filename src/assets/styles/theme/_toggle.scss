@@ -60,5 +60,11 @@ $dark-dot: hsl(262, 49%, 10%);
         border-color: $dark-dot;
       }
     }
+
+    &:focus {
+      ~ .toggle-bg {
+        box-shadow: $btn-focus-box-shadow;
+      }
+    }
   }
 }

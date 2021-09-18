@@ -5,13 +5,14 @@ import { ItemProps } from "./Helper";
 
 const StreamPiNavItem: FC<ItemProps> = ({ children, to, ...props }) => {
   return (
-    <ActiveLink activeClassName="active" href={to} {...props} passHref>
+    <ActiveLink
+      activeClassName="active fw-bold text-decoration-underline"
+      href={to}
+      {...props}
+      passHref
+    >
       {/* <a className="btn nav-item nav-link w-100 mx-0 mx-md-3">{children}</a> */}
-      <NavLink
-        className="btn nav-item w-100 mx-0 mx-md-3"
-        title={to}
-        active={false}
-      >
+      <NavLink className="w-100 mx-0 mx-md-3" title={to} active={false}>
         {children}
       </NavLink>
     </ActiveLink>
