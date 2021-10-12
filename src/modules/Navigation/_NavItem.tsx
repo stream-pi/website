@@ -3,7 +3,7 @@ import NavLink from "react-bootstrap/NavLink";
 import ActiveLink from "./_ActiveLink";
 import { ItemProps } from "./Helper";
 
-const StreamPiNavItem: FC<ItemProps> = ({ children, to, ...props }) => {
+const StreamPiNavItem: FC<ItemProps> = ({ children, to, title, ...props }) => {
   return (
     <ActiveLink
       activeClassName="active fw-bold text-decoration-underline"
@@ -11,8 +11,11 @@ const StreamPiNavItem: FC<ItemProps> = ({ children, to, ...props }) => {
       {...props}
       passHref
     >
-      {/* <a className="btn nav-item nav-link w-100 mx-0 mx-md-3">{children}</a> */}
-      <NavLink className="w-100 mx-0 mx-md-3" title={to} active={false}>
+      <NavLink
+        className="w-100 mx-0 mx-md-3 text-center"
+        title={title}
+        active={false}
+      >
         {children}
       </NavLink>
     </ActiveLink>
