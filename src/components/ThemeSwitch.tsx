@@ -48,6 +48,7 @@ const ThemeSwitch = () => {
             onChange={toggleTheme}
             type="checkbox"
             id="theme-toggler"
+            title="Darkmode Lightmode Switch"
           />
           <div className="toggle-bg d-block rounded-pill transition" />
           <div className="dot position-absolute rounded-circle transition d-flex align-items-center justify-content-center">

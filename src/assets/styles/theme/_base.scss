@@ -30,7 +30,7 @@ body.light-mode {
   --spi-color-card: #7ebfff;
   --spi-color-hr: #00000066;
 
-  .streampi-navbar-class {
+  #streampi-navbar {
     @extend .navbar-light;
   }
 

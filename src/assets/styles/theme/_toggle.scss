@@ -19,31 +19,31 @@ $dark-dot: hsl(262, 49%, 10%);
     transition: all cubic-bezier(0.4, 0, 0.2, 1) 250ms;
   }
 
-  .dot {
-    width: $dot-size;
-    height: $dot-size;
-    top: $mini-margin;
-    left: $mini-margin;
-    background-color: $light;
-
-    box-shadow: 0 0 transparent, 0 0 transparent, 0 0 transparent,
-      0 0 transparent, inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
-
-    .theme-moon {
-      color: transparent;
-    }
-    .theme-sun {
-      color: $dark;
-    }
-  }
-  .toggle-bg {
-    height: $bg-height;
-    width: $bg-width;
-    background-color: hsl(218, 11%, 65%);
-    border: 1px solid $light;
-  }
-
   input {
+    ~ .dot {
+      width: $dot-size;
+      height: $dot-size;
+      top: $mini-margin;
+      left: $mini-margin;
+      background-color: $light;
+
+      box-shadow: 0 0 transparent, 0 0 transparent, 0 0 transparent,
+        0 0 transparent, inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+
+      .theme-moon {
+        color: transparent;
+      }
+      .theme-sun {
+        color: $dark;
+      }
+    }
+    ~ .toggle-bg {
+      height: $bg-height;
+      width: $bg-width;
+      background-color: hsl(218, 11%, 65%);
+      border: 1px solid $light;
+    }
+    //* input:checked
     &:checked {
       ~ .dot {
         transform: translateX(100%);
