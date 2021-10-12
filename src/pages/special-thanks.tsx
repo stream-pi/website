@@ -8,7 +8,7 @@ const SpecialThanks: PageView = () => {
     <PageLayout
       title="A Thank You From"
       description="We want to acknowledge some individuals who help with Stream-Pi behind the scenes"
-      underConstruction
+      // underConstruction
       pageSource="/special-thanks.tsx"
     >
       <h1 className="text-center">We Want to Say Thank You!</h1>
