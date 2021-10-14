@@ -78,7 +78,9 @@ const StreamPiFooter = memo(() => {
                 </a>
               </li>
               <li>
-                <Link href="/special-thanks">Special Thanks</Link>
+                <Link href="/special-thanks">
+                  <a>Special Thanks</a>
+                </Link>
               </li>
             </ul>
           </Col>
