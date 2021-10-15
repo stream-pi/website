@@ -34,7 +34,7 @@ const SpecialThanks: PageView = () => {
             />
           </Col>
           <p className="fs-6">
-            To everyone that supports us via patreon, we owe you a tremendous
+            To everyone that supports us via Patreon, we owe you a tremendous
             thank you. This kind of support allows us to focus on expanding and
             improving our resources to deliver a better experience for everyone.
           </p>
@@ -63,7 +63,7 @@ const SpecialThanks: PageView = () => {
           <p className="fs-6">
             He kept interacting with members of the team, making great
             suggestions and kept pushing us to expand the team. He eventually
-            joined the team himself and really improved internal communication
+            joined the team himself and really improved internal communication.
           </p>
           <p className="fs-6 mb-0">
             In late 2020 into mid 2021 the Project became very active again and
