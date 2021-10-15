@@ -24,6 +24,7 @@ const PageLayout: FC<PageProps> = ({
       <StreamPiSEO {...head} />
       {underConstruction ? (
         <Container
+          as="main"
           id="stream-pi-page-content"
           style={{ paddingTop: "4rem" }}
           className="flex-fill d-flex justify-content-center align-items-center"
@@ -55,6 +56,7 @@ const PageLayout: FC<PageProps> = ({
       ) : (
         <>
           <Container
+            as="main"
             id="stream-pi-page-content"
             className={containerClasses}
             style={{ paddingTop: "4rem" }}
@@ -62,7 +64,7 @@ const PageLayout: FC<PageProps> = ({
           >
             {children}
           </Container>
-          <main className="flex-fill" />
+          <span className="flex-fill" />
         </>
       )}
     </>

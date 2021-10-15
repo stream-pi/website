@@ -27,6 +27,8 @@ import {
   faMobileAlt,
   faExclamationCircle,
   faTools,
+  faHouseUser,
+  faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
 /**
@@ -58,6 +60,8 @@ export const initializeFontAwesome = () => {
     faDesktop,
     faMobileAlt,
     faExclamationCircle,
-    faTools
+    faTools,
+    faHouseUser,
+    faArrowLeft
   );
 };

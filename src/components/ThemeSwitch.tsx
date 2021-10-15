@@ -1,5 +1,5 @@
 //* Core
-import { useEffect, memo } from "react";
+import { useEffect, memo, useState } from "react";
 import useDarkMode from "use-dark-mode";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useIsClient from "@hooks/useIsClient";
@@ -10,6 +10,7 @@ import { clientActions } from "@store/Client/slice";
 
 const ThemeSwitch = () => {
   //* Core
+  const [hasTransition, setHasTransition] = useState(false);
   const { value, toggle } = useDarkMode(true);
   const isClient = useIsClient();
 
@@ -19,6 +20,20 @@ const ThemeSwitch = () => {
   useEffect(() => {
     dispatch(clientActions.setColorThemeBoolean(value));
   }, [value, dispatch]);
+
+  /**
+   * To prevent the FOUC that a user may see becauase of a transition,
+   * adding the transition will happen before the toggle.
+   *
+   * This flash only seems to happen on hard refresh or cache-less refreshes
+   */
+  const toggleTheme = () => {
+    if (!hasTransition) {
+      document.body.classList.add("body-transition");
+      setHasTransition(true);
+    }
+    toggle();
+  };
 
   return (
     <div className="my-auto mx-auto">
@@ -30,9 +45,10 @@ const ThemeSwitch = () => {
           <input
             className="toggle-check visually-hidden"
             checked={value}
-            onChange={toggle}
+            onChange={toggleTheme}
             type="checkbox"
             id="theme-toggler"
+            title="Darkmode Lightmode Switch"
           />
           <div className="toggle-bg d-block rounded-pill transition" />
           <div className="dot position-absolute rounded-circle transition d-flex align-items-center justify-content-center">

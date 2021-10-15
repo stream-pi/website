@@ -55,10 +55,6 @@ const plannedFeatures: FeatureObj[] = [
     title: "IFTTT Support",
     desc: "IFTTT is already a well supported module from controlling everything from a smart house to making tweets on your behalf. We want to be able to integrate that experience with the Stream-Pi to allow for maximum control!",
   },
-  {
-    title: "Adobe Integration",
-    desc: "Video editing is a pain in the butt sometimes, what if Stream-Pi could control your video or photoeditor beyond the use of hotkeys? What if we could take advantage of full API integration?",
-  },
 ];
 
 export const chunkedFeatures = chunkArray(features, 3);

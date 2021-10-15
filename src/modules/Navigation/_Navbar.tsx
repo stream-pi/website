@@ -8,13 +8,15 @@ import Container from "react-bootstrap/Container";
 const StreamPiNavbar: FC = ({ children }) => {
   return (
     <Navbar
-      className="shadow streampi-navbar-class"
+      id="streampi-navbar"
+      as="header"
+      className="shadow"
       collapseOnSelect
       expand="sm"
       fixed="top"
       variant="dark"
     >
-      <Container fluid>
+      <Container as="nav" aria-label="Main navigation" fluid>
         <Navbar.Brand className="d-flex d-sm-none">
           <Image
             src="/favicon.ico"
@@ -30,8 +32,8 @@ const StreamPiNavbar: FC = ({ children }) => {
         >
           Stream-Pi
         </div>
-        <Navbar.Toggle aria-controls="streampi-navbar" />
-        <Navbar.Collapse id="streampi-navbar">
+        <Navbar.Toggle aria-controls="streampi-navbar-nav" />
+        <Navbar.Collapse id="streampi-navbar-nav">
           <Nav className="mx-auto">{children}</Nav>
         </Navbar.Collapse>
       </Container>

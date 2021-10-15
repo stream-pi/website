@@ -9,7 +9,8 @@ const StreamPiVideo: FC = () => {
         <h3>Curious? Watch the video!</h3>
         <Ratio aspectRatio="16x9">
           <iframe
-            title="About Stream-Pi"
+            style={{ borderRadius: "0.7rem" }}
+            title="Video About Stream-Pi"
             src="https://www.youtube.com/embed/UyT9OCnakBw"
             frameBorder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"

@@ -19,7 +19,7 @@ const StreamPiContact: PageView = () => {
     >
       <Row className="pt-2 animate__animated animate__fadeIn">
         <Col className="text-center">
-          <h3>Reach out to us</h3>
+          <h1>Reach out to us</h1>
           <p className="mb-2">
             Interested in a press kit? Want to suggest a feature? Do you have
             some general feedback for us? Maybe you'd like to contribute or

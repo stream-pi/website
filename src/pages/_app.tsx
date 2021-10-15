@@ -10,7 +10,6 @@ import { initializeFontAwesome } from "@util/IconLibrary";
 
 //* Core
 import type { AppProps } from "next/app";
-import { useEffect } from "react";
 import useHashChange from "@hooks/useHashChange";
 import useInfoBanner from "@hooks/useInfoBanner";
 import useResetFocus from "@hooks/useResetFocus";
@@ -28,9 +27,6 @@ initializeFontAwesome();
 
 //* Keeping this a standard function on purpose for now...
 function MyApp({ Component, pageProps }: AppProps) {
-  useEffect(() => {
-    document.body.classList.add("body-transition");
-  }, []);
   useHashChange();
   useResetFocus();
   useInfoBanner({

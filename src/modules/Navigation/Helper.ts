@@ -7,6 +7,7 @@ export type ActiveLinkProps = LinkProps & {
 
 export type ItemProps = Omit<LinkProps, "href"> & {
   to: string;
+  title?: string;
 };
 
 /**
