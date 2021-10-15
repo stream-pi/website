@@ -1,9 +1,10 @@
 {
   "name": "streampi-website",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "author": "Samuel Quiñones",
   "description": "The official Stream-Pi website",
   "license": "GPL-3.0",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/stream-pi/website"
@@ -43,8 +44,8 @@
     "@fortawesome/free-solid-svg-icons": "5.15.4",
     "@fortawesome/react-fontawesome": "0.1.15",
     "@hookform/resolvers": "2.8.0",
-    "@reduxjs/toolkit": "1.6.1",
-    "@restart/ui": "0.2.2",
+    "@reduxjs/toolkit": "1.6.2",
+    "@restart/ui": "0.2.3",
     "animate.css": "4.1.1",
     "axios": "0.23.0",
     "bootstrap": "5.1.0",
@@ -68,10 +69,9 @@
   "devDependencies": {
     "@types/node": "14.17.7",
     "@types/nodemailer": "6.4.4",
-    "@types/react": "17.0.21",
+    "@types/react": "17.0.30",
     "@types/react-dom": "17.0.9",
     "@types/react-google-recaptcha": "2.1.2",
-    "@types/react-redux": "7.1.18",
     "@typescript-eslint/eslint-plugin": "4.31.1",
     "@typescript-eslint/parser": "4.31.1",
     "cross-env": "7.0.3",
