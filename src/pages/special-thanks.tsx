@@ -94,9 +94,9 @@ const SpecialThanks: PageView = () => {
               rel="noopener noreferrer"
             >
               twitter
-            </a>{" "}
-            using the links below. Thank you for making a logo that manages to
-            capture the essence of Stream-Pi!
+            </a>
+            . Thank you for making a logo that manages to capture the essence of
+            Stream-Pi!
           </p>
         </div>
       </section>
