@@ -63,13 +63,14 @@ const SpecialThanks: PageView = () => {
           <p className="fs-6">
             He kept interacting with members of the team, making great
             suggestions and kept pushing us to expand the team. He eventually
-            joined the team himself and really improved internal communication.
+            joined the team himself for a short time and really improved
+            internal communication.
           </p>
           <p className="fs-6 mb-0">
             In late 2020 into mid 2021 the Project became very active again and
-            the team made major amounts of development progress. We owe that to
-            Brady for bringing the project back to life and motivating Sam and
-            Debayan to start working again.
+            the team made major amounts of development progress, we owe that to
+            Brady. So thank you to him for bringing the project back to life and
+            motivating Sam and Debayan to start working again.
           </p>
         </div>
       </section>
