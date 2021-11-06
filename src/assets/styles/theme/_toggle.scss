@@ -2,13 +2,22 @@ $dot-size: 1.5rem;
 $mini-margin: 0.25rem;
 $bg-width: 3.5rem;
 $bg-height: 2rem;
-$dark-dot: hsl(262, 49%, 10%);
+$dark-dot: hsl(262deg, 49%, 10%);
 
 .toggle-class {
   cursor: pointer;
+
   .transition {
-    transition-property: background-color, border-color, color, fill, stroke,
-      opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-property: background-color,
+      border-color,
+      color,
+      fill,
+      stroke,
+      opacity,
+      box-shadow,
+      transform,
+      filter,
+      backdrop-filter;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 250ms;
   }
@@ -26,37 +35,45 @@ $dark-dot: hsl(262, 49%, 10%);
       top: $mini-margin;
       left: $mini-margin;
       background-color: $light;
-
-      box-shadow: 0 0 transparent, 0 0 transparent, 0 0 transparent,
-        0 0 transparent, inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+      box-shadow: 0 0 transparent,
+        0 0 transparent,
+        0 0 transparent,
+        0 0 transparent,
+        inset 0 2px 4px 0 rgba(0, 0, 0, 6%);
 
       .theme-moon {
         color: transparent;
       }
+
       .theme-sun {
         color: $dark;
       }
     }
+
     ~ .toggle-bg {
       height: $bg-height;
       width: $bg-width;
-      background-color: hsl(218, 11%, 65%);
+      background-color: hsl(218deg, 11%, 65%);
       border: 1px solid $light;
     }
+
     //* input:checked
     &:checked {
       ~ .dot {
         transform: translateX(100%);
         background-color: $dark-dot;
+
         .theme-sun {
           color: transparent;
         }
+
         .theme-moon {
           color: $light;
         }
       }
+
       ~ .toggle-bg {
-        background-color: hsl(215, 14%, 40%);
+        background-color: hsl(215deg, 14%, 40%);
         border-color: $dark-dot;
       }
     }

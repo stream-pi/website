@@ -3,10 +3,14 @@
   "vsicons.associations.folders": [
     { "icon": "js", "extensions": ["javascript"], "format": "svg" },
     { "icon": "script", "extensions": [".scripts"], "format": "svg" },
-    { "icon": "db", "extensions": ["store"], "format": "svg" }
+    { "icon": "redux", "extensions": ["store"], "format": "svg" }
   ],
   "css.validate": false,
   "less.validate": false,
   "scss.validate": false,
-  "stylelint.enable": true
+  "stylelint.validate": ["css", "scss"],
+  "[scss]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint",
+    "editor.bracketPairColorization.enabled": true
+  }
 }
