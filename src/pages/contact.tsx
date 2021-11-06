@@ -27,23 +27,21 @@ const StreamPiContact: PageView = () => {
           </p>
         </Col>
       </Row>
-      <Row className="py-2">
-        <Col>
-          <Container className="animate__animated animate__fadeIn">
-            {!agreed ? (
-              <PreFormInfo>
-                <Button disabled={counting} onClick={() => setAgreed(true)}>
-                  {counting
-                    ? `Please wait ${remainingSeconds} seconds`
-                    : "I understand"}
-                </Button>
-              </PreFormInfo>
-            ) : (
-              <ContactForm />
-            )}
-          </Container>
-        </Col>
-      </Row>
+      <div className="py-2">
+        <Container className="animate__animated animate__fadeIn">
+          {!agreed ? (
+            <PreFormInfo>
+              <Button disabled={counting} onClick={() => setAgreed(true)}>
+                {counting
+                  ? `Please wait ${remainingSeconds} seconds`
+                  : "I understand"}
+              </Button>
+            </PreFormInfo>
+          ) : (
+            <ContactForm />
+          )}
+        </Container>
+      </div>
     </PageLayout>
   );
 };

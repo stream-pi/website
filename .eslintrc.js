@@ -42,6 +42,13 @@ module.exports = {
 
         // We don't need this ... for now
         "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/ban-ts-comment": [
+          "error",
+          {
+            "ts-ignore": "allow-with-description",
+            minimumDescriptionLength: 10,
+          },
+        ],
 
         // should probably allow this ... but we wont for now
         "@typescript-eslint/no-non-null-assertion": "off",
