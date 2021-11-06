@@ -19,6 +19,7 @@ const Debayan: TeamMember = {
     TwitterIcon("https://twitter.com/rnayabed"),
     GithubIcon("https://github.com/rnayabed/"),
     YouTubeIcon("https://www.youtube.com/channel/UCuMkj5u1wC70KtuXWHLTfkQ"),
+    WebsiteIcon("https://rnayabed.github.io/"),
   ],
 };
 // CR / User Experience
