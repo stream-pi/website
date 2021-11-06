@@ -7,5 +7,6 @@ export {
   CoreInfrastructure,
   CoreUserExperience,
   JavaDevelopers,
+  WebDevelopers,
   TestingAuditing,
 } from "./Helper/TeamMembers";

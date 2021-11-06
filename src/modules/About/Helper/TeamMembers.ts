@@ -58,8 +58,15 @@ const Jordan: TeamMember = {
     WebsiteIcon("https://jduabe.dev/"),
   ],
 };
+// Web
+const DMF: TeamMember = {
+  name: "dmf444",
+  picture: "/images/team/dmf444pic.png",
+  icons: [GithubIcon("https://github.com/dmf444")],
+};
 //* ARRAYS *//
 export const JavaDevelopers = [Quimo, Jordan];
+export const WebDevelopers = [DMF];
 //* Developers - NON CORE END *//
 
 //* ------------------ *//
