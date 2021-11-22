@@ -53,8 +53,6 @@ module.exports = {
         // should probably allow this ... but we wont for now
         "@typescript-eslint/no-non-null-assertion": "off",
 
-        "@typescript-eslint/ban-ts-comment": "off",
-
         // turn off default unused vars
         "no-unused-vars": "off",
         // Why would you want unused vars?
