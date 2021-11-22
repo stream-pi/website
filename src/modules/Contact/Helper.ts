@@ -1,7 +1,8 @@
-import * as yup from "yup";
+import { string, object } from "yup";
 import type { IconObj } from "@util/Types";
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+//* https://github.com/react-hook-form/resolvers/issues/271
+import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
 
 export type FormInputs = {
   contactName: string;
@@ -27,10 +28,9 @@ export const validSubjects = [
   "Other",
 ];
 
-export const schema = yup.object().shape({
-  contactName: yup.string().required("Name is a required field"),
-  contactEmail: yup
-    .string()
+export const schema = object().shape({
+  contactName: string().required("Name is a required field"),
+  contactEmail: string()
     .default("")
     .email("Value must be a valid email")
     .test(
@@ -39,12 +39,10 @@ export const schema = yup.object().shape({
       (val) => /@stream-pi\.[A-Z0-9]+/i.test(val) === false
     )
     .required("Email is a required field"),
-  contactSubject: yup
-    .string()
+  contactSubject: string()
     .oneOf(validSubjects)
     .required("Subject is a required field"),
-  contactMessage: yup
-    .string()
+  contactMessage: string()
     .default("")
     .test(
       "has-link",
