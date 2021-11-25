@@ -1,8 +1,7 @@
 import { string, object } from "yup";
 import type { IconObj } from "@util/Types";
 import { useForm } from "react-hook-form";
-//* https://github.com/react-hook-form/resolvers/issues/271
-import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 export type FormInputs = {
   contactName: string;
