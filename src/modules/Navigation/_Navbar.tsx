@@ -32,7 +32,10 @@ const StreamPiNavbar: FC = ({ children }) => {
         >
           Stream-Pi
         </div>
-        <Navbar.Toggle aria-controls="streampi-navbar-nav" />
+        <Navbar.Toggle
+          className="p-0 border-0"
+          aria-controls="streampi-navbar-nav"
+        />
         <Navbar.Collapse id="streampi-navbar-nav">
           <Nav className="mx-auto">{children}</Nav>
         </Navbar.Collapse>
