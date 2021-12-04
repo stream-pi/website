@@ -1,6 +1,7 @@
 {
   "extends": ["stylelint-config-recommended", "stylelint-config-standard-scss"],
   "rules": {
+    "alpha-value-notation": null,
     "at-rule-no-unknown": null,
     "selector-class-pattern": null,
     "property-no-vendor-prefix": null,
