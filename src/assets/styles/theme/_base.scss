@@ -67,9 +67,12 @@ body.light-mode {
       text-decoration: none;
       color: $dark;
 
-      &:hover {
-        color: $link-hover-color;
-        text-decoration: underline;
+      //? I think this fixes sticky hovers
+      @media (hover: hover) {
+        &:hover {
+          color: $link-hover-color;
+          text-decoration: underline;
+        }
       }
     }
   }
