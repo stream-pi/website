@@ -12,7 +12,7 @@ import Fade from "react-bootstrap/Fade";
  *
  * @returns DOM element that when clicked, will smoothly scroll back to the top of the page.
  */
-const ScrollToTop = () => {
+const ScrollToTop = memo(() => {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => {
@@ -54,6 +54,7 @@ const ScrollToTop = () => {
       </div>
     </Fade>
   );
-};
+});
 
-export default memo(ScrollToTop);
+ScrollToTop.displayName = "ScrollToTop";
+export default ScrollToTop;

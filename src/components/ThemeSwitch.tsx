@@ -8,7 +8,7 @@ import useIsClient from "@hooks/useIsClient";
 import { useAppDispatch } from "@store/hooks";
 import { clientActions } from "@store/Client/slice";
 
-const ThemeSwitch = () => {
+const ThemeSwitch = memo(() => {
   //* Core
   const [hasTransition, setHasTransition] = useState(false);
   const { value, toggle } = useDarkMode(true);
@@ -45,10 +45,12 @@ const ThemeSwitch = () => {
           <input
             className="toggle-check visually-hidden"
             checked={value}
+            role="switch"
             onChange={toggleTheme}
             type="checkbox"
             id="theme-toggler"
             title="Darkmode Lightmode Switch"
+            aria-label="Darkmode Lightmode Switch"
           />
           <div className="toggle-bg d-block rounded-pill transition" />
           <div className="dot position-absolute rounded-circle transition d-flex align-items-center justify-content-center">
@@ -59,6 +61,7 @@ const ThemeSwitch = () => {
       )}
     </div>
   );
-};
+});
 
-export default memo(ThemeSwitch);
+ThemeSwitch.displayName = "ThemeSwitch";
+export default ThemeSwitch;
