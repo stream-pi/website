@@ -10,17 +10,15 @@ import { initializeFontAwesome } from "@util/IconLibrary";
 
 //* Core
 import type { AppProps } from "next/app";
+import type { PageView } from "@util/Types";
 import useHashChange from "@hooks/useHashChange";
 import useInfoBanner from "@hooks/useInfoBanner";
 import useResetFocus from "@hooks/useResetFocus";
 import { ToastContainer, Zoom } from "react-toastify";
 import ScrollToTop from "@components/ScrollToTop";
 import SiteLayout from "@modules/Layout/Site";
-import { PageView } from "@util/Types";
-
 //* REDUX
-import { Provider } from "react-redux";
-import store from "@store";
+import StreamPiReduxStore from "@store";
 
 //* MUST be called outside the main App
 initializeFontAwesome();
@@ -45,7 +43,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   });
 
   return (
-    <Provider store={store}>
+    <StreamPiReduxStore>
       <ToastContainer
         transition={Zoom}
         position="top-center"
@@ -65,7 +63,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         containerId={"useInfoBanner"}
       />
       <ScrollToTop />
-    </Provider>
+    </StreamPiReduxStore>
   );
 }
 
