@@ -1,7 +1,12 @@
+html,
+body {
+  height: 100%;
+}
+
 #__next {
   display: flex !important;
   flex-direction: column !important;
-  min-height: 100vh;
+  min-height: 100%;
 }
 
 p {
