@@ -82,13 +82,8 @@ const Norvilles: TeamMember = {
   picture: "/images/team/norvillespic.jpg",
   icons: [],
 };
-const Grand: TeamMember = {
-  name: "Grand",
-  picture: "/images/team/grandpic.png",
-  icons: [],
-};
 //* ARRAYS *//
-export const TestingAuditing = [Cerberus, Norvilles, Grand];
+export const TestingAuditing = [Cerberus, Norvilles];
 //* Testing & Auditing - NON CORE END *//
 
 //* ------------------ *//
