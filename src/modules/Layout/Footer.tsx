@@ -11,7 +11,7 @@ const StreamPiFooter = memo(() => {
   const commonLinks = { target: "_blank", rel: "noopener noreferrer" };
 
   return (
-    <footer className="footer pt-4 pb-2 mt-2">
+    <footer className="footer pt-4 pb-2 flex-shrink-0">
       <Container>
         <Row>
           {/* Basic info */}

@@ -1,7 +1,12 @@
+html,
+body {
+  height: 100%;
+}
+
 #__next {
   display: flex !important;
   flex-direction: column !important;
-  min-height: 100vh;
+  min-height: 100%;
 }
 
 p {
@@ -14,6 +19,7 @@ pre:hover {
 
 .streamPiAbout {
   font-weight: 300;
+
   &::before {
     display: block;
     content: "";
@@ -26,7 +32,9 @@ pre:hover {
 
 #streamPiHome {
   font-weight: 300;
+
   @include font-size(7rem);
+
   // @media screen and (max-width: 576px) {
   //   font-size: 5rem;
   // }

@@ -3,11 +3,11 @@ import { StreamPiNavbar, StreamPiNavItem } from "@modules/Navigation";
 import StreamPiFooter from "./Footer";
 import ThemeSwitch from "@components/ThemeSwitch";
 
-type LayoutProps = {
+type SiteLayoutProps = {
   hideNavbar?: boolean;
 };
 
-const SiteLayout: FC<LayoutProps> = ({ children, hideNavbar = false }) => {
+const SiteLayout: FC<SiteLayoutProps> = ({ children, hideNavbar = false }) => {
   return (
     <>
       {!hideNavbar && (

@@ -15,7 +15,6 @@ export const validate = async (
       }
     );
 
-    //@ts-ignore
     return response.data.success;
   } catch (error) {
     console.error(error);

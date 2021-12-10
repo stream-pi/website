@@ -8,6 +8,7 @@ import {
   RowCol,
   TeamMemberRow,
   JavaDevelopers,
+  WebDevelopers,
 } from "@modules/About";
 import PageLayout from "@modules/Layout/Page";
 
@@ -61,6 +62,7 @@ const StreamPiAbout: PageView = () => {
         teamMembers={JavaDevelopers}
         identifier="Java Developers"
       />
+      <TeamMemberRow teamMembers={WebDevelopers} identifier="Web Developers" />
 
       {/* User Experience */}
       <TeamMemberRow

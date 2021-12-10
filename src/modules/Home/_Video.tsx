@@ -6,7 +6,10 @@ const StreamPiVideo: FC = () => {
   return (
     <Container style={{ paddingLeft: "10%", paddingRight: "10%" }}>
       <div className="animate__animated animate__fadeInUp text-center">
-        <h3>Curious? Watch the video!</h3>
+        <h3 className="mb-1">Curious? Watch the video!</h3>
+        <small className="mb-2 d-block">
+          We are making a new updated video which will be out soon!
+        </small>
         <Ratio aspectRatio="16x9">
           <iframe
             style={{ borderRadius: "0.7rem" }}

@@ -4,17 +4,29 @@ body.dark-mode {
   --spi-color-text: #e1e1ff;
   --spi-color-heading: #818cab;
   --spi-color-card: #595775;
-  --spi-color-hr: #ffffff66;
+  --spi-color-hr: #fff6;
 
   .spi-brand-text {
     color: $light;
   }
 
+  .form {
+    &-control,
+    &-select {
+      &:disabled,
+      &[readonly] {
+        background-color: #c4ccd4 !important;
+      }
+    }
+  }
+
   .footer {
-    background-color: hsl(240, 25%, 5%);
+    background-color: hsl(240deg, 25%, 5%);
+
     a {
       text-decoration: none;
       color: $light;
+
       &:hover {
         color: $link-hover-color;
         text-decoration: underline;
@@ -28,7 +40,7 @@ body.light-mode {
   --spi-color-text: #000000e6;
   --spi-color-heading: #292922;
   --spi-color-card: #7ebfff;
-  --spi-color-hr: #00000066;
+  --spi-color-hr: #0006;
 
   #streampi-navbar {
     @extend .navbar-light;
@@ -38,14 +50,29 @@ body.light-mode {
     color: $dark;
   }
 
+  .form {
+    &-control,
+    &-select {
+      &:disabled,
+      &[readonly] {
+        background-color: #e4e8ec !important;
+      }
+    }
+  }
+
   .footer {
     background-color: $gray-200;
+
     a {
       text-decoration: none;
       color: $dark;
-      &:hover {
-        color: $link-hover-color;
-        text-decoration: underline;
+
+      //? I think this fixes sticky hovers
+      @media (hover: hover) {
+        &:hover {
+          color: $link-hover-color;
+          text-decoration: underline;
+        }
       }
     }
   }

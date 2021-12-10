@@ -1,4 +1,4 @@
-import { FC, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { sKey, validSubjects, ContactFormMethods, FormInputs } from "./Helper";
 import { sendEmail } from "@modules/API/services";
 import { toast } from "react-toastify";
@@ -12,7 +12,7 @@ import Button from "@components/Button";
 import { MyFormControl, MyFormLabel, MyFormSelect } from "./_MyFormControl";
 import ResponseMessage from "./_ResponseMessage";
 
-const ContactForm: FC = () => {
+const ContactForm = () => {
   /** more controllable than the react hook form variables */
   const [disabled, setDisabled] = useState(false);
   /** used to control the captcha */
@@ -92,7 +92,12 @@ const ContactForm: FC = () => {
       <Card.Body>
         <Form noValidate onSubmit={handleSubmit(onSubmit)} autoComplete="off">
           {/* Name & Email */}
-          <Row xs={{ cols: 1 }} md={{ cols: 2 }}>
+          <Row
+            xs={{ cols: 1 }}
+            md={{ cols: 2 }}
+            as="fieldset"
+            disabled={disabled}
+          >
             {/* Name */}
             <Form.Group
               as={Col}
@@ -105,7 +110,6 @@ const ContactForm: FC = () => {
                 isInvalid={!!errors.contactName}
                 errorText={errors.contactName?.message}
                 {...register("contactName")}
-                disabled={disabled}
               />
             </Form.Group>
 
@@ -121,13 +125,12 @@ const ContactForm: FC = () => {
                 isInvalid={!!errors.contactEmail}
                 errorText={errors.contactEmail?.message}
                 {...register("contactEmail")}
-                disabled={disabled}
               />
             </Form.Group>
           </Row>
 
           {/* Subject */}
-          <Row>
+          <Row as="fieldset" disabled={disabled}>
             <Form.Group
               as={Col}
               className="position-relative mb-3"
@@ -143,7 +146,6 @@ const ContactForm: FC = () => {
                 isInvalid={!!errors.contactSubject}
                 errorText={errors.contactSubject?.message}
                 {...register("contactSubject")}
-                disabled={disabled}
               >
                 {validSubjects.map((sub, idx) => (
                   <option key={`option${idx}`} value={sub}>
@@ -155,7 +157,7 @@ const ContactForm: FC = () => {
           </Row>
 
           {/* Message */}
-          <Row>
+          <Row as="fieldset" disabled={disabled}>
             <Form.Group
               as={Col}
               className="position-relative mb-3"
@@ -167,7 +169,6 @@ const ContactForm: FC = () => {
                 isInvalid={!!errors.contactMessage}
                 errorText={errors.contactMessage?.message}
                 {...register("contactMessage")}
-                disabled={disabled}
                 as="textarea"
                 rows={6}
                 maxLength={6000}

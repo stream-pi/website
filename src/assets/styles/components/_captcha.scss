@@ -1,7 +1,9 @@
-@mixin changeScale($scale) {
+@mixin change-scale($scale) {
   #rcap > div > div {
     transform: scale($scale);
     -webkit-transform: scale($scale);
+
+    //TODO: see if removing these will break anything
     transform-origin: 0 0;
     -webkit-transform-origin: 0 0;
   }
@@ -17,9 +19,8 @@
 }
 
 @media screen and (max-width: 430px) {
-  @include changeScale(0.8);
+  @include change-scale(0.85);
 }
-
 @media screen and (max-width: 370px) {
-  @include changeScale(0.75);
+  @include change-scale(0.75);
 }
