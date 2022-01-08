@@ -1,4 +1,4 @@
-import { TeamMember } from "@util/Types";
+import type { TeamMember } from "./Helper";
 import { FC } from "react";
 import Col from "react-bootstrap/Col";
 // TODO: Convert to next/image

@@ -1,10 +1,9 @@
-import { FC } from "react";
+import { memo } from "react";
 import Button from "@components/Button";
 import SectionWrapper from "@components/SectionWrapper";
 import ContributionModal from "@components/Modals/Contribution";
 
-/** children is intended to be anything appened to the bottom */
-const PreFormInfo: FC = ({ children }) => {
+const PreFormInfo = memo(() => {
   return (
     <div className="text-center">
       <p className="mb-3">
@@ -79,9 +78,9 @@ const PreFormInfo: FC = ({ children }) => {
         The button below will be available to click after being on this page for
         8 seconds. After clicking, the contact form will be available.
       </p>
-      {children}
     </div>
   );
-};
+});
 
+PreFormInfo.displayName = "PreFormInfo";
 export default PreFormInfo;

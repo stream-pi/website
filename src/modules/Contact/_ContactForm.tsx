@@ -1,7 +1,12 @@
 import { useRef, useState } from "react";
-import { sKey, validSubjects, ContactFormMethods, FormInputs } from "./Helper";
+import {
+  sKey,
+  validSubjects,
+  useContactForm,
+  showResponseToast,
+  FormInputs,
+} from "./Helper";
 import { sendEmail } from "@modules/API/services";
-import { toast } from "react-toastify";
 import ReCAPTCHA from "react-google-recaptcha";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Col from "react-bootstrap/Col";
@@ -10,7 +15,6 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Button from "@components/Button";
 import { MyFormControl, MyFormLabel, MyFormSelect } from "./_MyFormControl";
-import ResponseMessage from "./_ResponseMessage";
 
 const ContactForm = () => {
   /** more controllable than the react hook form variables */
@@ -23,7 +27,7 @@ const ContactForm = () => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = ContactFormMethods({
+  } = useContactForm({
     contactName: "",
     contactEmail: "",
     contactSubject: "Press",
@@ -44,42 +48,38 @@ const ContactForm = () => {
 
     try {
       const res = await sendEmail(mail);
-      toast.success(
-        <ResponseMessage
-          title={res.data.title}
-          long_msg={res.data.long_msg}
-          icon={<FontAwesomeIcon icon={["fas", "check-circle"]} />}
-        />,
-        { onClose: () => setDisabled(false) }
-      );
+      showResponseToast({
+        type: "success",
+        title: res.data.title,
+        msg: res.data.long_msg,
+        onClose: () => setDisabled(false),
+        icon: <FontAwesomeIcon icon={["fas", "check-circle"]} />,
+      });
     } catch (error) {
       if (error.response /* response error */) {
-        toast.error(
-          <ResponseMessage
-            title={error.response.data.title}
-            long_msg={error.response.data.long_msg}
-            icon={<FontAwesomeIcon icon={["fas", "exclamation-circle"]} />}
-          />,
-          { onClose: () => setDisabled(false) }
-        );
+        showResponseToast({
+          type: "error",
+          title: error.response.data.title,
+          msg: error.response.data.long_msg,
+          onClose: () => setDisabled(false),
+          icon: <FontAwesomeIcon icon={["fas", "exclamation-circle"]} />,
+        });
       } else if (error.request /* request error */) {
-        toast.error(
-          <ResponseMessage
-            title="Request Error"
-            long_msg={error.message}
-            icon={<FontAwesomeIcon icon={["fas", "exclamation-circle"]} />}
-          />,
-          { onClose: () => setDisabled(false) }
-        );
+        showResponseToast({
+          type: "error",
+          title: "Request Error",
+          msg: error.message,
+          onClose: () => setDisabled(false),
+          icon: <FontAwesomeIcon icon={["fas", "exclamation-circle"]} />,
+        });
       } else {
-        toast.error(
-          <ResponseMessage
-            title="Error"
-            long_msg={error.message}
-            icon={<FontAwesomeIcon icon={["fas", "exclamation-circle"]} />}
-          />,
-          { onClose: () => setDisabled(false) }
-        );
+        showResponseToast({
+          type: "error",
+          title: "Error",
+          msg: error.message,
+          onClose: () => setDisabled(false),
+          icon: <FontAwesomeIcon icon={["fas", "exclamation-circle"]} />,
+        });
       }
     } finally {
       recaptchaRef.current?.reset();
