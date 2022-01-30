@@ -1,25 +1,14 @@
 //* Core
-import { useEffect, memo, useState } from "react";
+import { memo, useState } from "react";
 import useDarkMode from "use-dark-mode";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useIsClient from "@hooks/useIsClient";
-
-//* REDUX
-import { useAppDispatch } from "@store/hooks";
-import { clientActions } from "@store/Client/slice";
 
 const ThemeSwitch = memo(() => {
   //* Core
   const [hasTransition, setHasTransition] = useState(false);
   const { value, toggle } = useDarkMode(true);
   const isClient = useIsClient();
-
-  //* REDUX
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(clientActions.setColorThemeBoolean(value));
-  }, [value, dispatch]);
 
   /**
    * To prevent the FOUC that a user may see becauase of a transition,

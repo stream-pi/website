@@ -1,7 +1,7 @@
 //* Style
 import "animate.css/animate.min.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import "../assets/styles/globals.scss";
+import "../assets/styles/app.scss";
 //* FontAwesome Setup
 import { initializeFontAwesome } from "@util/IconLibrary";
 //* For now, tried moving this into the above function
@@ -17,8 +17,6 @@ import useResetFocus from "@hooks/useResetFocus";
 import { ToastContainer, Zoom } from "react-toastify";
 import ScrollToTop from "@components/ScrollToTop";
 import SiteLayout from "@modules/Layout/Site";
-//* REDUX
-import StreamPiReduxStore from "@store";
 
 //* MUST be called outside the main App
 initializeFontAwesome();
@@ -43,7 +41,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   });
 
   return (
-    <StreamPiReduxStore>
+    <>
       <ToastContainer
         transition={Zoom}
         position="top-center"
@@ -63,7 +61,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         containerId={"useInfoBanner"}
       />
       <ScrollToTop />
-    </StreamPiReduxStore>
+    </>
   );
 }
 

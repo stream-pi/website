@@ -1,11 +1,8 @@
-import { useState, ReactNode, FC, useMemo } from "react";
+import { useState, ReactNode, FC } from "react";
 import Button from "@components/Button";
 import Modal from "react-bootstrap/Modal";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
-//* REDUX
-import { useAppSelector } from "@store/hooks";
-import { getColorTheme } from "@store/selectors";
 
 type CommonProps = {
   triggerText: string;
@@ -38,7 +35,6 @@ const StreamPiModal: FC<WoutOverlay | WithOverlay> = ({
   size,
 }) => {
   const [modalShow, setModalShow] = useState<boolean>(false);
-  const colorTheme = useAppSelector(getColorTheme);
 
   const handleShow = () => {
     setModalShow(true);
@@ -46,11 +42,6 @@ const StreamPiModal: FC<WoutOverlay | WithOverlay> = ({
   const handleHide = () => {
     setModalShow(false);
   };
-
-  const closeVariant = useMemo(
-    () => (colorTheme === "dark" ? "white" : undefined),
-    [colorTheme]
-  );
 
   const ModalTrigger = () => {
     return overlay ? (
@@ -85,11 +76,7 @@ const StreamPiModal: FC<WoutOverlay | WithOverlay> = ({
         aria-labelledby={htmlId}
         size={size}
       >
-        <Modal.Header
-          closeButton
-          closeVariant={closeVariant}
-          closeLabel="Close This Modal"
-        >
+        <Modal.Header closeButton closeLabel="Close This Modal">
           <Modal.Title id={htmlId}>{modalTitle}</Modal.Title>
         </Modal.Header>
         <Modal.Body className={modalBodyClass}>{children}</Modal.Body>
