@@ -1,9 +1,8 @@
 //* Core
 import { FC } from "react";
-import StreamPiModal from "@components/Modal";
+import StreamPiModal from "./index";
 
 const LegalInfoModal: FC = () => {
-  //* REDUX
   const currentYear = new Date().getFullYear();
 
   return (
