@@ -6,4 +6,4 @@ $enable-smooth-scroll: false;
 @import "fonts"; // FontFace
 @import "theme"; // dark / light theme related
 @import "components"; // all component-level styles
-@import "app"; // styles meant for the WHOLE app
+@import "globals"; // styles meant for the WHOLE app
