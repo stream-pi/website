@@ -12,31 +12,11 @@
 
 
 
-Originally the Stream-Pi website was made with static HTML, and PHP. With the release of Stream-Pi 1.0.0 we thought a redesign was in order to make things more modern. So the site was rebuilt from the ground up using react, typescript, and nextjs.
+Originally the Stream-Pi website was made with static HTML, and PHP. With the release of Stream-Pi 1.0.0 (now 2.0.0) we thought a redesign was in order to make things more modern. So the site was rebuilt from the ground up using react, typescript, and nextjs.
 
 React brings the Stream-Pi website into the modern era of web development and offers a faster, more robust experience for the end user. NextJS builds upon this with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more. without the need for additional configuration.
 
 It'll also in general just be easier to maintain.
-
-## Current Packages / Libraries
-
-(In order of addition)
-
-- React
-- NextJS (Base framework and faux server backend for deploying the app)
-- Typescript (for better type checking in Javascript)
-- Sass (for use of sass/scss, this is the dart version)
-- Bootstrap (for style / look)
-- Fontawesome (for icons)
-- Animate.css (for complex animations)
-- Yup (for form validation schema)
-- Axios (API calls and GET / POST requests)
-- dayjs (for parsing / formatting date-time stamps)
-- React-Toastify (for easy, global, customizable site alerts)
-- Use-dark-mode (better management of dark mode for the site)
-- React-spinners (for loading indicators)
-- React-Hook-Form (for form validation and state management)
-- Redux (Global State management)
 
 ## How Can I Contribute?
 

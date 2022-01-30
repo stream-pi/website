@@ -1,6 +1,48 @@
-import { TeamMember } from "@util/Types";
-import { GithubIcon, TwitterIcon, WebsiteIcon, YouTubeIcon } from ".";
+import type { IconObj } from "@util/Types";
 
+export type PersonIcon = IconObj & {
+  description: string;
+  link: string;
+};
+
+export type TeamMember = {
+  name: string;
+  picture: string;
+  icons: PersonIcon[];
+};
+
+export type TeamRowProps = {
+  teamMembers: TeamMember[];
+  className?: string;
+  identifier: string;
+  coreTeamRow?: boolean;
+};
+
+//* ICON HELPERS *//
+export const YouTubeIcon = (url: string): PersonIcon => {
+  return {
+    IcoPre: "fab",
+    IcoName: "youtube",
+    description: "YouTube",
+    link: url,
+  };
+};
+export const GithubIcon = (url: string): PersonIcon => {
+  return { IcoPre: "fab", IcoName: "github", description: "GitHub", link: url };
+};
+export const TwitterIcon = (url: string): PersonIcon => {
+  return {
+    IcoPre: "fab",
+    IcoName: "twitter",
+    description: "Twitter",
+    link: url,
+  };
+};
+export const WebsiteIcon = (url: string): PersonIcon => {
+  return { IcoPre: "fas", IcoName: "globe", description: "Website", link: url };
+};
+//* ICON HELPERS END *//
+//* -------------------- *//
 //* Core Team Start *//
 const Samuel: TeamMember = {
   name: "Samuel Quinones",

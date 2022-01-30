@@ -1,7 +1,9 @@
+import type { ReactNode } from "react";
 import { string, object } from "yup";
 import type { IconObj } from "@util/Types";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { TypeOptions, toast } from "react-toastify";
 
 export type FormInputs = {
   contactName: string;
@@ -13,6 +15,14 @@ export type FormInputs = {
 export type LabelProps = IconObj & {
   label: string;
   subtext?: string;
+};
+
+type ToastFunction = {
+  type: TypeOptions;
+  title: string;
+  icon: ReactNode;
+  onClose: () => void;
+  msg?: string;
 };
 
 // const regex = /(((http|https|ftp|ftps)\:\/\/)?[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?)/gm
@@ -51,10 +61,28 @@ export const schema = object().shape({
     .required("Message is a required field"),
 });
 
-export const ContactFormMethods = (initialValues: FormInputs) => {
+export const useContactForm = (initialValues: FormInputs) => {
   return useForm<FormInputs>({
     mode: "onTouched",
     defaultValues: initialValues,
     resolver: yupResolver(schema),
   });
+};
+
+export const showResponseToast = ({
+  type,
+  title,
+  icon,
+  onClose,
+  msg,
+}: ToastFunction) => {
+  toast(
+    <>
+      <h4 className="mb-0">
+        {icon} {title}
+      </h4>
+      {msg && <p className="m-0">{msg}</p>}
+    </>,
+    { onClose, type }
+  );
 };

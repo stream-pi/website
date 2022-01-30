@@ -1,6 +1,5 @@
 module.exports = {
   root: true,
-  // We don't want to lint generated files nor node_modules, but we want to lint .prettierrc.js (ignored by default by eslint)
   ignorePatterns: [
     "node_modules/*",
     ".next/*",

@@ -1,3 +1,5 @@
+//TODO: Lazy load contact form
+
 import { useState } from "react";
 import { PageView } from "@util/Types";
 import Container from "react-bootstrap/Container";
@@ -30,13 +32,16 @@ const StreamPiContact: PageView = () => {
       <div className="py-2">
         <Container className="animate__animated animate__fadeIn">
           {!agreed ? (
-            <PreFormInfo>
-              <Button disabled={counting} onClick={() => setAgreed(true)}>
-                {counting
-                  ? `Please wait ${remainingSeconds} seconds`
-                  : "I understand"}
-              </Button>
-            </PreFormInfo>
+            <>
+              <PreFormInfo />
+              <div className="text-center">
+                <Button disabled={counting} onClick={() => setAgreed(true)}>
+                  {counting
+                    ? `Please wait ${remainingSeconds} seconds`
+                    : "I understand"}
+                </Button>
+              </div>
+            </>
           ) : (
             <ContactForm />
           )}

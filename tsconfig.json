@@ -8,8 +8,6 @@
       "@util/*": ["./src/util/*"],
       "@hooks": ["./src/hooks"],
       "@hooks/*": ["./src/hooks/*"],
-      "@store": ["./src/store"],
-      "@store/*": ["./src/store/*"]
     },
     "noImplicitAny": false,
     "target": "es2015",
