@@ -1,7 +1,7 @@
 import { memo } from "react";
 import Button from "@components/Button";
 import SectionWrapper from "@components/SectionWrapper";
-import ContributionModal from "@components/Modals/Contribution";
+import ContributionModal from "@components/Modal/Contribution";
 
 const PreFormInfo = memo(() => {
   return (

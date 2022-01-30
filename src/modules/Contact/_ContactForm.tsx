@@ -11,7 +11,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
-import Form from "react-bootstrap/Form";
+import FormGroup from "react-bootstrap/FormGroup";
 import Row from "react-bootstrap/Row";
 import Button from "@components/Button";
 import { MyFormControl, MyFormLabel, MyFormSelect } from "./_MyFormControl";
@@ -90,7 +90,7 @@ const ContactForm = () => {
   return (
     <Card className="animate__animated animate__fadeIn bg-card">
       <Card.Body>
-        <Form noValidate onSubmit={handleSubmit(onSubmit)} autoComplete="off">
+        <form noValidate onSubmit={handleSubmit(onSubmit)} autoComplete="off">
           {/* Name & Email */}
           <Row
             xs={{ cols: 1 }}
@@ -99,7 +99,7 @@ const ContactForm = () => {
             disabled={disabled}
           >
             {/* Name */}
-            <Form.Group
+            <FormGroup
               as={Col}
               className="position-relative mb-3"
               controlId="ContactNameInput"
@@ -111,10 +111,10 @@ const ContactForm = () => {
                 errorText={errors.contactName?.message}
                 {...register("contactName")}
               />
-            </Form.Group>
+            </FormGroup>
 
             {/* Email */}
-            <Form.Group
+            <FormGroup
               as={Col}
               className="position-relative mb-3"
               controlId="ContactEmailInput"
@@ -126,12 +126,12 @@ const ContactForm = () => {
                 errorText={errors.contactEmail?.message}
                 {...register("contactEmail")}
               />
-            </Form.Group>
+            </FormGroup>
           </Row>
 
           {/* Subject */}
           <Row as="fieldset" disabled={disabled}>
-            <Form.Group
+            <FormGroup
               as={Col}
               className="position-relative mb-3"
               controlId="ContactSubjectSelect"
@@ -153,12 +153,12 @@ const ContactForm = () => {
                   </option>
                 ))}
               </MyFormSelect>
-            </Form.Group>
+            </FormGroup>
           </Row>
 
           {/* Message */}
           <Row as="fieldset" disabled={disabled}>
-            <Form.Group
+            <FormGroup
               as={Col}
               className="position-relative mb-3"
               controlId="ContactMessageInput"
@@ -173,7 +173,7 @@ const ContactForm = () => {
                 rows={6}
                 maxLength={6000}
               />
-            </Form.Group>
+            </FormGroup>
           </Row>
 
           {/* Recaptcha - Checkbox */}
@@ -183,7 +183,7 @@ const ContactForm = () => {
 
           {/* Button */}
           <Row className="mb-2">
-            <Form.Group as={Col} controlId="sendButton">
+            <FormGroup as={Col} controlId="sendButton">
               <Button
                 className="w-100"
                 type="submit"
@@ -194,9 +194,9 @@ const ContactForm = () => {
               >
                 Send Mail
               </Button>
-            </Form.Group>
+            </FormGroup>
           </Row>
-        </Form>
+        </form>
       </Card.Body>
     </Card>
   );

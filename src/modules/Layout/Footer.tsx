@@ -2,7 +2,7 @@ import { memo } from "react";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import LegalInfoModal from "@components/Modals/TermsOfUse";
+import LegalInfoModal from "@components/Modal/TermsOfUse";
 import Link from "next/link";
 
 const StreamPiFooter = memo(() => {
