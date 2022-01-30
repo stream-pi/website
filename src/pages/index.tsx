@@ -82,10 +82,8 @@ const StreamPiHome: PageView = () => {
             shape="pill"
             className="px-4"
           >
-            <span className="pe-2">
-              <FontAwesomeIcon icon={["fab", "patreon"]} />
-            </span>{" "}
-            Visit Our Patreon
+            <FontAwesomeIcon icon={["fab", "patreon"]} />{" "}
+            <span className="ps-2">Visit Our Patreon</span>
           </Button>
         </Col>
       </Row>
