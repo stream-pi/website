@@ -1,0 +1,60 @@
+{
+  "root": true,
+  // We don't want to lint generated files nor node_modules, but we want to lint .prettierrc.js (ignored by default by eslint)
+  "ignorePatterns": [
+    "node_modules/*",
+    ".next/*",
+    "out/*",
+    "http/*",
+    "certs/*",
+    "logs/*",
+    "!.prettierrc",
+    "src/styles/*"
+  ],
+  "extends": [
+    "plugin:jsx-a11y/recommended", // Accessibility rules
+    "next/core-web-vitals", // NextJS has some jsx-a11y overrides so we load the base second
+    "plugin:prettier/recommended" // Prettier plugin
+  ],
+  "rules": {
+    // may turn this on later, creates issues for HTML
+    "react/no-unescaped-entities": 0,
+
+    // This rule is not compatible with Next.js's <Link /> components
+    "jsx-a11y/anchor-is-valid": "off",
+
+    // Includes .prettierrc rules
+    "prettier/prettier": ["warn", {}, { "usePrettierrc": true }],
+
+    // no displayname
+    "react/display-name": ["off"]
+  },
+  "overrides": [
+    // This configuration will apply only to TypeScript files
+    {
+      "files": ["**/*.ts?(x)"],
+      "parser": "@typescript-eslint/parser",
+      "extends": [
+        "plugin:@typescript-eslint/recommended" // TypeScript rules
+      ],
+      "rules": {
+        // we should allow implicit any
+        "@typescript-eslint/no-explicit-any": "off",
+        // We don't need this ... for now
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/ban-ts-comment": [
+          "error",
+          {
+            "ts-ignore": "allow-with-description",
+            "minimumDescriptionLength": 10
+          }
+        ],
+        // warn about unused vars
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": ["warn"],
+        "no-empty-function": "off",
+        "@typescript-eslint/no-empty-function": ["warn"]
+      }
+    }
+  ]
+}

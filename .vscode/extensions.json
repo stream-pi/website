@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "aaron-bond.better-comments",
+    "mikestead.dotenv",
+    "editorconfig.editorconfig",
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "esbenp.prettier-vscode"
+  ]
+}

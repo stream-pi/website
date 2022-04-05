@@ -1,0 +1,9 @@
+node_modules/
+.next/
+out/
+package-lock.json
+# production
+build/
+logs/
+http/
+certs/
