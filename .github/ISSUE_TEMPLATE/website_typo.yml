@@ -1,0 +1,27 @@
+name: Website Typo Issue
+title: "[TYPO] - BRIEF TITLE"
+description: Use this to report any typos or grammatical errors on the website
+labels: ["typo"]
+body:
+  - type: input
+    attributes:
+      label: On which page did you find the typo?
+      description: "Please use a comma separated list for each page. For example /about, /install"
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: What is your device(s) default language?
+      description: "Please tell us the english romanized name of the language that your device uses by default"
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Screenshot of the typo
+      description: |
+        Please provide a screen shot drawing attention to the typo. Issues without a screenshot will be ignored
+
+        Tip: You can attach images or log files by clicking this area to highlight it and then dragging files in.
+      render: markdown
+    validations:
+      required: true

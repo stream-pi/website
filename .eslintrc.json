@@ -27,7 +27,15 @@
     "prettier/prettier": ["warn", {}, { "usePrettierrc": true }],
 
     // no displayname
-    "react/display-name": ["off"]
+    "react/display-name": ["off"],
+
+    // deps for custom hooks
+    "react-hooks/exhaustive-deps": [
+      "warn",
+      {
+        "additionalHooks": "useIsomorphicLayoutEffect"
+      }
+    ]
   },
   "overrides": [
     // This configuration will apply only to TypeScript files
