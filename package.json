@@ -29,7 +29,7 @@
     "lint": "npm run eslint src && prettier --check \"src/styles/**/*\"",
     "lint:next": "next lint -d src",
     "format": "npm run eslint -- --fix src && prettier --write \"src/styles/**/*\"",
-    "generate": "cross-env TS_NODE_PROJECT=\"./.scripts/ts-node.tsconfig.json\" plop --plopfile .scripts/generators/plopfile.ts",
+    "generate": "plop --plopfile internals/generators/plopfile.ts",
     "generate:hook": "npm run generate -- hook"
   },
   "dependencies": {

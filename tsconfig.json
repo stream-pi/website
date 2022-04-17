@@ -6,7 +6,7 @@
       "@util": ["./src/util"],
       "@util/*": ["./src/util/*"],
       "@hooks": ["./src/hooks"],
-      "@hooks/*": ["./src/hooks/*"],
+      "@hooks/*": ["./src/hooks/*"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -24,5 +24,16 @@
     "incremental": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "ts-node": {
+    "compilerOptions": {
+      "noImplicitAny": false,
+      "isolatedModules": false,
+      "esModuleInterop": true,
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "noEmit": true,
+      "allowSyntheticDefaultImports": true
+    }
+  }
 }
