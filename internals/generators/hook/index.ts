@@ -19,7 +19,7 @@ export const HookGenerator: PlopGeneratorConfig = {
       type: "input",
       name: HookPromptConfig.hookName,
       message: "What is the name of your hook?",
-      validate: (input, answers) => {
+      validate: (input) => {
         if (!Boolean(input.trim())) {
           return false;
         }
@@ -30,7 +30,7 @@ export const HookGenerator: PlopGeneratorConfig = {
       type: "input",
       name: HookPromptConfig.authorName,
       message: "Your GitHub username",
-      validate: (input, answers) => {
+      validate: (input) => {
         if (!Boolean(input.trim())) {
           return false;
         }
@@ -41,7 +41,7 @@ export const HookGenerator: PlopGeneratorConfig = {
       type: "input",
       name: HookPromptConfig.authorEmail,
       message: "Your GitHub email address",
-      validate: (input, answers) => {
+      validate: (input) => {
         if (!Boolean(input.trim())) {
           return false;
         }
@@ -57,6 +57,7 @@ export const HookGenerator: PlopGeneratorConfig = {
     },
   ],
   actions: (data) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const answers = data as Answers;
     const actions: Actions = [];
 
