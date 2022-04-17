@@ -21,6 +21,16 @@ export function qsa<T extends HTMLElement>(
 }
 
 /**
+ * utility wrapper for `{context}.contains({node})`
+ */
+export function contains(context: Element, node: Element) {
+  if (context.contains) return context.contains(node);
+  if (context.compareDocumentPosition) {
+    return context === node || !!(context.compareDocumentPosition(node) & 16);
+  }
+}
+
+/**
  * Helper function that will resolve the input arguement to a HTML element if possible
  *
  * @param target either a HTML ekement or a ref object pointing to a HTML element
