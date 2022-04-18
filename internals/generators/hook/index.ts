@@ -1,8 +1,8 @@
 import { Actions, PlopGeneratorConfig } from "node-plop";
 import * as path from "path";
 
-const hooksDirectory = path.join(process.cwd(), "src/hooks");
-const templateDir = path.join(process.cwd(), "internals/generators/hook");
+const hooksDirectory = path.join(__dirname, "../../../src/hooks");
+const templateDir = __dirname;
 
 export enum HookPromptConfig {
   hookName = "hookName",
@@ -80,7 +80,7 @@ export const HookGenerator: PlopGeneratorConfig = {
     actions.push({
       type: "lintify",
       data: {
-        path: path.join(process.cwd(), "src/hooks"),
+        path: hooksDirectory,
       },
     });
     return actions;
