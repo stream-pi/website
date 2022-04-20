@@ -25,15 +25,15 @@
     "start": "next start -p 8080",
     "start:dev": "next start -p 3012",
     "start:static": "serve out -p 8181",
-    "eslint": "eslint --ext js,ts,tsx",
-    "lint": "npm run eslint src && prettier --check \"src/styles/**/*\"",
+    "lint": "eslint --ext js,ts,tsx src && prettier --check \"src/styles/**/*\"",
     "lint:next": "next lint -d src",
-    "format": "npm run eslint -- --fix src && prettier --write \"src/styles/**/*\"",
+    "format": "eslint --ext js,ts,tsx --fix src && prettier --write \"src/styles/**/*\"",
     "generate": "plop --plopfile internals/generators/plopfile.ts",
     "generate:hook": "npm run generate -- hook"
   },
   "dependencies": {
     "next": "12.1.5",
+    "next-seo": "5.4.0",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
