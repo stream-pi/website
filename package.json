@@ -29,7 +29,8 @@
     "lint:next": "next lint -d src",
     "format": "eslint --ext js,ts,tsx --fix src && prettier --write \"src/styles/**/*\"",
     "generate": "plop --plopfile internals/generators/plopfile.ts",
-    "generate:hook": "npm run generate -- hook"
+    "generate:hook": "npm run generate -- hook",
+    "generate:page": "npm run generate -- page"
   },
   "dependencies": {
     "next": "12.1.5",

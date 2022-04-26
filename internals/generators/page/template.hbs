@@ -1,0 +1,86 @@
+import type {
+  {{#if wantGetServerSideProps}}
+  GetServerSideProps,
+  InferGetServerSidePropsType,
+  {{/if}}
+  {{#if wantGetStaticPaths}}
+  GetStaticPaths,
+  {{/if}}
+  {{#if wantGetStaticProps}}
+  GetStaticProps,
+  InferGetStaticPropsType,
+  {{/if}}
+  NextPage,
+} from "next";
+import { NextSeo } from "next-seo";
+
+{{#if wantGetServerSideProps}}
+type ServerProps = { foo: string };
+{{#if dynamicRoute}}
+type ServerParams = { {{ snakeCase pageName }}: string };
+{{/if}}
+export const getServerSideProps: GetServerSideProps<
+  ServerProps,
+  {{#if dynamicRoute}}
+  ServerParams
+  {{/if}}
+> = async (_context) => {
+  {{#if dynamicRoute}}
+  console.log(_context.params?.{{ snakeCase pageName }});
+  {{/if}}
+  return { props: { foo: "hello" } };
+};
+{{/if}}
+{{#if wantGetStaticProps}}
+type StaticProps = { foo: string };
+{{#if dynamicRoute}}
+type StaticParams = { {{ snakeCase pageName }}: string };
+{{/if}}
+export const getStaticProps: GetStaticProps<
+  StaticProps,
+  {{#if dynamicRoute}}
+  StaticParams
+  {{/if}}
+> = async (_context) => {
+  {{#if dynamicRoute}}
+  console.log(_context.params?.{{ snakeCase pageName }});
+  {{/if}}
+  return { props: { foo: "hello" } };
+};
+{{/if}}
+{{#if wantGetStaticPaths}}
+type StaticPaths = { {{ snakeCase pageName }}: string };
+export const getStaticPaths: GetStaticPaths<StaticPaths> = async (_context) => {
+  console.log(_context);
+  return {
+    paths: [{ params: { {{ snakeCase pageName }}: "hello" } }, { params: { {{ snakeCase pageName }}: "world" } }],
+    // fallback: true | false | "blocking"
+    fallback: true,
+  };
+};
+{{/if}}
+
+{{#if wantGetServerSideProps}}
+const {{ properCase pageName }}: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>>
+{{else if wantGetStaticProps}}
+const {{ properCase pageName }}: NextPage<InferGetStaticPropsType<typeof getStaticProps>>
+{{else}}
+const {{ properCase pageName }}: NextPage
+{{/if}}
+ = (
+  {{#if wantGetServerSideProps}}
+  _props
+  {{/if}}
+  {{#if wantGetStaticProps}}
+  _props
+  {{/if}}
+) => {
+  return (
+    <>
+      <NextSeo title="{{ properCase pageName }}" />
+      <h1 style={ {textAlign: "center"} }>{{ properCase pageName }}</h1>
+    </>
+  );
+};
+
+export default {{ properCase pageName }};
