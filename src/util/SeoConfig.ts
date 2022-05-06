@@ -1,7 +1,7 @@
 import type { DefaultSeoProps } from "next-seo";
 
 const SEO: DefaultSeoProps = {
-  canonical: "https://stream-pi.com",
+  canonical: process.env.NEXT_PUBLIC_BASE_URL,
   description:
     "A robust opensource macro keyboard, the Stream-Pi is a full fledged software designed for the Raspberry Pi, built with JavaFX, and with a want to make better peripherals more accessible.",
   titleTemplate: "Stream-Pi %s",
@@ -11,11 +11,11 @@ const SEO: DefaultSeoProps = {
   },
   openGraph: {
     type: "website",
-    url: "https://stream-pi.com",
+    url: process.env.NEXT_PUBLIC_BASE_URL,
     site_name: "Stream-Pi",
     images: [
       {
-        url: "https://stream-pi.com/images/logo.png",
+        url: `${process.env.NEXT_PUBLIC_BASE_URL}/images/logo.png`,
         alt: "Stream-Pi logo",
       },
     ],

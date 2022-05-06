@@ -8,8 +8,7 @@
     "http/*",
     "certs/*",
     "logs/*",
-    "!.prettierrc",
-    "src/styles/*"
+    "!.prettierrc"
   ],
   "extends": [
     "plugin:jsx-a11y/recommended", // Accessibility rules
@@ -19,16 +18,19 @@
   "rules": {
     // may turn this on later, creates issues for HTML
     "react/no-unescaped-entities": 0,
-
     // This rule is not compatible with Next.js's <Link /> components
     "jsx-a11y/anchor-is-valid": "off",
-
     // Includes .prettierrc rules
     "prettier/prettier": ["warn", {}, { "usePrettierrc": true }],
-
     // no displayname
     "react/display-name": ["off"],
-
+    //warn about strict inquality
+    "eqeqeq": ["warn", "smart"],
+    // sometimes you need unsued vars
+    "no-unused-vars": [
+      "warn",
+      { "varsIgnorePattern": "^_", "argsIgnorePattern": "^_" }
+    ],
     // deps for custom hooks
     "react-hooks/exhaustive-deps": [
       "warn",
@@ -59,7 +61,10 @@
         ],
         // warn about unused vars
         "no-unused-vars": "off",
-        "@typescript-eslint/no-unused-vars": ["warn"],
+        "@typescript-eslint/no-unused-vars": [
+          "warn",
+          { "varsIgnorePattern": "^_", "argsIgnorePattern": "^_" }
+        ],
         "no-empty-function": "off",
         "@typescript-eslint/no-empty-function": ["warn"]
       }
