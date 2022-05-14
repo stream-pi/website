@@ -1,11 +1,13 @@
 import { Actions, PlopGeneratorConfig } from "node-plop";
 import * as path from "path";
+import { existsSync } from "fs";
 
 const pageDirectory = path.join(__dirname, "../../../src/pages");
 const templateDir = __dirname;
 
 export enum PagePromptConfig {
   rootOrNested = "rootOrNested",
+  existingDestination = "existingDestination",
   pageName = "pageName",
   nestedPath = "nestedPath",
   dynamicRoute = "dynamicRoute",
@@ -23,37 +25,62 @@ function pathHelper(
   folderIsDynamic: boolean,
   catchAll: boolean,
   dynamicRoute: boolean,
-  nestedPath: boolean
+  nestedPath: boolean,
+  useExistingDirectory?: string
 ) {
-  //* src/[parmam]/param.tsx
+  let pageDir = pageDirectory;
+  if (useExistingDirectory) {
+    pageDir = `${pageDirectory}/${useExistingDirectory}`;
+  }
+  //* src/pages/[param]/param.tsx
   if (folderIsDynamic) {
     let folderName = `[{{ snakeCase ${PagePromptConfig.pageName} }}]`;
     if (catchAll) {
       folderName = `[...{{ snakeCase ${PagePromptConfig.pageName} }}]`;
     }
-    return `${pageDirectory}/${folderName}/{{ kebabCase ${PagePromptConfig.pageName} }}.tsx`;
+    return `${pageDir}/${folderName}/{{ kebabCase ${PagePromptConfig.pageName} }}.tsx`;
   }
-  //* src/param/[param].tsx
+  //* src/pages/param/[param].tsx
   if (dynamicRoute && nestedPath) {
     let fileName = `[{{ snakeCase ${PagePromptConfig.pageName} }}].tsx`;
     if (catchAll) {
       fileName = `[...{{ snakeCase ${PagePromptConfig.pageName} }}].tsx`;
     }
-    return `${pageDirectory}/{{ kebabCase ${PagePromptConfig.pageName} }}/${fileName}`;
+    return `${pageDir}/{{ kebabCase ${PagePromptConfig.pageName} }}/${fileName}`;
   }
-  //* src/[param].tsx
+  //* src/pages/[param].tsx
   if (dynamicRoute) {
     let fileName = `[{{ snakeCase ${PagePromptConfig.pageName} }}].tsx`;
     if (catchAll) {
       fileName = `[...{{ snakeCase ${PagePromptConfig.pageName} }}].tsx`;
     }
-    return `${pageDirectory}/${fileName}`;
+    return `${pageDir}/${fileName}`;
   }
-  //* src/param/index.tsx
+  //* src/pages/param/index.tsx
   if (nestedPath) {
-    return `${pageDirectory}/{{ snakeCase ${PagePromptConfig.pageName} }}/index.tsx`;
+    return `${pageDir}/{{ snakeCase ${PagePromptConfig.pageName} }}/index.tsx`;
   }
-  return `${pageDirectory}/{{ kebabCase ${PagePromptConfig.pageName} }}.tsx`;
+  return `${pageDir}/{{ kebabCase ${PagePromptConfig.pageName} }}.tsx`;
+}
+
+function snakeCase(str: string): string {
+  return str
+    .replace(/\W+/g, " ")
+    .split(/ |\B(?=[A-Z])/)
+    .map((word) => word.toLowerCase())
+    .join("_");
+}
+
+function kebabCase(str: string): string {
+  return (
+    //@ts-ignore this error is not a problem
+    str
+      .match(
+        /[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g
+      )
+      .map((x) => x.toLowerCase())
+      .join("-")
+  );
 }
 
 export const PageGenerator: PlopGeneratorConfig = {
@@ -67,7 +94,13 @@ export const PageGenerator: PlopGeneratorConfig = {
       choices: ["root", "inside existing"],
       default: "root",
     },
-    // TODO when nested path, allow user to chose the xisting path
+    {
+      name: PagePromptConfig.existingDestination,
+      type: "directory",
+      message: "In which existing directory will this page go?",
+      basePath: pageDirectory,
+      when: (response) => response.rootOrNested === "inside existing",
+    } as any,
     {
       type: "input",
       name: PagePromptConfig.pageName,
@@ -131,7 +164,9 @@ export const PageGenerator: PlopGeneratorConfig = {
   actions: (data) => {
     const answers = data as Answers;
     const actions: Actions = [];
-
+    if (/^api/gm.test(answers.existingDestination)) {
+      throw new Error("not meant for API routes");
+    }
     const folderIsDynamic =
       "The folder itself should be the dynamic route (not recommended)";
     const filePath = pathHelper(
@@ -140,8 +175,23 @@ export const PageGenerator: PlopGeneratorConfig = {
       //@ts-ignore this is a boolean
       answers.catchAll,
       answers.dynamicRoute,
-      answers.nestedPath
+      answers.nestedPath,
+      answers.existingDestination
     );
+
+    const parsedPath = filePath
+      .replace(
+        `{{ snakeCase ${PagePromptConfig.pageName} }}`,
+        snakeCase(answers.pageName)
+      )
+      .replace(
+        `{{ kebabCase ${PagePromptConfig.pageName} }}`,
+        kebabCase(answers.pageName)
+      );
+
+    if (existsSync(parsedPath)) {
+      throw new Error(`Page ${parsedPath} already exists`);
+    }
 
     actions.push({
       type: "add",
